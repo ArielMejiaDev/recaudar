@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand />
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/AdminDashboard/Index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Team/Dashboard/Index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Shared/LinkButton.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Shared/PinnedLink.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/admin/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/dashboard/dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1d3bf607-8854-473a-a50e-28587dc910a9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1d3bf607-8854-473a-a50e-28587dc910a9.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/moonlight.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/moonlight.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Auth/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Auth/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Auth/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Auth/Register.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Dashboard/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Dashboard/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Partials/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Partials/Sidebar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Shared/Layouts/SidebarLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Shared/Layouts/SidebarLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestCase.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Vue Single File Component" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/vendor/scrivo/highlight.php" />
+      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/vendor/inertiajs/inertia-laravel" />
+      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-iconv" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/facade/ignition-contracts" />
+      <path value="$PROJECT_DIR$/vendor/facade/ignition" />
+      <path value="$PROJECT_DIR$/vendor/facade/flare-client-php" />
+      <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/vendor/voku/portable-ascii" />
+      <path value="$PROJECT_DIR$/vendor/tightenco/ziggy" />
+      <path value="$PROJECT_DIR$/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/opis/closure" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/fruitcake/laravel-cors" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/asm89/stack-cors" />
+      <path value="$PROJECT_DIR$/vendor/league/commonmark" />
+      <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/vendor/fideloper/proxy" />
+      <path value="$PROJECT_DIR$/vendor/titasgailius/laravel-moonlight" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
+      <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/vendor/seld/phar-utils" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-ide-helper" />
+      <path value="$PROJECT_DIR$/vendor/mtdowling/jmespath.php" />
+      <path value="$PROJECT_DIR$/vendor/aws/aws-sdk-php" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem-aws-s3-v3" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/vendor/beyondcode/laravel-query-detector" />
+      <path value="$PROJECT_DIR$/vendor/laravel/telescope" />
+      <path value="$PROJECT_DIR$/vendor/phpseclib/bcmath_compat" />
+      <path value="$PROJECT_DIR$/vendor/phpseclib/phpseclib" />
+      <path value="$PROJECT_DIR$/vendor/moontoast/math" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1gvWtV8XEGx0ZSXa3cCe5m6XYPA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="sqlite" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/Pages/Team" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/js/Pages/Team" />
+      <recent name="$PROJECT_DIR$/resources/js/Pages/Home" />
+      <recent name="$PROJECT_DIR$/resources/js/Pages" />
+      <recent name="$PROJECT_DIR$/resources/js" />
+      <recent name="$PROJECT_DIR$/public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/js/Pages/Team/Dashboard" />
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/app/Providers" />
+      <recent name="$PROJECT_DIR$/app/Models" />
+      <recent name="$PROJECT_DIR$/routes/user" />
+    </key>
+  </component>
+  <component name="RunManager" selected="PHPUnit.TeamDashboardTest">
+    <configuration name="TeamDashboardTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Team\TeamDashboard\TeamDashboardTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Team/TeamDashboard/TeamDashboardTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TeamDashboardTest.test_admin_users_can_access_team_dashboard" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Team\TeamDashboard\TeamDashboardTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Team/TeamDashboard/TeamDashboardTest.php" method="test_admin_users_can_access_team_dashboard" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TeamDashboardTest.test_authenticated_users_can_access_team_dashboard" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Team\TeamDashboard\TeamDashboardTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Team/TeamDashboard/TeamDashboardTest.php" method="test_authenticated_users_can_access_team_dashboard" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TeamDashboardTest.test_authenticated_users_from_other_team_cannot_access_team_dashboard" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Team\TeamDashboard\TeamDashboardTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Team/TeamDashboard/TeamDashboardTest.php" method="test_authenticated_users_from_other_team_cannot_access_team_dashboard" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TeamDashboardTest.test_guests_cannot_access_team_dashboard" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Team\TeamDashboard\TeamDashboardTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Team/TeamDashboard/TeamDashboardTest.php" method="test_guests_cannot_access_team_dashboard" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.TeamDashboardTest" />
+        <item itemvalue="PHPUnit.TeamDashboardTest.test_admin_users_can_access_team_dashboard" />
+        <item itemvalue="PHPUnit.TeamDashboardTest.test_authenticated_users_from_other_team_cannot_access_team_dashboard" />
+        <item itemvalue="PHPUnit.TeamDashboardTest.test_guests_cannot_access_team_dashboard" />
+        <item itemvalue="PHPUnit.TeamDashboardTest.test_authenticated_users_can_access_team_dashboard" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="" />
+      <created>1598995760660</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1598995760660</updated>
+      <workItem from="1598995761947" duration="17812000" />
+      <workItem from="1599058179168" duration="8948000" />
+      <workItem from="1599074117963" duration="12238000" />
+      <workItem from="1599101441166" duration="283000" />
+      <workItem from="1599101776761" duration="32812000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="445" y="103" key="#CLI_Interpreters" timestamp="1599065986775">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="445" y="103" key="#CLI_Interpreters/0.0.1920.1080@0.0.1920.1080" timestamp="1599065986775" />
+    <state x="560" y="199" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599009457164">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="560" y="199" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599009457164" />
+    <state x="446" y="13" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1599109573072">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="446" y="13" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599109573072" />
+    <state x="632" y="236" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599075333250">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="632" y="236" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599075333250" />
+    <state x="632" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599180516332">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="632" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599180516332" />
+    <state width="1868" height="312" key="GridCell.Tab.0.bottom" timestamp="1599188380666">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1868" height="312" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1599188380666" />
+    <state width="1868" height="312" key="GridCell.Tab.0.center" timestamp="1599188380665">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1868" height="312" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1599188380665" />
+    <state width="1868" height="312" key="GridCell.Tab.0.left" timestamp="1599188380665">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1868" height="312" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1599188380665" />
+    <state width="1868" height="312" key="GridCell.Tab.0.right" timestamp="1599188380666">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1868" height="312" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1599188380666" />
+    <state x="751" y="450" key="NewPhpFileDialog" timestamp="1599178605216">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="751" y="450" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599178605216" />
+    <state x="352" y="91" key="SettingsEditor" timestamp="1599178621170">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="352" y="91" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1599178621170" />
+    <state x="580" y="197" width="759" height="686" key="find.popup" timestamp="1599101933738">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="580" y="197" width="759" height="686" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1599101933738" />
+    <state x="541" y="252" key="run.anything.popup" timestamp="1599155021900">
+      <screen x="0" y="23" width="1920" height="1001" />
+    </state>
+    <state x="541" y="252" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1599154375275" />
+    <state x="541" y="252" key="run.anything.popup/0.23.1920.1001@0.23.1920.1001" timestamp="1599155021900" />
+    <state x="541" y="48" width="838" height="1032" key="search.everywhere.popup" timestamp="1599180664146">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="541" y="48" width="838" height="1032" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1599180664146" />
+  </component>
+</project>

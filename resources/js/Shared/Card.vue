@@ -1,0 +1,50 @@
+<template>
+<div class="w-full md:w-1/3 px-4">
+    <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+        <div class="flex-auto p-5">
+            <div class="flex flex-wrap">
+                <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
+                    <h5 class="text-gray-600 font-medium text-sm">{{ title }}</h5>
+                    <div class="flex items-baseline">
+                        <span class="font-semibold text-4xl text-gray-800">{{ number }}</span>
+                        <Pill v-if="percent" :type="type" class="ml-auto">{{ percentFormat }}</Pill>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</template>
+
+<script>
+import Pill from "./Pill";
+
+export default {
+    name: "Card",
+    components: {
+        Pill,
+    },
+    props: {
+        title: null,
+        number: null,
+        percent: null,
+        info: null,
+        type: {
+            type: String,
+            default: 'default',
+            validator: function(value) {
+                return ['default', 'info', 'success', 'warning', 'danger'].includes(value);
+            }
+        }
+    },
+    computed: {
+        percentFormat() {
+           if(this.percent) {
+               return this.percent + '%';
+           }
+           return '';
+        }
+    }
+}
+</script>
+
