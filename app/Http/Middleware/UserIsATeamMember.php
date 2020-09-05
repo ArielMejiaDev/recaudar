@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class UserIsATeamMemberOrAdminMiddleware
+class UserIsATeamMember
 {
     /**
      * Handle an incoming request.
@@ -15,8 +15,7 @@ class UserIsATeamMemberOrAdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-//        dd();
-        if (! auth()->user()->isATeamMember($request->route('team')) && !auth()->user()->isAdmin()) {
+        if (! auth()->user()->isATeamMember($request->team->slug)) {
             return redirect()->back();
         }
         return $next($request);

@@ -52,7 +52,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapAdminRoutes();
 
-        $this->mapDashboardRoutes();
+        $this->mapTeamRoutes();
 
         //
     }
@@ -65,7 +65,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapAdminRoutes()
     {
         Route::middleware('web')
-            ->group(base_path('routes/admin/admin.php'));
+            ->group(base_path('routes/admin/web.php'));
     }
 
     /**
@@ -73,10 +73,10 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function mapDashboardRoutes()
+    protected function mapTeamRoutes()
     {
         Route::middleware('web')
-            ->group(base_path('routes/dashboard/dashboard.php'));
+            ->group(base_path('routes/team/web.php'));
     }
 
     /**
@@ -87,7 +87,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapAuthenticationRoutes()
     {
         Route::middleware('web')
-            ->group(base_path('routes/authentication/authentication.php'));
+            ->group(base_path('routes/authentication/web.php'));
     }
 
     /**

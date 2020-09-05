@@ -19,7 +19,22 @@ class TeamSeeder extends Seeder
             'password' => bcrypt(12345678)
         ]);
 
-        $teams = factory(Team::class)->times(3)->create();
+        factory(Team::class)->create([
+            'name' => 'Fundacion Selva virgen',
+            'category' => 'Social',
+        ]);
+
+        factory(Team::class)->create([
+            'name' => 'Fundacion Guatemalteca de promocion humana',
+            'category' => 'Educacion',
+        ]);
+
+        factory(Team::class)->create([
+            'name' => 'Fundacion GuateDon',
+            'category' => 'Educacion',
+        ]);
+
+        $teams = Team::all();
 
         $teams->each(fn($team) => $user->teams()->attach($team));
 

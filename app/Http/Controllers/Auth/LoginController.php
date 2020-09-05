@@ -55,6 +55,6 @@ class LoginController extends Controller
         if(auth()->user()->roles()->whereName('admin')->exists()) {
             return route('admin.dashboard');
         }
-        return route('dashboard');
+        return route('teams.index');
     }
 }

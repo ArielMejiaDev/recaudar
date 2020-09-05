@@ -15,12 +15,12 @@ class CreateTeamsTable extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
-            $table->string('status', 10);
+            $table->string('status', 10)->nullable();
             $table->string('name');
             $table->string('slug');
             $table->string('category', 50);
-            $table->string('logo');
-            $table->string('banner');
+            $table->string('logo')->nullable();
+            $table->string('banner')->nullable();
             $table->longText('description');
             $table->string('public', 50);
             $table->integer('beneficiaries');
@@ -32,10 +32,11 @@ class CreateTeamsTable extends Migration
             $table->string('contact', 50);
             $table->string('contact_phone', 50);
             $table->string('contact_email', 64);
-            $table->string('facebook_account');
-            $table->string('twitter_account');
-            $table->string('instagram_account');
-            $table->string('theme', 30);
+            $table->string('facebook_account')->nullable();
+            $table->string('twitter_account')->nullable();
+            $table->string('instagram_account')->nullable();
+            $table->string('theme', 30)->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

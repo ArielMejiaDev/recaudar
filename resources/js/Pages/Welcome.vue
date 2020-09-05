@@ -9,18 +9,7 @@
         </div>
 
         <div class="h-screen flex flex-col justify-center items-center">
-            <div class="text-gray-600 mb-8 font-thin" style="font-size: 5.375rem">Laravel Moonlight</div>
-
-            <div class="links">
-                <a class="text-sm text-gray-600 tracking-widest uppercase font-semibold px-6" href="https://laravel.com/docs">Docs</a>
-                <a class="text-sm text-gray-600 tracking-widest uppercase font-semibold px-6" href="https://laracasts.com">Laracasts</a>
-                <a class="text-sm text-gray-600 tracking-widest uppercase font-semibold px-6" href="https://laravel-news.com">News</a>
-                <a class="text-sm text-gray-600 tracking-widest uppercase font-semibold px-6" href="https://blog.laravel.com">Blog</a>
-                <a class="text-sm text-gray-600 tracking-widest uppercase font-semibold px-6" href="https://nova.laravel.com">Nova</a>
-                <a class="text-sm text-gray-600 tracking-widest uppercase font-semibold px-6" href="https://forge.laravel.com">Forge</a>
-                <a class="text-sm text-gray-600 tracking-widest uppercase font-semibold px-6" href="https://vapor.laravel.com">Vapor</a>
-                <a class="text-sm text-gray-600 tracking-widest uppercase font-semibold px-6" href="https://github.com/laravel/laravel">GitHub</a>
-            </div>
+            <div class="text-gray-600 mb-8 font-thin" style="font-size: 5.375rem">{{ $page.appName }}</div>
         </div>
     </div>
 </template>
