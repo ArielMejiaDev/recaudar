@@ -40,4 +40,18 @@ class TeamDashboardIndexTest extends TestCase
         $response = $this->get(route('teams.dashboard', $expectedTeam->slug));
         $response->assertOk();
     }
+
+    /** @test */
+    public function test_team_dashboard_get_a_team_from_db()
+    {
+        $user = factory(User::class)->create();
+        $expectedTeam = factory(Team::class)->create();
+        $this->actingAs($user);
+        $user->teams()->attach($expectedTeam->id);
+        $response = $this->get(route('teams.dashboard', $expectedTeam->slug));
+        $response->assertOk();
+        $response->assertPropValue('team', function ($team) {
+            $this->assertEquals(Team::first()->name, $team['name']);
+        });
+    }
 }

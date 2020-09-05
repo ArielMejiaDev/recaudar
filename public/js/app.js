@@ -2814,6 +2814,9 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Title: _Shared_Title__WEBPACK_IMPORTED_MODULE_1__["default"],
     LinkButton: _Shared_LinkButton__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  props: {
+    team: Object
   }
 });
 
@@ -26860,7 +26863,7 @@ var render = function() {
                   info: "In this section you can manage your organizations."
                 }
               },
-              [_vm._v("Your organization dashboard.")]
+              [_vm._v(_vm._s(_vm.team.name))]
             )
           ],
           1
@@ -28284,7 +28287,7 @@ var render = function() {
           class: _vm.isOpen ? "block" : "hidden"
         },
         [
-          _vm.route().current("dashboard")
+          _vm.route().current("teams.index")
             ? _c("ul", [
                 _c(
                   "li",

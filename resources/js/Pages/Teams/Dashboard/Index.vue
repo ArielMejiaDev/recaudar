@@ -3,7 +3,7 @@
 
         <div class="flex items-center justify-between pb-12 border-b border-gray-300">
             <div class="flex-1 min-w-0">
-                <Title info="In this section you can manage your organizations.">Your organization dashboard.</Title>
+                <Title info="In this section you can manage your organizations.">{{ team.name }}</Title>
             </div>
             <div class="mt-5 flex lg:mt-0 lg:ml-4">
                 <LinkButton link="#">
@@ -33,5 +33,8 @@ export default {
         Title,
         LinkButton,
     },
+    props: {
+        team: Object,
+    }
 }
 </script>

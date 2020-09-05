@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="px-2 py-6 md:block" :class="isOpen? 'block': 'hidden'">
-            <ul v-if="route().current('dashboard')">
+            <ul v-if="route().current('teams.index')">
                 <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('dashboard') ? 'bg-gray-900' : null">
                     <a href="#" class="flex items-center text-gray-300">
                         <svg class="w-6 text-gray-500 mr-2" fill="none" stroke-linecap="round"
