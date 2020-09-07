@@ -6,34 +6,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Services/TeamAttachment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Users/Create.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Users/Edit.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Users/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1d3bf607-8854-473a-a50e-28587dc910a9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1d3bf607-8854-473a-a50e-28587dc910a9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/S3Uploader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Profile/Edit.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Profile/EditLogo.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Shared/Icon.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Team/TeamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Team/TeamController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Listeners/RedirectAfterAuthenticationListener.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Role.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Team.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Team.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/InertiaServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/InertiaServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_03_031652_create_team_user_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_03_031652_create_team_user_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_03_031941_create_roles_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_03_032150_create_role_user_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/RoleSeeder.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/TeamSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/TeamSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Team/User/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Team/User/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Auth/Verify.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Auth/Verify.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Dashboard/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Dashboard/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Users/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Users/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/User/Profile/UpdateAvatar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/User/Profile/UpdateAvatar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Partials/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Partials/Sidebar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Shared/Alert.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Shared/Alert.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Shared/Select.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Shared/Select.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Shared/Layouts/SidebarLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Shared/Layouts/SidebarLayout.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/Team/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/Team/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -203,18 +189,18 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/Pages/Teams/Users" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/Pages/Teams/Profile" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/js/Pages/Teams/Profile" />
       <recent name="$PROJECT_DIR$/resources/js/Pages/Teams/Users" />
       <recent name="$PROJECT_DIR$/resources/js/Pages/Teams" />
       <recent name="$PROJECT_DIR$/resources/js/Pages/Teams/Dashboard" />
       <recent name="$PROJECT_DIR$/resources/js/Pages/Team" />
-      <recent name="$PROJECT_DIR$/resources/js/Pages/Home" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/js/Pages/Team" />
@@ -224,25 +210,25 @@
       <recent name="$PROJECT_DIR$/app/Models" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.TeamDashboardIndexTest.test_team_dashboard_get_a_team_from_db">
-    <configuration name="EditTest.test_guests_cannot_access_to_edit_team_page" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Team\EditTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Team/EditTest.php" method="test_guests_cannot_access_to_edit_team_page" scope="Method" />
+  <component name="RunManager" selected="PHPUnit.UserEditTest">
+    <configuration name="UserCreateTest.test_users_that_already_exists_can_be_invited" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Team\User\UserCreateTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Team/User/UserCreateTest.php" method="test_users_that_already_exists_can_be_invited" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="TeamDashboardIndexTest.test_team_dashboard_get_a_team_from_db" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Team\Dashboard\TeamDashboardIndexTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Team/Dashboard/TeamDashboardIndexTest.php" method="test_team_dashboard_get_a_team_from_db" scope="Method" />
+    <configuration name="UserDestroyTest.test_team_users_role_can_be_updated" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Team\User\UserDestroyTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Team/User/UserDestroyTest.php" method="test_team_users_role_can_be_updated" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="TeamDashboardIndexTest.test_team_dashboard_page_is_available_for_authenticated_users" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Team\Dashboard\TeamDashboardIndexTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Team/Dashboard/TeamDashboardIndexTest.php" method="test_team_dashboard_page_is_available_for_authenticated_users" scope="Method" />
+    <configuration name="UserEditTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Team\User\UserEditTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Team/User/UserEditTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="TeamDashboardIndexTest.test_team_dashboard_page_is_not_available_for_authenticated_users_that_are_not_team_members" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Team\Dashboard\TeamDashboardIndexTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Team/Dashboard/TeamDashboardIndexTest.php" method="test_team_dashboard_page_is_not_available_for_authenticated_users_that_are_not_team_members" scope="Method" />
+    <configuration name="UserEditTest.test_team_users_role_can_be_updated" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Team\User\UserEditTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Team/User/UserEditTest.php" method="test_team_users_role_can_be_updated" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="TeamDashboardIndexTest.test_team_dashboard_page_is_not_available_for_guests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Team\Dashboard\TeamDashboardIndexTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Team/Dashboard/TeamDashboardIndexTest.php" method="test_team_dashboard_page_is_not_available_for_guests" scope="Method" />
+    <configuration name="UserEditTest.test_team_users_role_cannot_be_updated_with_invalid_data" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Team\User\UserEditTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Team/User/UserEditTest.php" method="test_team_users_role_cannot_be_updated_with_invalid_data" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -251,11 +237,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.TeamDashboardIndexTest.test_team_dashboard_get_a_team_from_db" />
-        <item itemvalue="PHPUnit.TeamDashboardIndexTest.test_team_dashboard_page_is_available_for_authenticated_users" />
-        <item itemvalue="PHPUnit.TeamDashboardIndexTest.test_team_dashboard_page_is_not_available_for_authenticated_users_that_are_not_team_members" />
-        <item itemvalue="PHPUnit.TeamDashboardIndexTest.test_team_dashboard_page_is_not_available_for_guests" />
-        <item itemvalue="PHPUnit.EditTest.test_guests_cannot_access_to_edit_team_page" />
+        <item itemvalue="PHPUnit.UserEditTest" />
+        <item itemvalue="PHPUnit.UserDestroyTest.test_team_users_role_can_be_updated" />
+        <item itemvalue="PHPUnit.UserCreateTest.test_users_that_already_exists_can_be_invited" />
+        <item itemvalue="PHPUnit.UserEditTest.test_team_users_role_can_be_updated" />
+        <item itemvalue="PHPUnit.UserEditTest.test_team_users_role_cannot_be_updated_with_invalid_data" />
       </list>
     </recent_temporary>
   </component>
@@ -273,7 +259,7 @@
       <workItem from="1599101441166" duration="283000" />
       <workItem from="1599101776761" duration="33157000" />
       <workItem from="1599189937146" duration="51464000" />
-      <workItem from="1599375162717" duration="22165000" />
+      <workItem from="1599375162717" duration="31504000" />
     </task>
     <servers />
   </component>
@@ -317,36 +303,36 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="632" y="236" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599075333250" />
-    <state x="632" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599498036929">
+    <state x="632" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599514948279">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1912" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1599239067549" />
-    <state x="632" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599498036929" />
+    <state x="632" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599514948279" />
     <state x="745" y="463" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#" timestamp="1599331752564">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="745" y="463" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#/0.0.1920.1080@0.0.1920.1080" timestamp="1599331752564" />
-    <state width="1868" height="312" key="GridCell.Tab.0.bottom" timestamp="1599357593024">
+    <state width="1868" height="312" key="GridCell.Tab.0.bottom" timestamp="1599504386810">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1868" height="312" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1599357593024" />
-    <state width="1868" height="312" key="GridCell.Tab.0.center" timestamp="1599357593022">
+    <state width="1868" height="312" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1599504386810" />
+    <state width="1868" height="312" key="GridCell.Tab.0.center" timestamp="1599504386809">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1868" height="312" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1599357593022" />
-    <state width="1868" height="312" key="GridCell.Tab.0.left" timestamp="1599357593013">
+    <state width="1868" height="312" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1599504386809" />
+    <state width="1868" height="312" key="GridCell.Tab.0.left" timestamp="1599504386809">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1868" height="312" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1599357593013" />
-    <state width="1868" height="312" key="GridCell.Tab.0.right" timestamp="1599357593023">
+    <state width="1868" height="312" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1599504386809" />
+    <state width="1868" height="312" key="GridCell.Tab.0.right" timestamp="1599504386810">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1868" height="312" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1599357593023" />
-    <state x="751" y="450" width="417" height="182" key="NewPhpFileDialog" timestamp="1599497983633">
+    <state width="1868" height="312" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1599504386810" />
+    <state x="751" y="450" width="417" height="182" key="NewPhpFileDialog" timestamp="1599514841051">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="2031" y="450" width="417" height="182" key="NewPhpFileDialog/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1599244989437" />
-    <state x="751" y="450" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599497983633" />
+    <state x="751" y="450" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599514841051" />
     <state x="352" y="91" width="1216" height="897" key="SettingsEditor" timestamp="1599325269349">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

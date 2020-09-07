@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Team\Profile\TeamProfileController;
+use App\Http\Controllers\Team\Profile\UpdateTeamLogoProfileController;
 use App\Http\Controllers\Team\TeamController;
 use App\Http\Controllers\Team\TeamDashboardController;
 use App\Http\Controllers\Team\User\UserController;
@@ -31,9 +33,18 @@ Route::prefix('teams')->middleware(['auth', 'verified', 'userIsATeamMember'])->g
 
         Route::get('/', TeamDashboardController::class)->name('teams.dashboard');
 
-        Route::resource('users', UserController::class, ['as' => 'teams']);
+        Route::resource('users', UserController::class, ['as' => 'teams'])->except('show');
 
     });
+
+});
+
+Route::prefix('teams')->middleware(['auth', 'verified', 'userIsATeamMember'])->group(function() {
+
+    Route::get('/{team:slug}/profile', TeamProfileController::class )->name('teams.profile');
+
+    Route::put('/{team:slug}/profile/update-logo', UpdateTeamLogoProfileController::class)
+        ->name('teams.profile.update_logo');
 
 });
 

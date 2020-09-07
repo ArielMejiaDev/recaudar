@@ -53,9 +53,9 @@ export default {
         submit() {
             this.sending = true;
             const form = new FormData();
-            // this.form.avatar.forEach((file) => form.append('avatar[]', file));  // For multiple files
             form.append('avatar', this.form.avatar);
             form.append('_method', 'put');
+            // this.form.avatar.forEach((file) => form.append('avatar[]', file));  // For multiple files
             this.$inertia.post(this.route('profile.update-avatar'), form).then(() => {
                 this.sending = false;
                 this.confirmation = false;

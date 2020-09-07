@@ -7,7 +7,7 @@
             </div>
             <div class="mt-5 flex lg:mt-0 lg:ml-4">
                 <LinkButton :link="route('teams.create')">
-                    <svg viewBox="0 0 20 20" fill="currentColor" class="plus w-6 h-6 fill-current mr-2 -ml-2"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
+                    <Icon name="add" />
                     Create
                 </LinkButton>
             </div>
@@ -46,6 +46,7 @@ import Panel from "../../Shared/Panel";
 import PinnedLink from "../../Shared/PinnedLink";
 import Title from "../../Shared/Title";
 import LinkButton from "../../Shared/LinkButton";
+import Icon from "../../Shared/Icon";
 
 export default {
     metaInfo: { title: 'Teams' },
@@ -59,6 +60,7 @@ export default {
         PinnedLink,
         Title,
         LinkButton,
+        Icon,
     },
     props: {
         teams: Array,

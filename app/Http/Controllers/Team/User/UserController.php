@@ -68,34 +68,8 @@ class UserController extends Controller
      */
     public function store(Team $team, StoreUserRequest $request)
     {
-//        throw new UserCannotBeAttachedException();
-
-//        if($user = User::whereEmail($request->email)->first()) {
-//            $user->teams()->attach($team, ['role_name' => $request->role]);
-//            $user->notify(new ExistingUserTeamInvitation($user->email, $team->name));
-//            return redirect()->route('teams.users.index', $team)->with(['success' => trans('User added!')]);
-//        }
-//
-//        try {
-//            DB::transaction(function () use ($request, $team) {
-//                $user = User::create([
-//                    'name' => $request->name,
-//                    'email' => $request->email,
-//                    'password' => bcrypt($generatedPassword = uniqid()),
-//                    'email_verified_at' => now(),
-//                ]);
-//                $user->teams()->attach($team, ['role_name' => $request->role]);
-//                $user->notify(new NewUserTeamInvitation($user->email, $team->name, $generatedPassword));
-//            });
-//        } catch (\Throwable $exception) {
-//            throw new UserCannotBeAttachedException();
-//        }
-
-//        TeamAttacher::addUserTo($team);
-
         TeamAttachment::addUserTo($team);
-
-        return redirect()->route('teams.users.index', $team)->with(['success' => trans('User created!')]);
+        return redirect()->route('teams.users.index', $team)->with(['success' => trans('User invited!')]);
     }
 
     /**
