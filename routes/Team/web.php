@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Team\TeamController;
 use App\Http\Controllers\Team\TeamDashboardController;
+use App\Http\Controllers\Team\User\UserController;
 
 
 Route::prefix('teams')->middleware(['auth', 'verified'])->group(function() {
@@ -26,9 +27,13 @@ Route::prefix('teams')->middleware(['auth', 'verified'])->group(function() {
 
 Route::prefix('teams')->middleware(['auth', 'verified', 'userIsATeamMember'])->group(function() {
 
-    Route::get('/{team:slug}', TeamDashboardController::class)->name('teams.dashboard');
+    Route::prefix('/{team:slug}')->group(function() {
 
-    //
+        Route::get('/', TeamDashboardController::class)->name('teams.dashboard');
+
+        Route::resource('users', UserController::class, ['as' => 'teams']);
+
+    });
 
 });
 

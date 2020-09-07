@@ -45,6 +45,7 @@ class InertiaServiceProvider extends ServiceProvider
     {
         Inertia::share([
             'appName' => config('app.name'),
+            'team' => request()->team,
             'auth' => function () {
                 return [
                     'user' => Auth::user(),

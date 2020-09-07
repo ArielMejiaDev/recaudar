@@ -19,9 +19,9 @@
             </div>
         </div>
         <div class="px-2 py-6 md:block" :class="isOpen? 'block': 'hidden'">
-            <ul v-if="route().current('teams.index')">
+            <ul v-if="route().current('teams.index') || route().current('profile.show')">
                 <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('dashboard') ? 'bg-gray-900' : null">
-                    <a href="#" class="flex items-center text-gray-300">
+                    <InertiaLink :href="route('teams.index')" class="flex items-center text-gray-300">
                         <svg class="w-6 text-gray-500 mr-2" fill="none" stroke-linecap="round"
                              stroke-linejoin="round"
                              stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -29,12 +29,12 @@
                                 d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                         </svg>
                         Teams
-                    </a>
+                    </InertiaLink>
                 </li>
             </ul>
             <ul v-else>
-                <li class="px-2 py-3 text-gray-300 hover:bg-gray-900 rounded" :class="route().current('team.dashboard') ? 'bg-gray-900' : null">
-                    <InertiaLink @click.passive="isOpen = !isOpen;" href="/dashboard" class="flex items-center">
+                <li class="px-2 py-3 text-gray-300 hover:bg-gray-900 rounded" :class="route().current('teams.dashboard') ? 'bg-gray-900' : null">
+                    <InertiaLink @click.passive="isOpen = !isOpen;" :href="route('teams.dashboard', {team: $page.team['slug']})" class="flex items-center">
                         <svg class="w-6 text-gray-500 mr-2" fill="none" stroke-linecap="round"
                              stroke-linejoin="round"
                              stroke-width="2"
@@ -45,8 +45,8 @@
                         Dashboard
                     </InertiaLink>
                 </li>
-                <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('team') ? 'bg-gray-900' : null">
-                    <a href="#" class="flex items-center text-gray-300">
+                <li v-if="$page.team" class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('teams.users*') ? 'bg-gray-900' : null">
+                    <InertiaLink :href="route('teams.users.index', $page.team['slug'])" class="flex items-center text-gray-300">
                         <svg class="w-6 text-gray-500 mr-2" fill="none" stroke-linecap="round"
                              stroke-linejoin="round"
                              stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -54,7 +54,7 @@
                                 d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                         </svg>
                         Team
-                    </a>
+                    </InertiaLink>
                 </li>
                 <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('projects*') ? 'bg-gray-900' : null">
                     <a href="#" class="flex items-center text-gray-300">

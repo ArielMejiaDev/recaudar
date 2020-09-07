@@ -15,6 +15,7 @@
 
                     <div class="w-full w-1/2 md:ml-1">
                         <Select name="category" v-model="form.category" label="Category" placeholder="Select the organization category" :errors="$page.errors.category">
+                            <option value="null" disabled selected>Select a category</option>
                             <option value="Salud">Salud</option>
                             <option value="Educación">Educación</option>
                             <option value="Ambientales">Ambientales</option>

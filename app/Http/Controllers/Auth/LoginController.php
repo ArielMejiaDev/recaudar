@@ -52,9 +52,14 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
-        if(auth()->user()->roles()->whereName('admin')->exists()) {
-            return route('admin.dashboard');
-        }
+        // Todo
+        // search if user has a role of "superadmin" to go to dashboard
+        // problem I need to loop over all teams to get the role
+        // idea: auth()->user()->teams->where('role.role_name', 'member')->first()
+
+//        if(auth()->user()->roles()->whereName('admin')->exists()) {
+//            return route('admin.dashboard');
+//        }
         return route('teams.index');
     }
 }

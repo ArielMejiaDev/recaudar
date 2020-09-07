@@ -21,16 +21,19 @@ class TeamSeeder extends Seeder
 
         factory(Team::class)->create([
             'name' => 'Fundacion Selva virgen',
+            'slug' => 'fundacion-selva-virgen',
             'category' => 'Social',
         ]);
 
         factory(Team::class)->create([
             'name' => 'Fundacion Guatemalteca de promocion humana',
+            'slug' => 'fundacion-guatemalteca-de-promocion-humana',
             'category' => 'Educacion',
         ]);
 
         factory(Team::class)->create([
             'name' => 'Fundacion GuateDon',
+            'slug' => 'fundacion-guatedon',
             'category' => 'Educacion',
         ]);
 

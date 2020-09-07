@@ -7,6 +7,7 @@ use App\Models\Team;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -37,14 +38,13 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    protected $appends = [
+        'role',
+    ];
+
     public function teams()
     {
-        return $this->belongsToMany(Team::class);
-    }
-
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class);
+        return $this->belongsToMany(Team::class)->using(Role::class)->as('role')->withPivot('role_name');
     }
 
     public function isAdmin()
@@ -55,5 +55,13 @@ class User extends Authenticatable implements MustVerifyEmail
     public function isATeamMember(String $teamSlug)
     {
         return $this->teams()->whereSlug($teamSlug)->exists();
+    }
+
+    public function getRoleAttribute()
+    {
+        if(request()->team) {
+            return ucfirst(str_replace('team_', '', $this->teams()->find(request()->team->id)->role->role_name));
+        }
+        return null;
     }
 }

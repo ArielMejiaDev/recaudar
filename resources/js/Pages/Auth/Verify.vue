@@ -33,7 +33,7 @@
                 this.$page.errors = {}
 
                 this.$inertia.post(
-                    this.$route('verification.resend'), { ...this.form }
+                    this.route('verification.resend'), { ...this.form }
                 )
 
                 this.form.password = ''

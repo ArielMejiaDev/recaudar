@@ -2,15 +2,9 @@
 
 namespace App\Models;
 
-use App\User;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class Role extends Model
+class Role extends Pivot
 {
-    protected $guarded = [];
-
-    public function users()
-    {
-        return $this->belongsToMany(User::class);
-    }
+    //
 }

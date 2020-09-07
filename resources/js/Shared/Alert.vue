@@ -41,8 +41,9 @@
                 <svg viewBox="0 0 20 20" fill="currentColor" class="x-circle ml-4 mr-2 flex-shrink-0 w-6 h-6 fill-current"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
                 <div v-if="$page.flash.error" class="py-4 text-red-500 text-sm font-bold">{{ $page.flash.error }}</div>
                 <div v-else class="py-4 text-red-700 text-sm font-bold">
-                    <span v-if="Object.keys($page.errors).length === 1">There is one form error.</span>
-                    <span v-else>There are {{ Object.keys($page.errors).length }} form errors.</span>
+                    <span v-if="$page.errors.error">{{ $page.errors.error[0] }}</span>
+                    <span v-else-if="Object.keys($page.errors).length === 1">There is one error.</span>
+                    <span v-else>There are {{ Object.keys($page.errors).length }} errors.</span>
                 </div>
             </div>
             <button type="button" class="group mr-2 p-2 text-red-700 focus:outline-none" @click="show = false">
