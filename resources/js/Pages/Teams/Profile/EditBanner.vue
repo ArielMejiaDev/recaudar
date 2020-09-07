@@ -6,7 +6,9 @@
             </template>
 
             <template v-slot:body>
-                <AvatarUploader :current-file="logo" v-model="form.logo" name="logo" label="Logo" :errors="$page.errors.logo" />
+                <div class="w-full lg:w-8/12 xl:w-6/12">
+                    <ImageUploader :current-file="banner" v-model="form.banner" name="banner" label="Banner" :errors="$page.errors.banner" />
+                </div>
             </template>
 
             <template v-slot:footer>
@@ -21,40 +23,40 @@ import Panel from "../../../Shared/Panel";
 import Title from "../../../Shared/Title";
 import AvatarUploader from "../../../Shared/AvatarUploader";
 import LoadingButton from "../../../Shared/LoadingButton";
+import ImageUploader from "../../../Shared/ImageUploader";
 
 export default {
-    metaInfo: {title: 'Edit logo'},
-    name: "EditLogo",
+    name: "EditBanner",
     data() {
         return {
             loading: false,
             form: {
-                logo: null,
+                banner: null,
             }
         }
     },
     components: {
         Panel,
         Title,
-        AvatarUploader,
+        ImageUploader,
         LoadingButton,
     },
     methods: {
         submit() {
             this.loading = true;
             const form = new FormData();
-            form.append('logo', this.form.logo);
+            form.append('banner', this.form.banner);
             form.append('_method', 'put');
-            const route = this.route('teams.profile.update_logo', { team: this.$page.team['slug']});
+            const route = this.route('teams.profile.update_banner', { team: this.$page.team['slug']});
             this.$inertia.post(route, form)
                 .then(() => this.loading = false)
         }
     },
     props: {
-        logo: String,
+        banner: String,
     },
     created() {
-        this.form.logo = this.logo;
+        this.form.banner = this.banner;
     }
 }
 </script>

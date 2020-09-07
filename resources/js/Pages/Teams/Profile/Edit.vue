@@ -9,6 +9,15 @@
 
         <EditLogo :logo="team.logo" />
 
+        <EditBanner class="mt-16" :banner="team.banner" />
+
+        <EditSocialNetworks
+            class="mt-16"
+            :facebook_account="team.facebook_account"
+            :twitter_account="team.twitter_account"
+            :instagram_account="team.twitter_account"
+        />
+
     </div>
 </template>
 
@@ -16,6 +25,8 @@
 import SidebarLayout from "../../../Shared/Layouts/SidebarLayout";
 import Title from "../../../Shared/Title";
 import EditLogo from "./EditLogo";
+import EditBanner from "./EditBanner";
+import EditSocialNetworks from "./EditSocialNetworks";
 
 export default {
     metaInfo: { title: 'Team profile' },
@@ -24,6 +35,8 @@ export default {
     components: {
         Title,
         EditLogo,
+        EditBanner,
+        EditSocialNetworks,
     },
     props: {
         team: Object,

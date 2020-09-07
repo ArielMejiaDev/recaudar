@@ -7,9 +7,8 @@ use App\Models\Team;
 use App\Services\S3Uploader;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class UpdateTeamLogoProfileController extends Controller
+class UpdateTeamBannerController extends Controller
 {
     /**
      * Update the specified resource in storage.
@@ -20,7 +19,7 @@ class UpdateTeamLogoProfileController extends Controller
      */
     public function __invoke(Request $request, Team $team)
     {
-        $team->update(['logo' => S3Uploader::upload('logo', 'teams_logos', $team->logo)]);
-        return redirect()->route('teams.profile', $team)->with(['success' => trans('Logo updated!')]);
+        $team->update(['banner' => S3Uploader::upload('banner', 'teams_banners', $team->banner)]);
+        return redirect()->route('teams.profile', $team)->with(['success' => trans('Banner updated!')]);
     }
 }

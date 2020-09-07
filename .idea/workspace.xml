@@ -6,20 +6,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Services/S3Uploader.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Profile/Edit.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Profile/EditLogo.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/Shared/Icon.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Profile/EditBanner.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Profile/EditSocialNetworks.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Team/User/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Team/User/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Team/Profile/UpdateTeamLogoProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Team/Profile/UpdateTeamLogoProfileController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Dashboard/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Dashboard/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Users/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Users/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/User/Profile/UpdateAvatar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/User/Profile/UpdateAvatar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Partials/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Partials/Sidebar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Shared/Layouts/SidebarLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Shared/Layouts/SidebarLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Profile/Edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Profile/Edit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Profile/EditLogo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Profile/EditLogo.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/Team/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/Team/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -259,7 +253,7 @@
       <workItem from="1599101441166" duration="283000" />
       <workItem from="1599101776761" duration="33157000" />
       <workItem from="1599189937146" duration="51464000" />
-      <workItem from="1599375162717" duration="31504000" />
+      <workItem from="1599375162717" duration="34925000" />
     </task>
     <servers />
   </component>
@@ -303,31 +297,31 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="632" y="236" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599075333250" />
-    <state x="632" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599514948279">
+    <state x="632" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599516910378">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1912" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1599239067549" />
-    <state x="632" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599514948279" />
+    <state x="632" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599516910378" />
     <state x="745" y="463" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#" timestamp="1599331752564">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="745" y="463" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#/0.0.1920.1080@0.0.1920.1080" timestamp="1599331752564" />
-    <state width="1868" height="312" key="GridCell.Tab.0.bottom" timestamp="1599504386810">
+    <state width="1868" height="312" key="GridCell.Tab.0.bottom" timestamp="1599517162535">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1868" height="312" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1599504386810" />
-    <state width="1868" height="312" key="GridCell.Tab.0.center" timestamp="1599504386809">
+    <state width="1868" height="312" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1599517162535" />
+    <state width="1868" height="312" key="GridCell.Tab.0.center" timestamp="1599517162534">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1868" height="312" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1599504386809" />
-    <state width="1868" height="312" key="GridCell.Tab.0.left" timestamp="1599504386809">
+    <state width="1868" height="312" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1599517162534" />
+    <state width="1868" height="312" key="GridCell.Tab.0.left" timestamp="1599517162533">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1868" height="312" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1599504386809" />
-    <state width="1868" height="312" key="GridCell.Tab.0.right" timestamp="1599504386810">
+    <state width="1868" height="312" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1599517162533" />
+    <state width="1868" height="312" key="GridCell.Tab.0.right" timestamp="1599517162535">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1868" height="312" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1599504386810" />
+    <state width="1868" height="312" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1599517162535" />
     <state x="751" y="450" width="417" height="182" key="NewPhpFileDialog" timestamp="1599514841051">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

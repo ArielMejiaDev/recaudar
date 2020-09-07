@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Team\Profile\TeamProfileController;
+use App\Http\Controllers\Team\Profile\UpdateTeamBannerController;
 use App\Http\Controllers\Team\Profile\UpdateTeamLogoProfileController;
+use App\Http\Controllers\Team\Profile\UpdateTeamSocialNetworksController;
 use App\Http\Controllers\Team\TeamController;
 use App\Http\Controllers\Team\TeamDashboardController;
 use App\Http\Controllers\Team\User\UserController;
@@ -45,6 +47,12 @@ Route::prefix('teams')->middleware(['auth', 'verified', 'userIsATeamMember'])->g
 
     Route::put('/{team:slug}/profile/update-logo', UpdateTeamLogoProfileController::class)
         ->name('teams.profile.update_logo');
+
+    Route::put('/{team:slug}/profile/update-banner', UpdateTeamBannerController::class)
+        ->name('teams.profile.update_banner');
+
+    Route::put('/{team:slug}/profile/update-social-networks', UpdateTeamSocialNetworksController::class)
+        ->name('teams.profile.update_social_networks');
 
 });
 

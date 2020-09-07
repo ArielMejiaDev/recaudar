@@ -3103,6 +3103,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_Layouts_SidebarLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../Shared/Layouts/SidebarLayout */ "./resources/js/Shared/Layouts/SidebarLayout.vue");
 /* harmony import */ var _Shared_Title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../Shared/Title */ "./resources/js/Shared/Title.vue");
 /* harmony import */ var _EditLogo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EditLogo */ "./resources/js/Pages/Teams/Profile/EditLogo.vue");
+/* harmony import */ var _EditBanner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EditBanner */ "./resources/js/Pages/Teams/Profile/EditBanner.vue");
+/* harmony import */ var _EditSocialNetworks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./EditSocialNetworks */ "./resources/js/Pages/Teams/Profile/EditSocialNetworks.vue");
 //
 //
 //
@@ -3117,6 +3119,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 
 
@@ -3128,12 +3141,95 @@ __webpack_require__.r(__webpack_exports__);
   layout: _Shared_Layouts_SidebarLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
   components: {
     Title: _Shared_Title__WEBPACK_IMPORTED_MODULE_1__["default"],
-    EditLogo: _EditLogo__WEBPACK_IMPORTED_MODULE_2__["default"]
+    EditLogo: _EditLogo__WEBPACK_IMPORTED_MODULE_2__["default"],
+    EditBanner: _EditBanner__WEBPACK_IMPORTED_MODULE_3__["default"],
+    EditSocialNetworks: _EditSocialNetworks__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   props: {
     team: Object
   },
   methods: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Teams/Profile/EditBanner.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Teams/Profile/EditBanner.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Shared_Panel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../Shared/Panel */ "./resources/js/Shared/Panel.vue");
+/* harmony import */ var _Shared_Title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../Shared/Title */ "./resources/js/Shared/Title.vue");
+/* harmony import */ var _Shared_AvatarUploader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../Shared/AvatarUploader */ "./resources/js/Shared/AvatarUploader.vue");
+/* harmony import */ var _Shared_LoadingButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../Shared/LoadingButton */ "./resources/js/Shared/LoadingButton.vue");
+/* harmony import */ var _Shared_ImageUploader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../Shared/ImageUploader */ "./resources/js/Shared/ImageUploader.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "EditBanner",
+  data: function data() {
+    return {
+      loading: false,
+      form: {
+        banner: null
+      }
+    };
+  },
+  components: {
+    Panel: _Shared_Panel__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Title: _Shared_Title__WEBPACK_IMPORTED_MODULE_1__["default"],
+    ImageUploader: _Shared_ImageUploader__WEBPACK_IMPORTED_MODULE_4__["default"],
+    LoadingButton: _Shared_LoadingButton__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+  methods: {
+    submit: function submit() {
+      var _this = this;
+
+      this.loading = true;
+      var form = new FormData();
+      form.append('banner', this.form.banner);
+      form.append('_method', 'put');
+      var route = this.route('teams.profile.update_banner', {
+        team: this.$page.team['slug']
+      });
+      this.$inertia.post(route, form).then(function () {
+        return _this.loading = false;
+      });
+    }
+  },
+  props: {
+    banner: String
+  },
+  created: function created() {
+    this.form.banner = this.banner;
+  }
 });
 
 /***/ }),
@@ -3174,6 +3270,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  metaInfo: {
+    title: 'Edit logo'
+  },
   name: "EditLogo",
   data: function data() {
     return {
@@ -3210,6 +3309,93 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.form.logo = this.logo;
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Teams/Profile/EditSocialNetworks.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Teams/Profile/EditSocialNetworks.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Shared_Panel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../Shared/Panel */ "./resources/js/Shared/Panel.vue");
+/* harmony import */ var _Shared_Title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../Shared/Title */ "./resources/js/Shared/Title.vue");
+/* harmony import */ var _Shared_Input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../Shared/Input */ "./resources/js/Shared/Input.vue");
+/* harmony import */ var _Shared_LoadingButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../Shared/LoadingButton */ "./resources/js/Shared/LoadingButton.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "EditSocialNetworks",
+  data: function data() {
+    return {
+      form: {
+        facebook_account: null,
+        twitter_account: null,
+        instagram_account: null
+      },
+      loading: false
+    };
+  },
+  components: {
+    Panel: _Shared_Panel__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Title: _Shared_Title__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Input: _Shared_Input__WEBPACK_IMPORTED_MODULE_2__["default"],
+    LoadingButton: _Shared_LoadingButton__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+  methods: {
+    submit: function submit() {
+      var _this = this;
+
+      this.loading = true;
+      var route = this.route('teams.profile.update_social_networks', {
+        team: this.$page.team['slug']
+      });
+      this.$inertia.put(route, this.form).then(function () {
+        return _this.loading = false;
+      });
+    }
+  },
+  props: {
+    facebook_account: String,
+    twitter_account: String,
+    instagram_account: String
+  },
+  created: function created() {
+    this.form.facebook_account = this.facebook_account;
+    this.form.twitter_account = this.twitter_account;
+    this.form.instagram_account = this.instagram_account;
   }
 });
 
@@ -27967,7 +28153,120 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c("EditLogo", { attrs: { logo: _vm.team.logo } })
+      _c("EditLogo", { attrs: { logo: _vm.team.logo } }),
+      _vm._v(" "),
+      _c("EditBanner", {
+        staticClass: "mt-16",
+        attrs: { banner: _vm.team.banner }
+      }),
+      _vm._v(" "),
+      _c("EditSocialNetworks", {
+        staticClass: "mt-16",
+        attrs: {
+          facebook_account: _vm.team.facebook_account,
+          twitter_account: _vm.team.twitter_account,
+          instagram_account: _vm.team.twitter_account
+        }
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Teams/Profile/EditBanner.vue?vue&type=template&id=54f4a95e&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Teams/Profile/EditBanner.vue?vue&type=template&id=54f4a95e& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "form",
+    {
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          return _vm.submit($event)
+        }
+      }
+    },
+    [
+      _c("Panel", {
+        scopedSlots: _vm._u([
+          {
+            key: "header",
+            fn: function() {
+              return [
+                _c(
+                  "Title",
+                  {
+                    attrs: {
+                      info: "This is the logo for the team profile page."
+                    }
+                  },
+                  [_vm._v("Logo")]
+                )
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "body",
+            fn: function() {
+              return [
+                _c(
+                  "div",
+                  { staticClass: "w-full lg:w-8/12 xl:w-6/12" },
+                  [
+                    _c("ImageUploader", {
+                      attrs: {
+                        "current-file": _vm.banner,
+                        name: "banner",
+                        label: "Banner",
+                        errors: _vm.$page.errors.banner
+                      },
+                      model: {
+                        value: _vm.form.banner,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "banner", $$v)
+                        },
+                        expression: "form.banner"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "footer",
+            fn: function() {
+              return [
+                _c("LoadingButton", { attrs: { loading: _vm.loading } }, [
+                  _vm._v("Upload logo")
+                ])
+              ]
+            },
+            proxy: true
+          }
+        ])
+      })
     ],
     1
   )
@@ -28053,6 +28352,120 @@ var render = function() {
               return [
                 _c("LoadingButton", { attrs: { loading: _vm.loading } }, [
                   _vm._v("Upload logo")
+                ])
+              ]
+            },
+            proxy: true
+          }
+        ])
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Teams/Profile/EditSocialNetworks.vue?vue&type=template&id=f2151078&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Teams/Profile/EditSocialNetworks.vue?vue&type=template&id=f2151078& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "form",
+    {
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          return _vm.submit($event)
+        }
+      }
+    },
+    [
+      _c("Panel", {
+        scopedSlots: _vm._u([
+          {
+            key: "header",
+            fn: function() {
+              return [_c("Title", [_vm._v("Social Networks")])]
+            },
+            proxy: true
+          },
+          {
+            key: "body",
+            fn: function() {
+              return [
+                _c("Input", {
+                  attrs: {
+                    name: "facebook_account",
+                    label: "Facebook link account",
+                    errors: _vm.$page.errors.facebook_account,
+                    required: false
+                  },
+                  model: {
+                    value: _vm.form.facebook_account,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "facebook_account", $$v)
+                    },
+                    expression: "form.facebook_account"
+                  }
+                }),
+                _vm._v(" "),
+                _c("Input", {
+                  attrs: {
+                    name: "twitter_account",
+                    label: "Twitter link account",
+                    errors: _vm.$page.errors.twitter_account,
+                    required: false
+                  },
+                  model: {
+                    value: _vm.form.twitter_account,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "twitter_account", $$v)
+                    },
+                    expression: "form.twitter_account"
+                  }
+                }),
+                _vm._v(" "),
+                _c("Input", {
+                  attrs: {
+                    name: "instagram_account",
+                    label: "Instagram link account",
+                    errors: _vm.$page.errors.instagram_account,
+                    required: false
+                  },
+                  model: {
+                    value: _vm.form.instagram_account,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "instagram_account", $$v)
+                    },
+                    expression: "form.instagram_account"
+                  }
+                })
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "footer",
+            fn: function() {
+              return [
+                _c("LoadingButton", { attrs: { loading: _vm.loading } }, [
+                  _vm._v("Update Social networks.")
                 ])
               ]
             },
@@ -47516,7 +47929,9 @@ var map = {
 	"./Pages/Teams/Edit.vue": "./resources/js/Pages/Teams/Edit.vue",
 	"./Pages/Teams/Index.vue": "./resources/js/Pages/Teams/Index.vue",
 	"./Pages/Teams/Profile/Edit.vue": "./resources/js/Pages/Teams/Profile/Edit.vue",
+	"./Pages/Teams/Profile/EditBanner.vue": "./resources/js/Pages/Teams/Profile/EditBanner.vue",
 	"./Pages/Teams/Profile/EditLogo.vue": "./resources/js/Pages/Teams/Profile/EditLogo.vue",
+	"./Pages/Teams/Profile/EditSocialNetworks.vue": "./resources/js/Pages/Teams/Profile/EditSocialNetworks.vue",
 	"./Pages/Teams/Users/Create.vue": "./resources/js/Pages/Teams/Users/Create.vue",
 	"./Pages/Teams/Users/Edit.vue": "./resources/js/Pages/Teams/Users/Edit.vue",
 	"./Pages/Teams/Users/Index.vue": "./resources/js/Pages/Teams/Users/Index.vue",
@@ -47681,8 +48096,12 @@ var map = {
 	"./Teams/Index.vue": "./resources/js/Pages/Teams/Index.vue",
 	"./Teams/Profile/Edit": "./resources/js/Pages/Teams/Profile/Edit.vue",
 	"./Teams/Profile/Edit.vue": "./resources/js/Pages/Teams/Profile/Edit.vue",
+	"./Teams/Profile/EditBanner": "./resources/js/Pages/Teams/Profile/EditBanner.vue",
+	"./Teams/Profile/EditBanner.vue": "./resources/js/Pages/Teams/Profile/EditBanner.vue",
 	"./Teams/Profile/EditLogo": "./resources/js/Pages/Teams/Profile/EditLogo.vue",
 	"./Teams/Profile/EditLogo.vue": "./resources/js/Pages/Teams/Profile/EditLogo.vue",
+	"./Teams/Profile/EditSocialNetworks": "./resources/js/Pages/Teams/Profile/EditSocialNetworks.vue",
+	"./Teams/Profile/EditSocialNetworks.vue": "./resources/js/Pages/Teams/Profile/EditSocialNetworks.vue",
 	"./Teams/Users/Create": "./resources/js/Pages/Teams/Users/Create.vue",
 	"./Teams/Users/Create.vue": "./resources/js/Pages/Teams/Users/Create.vue",
 	"./Teams/Users/Edit": "./resources/js/Pages/Teams/Users/Edit.vue",
@@ -48624,6 +49043,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Teams/Profile/EditBanner.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/Pages/Teams/Profile/EditBanner.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _EditBanner_vue_vue_type_template_id_54f4a95e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditBanner.vue?vue&type=template&id=54f4a95e& */ "./resources/js/Pages/Teams/Profile/EditBanner.vue?vue&type=template&id=54f4a95e&");
+/* harmony import */ var _EditBanner_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditBanner.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Teams/Profile/EditBanner.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _EditBanner_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditBanner_vue_vue_type_template_id_54f4a95e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _EditBanner_vue_vue_type_template_id_54f4a95e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Teams/Profile/EditBanner.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Teams/Profile/EditBanner.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/Pages/Teams/Profile/EditBanner.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditBanner_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditBanner.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Teams/Profile/EditBanner.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditBanner_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Teams/Profile/EditBanner.vue?vue&type=template&id=54f4a95e&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/Pages/Teams/Profile/EditBanner.vue?vue&type=template&id=54f4a95e& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditBanner_vue_vue_type_template_id_54f4a95e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditBanner.vue?vue&type=template&id=54f4a95e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Teams/Profile/EditBanner.vue?vue&type=template&id=54f4a95e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditBanner_vue_vue_type_template_id_54f4a95e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditBanner_vue_vue_type_template_id_54f4a95e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Teams/Profile/EditLogo.vue":
 /*!*******************************************************!*\
   !*** ./resources/js/Pages/Teams/Profile/EditLogo.vue ***!
@@ -48688,6 +49176,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditLogo_vue_vue_type_template_id_a2819246___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditLogo_vue_vue_type_template_id_a2819246___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Teams/Profile/EditSocialNetworks.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/Pages/Teams/Profile/EditSocialNetworks.vue ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _EditSocialNetworks_vue_vue_type_template_id_f2151078___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditSocialNetworks.vue?vue&type=template&id=f2151078& */ "./resources/js/Pages/Teams/Profile/EditSocialNetworks.vue?vue&type=template&id=f2151078&");
+/* harmony import */ var _EditSocialNetworks_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditSocialNetworks.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Teams/Profile/EditSocialNetworks.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _EditSocialNetworks_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditSocialNetworks_vue_vue_type_template_id_f2151078___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _EditSocialNetworks_vue_vue_type_template_id_f2151078___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Teams/Profile/EditSocialNetworks.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Teams/Profile/EditSocialNetworks.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/Pages/Teams/Profile/EditSocialNetworks.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditSocialNetworks_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditSocialNetworks.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Teams/Profile/EditSocialNetworks.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditSocialNetworks_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Teams/Profile/EditSocialNetworks.vue?vue&type=template&id=f2151078&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/Pages/Teams/Profile/EditSocialNetworks.vue?vue&type=template&id=f2151078& ***!
+  \************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditSocialNetworks_vue_vue_type_template_id_f2151078___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditSocialNetworks.vue?vue&type=template&id=f2151078& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Teams/Profile/EditSocialNetworks.vue?vue&type=template&id=f2151078&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditSocialNetworks_vue_vue_type_template_id_f2151078___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditSocialNetworks_vue_vue_type_template_id_f2151078___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
