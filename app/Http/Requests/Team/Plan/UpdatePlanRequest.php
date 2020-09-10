@@ -25,11 +25,11 @@ class UpdatePlanRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'string', 'min:3', Rule::unique('plans', 'title')->ignore($this->title)],
+            'title' => ['required', 'string', 'min:3', Rule::unique('plans', 'title')->ignore($this->plan->id)],
             'currency' => Rule::in(['GTQ', 'USD']),
             'info' => 'nullable|string|min:20',
-            'amount' => $this->amount !== 'null' ? 'numeric' : 'nullable',
-            'banner' => $this->has('banner') ? 'image' : 'nullable',
+            'amount' => is_null($this->amount) ? 'nullable' : 'numeric',
+            'banner' => 'nullable|image',
         ];
     }
 }

@@ -99,9 +99,9 @@ export default {
             const form = new FormData();
             form.append('title', this.form.title);
             form.append('currency', this.form.currency);
-            form.append('amount', this.form.amount);
+            form.append('amount', this.form.amount || '');
             form.append('info', this.form.info);
-            form.append('banner', this.form.banner);
+            form.append('banner', this.form.banner || '');
             const route = this.route('teams.plans.store', { team: this.$page.team['slug']});
             this.$inertia.post(route, form)
                 .then(() => this.loading = false)

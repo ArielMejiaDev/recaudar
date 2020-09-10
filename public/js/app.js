@@ -3216,9 +3216,9 @@ __webpack_require__.r(__webpack_exports__);
       var form = new FormData();
       form.append('title', this.form.title);
       form.append('currency', this.form.currency);
-      form.append('amount', this.form.amount);
+      form.append('amount', this.form.amount || '');
       form.append('info', this.form.info);
-      form.append('banner', this.form.banner);
+      form.append('banner', this.form.banner || '');
       var route = this.route('teams.plans.store', {
         team: this.$page.team['slug']
       });
@@ -3357,9 +3357,9 @@ __webpack_require__.r(__webpack_exports__);
       var form = new FormData();
       form.append('title', this.form.title);
       form.append('currency', this.form.currency);
-      form.append('amount', this.form.amount);
+      form.append('amount', this.form.amount || '');
       form.append('info', this.form.info);
-      form.append('banner', this.form.banner);
+      form.append('banner', this.form.banner || '');
       form.append('_method', 'put');
       var route = this.route('teams.plans.update', {
         team: this.$page.team['slug'],
@@ -5532,10 +5532,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     validateUploadedFile: function validateUploadedFile() {
       var file = this.$refs['upload'].files[0];
-
-      if (file.type.includes('image')) {
-        return this.loadPreview(file);
-      }
+      return this.loadPreview(file); // if(file.type.includes('image')) {
+      //     return this.loadPreview(file);
+      // }
     },
     loadPreview: function loadPreview(file) {
       var _this = this;
@@ -32579,18 +32578,23 @@ var render = function() {
         _c("input", {
           ref: "upload",
           staticClass: "hidden",
-          attrs: { type: "file", id: _vm.name, name: _vm.name },
+          attrs: {
+            type: "file",
+            id: _vm.name,
+            name: _vm.name,
+            accept: "image/*"
+          },
           on: { change: _vm.attach }
-        }),
-        _vm._v(" "),
-        _vm.errors
-          ? _c("p", { staticClass: "my-2 text-red-600 font-medium text-sm" }, [
-              _vm._v(_vm._s(_vm.errors[0]))
-            ])
-          : _vm._e()
+        })
       ],
       2
-    )
+    ),
+    _vm._v(" "),
+    _vm.errors
+      ? _c("p", { staticClass: "my-2 text-red-600 font-medium text-sm" }, [
+          _vm._v(_vm._s(_vm.errors[0]))
+        ])
+      : _vm._e()
   ])
 }
 var staticRenderFns = []

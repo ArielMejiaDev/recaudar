@@ -23,9 +23,9 @@
                 </div>
             </template>
             <!--    End of dashed area to click and select a file-->
-            <input ref="upload" type="file" class="hidden" :id="name" :name="name" @change="attach" >
-            <p v-if="errors" class="my-2 text-red-600 font-medium text-sm">{{ errors[0] }}</p>
+            <input ref="upload" type="file" class="hidden" :id="name" :name="name" @change="attach" accept="image/*" >
         </button>
+        <p v-if="errors" class="my-2 text-red-600 font-medium text-sm">{{ errors[0] }}</p>
     </div>
 </template>
 
@@ -75,9 +75,10 @@ export default {
         },
         validateUploadedFile() {
             const file = this.$refs['upload'].files[0];
-            if(file.type.includes('image')) {
-                return this.loadPreview(file);
-            }
+            return this.loadPreview(file);
+            // if(file.type.includes('image')) {
+            //     return this.loadPreview(file);
+            // }
         },
         loadPreview(file) {
             const preview = this.$refs.preview;
