@@ -11,6 +11,6 @@ class TeamDashboardController extends Controller
 {
     public function __invoke(Team $team)
     {
-        return Inertia::render('Teams/Dashboard/Index', ['team' => $team]);
+        return Inertia::render('Teams/Dashboard/Index', ['team' => $team->only('name', 'slug')]);
     }
 }

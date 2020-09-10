@@ -9,8 +9,14 @@ html, body {
 @tailwind utilities;
 
 /* Table Styles */
+tr {
+    @apply border-b border-gray-200 bg-white;
+    &:hover {
+        @apply bg-gray-100;
+    }
+}
 tr td {
-    @apply px-5 py-5 border-b border-gray-200 bg-white text-sm;
+    @apply px-5 py-5 text-sm;
 }
 tr td p {
     @apply text-gray-900 whitespace-no-wrap;

@@ -7,7 +7,7 @@
             </div>
         </div>
 
-        <EditLogo :logo="team.logo" />
+        <EditLogo class="mt-16" :logo="team.logo" />
 
         <EditBanner class="mt-16" :banner="team.banner" />
 
@@ -18,6 +18,8 @@
             :instagram_account="team.twitter_account"
         />
 
+        <EditPromotionalVideo :promotional_video="team.promotional_video" class="mt-16" />
+
     </div>
 </template>
 
@@ -27,6 +29,7 @@ import Title from "../../../Shared/Title";
 import EditLogo from "./EditLogo";
 import EditBanner from "./EditBanner";
 import EditSocialNetworks from "./EditSocialNetworks";
+import EditPromotionalVideo from "./EditPromotionalVideo";
 
 export default {
     metaInfo: { title: 'Team profile' },
@@ -37,6 +40,7 @@ export default {
         EditLogo,
         EditBanner,
         EditSocialNetworks,
+        EditPromotionalVideo,
     },
     props: {
         team: Object,

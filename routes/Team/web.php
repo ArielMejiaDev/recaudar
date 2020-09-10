@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Team\Plans\PlansController;
 use App\Http\Controllers\Team\Profile\TeamProfileController;
 use App\Http\Controllers\Team\Profile\UpdateTeamBannerController;
-use App\Http\Controllers\Team\Profile\UpdateTeamLogoProfileController;
+use App\Http\Controllers\Team\Profile\UpdateTeamLogoController;
+use App\Http\Controllers\Team\Profile\UpdateTeamPromotionalVideoController;
 use App\Http\Controllers\Team\Profile\UpdateTeamSocialNetworksController;
 use App\Http\Controllers\Team\TeamController;
 use App\Http\Controllers\Team\TeamDashboardController;
@@ -29,6 +31,8 @@ Route::prefix('teams')->middleware(['auth', 'verified'])->group(function() {
 
 });
 
+// some file
+
 Route::prefix('teams')->middleware(['auth', 'verified', 'userIsATeamMember'])->group(function() {
 
     Route::prefix('/{team:slug}')->group(function() {
@@ -41,11 +45,15 @@ Route::prefix('teams')->middleware(['auth', 'verified', 'userIsATeamMember'])->g
 
 });
 
+
+
+// some file
+
 Route::prefix('teams')->middleware(['auth', 'verified', 'userIsATeamMember'])->group(function() {
 
     Route::get('/{team:slug}/profile', TeamProfileController::class )->name('teams.profile');
 
-    Route::put('/{team:slug}/profile/update-logo', UpdateTeamLogoProfileController::class)
+    Route::put('/{team:slug}/profile/update-logo', UpdateTeamLogoController::class)
         ->name('teams.profile.update_logo');
 
     Route::put('/{team:slug}/profile/update-banner', UpdateTeamBannerController::class)
@@ -54,5 +62,20 @@ Route::prefix('teams')->middleware(['auth', 'verified', 'userIsATeamMember'])->g
     Route::put('/{team:slug}/profile/update-social-networks', UpdateTeamSocialNetworksController::class)
         ->name('teams.profile.update_social_networks');
 
+    Route::put('/{team:slug}/profile/update-promotional-video', UpdateTeamPromotionalVideoController::class)
+        ->name('teams.profile.update_promotional_video');
+
 });
 
+
+// some file
+
+Route::prefix('teams')->middleware(['auth', 'verified', 'userIsATeamMember'])->group(function() {
+
+    Route::prefix('/{team:slug}')->group(function() {
+
+        Route::resource('plans', PlansController::class, ['as' => 'teams'])->except('show');
+
+    });
+
+});

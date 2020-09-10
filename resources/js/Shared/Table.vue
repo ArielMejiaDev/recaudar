@@ -51,7 +51,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <slot name="tableData"></slot>
+                        <slot name="tableData"></slot>
                     </tbody>
                 </table>
                 <!--                endtable-->

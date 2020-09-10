@@ -13,12 +13,6 @@ class TeamSeeder extends Seeder
      */
     public function run()
     {
-        $user = factory(User::class)->create([
-            'name' => 'Otto',
-            'email' => 'ofernando@ufm.edu',
-            'password' => bcrypt(12345678)
-        ]);
-
         factory(Team::class)->create([
             'name' => 'Fundacion Selva virgen',
             'slug' => 'fundacion-selva-virgen',
@@ -37,19 +31,13 @@ class TeamSeeder extends Seeder
             'category' => 'Educacion',
         ]);
 
-        $teams = Team::all();
-
-        $teams->each(fn($team) => $user->teams()->attach($team));
-
-        $anotherUser = factory(User::class)->create([
-            'name' => 'John Doe',
-            'email' => 'john@doe.com',
-            'password' => bcrypt(12345678),
-        ]);
-
-        $anotherTeams = factory(Team::class)->times(3)->create();
-
-        $anotherTeams->each(fn($team) => $anotherUser->teams()->attach($team));
+//        factory(Team::class)->times(30)->create();
+//
+//        $teams = Team::all();
+//
+//        $teams->each(fn($team) => $user->teams()->attach($team));
+//
+//        $anotherTeams->each(fn($team) => $anotherUser->teams()->attach($team));
 
     }
 }

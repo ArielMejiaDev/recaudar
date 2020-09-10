@@ -1,12 +1,6 @@
 <template>
     <div>
 
-        <div class="flex items-center justify-between pb-12 border-b border-gray-300">
-            <div class="flex-1 min-w-0">
-                <Title info="In this section you can manage your organizations.">{{ team.name }} Users</Title>
-            </div>
-        </div>
-
         <Table
             title="Users"
             :headers="['user', 'role', '']"
@@ -15,7 +9,7 @@
             :action="{show: true, text: 'Invite a User', link: route('teams.users.create', $page.team['slug']), type: 'info'}"
             :pagination="{show: true, links: users.links}">
             <template v-slot:tableData>
-                <tr v-for="(user, index) in users.data">
+                <tr v-for="(user, index) in users.data" :key="index">
                     <td>
                         <InertiaLink :href="route('teams.users.edit', {team: $page.team['slug'], user: user.id})">{{ user.name }}</InertiaLink>
                     </td>
@@ -25,7 +19,7 @@
                         </InertiaLink>
                     </td>
                     <td>
-                        <button @click="confirm = !confirm; selectedUser = user" class="text-gray-500 text-xs font-semibold focus:outline-none">
+                        <button @click="confirm = !confirm; selectedUser = user" class="text-gray-500 hover:text-gray-600 text-xs font-semibold focus:outline-none">
                             <Icon name="trash" />
                         </button>
                     </td>

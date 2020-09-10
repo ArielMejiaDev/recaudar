@@ -8,9 +8,9 @@
             </template>
 
             <template v-slot:body>
-                <Input v-model="form.facebook_account" name="facebook_account" label="Facebook link account" :errors="$page.errors.facebook_account" :required="false" />
-                <Input v-model="form.twitter_account" name="twitter_account" label="Twitter link account" :errors="$page.errors.twitter_account" :required="false" />
-                <Input v-model="form.instagram_account" name="instagram_account" label="Instagram link account" :errors="$page.errors.instagram_account" :required="false" />
+                <Input v-model="form.facebook_account" name="facebook_account" label="Facebook link account" :errors="$page.errors.facebook_account" :required="false" placeholder="Add Facebook account link" />
+                <Input v-model="form.twitter_account" name="twitter_account" label="Twitter link account" :errors="$page.errors.twitter_account" :required="false" placeholder="Add Twitter account link" />
+                <Input v-model="form.instagram_account" name="instagram_account" label="Instagram link account" :errors="$page.errors.instagram_account" :required="false" placeholder="Add Instagram account link" />
             </template>
 
             <template v-slot:footer>
@@ -34,9 +34,9 @@ export default {
     data() {
         return {
             form: {
-                facebook_account: null,
-                twitter_account: null,
-                instagram_account: null,
+                facebook_account: this.facebook_account,
+                twitter_account: this.twitter_account,
+                instagram_account: this.instagram_account,
             },
             loading: false,
         }
@@ -59,10 +59,5 @@ export default {
         twitter_account: String,
         instagram_account: String,
     },
-    created() {
-        this.form.facebook_account = this.facebook_account;
-        this.form.twitter_account = this.twitter_account;
-        this.form.instagram_account = this.instagram_account;
-    }
 }
 </script>

@@ -24289,11 +24289,7 @@ video {
 
 /* Table Styles */
 
-tr td {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
+tr {
   border-bottom-width: 1px;
   --border-opacity: 1;
   border-color: #edf2f7;
@@ -24301,6 +24297,19 @@ tr td {
   --bg-opacity: 1;
   background-color: #fff;
   background-color: rgba(255, 255, 255, var(--bg-opacity));
+}
+
+tr:hover {
+  --bg-opacity: 1;
+  background-color: #f7fafc;
+  background-color: rgba(247, 250, 252, var(--bg-opacity));
+}
+
+tr td {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
   font-size: 0.875rem;
 }
 

@@ -19,6 +19,7 @@ class UpdateTeamBannerController extends Controller
      */
     public function __invoke(Request $request, Team $team)
     {
+        $request->validate(['banner' => 'required|image']);
         $team->update(['banner' => S3Uploader::upload('banner', 'teams_banners', $team->banner)]);
         return redirect()->route('teams.profile', $team)->with(['success' => trans('Banner updated!')]);
     }

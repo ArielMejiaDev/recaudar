@@ -50,10 +50,11 @@ import Select from "../../../Shared/Select";
 export default {
     metaInfo: { title: 'Edit user' },
     name: "TeamUserEdit",
+    remember: 'form',
     data() {
         return {
             form: {
-                role: null,
+                role: 'team_' + this.user.role.toLowerCase(),
             },
             loading: false,
         }
@@ -78,8 +79,5 @@ export default {
                 .then(() => this.loading = false)
         },
     },
-    created() {
-        this.form.role = 'team_' + this.user.role.toLowerCase();
-    }
 }
 </script>

@@ -62,16 +62,16 @@
                         Team profile
                     </InertiaLink>
                 </li>
-                <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('projects*') ? 'bg-gray-900' : null">
-                    <a href="#" class="flex items-center text-gray-300">
+                <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('teams.plans*') ? 'bg-gray-900' : null">
+                    <InertiaLink :href="route('teams.plans.index', $page.team['slug'])" class="flex items-center text-gray-300">
                         <svg class="w-6 text-gray-500 mr-2" fill="none" stroke-linecap="round"
                              stroke-linejoin="round"
                              stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                             <path
                                 d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
                         </svg>
-                        Projects
-                    </a>
+                        Plans
+                    </InertiaLink>
                 </li>
                 <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('calendar*') ? 'bg-gray-900' : null">
                     <a href="#" class="flex items-center text-gray-300">

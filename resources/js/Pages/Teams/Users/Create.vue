@@ -53,6 +53,7 @@ import Select from "../../../Shared/Select";
 export default {
     metaInfo: { title: 'Users' },
     name: "TeamUserCreate",
+    remember: 'form',
     data() {
         return {
             form: {

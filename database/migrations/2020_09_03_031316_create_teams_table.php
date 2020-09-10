@@ -19,8 +19,6 @@ class CreateTeamsTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('category', 50);
-            $table->string('logo')->nullable();
-            $table->string('banner')->nullable();
             $table->longText('description');
             $table->string('public', 50);
             $table->integer('beneficiaries');
@@ -32,6 +30,9 @@ class CreateTeamsTable extends Migration
             $table->string('contact', 50);
             $table->string('contact_phone', 50);
             $table->string('contact_email', 64);
+            $table->string('logo')->nullable();
+            $table->string('banner')->nullable();
+            $table->string('promotional_video')->nullable();
             $table->string('facebook_account')->nullable();
             $table->string('twitter_account')->nullable();
             $table->string('instagram_account')->nullable();

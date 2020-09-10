@@ -106,6 +106,7 @@ import Modal from "../../Shared/Modal";
 export default {
     metaInfo: { title: 'Create a team' },
     name: "Create",
+    remember: 'form',
     data() {
         return {
             form: {
@@ -127,7 +128,6 @@ export default {
             confirmation: false,
         }
     },
-    remember: 'form',
     layout: SidebarLayout,
     components: {
         Panel,
@@ -148,7 +148,3 @@ export default {
     },
 }
 </script>
-
-<style scoped>
-
-</style>

@@ -30,18 +30,18 @@ class UserController extends Controller
      */
     public function index(Team $team, Request $request)
     {
-        $users = $team->users()->select(['users.id', 'users.name'])->where('users.id', '!=', auth()->id())->paginate(10);
+        $users = $team->users()->select(['users.id', 'users.name'])->where('users.id', '!=', auth()->id())->paginate(5);
 
         if ($request->has('search')) {
             $users = $team->users()
                 ->select(['users.id', 'users.name'])
                 ->where('name', 'LIKE' , "%{$request->search}%")
                 ->where('users.id', '!=', auth()->id())
-                ->paginate(10);
+                ->paginate(5);
         }
 
         return Inertia::render('Teams/Users/Index', [
-            'team' => $team,
+            'team' => $team->only('name', 'slug'),
             'filters' => $request->all('search'),
             'users' => $users,
         ]);
@@ -55,7 +55,7 @@ class UserController extends Controller
      */
     public function create(Team $team)
     {
-        return Inertia::render('Teams/Users/Create', ['team' => $team]);
+        return Inertia::render('Teams/Users/Create', ['team' => $team->only('name', 'slug')]);
     }
 
     /**
@@ -73,18 +73,6 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param Request $request
-     * @param User $user
-     * @return void
-     */
-    public function show(Request $request, User $user)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param Team $team
@@ -94,7 +82,7 @@ class UserController extends Controller
     public function edit(Team $team, User $user)
     {
         return Inertia::render('Teams/Users/Edit', [
-            'team' => $team,
+            'team' => $team->only('name', 'slug'),
             'user' => $user,
         ]);
     }
@@ -105,7 +93,7 @@ class UserController extends Controller
      * @param Team $team
      * @param Request $request
      * @param User $user
-     * @return void
+     * @return RedirectResponse
      */
     public function update(Team $team , Request $request, User $user)
     {
@@ -119,7 +107,7 @@ class UserController extends Controller
      *
      * @param Team $team
      * @param User $user
-     * @return void
+     * @return RedirectResponse
      */
     public function destroy(Team $team, User $user)
     {

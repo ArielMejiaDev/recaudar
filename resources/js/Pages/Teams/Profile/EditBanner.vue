@@ -2,7 +2,7 @@
     <form @submit.prevent="submit">
         <Panel>
             <template v-slot:header>
-                <Title info="This is the logo for the team profile page.">Logo</Title>
+                <Title info="This is the banner for the profile page.">Banner</Title>
             </template>
 
             <template v-slot:body>
@@ -21,7 +21,6 @@
 <script>
 import Panel from "../../../Shared/Panel";
 import Title from "../../../Shared/Title";
-import AvatarUploader from "../../../Shared/AvatarUploader";
 import LoadingButton from "../../../Shared/LoadingButton";
 import ImageUploader from "../../../Shared/ImageUploader";
 
@@ -31,7 +30,7 @@ export default {
         return {
             loading: false,
             form: {
-                banner: null,
+                banner: this.banner,
             }
         }
     },
@@ -55,9 +54,6 @@ export default {
     props: {
         banner: String,
     },
-    created() {
-        this.form.banner = this.banner;
-    }
 }
 </script>
 

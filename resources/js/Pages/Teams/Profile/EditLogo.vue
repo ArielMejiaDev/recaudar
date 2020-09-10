@@ -2,7 +2,7 @@
     <form @submit.prevent="submit">
         <Panel>
             <template v-slot:header>
-                <Title info="This is the logo for the team profile page.">Logo</Title>
+                <Title info="This is the logo for the profile page.">Logo</Title>
             </template>
 
             <template v-slot:body>
@@ -23,13 +23,12 @@ import AvatarUploader from "../../../Shared/AvatarUploader";
 import LoadingButton from "../../../Shared/LoadingButton";
 
 export default {
-    metaInfo: {title: 'Edit logo'},
     name: "EditLogo",
     data() {
         return {
             loading: false,
             form: {
-                logo: null,
+                logo: this.logo,
             }
         }
     },
@@ -53,9 +52,6 @@ export default {
     props: {
         logo: String,
     },
-    created() {
-        this.form.logo = this.logo;
-    }
 }
 </script>
 
