@@ -132,10 +132,6 @@
         },
         components: {
             Icon,
-        }
+        },
     }
 </script>
-
-<style scoped>
-
-</style>
