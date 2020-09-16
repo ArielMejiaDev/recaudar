@@ -36,7 +36,7 @@ class CreateTeamsTable extends Migration
             $table->string('facebook_account')->nullable();
             $table->string('twitter_account')->nullable();
             $table->string('instagram_account')->nullable();
-            $table->string('theme', 30)->nullable();
+            $table->string('theme', 30)->nullable()->default('classic');
             $table->softDeletes();
             $table->timestamps();
         });

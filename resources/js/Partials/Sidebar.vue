@@ -27,7 +27,7 @@
                     </InertiaLink>
                 </li>
             </ul>
-            <ul v-else-if="$page.team">
+            <ul v-else-if="$page.team && $page.auth.user.role != 'app_admin'">
                 <li class="px-2 py-3 text-gray-300 hover:bg-gray-900 rounded" :class="route().current('teams.dashboard') ? 'bg-gray-900' : null">
                     <InertiaLink @click.passive="isOpen = !isOpen;" :href="route('teams.dashboard', {team: $page.team['slug']})" class="flex items-center">
                         <Icon name="home" class="text-gray-500 mr-2" />
