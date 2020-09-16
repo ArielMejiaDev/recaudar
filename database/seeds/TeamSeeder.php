@@ -14,6 +14,13 @@ class TeamSeeder extends Seeder
     public function run()
     {
         factory(Team::class)->create([
+            'name' => 'recaudar',
+            'slug' => 'recaudar',
+            'category' => 'Admin',
+            'status' => 'approved',
+        ]);
+
+        factory(Team::class)->create([
             'name' => 'Fundacion Selva virgen',
             'slug' => 'fundacion-selva-virgen',
             'category' => 'Social',
@@ -30,14 +37,6 @@ class TeamSeeder extends Seeder
             'slug' => 'fundacion-guatedon',
             'category' => 'Educacion',
         ]);
-
-//        factory(Team::class)->times(30)->create();
-//
-//        $teams = Team::all();
-//
-//        $teams->each(fn($team) => $user->teams()->attach($team));
-//
-//        $anotherTeams->each(fn($team) => $anotherUser->teams()->attach($team));
 
     }
 }

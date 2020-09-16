@@ -66,6 +66,7 @@ export default {
         return {
             isOpen: false,
             confirmation: false,
+            text: 'acme inc',
         }
     },
     components: {
@@ -102,7 +103,10 @@ export default {
     },
     computed: {
         initials() {
-            return this.title.match(/[A-Z]/g).slice(0, 2).join('');
+            if(this.title.includes(' ')) {
+                return this.title.match(/[A-Z]/g).slice(0, 2).join('');
+            }
+            return this.title.slice(0, 2);
         },
         randomColor() {
             const colors = ['bg-green-500', 'bg-blue-800', 'bg-purple-500', 'bg-red-500', 'bg-indigo-500', 'bg-orange-500', 'bg-pink-500', 'bg-teal-500'];
@@ -120,10 +124,6 @@ export default {
             this.confirmation = !this.confirmation;
             this.$inertia.delete(this.deleteLink);
         }
-    }
+    },
 }
 </script>
-
-<style scoped>
-
-</style>

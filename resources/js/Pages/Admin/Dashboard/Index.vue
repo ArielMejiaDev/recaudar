@@ -1,7 +1,10 @@
 <template>
     <div>
 
-        <Title class="mb-6">Admin dashboard</Title>
+        <div class="flex items-start w-full justify-between mb-8">
+            <Title class="mb-6">Admin dashboard</Title>
+            <LinkButton :link="route('admin.admins.create')">Invite admin</LinkButton>
+        </div>
 
         <div class="flex flex-wrap -mx-4 mb-16">
             <Card title="Users" number="500" />
@@ -13,11 +16,12 @@
 </template>
 
 <script>
-import SidebarLayout from "../../Shared/Layouts/SidebarLayout";
-import Panel from "../../Shared/Panel";
-import Card from "../../Shared/Card";
-import ActionPanel from "../../Shared/ActionPanel";
-import Title from "../../Shared/Title";
+import SidebarLayout from "../../../Shared/Layouts/SidebarLayout";
+import Panel from "../../../Shared/Panel";
+import Card from "../../../Shared/Card";
+import ActionPanel from "../../../Shared/ActionPanel";
+import Title from "../../../Shared/Title";
+import LinkButton from "../../../Shared/LinkButton";
 
 export default {
     metaInfo: { title: 'Admin Dashboard' },
@@ -31,6 +35,7 @@ export default {
         Card,
         ActionPanel,
         Title,
+        LinkButton,
     },
 }
 </script>

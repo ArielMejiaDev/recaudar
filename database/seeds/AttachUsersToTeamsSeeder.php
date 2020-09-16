@@ -15,12 +15,12 @@ class AttachUsersToTeamsSeeder extends Seeder
         // get groups of 16 users and loop every group and assing it to a team
         $users = \App\User::all();
 
-        $users = $users->chunk(16);
+        $users = $users->chunk(17);
 
-        $users->get(0)->each(fn($user) => $user->teams()->attach(Team::first()));
+        $users->get(0)->each(fn($user) => $user->teams()->attach(Team::find(2)));
 
-        $users->get(1)->each(fn($user) => $user->teams()->attach(Team::find(2)));
+        $users->get(1)->each(fn($user) => $user->teams()->attach(Team::find(3)));
 
-        $users->get(2)->each(fn($user) => $user->teams()->attach(Team::find(3)));
+        $users->get(2)->each(fn($user) => $user->teams()->attach(Team::find(4)));
     }
 }

@@ -19,40 +19,24 @@
             </div>
         </div>
         <div class="px-2 py-6 md:block" :class="isOpen? 'block': 'hidden'">
-            <ul v-if="route().current('teams.index') || route().current('profile.show')">
+            <ul v-if="route().current('teams.index') || route().current('profile.show') && $page.auth.user.role !== 'app_admin'">
                 <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('teams.index') ? 'bg-gray-900' : null">
                     <InertiaLink :href="route('teams.index')" class="flex items-center text-gray-300">
-                        <svg class="w-6 text-gray-500 mr-2" fill="none" stroke-linecap="round"
-                             stroke-linejoin="round"
-                             stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
+                        <Icon name="users" class="text-gray-500 mr-2" />
                         Teams
                     </InertiaLink>
                 </li>
             </ul>
-            <ul v-else>
+            <ul v-else-if="$page.team">
                 <li class="px-2 py-3 text-gray-300 hover:bg-gray-900 rounded" :class="route().current('teams.dashboard') ? 'bg-gray-900' : null">
                     <InertiaLink @click.passive="isOpen = !isOpen;" :href="route('teams.dashboard', {team: $page.team['slug']})" class="flex items-center">
-                        <svg class="w-6 text-gray-500 mr-2" fill="none" stroke-linecap="round"
-                             stroke-linejoin="round"
-                             stroke-width="2"
-                             viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                        </svg>
+                        <Icon name="home" class="text-gray-500 mr-2" />
                         Dashboard
                     </InertiaLink>
                 </li>
                 <li v-if="$page.team" class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('teams.users*') ? 'bg-gray-900' : null">
                     <InertiaLink :href="route('teams.users.index', $page.team['slug'])" class="flex items-center text-gray-300">
-                        <svg class="w-6 text-gray-500 mr-2" fill="none" stroke-linecap="round"
-                             stroke-linejoin="round"
-                             stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
+                        <Icon name="users" class="text-gray-500 mr-2" />
                         Team
                     </InertiaLink>
                 </li>
@@ -64,50 +48,53 @@
                 </li>
                 <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('teams.plans*') ? 'bg-gray-900' : null">
                     <InertiaLink :href="route('teams.plans.index', $page.team['slug'])" class="flex items-center text-gray-300">
-                        <svg class="w-6 text-gray-500 mr-2" fill="none" stroke-linecap="round"
-                             stroke-linejoin="round"
-                             stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                                d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
-                        </svg>
+                        <Icon name="directory" class="text-gray-500 mr-2" />
                         Plans
                     </InertiaLink>
                 </li>
                 <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('calendar*') ? 'bg-gray-900' : null">
                     <a href="#" class="flex items-center text-gray-300">
-                        <svg class="w-6 text-gray-500 mr-2" fill="none" stroke-linecap="round"
-                             stroke-linejoin="round"
-                             stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                        </svg>
+                        <Icon name="calendar" class="text-gray-500 mr-2" />
                         Calendar
                     </a>
                 </li>
                 <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('documents*') ? 'bg-gray-900' : null">
                     <a href="#" class="flex items-center text-gray-300">
-                        <svg class="w-6 text-gray-500 mr-2" fill="none" stroke-linecap="round"
-                             stroke-linejoin="round"
-                             stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                                d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path>
-                        </svg>
+                        <Icon class="text-gray-500 mr-2" name="directory" />
                         Documents
                     </a>
                 </li>
                 <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('reports*') ? 'bg-gray-900' : null">
                     <a href="#" class="flex items-center text-gray-300">
-                        <svg class="w-6 text-gray-500 mr-2" fill="none" stroke-linecap="round"
-                             stroke-linejoin="round"
-                             stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                                d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                        </svg>
+                        <Icon name="barchart" class="text-gray-500 mr-2" />
                         Reports
                     </a>
                 </li>
             </ul>
+            <!--Admin links-->
+            <ul v-if="$page.auth.user.role == 'app_admin'">
+                <li class="px-2 py-3 text-gray-300 hover:bg-gray-900 rounded" :class="route().current('admin.dashboard') ? 'bg-gray-900' : null">
+                    <InertiaLink @click.passive="isOpen = !isOpen;" :href="route('admin.dashboard')" class="flex items-center">
+                        <Icon name="home" class="text-gray-500 mr-2" />
+                        Dashboard
+                    </InertiaLink>
+                </li>
+                <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('admin.teams*') ? 'bg-gray-900' : null">
+                    <InertiaLink :href="route('admin.teams.index')" class="flex items-center text-gray-300">
+                        <Icon class="text-gray-500 mr-2" name="users"/>
+                        Teams
+                    </InertiaLink>
+                </li>
+                <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('admin.transactions*') ? 'bg-gray-900' : null">
+                    <InertiaLink :href="route('admin.transactions.index')" class="flex items-center text-gray-300">
+                        <Icon class="text-gray-500 mr-2" name="directory" />
+                        Transactions
+                    </InertiaLink>
+                </li>
+            </ul>
+            <!--End Admin links-->
             <div class="border-t border-gray-700 -mx-2 mt-2 md:hidden"></div>
+
             <ul class="mt-6 md:hidden">
                 <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('profile*') ? 'bg-gray-900' : null">
                     <InertiaLink @click.passive="isOpen = !isOpen" href="/profile" class="flex items-center mx-2 text-gray-300">Profile</InertiaLink>
@@ -116,6 +103,7 @@
                     <button class="mx-2 text-gray-300" @click="$inertia.post(route('logout'))">Logout</button>
                 </li>
             </ul>
+
         </div>
     </aside>
 </template>

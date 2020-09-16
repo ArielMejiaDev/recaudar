@@ -17,10 +17,10 @@ class AttachPlansToTeamsSeeder extends Seeder
         $plans = Plan::all();
         $plans = $plans->chunk(10);
 
-        $plans->get(0)->each(fn($plan) => $plan->teams()->attach(Team::first()));
+        $plans->get(0)->each(fn($plan) => $plan->teams()->attach(Team::find(2)));
 
-        $plans->get(1)->each(fn($plan) => $plan->teams()->attach(Team::find(2)));
+        $plans->get(1)->each(fn($plan) => $plan->teams()->attach(Team::find(3)));
 
-        $plans->get(2)->each(fn($plan) => $plan->teams()->attach(Team::find(3)));
+        $plans->get(2)->each(fn($plan) => $plan->teams()->attach(Team::find(4)));
     }
 }

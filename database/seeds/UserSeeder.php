@@ -43,6 +43,12 @@ class UserSeeder extends Seeder
         ]);
 
         factory(User::class)->create([
+            'name'  => 'Nuno Maduro',
+            'email' => 'nuno@laravel.com',
+            'password' => bcrypt(12345678),
+        ]);
+
+        factory(User::class)->create([
             'name'  => 'Adam Wathan',
             'email' => 'adam@tailwindcss.com',
             'password' => bcrypt(12345678),
@@ -145,6 +151,12 @@ class UserSeeder extends Seeder
         ]);
 
         factory(User::class)->create([
+            'name'  => 'Caneco',
+            'email' => 'caneco@laraveleu.com',
+            'password' => bcrypt(12345678),
+        ]);
+
+        factory(User::class)->create([
             'name'  => 'Victor Gonzalez',
             'email' => 'victor@coderstape.com',
             'password' => bcrypt(12345678),
@@ -243,6 +255,12 @@ class UserSeeder extends Seeder
         factory(User::class)->create([
             'name'  => 'Justin Jackson',
             'email' => 'justin@transistorfm.com',
+            'password' => bcrypt(12345678),
+        ]);
+
+        factory(User::class)->create([
+            'name'  => 'Samuel Štancl',
+            'email' => 'samuel@tenancy.com',
             'password' => bcrypt(12345678),
         ]);
 

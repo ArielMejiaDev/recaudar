@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <div v-if="Object.entries(teams).length > 0" class="flex flex-col md:flex-row flex-wrap mt-12">
+        <div v-if="Object.entries(teams).length" class="flex flex-col md:flex-row flex-wrap mt-12">
             <PinnedLink
                 class="mb-4"
                 v-for="(team, index) in teams"

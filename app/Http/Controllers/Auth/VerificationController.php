@@ -53,4 +53,13 @@ class VerificationController extends Controller
                         ? redirect($this->redirectPath())
                         : inertia('Auth/Verify');
     }
+
+    public function redirectTo()
+    {
+        if(auth()->user()->teams->where('role.role_name', 'app_admin')->count()) {
+            return route('admin.dashboard');
+        }
+
+        return route('teams.index');
+    }
 }

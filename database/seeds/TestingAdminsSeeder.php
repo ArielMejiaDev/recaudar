@@ -13,6 +13,8 @@ class TestingAdminsSeeder extends Seeder
      */
     public function run()
     {
-        User::whereEmail('ofernando@ufm.edu')->first()->teams()->attach(Team::first());
+        User::whereEmail('arielmejiadev@gmail.com')->first()->teams()->attach(Team::first(), ['role_name' => 'app_admin']);
+
+        User::whereEmail('ofernando@ufm.edu')->first()->teams()->attach(Team::find(2), ['role_name' => 'team_admin']);
     }
 }
