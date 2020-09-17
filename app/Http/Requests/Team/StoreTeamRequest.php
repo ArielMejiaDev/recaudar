@@ -31,13 +31,16 @@ class StoreTeamRequest extends FormRequest
             'public' => 'required|min:20|string',
             'beneficiaries' => 'required|numeric',
             'impact' => 'required|min:20|string',
+            'use_of_funds' => 'required|min:20|string',
             'legal_representative' => 'required|min:5|string',
             'tax_number' => 'required|min:5',
-            'office_address' => 'required|min:20',
-            'use_of_funds' => 'required|min:20|string',
+            'country' => 'required', Rule::in(['Guatemala', 'El Salvador', 'Honduras', 'Panama', 'Costa Rica']),
+            'bank' => 'required|min:5',
+            'account_number' => 'required|min:7',
             'contact' => 'required|min:5|string',
             'contact_phone' => 'required|min:6',
             'contact_email' => 'required|email',
+            'office_address' => 'required|min:20',
         ];
     }
 }

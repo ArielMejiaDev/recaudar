@@ -12,18 +12,21 @@ class EditTest extends TestCase
 {
     public array $validTeamData = [
         'name' => 'Doe Foundation',
-        'category' => 'Otros',
-        'description' => 'lorem ipsum dolor siet lorem ipsum dolor siet',
-        'public' => 'lorem ipsum dolor siet lorem ipsum dolor siet',
         'beneficiaries' => '500',
-        'impact' => 'lorem ipsum dolor siet lorem ipsum dolor siet',
-        'legal_representative' => 'John Doe',
-        'tax_number' => '3232323232',
-        'office_address' => 'Venice, Los Angeles, California',
+        'public' => 'lorem ipsum dolor siet lorem ipsum dolor siet',
+        'category' => 'Otros',
         'use_of_funds' => 'lorem ipsum dolor siet lorem ipsum dolor siet',
+        'impact' => 'lorem ipsum dolor siet lorem ipsum dolor siet',
+        'description' => 'lorem ipsum dolor siet lorem ipsum dolor siet',
         'contact' => 'Anne Doe',
         'contact_phone' => '545454545454',
         'contact_email' => 'anne@doe.com',
+        'office_address' => 'Venice, Los Angeles, California',
+        'legal_representative' => 'John Doe',
+        'tax_number' => '3232323232',
+        'country' => 'Guatemala',
+        'bank' => 'Bank of Guatemala',
+        'account_number' => 123456789,
     ];
 
     use RefreshDatabase;
@@ -94,18 +97,22 @@ class EditTest extends TestCase
         $user->teams()->attach($team);
         $response = $this->put(route('teams.update', $team->slug), [
             'name' => '',
-            'category' => 'anytext',
-            'description' => 'lt',
-            'public' => '111111111111111111111',
             'beneficiaries' => 'lorem',
+            'public' => '111111111111111111111',
+            'category' => 'anytext',
             'impact' => '.',
-            'legal_representative' => '',
-            'tax_number' => '',
-            'office_address' => '333333333333',
             'use_of_funds' => 'et',
+            'description' => 'lt',
             'contact' => '',
             'contact_phone' => 'lorem ipsum dolor siet',
             'contact_email' => 'novalidemail.com',
+            'office_address' => '333333333333',
+            'legal_representative' => '',
+            'tax_number' => '',
+            'country' => 'Any Country',
+            'bank' => '',
+            'account_number' => 123,
+
         ]);
         $response->assertRedirect();
         $this->assertNotEquals('anytext', Team::first()->category);

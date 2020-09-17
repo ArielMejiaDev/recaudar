@@ -28,5 +28,8 @@ $factory->define(Team::class, function (Faker $faker) {
         'twitter_account' => $faker->url,
         'instagram_account' => $faker->url,
         'theme' => 'classic',
+        'account_number' => $faker->bankAccountNumber,
+        'bank' => $faker->company,
+        'country' => $faker->country,
     ];
 });

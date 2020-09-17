@@ -19,7 +19,7 @@ use App\Http\Controllers\Admin\Teams\UpdateTeamProfile;
 use App\Http\Controllers\Admin\Teams\UpdateTeamStatus;
 use App\Http\Controllers\Admin\Transactions\TransactionsController;
 
-Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
+Route::prefix('admin')->middleware(['auth', 'verified', 'appAdmin'])->group(function () {
 
     Route::get('/', DashboardController::class)->name('admin.dashboard');
 
@@ -27,7 +27,7 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
 
     Route::post('/admins/store', [AdminController::class, 'store'])->name('admin.admins.store');
 
-    Route::resource('teams', TeamController::class, ['as' => 'admin']);
+    Route::resource('teams', TeamController::class, ['as' => 'admin'])->only(['index', 'edit', 'destroy']);
 
     Route::put('/teams/update-status/{team}', UpdateTeamStatus::class)->name('admin.teams.update-status');
 

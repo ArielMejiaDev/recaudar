@@ -35,38 +35,6 @@ class TeamController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param Team $team
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Team $team)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param Team $team
@@ -75,18 +43,6 @@ class TeamController extends Controller
     public function edit(Team $team)
     {
         return Inertia::render('Admin/Teams/Edit', ['team' => $team]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @param Team $team
-     * @return RedirectResponse
-     */
-    public function update(Request $request, Team $team)
-    {
-        //
     }
 
     /**

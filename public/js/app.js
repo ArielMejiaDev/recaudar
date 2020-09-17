@@ -3123,6 +3123,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3143,18 +3172,21 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: {
         name: null,
-        category: null,
-        description: null,
-        "public": null,
         beneficiaries: null,
+        "public": null,
+        category: null,
         impact: null,
-        legal_representative: null,
-        tax_number: null,
-        office_address: null,
         use_of_funds: null,
+        description: null,
         contact: null,
         contact_phone: null,
-        contact_email: null
+        contact_email: null,
+        office_address: null,
+        legal_representative: null,
+        tax_number: null,
+        country: null,
+        bank: null,
+        account_number: null
       },
       sending: false,
       confirmation: false
@@ -3344,6 +3376,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3361,19 +3420,22 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       form: {
-        name: null,
-        category: null,
-        description: null,
-        "public": null,
-        beneficiaries: null,
-        impact: null,
-        legal_representative: null,
-        tax_number: null,
-        office_address: null,
-        use_of_funds: null,
-        contact: null,
-        contact_phone: null,
-        contact_email: null
+        name: this.team.name,
+        beneficiaries: this.team.beneficiaries,
+        "public": this.team["public"],
+        category: this.team.category,
+        impact: this.team.impact,
+        use_of_funds: this.team.use_of_funds,
+        description: this.team.description,
+        contact: this.team.contact,
+        contact_phone: this.team.contact_phone,
+        contact_email: this.team.contact_email,
+        office_address: this.team.office_address,
+        legal_representative: this.team.legal_representative,
+        tax_number: this.team.tax_number,
+        country: this.team.country,
+        bank: this.team.bank,
+        account_number: this.team.account_number
       },
       sending: false
     };
@@ -3402,21 +3464,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     team: Object
-  },
-  created: function created() {
-    this.form.name = this.team.name;
-    this.form.category = this.team.category;
-    this.form.description = this.team.description;
-    this.form["public"] = this.team["public"];
-    this.form.beneficiaries = this.team.beneficiaries;
-    this.form.impact = this.team.impact;
-    this.form.legal_representative = this.team.legal_representative;
-    this.form.tax_number = this.team.tax_number;
-    this.form.office_address = this.team.office_address;
-    this.form.use_of_funds = this.team.use_of_funds;
-    this.form.contact = this.team.contact;
-    this.form.contact_phone = this.team.contact_phone;
-    this.form.contact_email = this.team.contact_email;
   }
 });
 
@@ -28780,18 +28827,7 @@ var render = function() {
               {
                 key: "header",
                 fn: function() {
-                  return [
-                    _c(
-                      "Title",
-                      {
-                        attrs: {
-                          info:
-                            "This information is necessary to create a team profile."
-                        }
-                      },
-                      [_vm._v("Create a Team")]
-                    )
-                  ]
+                  return [_c("Title", [_vm._v("Create a Team")])]
                 },
                 proxy: true
               },
@@ -28800,35 +28836,105 @@ var render = function() {
                 fn: function() {
                   return [
                     _c(
+                      "Title",
+                      {
+                        staticClass: "mb-4",
+                        attrs: {
+                          info: "This data would be shown in team profile page."
+                        }
+                      },
+                      [_vm._v("Profile")]
+                    ),
+                    _vm._v(" "),
+                    _c(
                       "div",
                       { staticClass: "w-full flex flex-col md:flex-row" },
                       [
                         _c(
                           "div",
-                          { staticClass: "w-full w-1/2 md:mr-1" },
+                          { staticClass: "w-full flex flex-col md:flex-row" },
                           [
-                            _c("Input", {
-                              attrs: {
-                                name: "name",
-                                label: "Organization name",
-                                placeholder: "The organization name.",
-                                errors: _vm.$page.errors.name
-                              },
-                              model: {
-                                value: _vm.form.name,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.form, "name", $$v)
-                                },
-                                expression: "form.name"
-                              }
-                            })
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "w-full md:w-1/3 md:mr-1" },
+                              [
+                                _c("Input", {
+                                  attrs: {
+                                    name: "name",
+                                    label: "Organization name",
+                                    placeholder: "The organization name.",
+                                    errors: _vm.$page.errors.name
+                                  },
+                                  model: {
+                                    value: _vm.form.name,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.form, "name", $$v)
+                                    },
+                                    expression: "form.name"
+                                  }
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "w-full md:w-1/3 md:mx-1" },
+                              [
+                                _c("Input", {
+                                  attrs: {
+                                    name: "beneficiaries",
+                                    label: "Beneficiaries",
+                                    type: "number",
+                                    placeholder: "Add number of beneficiaries",
+                                    errors: _vm.$page.errors.beneficiaries
+                                  },
+                                  model: {
+                                    value: _vm.form.beneficiaries,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.form, "beneficiaries", $$v)
+                                    },
+                                    expression: "form.beneficiaries"
+                                  }
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "w-full md:w-1/3 md:ml-1" },
+                              [
+                                _c("Input", {
+                                  attrs: {
+                                    name: "public",
+                                    label: "Public",
+                                    placeholder: "Public",
+                                    errors: _vm.$page.errors.public
+                                  },
+                                  model: {
+                                    value: _vm.form.public,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.form, "public", $$v)
+                                    },
+                                    expression: "form.public"
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                          ]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "w-full flex flex-col md:flex-row" },
+                      [
                         _c(
                           "div",
-                          { staticClass: "w-full w-1/2 md:ml-1" },
+                          { staticClass: "w-full md:w-1/2 md:mr-1" },
                           [
                             _c(
                               "Select",
@@ -28849,18 +28955,6 @@ var render = function() {
                                 }
                               },
                               [
-                                _c(
-                                  "option",
-                                  {
-                                    attrs: {
-                                      value: "null",
-                                      disabled: "",
-                                      selected: ""
-                                    }
-                                  },
-                                  [_vm._v("Select a category")]
-                                ),
-                                _vm._v(" "),
                                 _c("option", { attrs: { value: "Salud" } }, [
                                   _vm._v("Salud")
                                 ]),
@@ -28902,9 +28996,43 @@ var render = function() {
                             )
                           ],
                           1
-                        )
-                      ]
+                        ),
+                        _vm._v(" "),
+                        _c("Input", {
+                          staticClass: "w-full md:w-1/2 md:ml-1",
+                          attrs: {
+                            name: "impact",
+                            label: "Impact",
+                            placeholder: "Add a brief organization impact",
+                            errors: _vm.$page.errors.impact
+                          },
+                          model: {
+                            value: _vm.form.impact,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "impact", $$v)
+                            },
+                            expression: "form.impact"
+                          }
+                        })
+                      ],
+                      1
                     ),
+                    _vm._v(" "),
+                    _c("Input", {
+                      attrs: {
+                        name: "use_of_funds",
+                        label: "Use of funds",
+                        placeholder: "How the organization use the funds...",
+                        errors: _vm.$page.errors.use_of_funds
+                      },
+                      model: {
+                        value: _vm.form.use_of_funds,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "use_of_funds", $$v)
+                        },
+                        expression: "form.use_of_funds"
+                      }
+                    }),
                     _vm._v(" "),
                     _c("Textarea", {
                       attrs: {
@@ -28922,163 +29050,18 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "w-full flex flex-col md:flex-row" },
-                      [
-                        _c(
-                          "div",
-                          { staticClass: "w-full w-1/2 md:mr-1" },
-                          [
-                            _c("Input", {
-                              attrs: {
-                                name: "public",
-                                label: "Target Public",
-                                placeholder: "Public",
-                                errors: _vm.$page.errors.public
-                              },
-                              model: {
-                                value: _vm.form.public,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.form, "public", $$v)
-                                },
-                                expression: "form.public"
-                              }
-                            })
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "w-full w-1/2 md:ml-1" },
-                          [
-                            _c("Input", {
-                              attrs: {
-                                name: "beneficiaries",
-                                label: "Beneficiaries",
-                                type: "number",
-                                placeholder: "Add number of beneficiaries",
-                                errors: _vm.$page.errors.beneficiaries
-                              },
-                              model: {
-                                value: _vm.form.beneficiaries,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.form, "beneficiaries", $$v)
-                                },
-                                expression: "form.beneficiaries"
-                              }
-                            })
-                          ],
-                          1
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("Textarea", {
-                      attrs: {
-                        name: "impact",
-                        label: "Impact",
-                        placeholder: "Add a brief organization impact",
-                        errors: _vm.$page.errors.impact
-                      },
-                      model: {
-                        value: _vm.form.impact,
-                        callback: function($$v) {
-                          _vm.$set(_vm.form, "impact", $$v)
-                        },
-                        expression: "form.impact"
-                      }
-                    }),
+                    _c("hr", { staticClass: "mb-6 mt-12" }),
                     _vm._v(" "),
                     _c(
-                      "div",
-                      { staticClass: "w-full flex flex-col md:flex-row" },
-                      [
-                        _c(
-                          "div",
-                          { staticClass: "w-full w-1/2 md:mr-1" },
-                          [
-                            _c("Input", {
-                              attrs: {
-                                name: "legal_representative",
-                                label: "Legal Representative",
-                                placeholder:
-                                  "Add the name of the legal representative",
-                                errors: _vm.$page.errors.legal_representative
-                              },
-                              model: {
-                                value: _vm.form.legal_representative,
-                                callback: function($$v) {
-                                  _vm.$set(
-                                    _vm.form,
-                                    "legal_representative",
-                                    $$v
-                                  )
-                                },
-                                expression: "form.legal_representative"
-                              }
-                            })
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "w-full w-1/2 md:ml-1" },
-                          [
-                            _c("Input", {
-                              attrs: {
-                                name: "tax_number",
-                                label: "Tax Number",
-                                placeholder: "Add the organization tax number.",
-                                errors: _vm.$page.errors.tax_number
-                              },
-                              model: {
-                                value: _vm.form.tax_number,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.form, "tax_number", $$v)
-                                },
-                                expression: "form.tax_number"
-                              }
-                            })
-                          ],
-                          1
-                        )
-                      ]
+                      "Title",
+                      {
+                        staticClass: "mb-8",
+                        attrs: {
+                          info: "This information would not be shown publicly."
+                        }
+                      },
+                      [_vm._v("Contact")]
                     ),
-                    _vm._v(" "),
-                    _c("Input", {
-                      attrs: {
-                        name: "office_address",
-                        label: "Office Address",
-                        placeholder: "Add office address",
-                        errors: _vm.$page.errors.office_address
-                      },
-                      model: {
-                        value: _vm.form.office_address,
-                        callback: function($$v) {
-                          _vm.$set(_vm.form, "office_address", $$v)
-                        },
-                        expression: "form.office_address"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("Textarea", {
-                      attrs: {
-                        name: "use_of_funds",
-                        label: "Use of funds",
-                        placeholder: "How the organization use the funds...",
-                        errors: _vm.$page.errors.use_of_funds
-                      },
-                      model: {
-                        value: _vm.form.use_of_funds,
-                        callback: function($$v) {
-                          _vm.$set(_vm.form, "use_of_funds", $$v)
-                        },
-                        expression: "form.use_of_funds"
-                      }
-                    }),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -29155,6 +29138,187 @@ var render = function() {
                           1
                         )
                       ]
+                    ),
+                    _vm._v(" "),
+                    _c("Input", {
+                      attrs: {
+                        name: "office_address",
+                        label: "Office Address",
+                        placeholder: "Add office address",
+                        errors: _vm.$page.errors.office_address
+                      },
+                      model: {
+                        value: _vm.form.office_address,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "office_address", $$v)
+                        },
+                        expression: "form.office_address"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("hr", { staticClass: "mb-6 mt-12" }),
+                    _vm._v(" "),
+                    _c(
+                      "Title",
+                      {
+                        staticClass: "mb-8",
+                        attrs: {
+                          info: "This information would not be shown publicly."
+                        }
+                      },
+                      [_vm._v("Financial data")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "w-full flex flex-col md:flex-row" },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "w-full w-1/3 md:mr-1" },
+                          [
+                            _c("Input", {
+                              attrs: {
+                                name: "legal_representative",
+                                label: "Legal Representative",
+                                placeholder:
+                                  "Add the name of the legal representative",
+                                errors: _vm.$page.errors.legal_representative
+                              },
+                              model: {
+                                value: _vm.form.legal_representative,
+                                callback: function($$v) {
+                                  _vm.$set(
+                                    _vm.form,
+                                    "legal_representative",
+                                    $$v
+                                  )
+                                },
+                                expression: "form.legal_representative"
+                              }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "w-full w-1/3 md:ml-1" },
+                          [
+                            _c("Input", {
+                              attrs: {
+                                name: "tax_number",
+                                label: "Tax Number",
+                                placeholder: "Add the organization tax number.",
+                                errors: _vm.$page.errors.tax_number
+                              },
+                              model: {
+                                value: _vm.form.tax_number,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "tax_number", $$v)
+                                },
+                                expression: "form.tax_number"
+                              }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "w-full w-1/3 md:ml-1" },
+                          [
+                            _c(
+                              "Select",
+                              {
+                                attrs: {
+                                  name: "country",
+                                  label: "Country",
+                                  placeholder:
+                                    "Country where team is established.",
+                                  errors: _vm.$page.errors.country
+                                },
+                                model: {
+                                  value: _vm.form.country,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.form, "country", $$v)
+                                  },
+                                  expression: "form.country"
+                                }
+                              },
+                              [
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Guatemala" } },
+                                  [_vm._v("Guatemala")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "El Salvador" } },
+                                  [_vm._v("El Salvador")]
+                                ),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Honduras" } }, [
+                                  _vm._v("Honduras")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Panama" } }, [
+                                  _vm._v("Panama")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Costa Rica" } },
+                                  [_vm._v("Costa Rica")]
+                                )
+                              ]
+                            )
+                          ],
+                          1
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "w-full flex flex-col md:flex-row" },
+                      [
+                        _c("Input", {
+                          staticClass: "w-full md:w-1/2 md:mr-1",
+                          attrs: {
+                            name: "account_number",
+                            label: "Bank account number",
+                            placeholder: "Add an account number",
+                            errors: _vm.$page.errors.account_number
+                          },
+                          model: {
+                            value: _vm.form.account_number,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "account_number", $$v)
+                            },
+                            expression: "form.account_number"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("Input", {
+                          staticClass: "w-full md:w-1/2 md:ml-1",
+                          attrs: {
+                            name: "bank",
+                            label: "Bank",
+                            placeholder: "Add a bank",
+                            errors: _vm.$page.errors.bank
+                          },
+                          model: {
+                            value: _vm.form.bank,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "bank", $$v)
+                            },
+                            expression: "form.bank"
+                          }
+                        })
+                      ],
+                      1
                     )
                   ]
                 },
@@ -29309,18 +29473,7 @@ var render = function() {
             {
               key: "header",
               fn: function() {
-                return [
-                  _c(
-                    "Title",
-                    {
-                      attrs: {
-                        info:
-                          "Some changes here will be reflected in the team profile."
-                      }
-                    },
-                    [_vm._v("Update a Team")]
-                  )
-                ]
+                return [_c("Title", [_vm._v("Update a Team")])]
               },
               proxy: true
             },
@@ -29329,12 +29482,23 @@ var render = function() {
               fn: function() {
                 return [
                   _c(
+                    "Title",
+                    {
+                      staticClass: "mb-4",
+                      attrs: {
+                        info: "This data would be shown in team profile page."
+                      }
+                    },
+                    [_vm._v("Profile")]
+                  ),
+                  _vm._v(" "),
+                  _c(
                     "div",
                     { staticClass: "w-full flex flex-col md:flex-row" },
                     [
                       _c(
                         "div",
-                        { staticClass: "w-full w-1/2 md:mr-1" },
+                        { staticClass: "w-full w-1/3 md:mr-1" },
                         [
                           _c("Input", {
                             attrs: {
@@ -29357,113 +29521,7 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "div",
-                        { staticClass: "w-full w-1/2 md:ml-1" },
-                        [
-                          _c(
-                            "Select",
-                            {
-                              attrs: {
-                                name: "category",
-                                label: "Category",
-                                placeholder: "Select the organization category",
-                                errors: _vm.$page.errors.category
-                              },
-                              model: {
-                                value: _vm.form.category,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.form, "category", $$v)
-                                },
-                                expression: "form.category"
-                              }
-                            },
-                            [
-                              _c("option", { attrs: { value: "Salud" } }, [
-                                _vm._v("Salud")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Educación" } }, [
-                                _vm._v("Educación")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "option",
-                                { attrs: { value: "Ambientales" } },
-                                [_vm._v("Ambientales")]
-                              ),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Social" } }, [
-                                _vm._v("Social")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Nutrición" } }, [
-                                _vm._v("Nutrición")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Pobreza" } }, [
-                                _vm._v("Pobreza")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Animales" } }, [
-                                _vm._v("Animales")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Otros" } }, [
-                                _vm._v("Otros")
-                              ])
-                            ]
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("Textarea", {
-                    attrs: {
-                      name: "description",
-                      label: "Description",
-                      placeholder: "Add an organization description...",
-                      errors: _vm.$page.errors.description
-                    },
-                    model: {
-                      value: _vm.form.description,
-                      callback: function($$v) {
-                        _vm.$set(_vm.form, "description", $$v)
-                      },
-                      expression: "form.description"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "w-full flex flex-col md:flex-row" },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "w-full w-1/2 md:mr-1" },
-                        [
-                          _c("Input", {
-                            attrs: {
-                              name: "public",
-                              label: "Target Public",
-                              placeholder: "Public",
-                              errors: _vm.$page.errors.public
-                            },
-                            model: {
-                              value: _vm.form.public,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "public", $$v)
-                              },
-                              expression: "form.public"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "w-full w-1/2 md:ml-1" },
+                        { staticClass: "w-full w-1/3 md:mx-1" },
                         [
                           _c("Input", {
                             attrs: {
@@ -29483,96 +29541,111 @@ var render = function() {
                           })
                         ],
                         1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "w-full w-1/3 md:ml-1" },
+                        [
+                          _c("Input", {
+                            attrs: {
+                              name: "public",
+                              label: "Public",
+                              placeholder: "Public",
+                              errors: _vm.$page.errors.public
+                            },
+                            model: {
+                              value: _vm.form.public,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "public", $$v)
+                              },
+                              expression: "form.public"
+                            }
+                          })
+                        ],
+                        1
                       )
                     ]
                   ),
-                  _vm._v(" "),
-                  _c("Textarea", {
-                    attrs: {
-                      name: "impact",
-                      label: "Impact",
-                      placeholder: "Add a brief organization impact",
-                      errors: _vm.$page.errors.impact
-                    },
-                    model: {
-                      value: _vm.form.impact,
-                      callback: function($$v) {
-                        _vm.$set(_vm.form, "impact", $$v)
-                      },
-                      expression: "form.impact"
-                    }
-                  }),
                   _vm._v(" "),
                   _c(
                     "div",
                     { staticClass: "w-full flex flex-col md:flex-row" },
                     [
                       _c(
-                        "div",
-                        { staticClass: "w-full w-1/2 md:mr-1" },
-                        [
-                          _c("Input", {
-                            attrs: {
-                              name: "legal_representative",
-                              label: "Legal Representative",
-                              placeholder:
-                                "Add the name of the legal representative",
-                              errors: _vm.$page.errors.legal_representative
+                        "Select",
+                        {
+                          staticClass: "w-full w-1/2 md:mr-1",
+                          attrs: {
+                            name: "category",
+                            label: "Category",
+                            placeholder: "Select the organization category",
+                            errors: _vm.$page.errors.category
+                          },
+                          model: {
+                            value: _vm.form.category,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "category", $$v)
                             },
-                            model: {
-                              value: _vm.form.legal_representative,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "legal_representative", $$v)
-                              },
-                              expression: "form.legal_representative"
-                            }
-                          })
-                        ],
-                        1
+                            expression: "form.category"
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "Salud" } }, [
+                            _vm._v("Salud")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Educación" } }, [
+                            _vm._v("Educación")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Ambientales" } }, [
+                            _vm._v("Ambientales")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Social" } }, [
+                            _vm._v("Social")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Nutrición" } }, [
+                            _vm._v("Nutrición")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Pobreza" } }, [
+                            _vm._v("Pobreza")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Animales" } }, [
+                            _vm._v("Animales")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Otros" } }, [
+                            _vm._v("Otros")
+                          ])
+                        ]
                       ),
                       _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "w-full w-1/2 md:ml-1" },
-                        [
-                          _c("Input", {
-                            attrs: {
-                              name: "tax_number",
-                              label: "Tax Number",
-                              placeholder: "Add the organization tax number.",
-                              errors: _vm.$page.errors.tax_number
-                            },
-                            model: {
-                              value: _vm.form.tax_number,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "tax_number", $$v)
-                              },
-                              expression: "form.tax_number"
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    ]
+                      _c("Input", {
+                        staticClass: "w-full md:w-1/2 md:ml-1",
+                        attrs: {
+                          name: "impact",
+                          label: "Impact",
+                          placeholder: "Add a brief organization impact",
+                          errors: _vm.$page.errors.impact
+                        },
+                        model: {
+                          value: _vm.form.impact,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "impact", $$v)
+                          },
+                          expression: "form.impact"
+                        }
+                      })
+                    ],
+                    1
                   ),
                   _vm._v(" "),
                   _c("Input", {
-                    attrs: {
-                      name: "office_address",
-                      label: "Office Address",
-                      placeholder: "Add office address",
-                      errors: _vm.$page.errors.office_address
-                    },
-                    model: {
-                      value: _vm.form.office_address,
-                      callback: function($$v) {
-                        _vm.$set(_vm.form, "office_address", $$v)
-                      },
-                      expression: "form.office_address"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("Textarea", {
                     attrs: {
                       name: "use_of_funds",
                       label: "Use of funds",
@@ -29587,6 +29660,35 @@ var render = function() {
                       expression: "form.use_of_funds"
                     }
                   }),
+                  _vm._v(" "),
+                  _c("Textarea", {
+                    attrs: {
+                      name: "description",
+                      label: "Description",
+                      placeholder: "Add an organization description...",
+                      errors: _vm.$page.errors.description
+                    },
+                    model: {
+                      value: _vm.form.description,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "description", $$v)
+                      },
+                      expression: "form.description"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("hr", { staticClass: "mb-6 mt-12" }),
+                  _vm._v(" "),
+                  _c(
+                    "Title",
+                    {
+                      staticClass: "mb-8",
+                      attrs: {
+                        info: "This information would not be shown publicly."
+                      }
+                    },
+                    [_vm._v("Contact")]
+                  ),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -29663,6 +29765,179 @@ var render = function() {
                         1
                       )
                     ]
+                  ),
+                  _vm._v(" "),
+                  _c("Input", {
+                    attrs: {
+                      name: "office_address",
+                      label: "Office Address",
+                      placeholder: "Add office address",
+                      errors: _vm.$page.errors.office_address
+                    },
+                    model: {
+                      value: _vm.form.office_address,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "office_address", $$v)
+                      },
+                      expression: "form.office_address"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("hr", { staticClass: "mb-6 mt-12" }),
+                  _vm._v(" "),
+                  _c(
+                    "Title",
+                    {
+                      staticClass: "mb-8",
+                      attrs: {
+                        info: "This information would not be shown publicly."
+                      }
+                    },
+                    [_vm._v("Financial data")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "w-full flex flex-col md:flex-row" },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "w-full w-1/3 md:mr-1" },
+                        [
+                          _c("Input", {
+                            attrs: {
+                              name: "legal_representative",
+                              label: "Legal Representative",
+                              placeholder:
+                                "Add the name of the legal representative",
+                              errors: _vm.$page.errors.legal_representative
+                            },
+                            model: {
+                              value: _vm.form.legal_representative,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "legal_representative", $$v)
+                              },
+                              expression: "form.legal_representative"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "w-full w-1/3 md:mx-1" },
+                        [
+                          _c("Input", {
+                            attrs: {
+                              name: "tax_number",
+                              label: "Tax Number",
+                              placeholder: "Add the organization tax number.",
+                              errors: _vm.$page.errors.tax_number
+                            },
+                            model: {
+                              value: _vm.form.tax_number,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "tax_number", $$v)
+                              },
+                              expression: "form.tax_number"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "w-full w-1/3 md:ml-1" },
+                        [
+                          _c(
+                            "Select",
+                            {
+                              attrs: {
+                                name: "country",
+                                label: "Country",
+                                placeholder:
+                                  "Country where team is established.",
+                                errors: _vm.$page.errors.country
+                              },
+                              model: {
+                                value: _vm.form.country,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "country", $$v)
+                                },
+                                expression: "form.country"
+                              }
+                            },
+                            [
+                              _c("option", { attrs: { value: "Guatemala" } }, [
+                                _vm._v("Guatemala")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "option",
+                                { attrs: { value: "El Salvador" } },
+                                [_vm._v("El Salvador")]
+                              ),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "Honduras" } }, [
+                                _vm._v("Honduras")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "Panama" } }, [
+                                _vm._v("Panama")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "Costa Rica" } }, [
+                                _vm._v("Costa Rica")
+                              ])
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "w-full flex flex-col md:flex-row" },
+                    [
+                      _c("Input", {
+                        staticClass: "w-full md:w-1/2 md:mr-1",
+                        attrs: {
+                          name: "account_number",
+                          label: "Bank account number",
+                          placeholder: "Add an account number",
+                          errors: _vm.$page.errors.account_number
+                        },
+                        model: {
+                          value: _vm.form.account_number,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "account_number", $$v)
+                          },
+                          expression: "form.account_number"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("Input", {
+                        staticClass: "w-full md:w-1/2 md:ml-1",
+                        attrs: {
+                          name: "bank",
+                          label: "Bank",
+                          placeholder: "Add a bank",
+                          errors: _vm.$page.errors.bank
+                        },
+                        model: {
+                          value: _vm.form.bank,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "bank", $$v)
+                          },
+                          expression: "form.bank"
+                        }
+                      })
+                    ],
+                    1
                   )
                 ]
               },
@@ -35445,6 +35720,7 @@ var render = function() {
         ],
         ref: "input",
         staticClass: "w-full form-select rounded-lg",
+        class: _vm.value === null ? "text-gray-500" : null,
         attrs: { id: _vm.name, name: _vm.name, required: _vm.required },
         on: {
           change: function($event) {

@@ -3,19 +3,35 @@
     <form @submit.prevent="confirmation = !confirmation">
         <Panel>
             <template v-slot:header>
-                <Title info="This information is necessary to create a team profile.">Create a Team</Title>
+                <Title>Create a Team</Title>
             </template>
 
             <template v-slot:body>
 
+                <Title class="mb-4" info="This data would be shown in team profile page.">Profile</Title>
+
                 <div class="w-full flex flex-col md:flex-row">
-                    <div class="w-full w-1/2 md:mr-1">
-                        <Input name="name" v-model="form.name" label="Organization name" placeholder="The organization name." :errors="$page.errors.name" />
+
+                    <div class="w-full flex flex-col md:flex-row">
+                        <div class="w-full md:w-1/3 md:mr-1">
+                            <Input name="name" v-model="form.name" label="Organization name" placeholder="The organization name." :errors="$page.errors.name" />
+                        </div>
+
+                        <div class="w-full md:w-1/3 md:mx-1">
+                            <Input name="beneficiaries" v-model="form.beneficiaries" label="Beneficiaries" type="number" placeholder="Add number of beneficiaries" :errors="$page.errors.beneficiaries" />
+                        </div>
+
+                        <div class="w-full md:w-1/3 md:ml-1">
+                            <Input name="public" v-model="form.public" label="Public" placeholder="Public" :errors="$page.errors.public" />
+                        </div>
                     </div>
 
-                    <div class="w-full w-1/2 md:ml-1">
+                </div>
+
+                <div class="w-full flex flex-col md:flex-row">
+
+                    <div class="w-full md:w-1/2 md:mr-1">
                         <Select name="category" v-model="form.category" label="Category" placeholder="Select the organization category" :errors="$page.errors.category">
-                            <option value="null" disabled selected>Select a category</option>
                             <option value="Salud">Salud</option>
                             <option value="Educación">Educación</option>
                             <option value="Ambientales">Ambientales</option>
@@ -26,35 +42,18 @@
                             <option value="Otros">Otros</option>
                         </Select>
                     </div>
+
+                    <Input class="w-full md:w-1/2 md:ml-1" name="impact" v-model="form.impact" label="Impact" placeholder="Add a brief organization impact" :errors="$page.errors.impact" />
+
                 </div>
+
+                <Input name="use_of_funds" v-model="form.use_of_funds" label="Use of funds" placeholder="How the organization use the funds..." :errors="$page.errors.use_of_funds" />
 
                 <Textarea name="description" v-model="form.description" label="Description" placeholder="Add an organization description..." :errors="$page.errors.description" />
 
-                <div class="w-full flex flex-col md:flex-row">
-                    <div class="w-full w-1/2 md:mr-1">
-                        <Input name="public" v-model="form.public" label="Target Public" placeholder="Public" :errors="$page.errors.public" />
-                    </div>
+                <hr class="mb-6 mt-12">
 
-                    <div class="w-full w-1/2 md:ml-1">
-                        <Input name="beneficiaries" v-model="form.beneficiaries" label="Beneficiaries" type="number" placeholder="Add number of beneficiaries" :errors="$page.errors.beneficiaries" />
-                    </div>
-                </div>
-
-                <Textarea name="impact" v-model="form.impact" label="Impact" placeholder="Add a brief organization impact" :errors="$page.errors.impact" />
-
-                <div class="w-full flex flex-col md:flex-row">
-                    <div class="w-full w-1/2 md:mr-1">
-                        <Input name="legal_representative" v-model="form.legal_representative" label="Legal Representative" placeholder="Add the name of the legal representative" :errors="$page.errors.legal_representative" />
-                    </div>
-
-                    <div class="w-full w-1/2 md:ml-1">
-                        <Input name="tax_number" v-model="form.tax_number" label="Tax Number" placeholder="Add the organization tax number." :errors="$page.errors.tax_number" />
-                    </div>
-                </div>
-
-                <Input name="office_address" v-model="form.office_address" label="Office Address" placeholder="Add office address" :errors="$page.errors.office_address" />
-
-                <Textarea name="use_of_funds" v-model="form.use_of_funds" label="Use of funds" placeholder="How the organization use the funds..." :errors="$page.errors.use_of_funds" />
+                <Title class="mb-8" info="This information would not be shown publicly.">Contact</Title>
 
                 <div class="w-full flex flex-col md:flex-row">
                     <div class="w-full w-1/3 md:mr-1">
@@ -70,6 +69,36 @@
                     </div>
                 </div>
 
+                <Input name="office_address" v-model="form.office_address" label="Office Address" placeholder="Add office address" :errors="$page.errors.office_address" />
+
+                <hr class="mb-6 mt-12">
+
+                <Title class="mb-8" info="This information would not be shown publicly.">Financial data</Title>
+
+                <div class="w-full flex flex-col md:flex-row">
+                    <div class="w-full w-1/3 md:mr-1">
+                        <Input name="legal_representative" v-model="form.legal_representative" label="Legal Representative" placeholder="Add the name of the legal representative" :errors="$page.errors.legal_representative" />
+                    </div>
+
+                    <div class="w-full w-1/3 md:ml-1">
+                        <Input name="tax_number" v-model="form.tax_number" label="Tax Number" placeholder="Add the organization tax number." :errors="$page.errors.tax_number" />
+                    </div>
+
+                    <div class="w-full w-1/3 md:ml-1">
+                        <Select name="country" v-model="form.country" label="Country" placeholder="Country where team is established." :errors="$page.errors.country">
+                            <option value="Guatemala">Guatemala</option>
+                            <option value="El Salvador">El Salvador</option>
+                            <option value="Honduras">Honduras</option>
+                            <option value="Panama">Panama</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                        </Select>
+                    </div>
+                </div>
+
+                <div class="w-full flex flex-col md:flex-row">
+                    <Input class="w-full md:w-1/2 md:mr-1" v-model="form.account_number" name="account_number" label="Bank account number" placeholder="Add an account number" :errors="$page.errors.account_number" />
+                    <Input class="w-full md:w-1/2 md:ml-1" v-model="form.bank" name="bank" label="Bank" placeholder="Add a bank" :errors="$page.errors.bank" />
+                </div>
 
             </template>
 
@@ -111,18 +140,21 @@ export default {
         return {
             form: {
                 name: null,
-                category: null,
-                description: null,
-                public: null,
                 beneficiaries: null,
+                public: null,
+                category: null,
                 impact: null,
-                legal_representative: null,
-                tax_number: null,
-                office_address: null,
                 use_of_funds: null,
+                description: null,
                 contact: null,
                 contact_phone: null,
                 contact_email: null,
+                office_address: null,
+                legal_representative: null,
+                tax_number: null,
+                country: null,
+                bank: null,
+                account_number: null,
             },
             sending: false,
             confirmation: false,

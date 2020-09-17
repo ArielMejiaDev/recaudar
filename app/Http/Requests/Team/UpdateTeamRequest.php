@@ -26,18 +26,21 @@ class UpdateTeamRequest extends FormRequest
     {
         return [
             'name' => ['required', 'min:5', Rule::unique('teams', 'name')->ignore($this->team->name, 'name')],
-            'category' => ['required', Rule::in(['Salud', 'Educación', 'Ambientales', 'Social', 'Nutrición', 'Pobreza', 'Animales', 'Otros'])],
-            'description' => 'required|min:20',
-            'public' => 'required|min:20',
             'beneficiaries' => 'required|numeric',
+            'public' => 'required|min:20',
+            'category' => ['required', Rule::in(['Salud', 'Educación', 'Ambientales', 'Social', 'Nutrición', 'Pobreza', 'Animales', 'Otros'])],
             'impact' => 'required|min:20',
-            'legal_representative' => 'required|min:5',
-            'tax_number' => 'required|min:5',
-            'office_address' => 'required|min:20',
             'use_of_funds' => 'required|min:20',
+            'description' => 'required|min:20',
             'contact' => 'required|min:5',
             'contact_phone' => 'required|min:6',
             'contact_email' => 'required|email',
+            'office_address' => 'required|min:20',
+            'legal_representative' => 'required|min:5',
+            'tax_number' => 'required|min:5',
+            'country' => 'required', Rule::in(['Guatemala', 'El Salvador', 'Honduras', 'Panama', 'Costa Rica']),
+            'bank' => 'required|min:5',
+            'account_number' => 'required|min:7',
         ];
     }
 }
