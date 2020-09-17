@@ -48,9 +48,10 @@ class UpdateTeamProfileTest extends TestCase
             'theme' => 'any',
             'impact' => '',
             'description' => '...',
+            'use_of_funds' => 'text',
         ]);
         $response->assertRedirect();
-        $response->assertSessionHasErrors(['name', 'beneficiaries', 'public', 'status', 'category', 'theme', 'impact', 'description']);
+        $response->assertSessionHasErrors(['name', 'beneficiaries', 'public', 'status', 'category', 'theme', 'impact', 'description', 'use_of_funds']);
         $anotherTeam->refresh();
         $this->assertNotEquals('', $anotherTeam->name);
     }
@@ -72,6 +73,7 @@ class UpdateTeamProfileTest extends TestCase
             'theme' => 'classic',
             'impact' => 'lorem ipsum dolor siet impact...',
             'description' => 'lorem ipsum dolor siet description ...',
+            'use_of_funds' => 'We buy medicines to provide medical care attention to children around the world',
         ]);
         $response->assertRedirect(route('admin.teams.index'));
         $response->assertSessionHas(['success']);

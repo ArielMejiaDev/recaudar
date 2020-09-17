@@ -30,6 +30,6 @@ $factory->define(Team::class, function (Faker $faker) {
         'theme' => 'classic',
         'account_number' => $faker->bankAccountNumber,
         'bank' => $faker->company,
-        'country' => $faker->country,
+        'country' => collect(['Guatemala', 'El Salvador', 'Honduras', 'Panama', 'Costa Rica'])->random(),
     ];
 });

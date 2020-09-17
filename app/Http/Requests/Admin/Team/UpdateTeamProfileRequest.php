@@ -32,6 +32,7 @@ class UpdateTeamProfileRequest extends FormRequest
             'category' => ['required', Rule::in(['Salud', 'Educacion', 'Ambientales', 'Social', 'Nutricion', 'Pobreza', 'Animales', 'Otros'])],
             'theme' => ['required', Rule::in(['classic', 'condensed', 'columns'])],
             'impact' => ['required', 'min:10'],
+            'use_of_funds' => ['required', 'min:5'],
             'description' => ['required', 'min:10'],
         ];
     }

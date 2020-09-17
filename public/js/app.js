@@ -2241,6 +2241,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2271,8 +2282,9 @@ __webpack_require__.r(__webpack_exports__);
         status: this.team.status,
         category: this.team.category,
         theme: this.team.theme,
-        description: this.team.description,
-        impact: this.team.impact
+        impact: this.team.impact,
+        use_of_funds: this.team.use_of_funds,
+        description: this.team.description
       },
       contactDataForm: {
         contact: this.team.contact,
@@ -2283,7 +2295,10 @@ __webpack_require__.r(__webpack_exports__);
       legalDataForm: {
         legal_representative: this.team.legal_representative,
         tax_number: this.team.tax_number,
-        use_of_funds: this.team.use_of_funds
+        country: this.team.country,
+        account_number: this.team.account_number,
+        bank: this.team.bank // use_of_funds: this.team.use_of_funds,
+
       },
       loading: false
     };
@@ -27427,6 +27442,22 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
+                  _c("Input", {
+                    attrs: {
+                      name: "use_of_funds",
+                      label: "Use of funds",
+                      placeholder: "Add a use of funds",
+                      errors: _vm.$page.errors.use_of_funds
+                    },
+                    model: {
+                      value: _vm.profileDataForm.use_of_funds,
+                      callback: function($$v) {
+                        _vm.$set(_vm.profileDataForm, "use_of_funds", $$v)
+                      },
+                      expression: "profileDataForm.use_of_funds"
+                    }
+                  }),
+                  _vm._v(" "),
                   _c("Textarea", {
                     attrs: {
                       name: "description",
@@ -27597,7 +27628,7 @@ var render = function() {
             {
               key: "header",
               fn: function() {
-                return [_c("Title", [_vm._v("Legal data")])]
+                return [_c("Title", [_vm._v("Financial data")])]
               },
               proxy: true
             },
@@ -27610,7 +27641,7 @@ var render = function() {
                     { staticClass: "w-full flex flex-col md:flex-row" },
                     [
                       _c("Input", {
-                        staticClass: "w-full md:w-1/2 md:mr-1",
+                        staticClass: "w-full md:w-1/3 md:mr-1",
                         attrs: {
                           name: "legal_representative",
                           label: "Legal Representative",
@@ -27631,7 +27662,7 @@ var render = function() {
                       }),
                       _vm._v(" "),
                       _c("Input", {
-                        staticClass: "w-full md:w-1/2 md:ml-1",
+                        staticClass: "w-full md:w-1/3 md:mx-1",
                         attrs: {
                           name: "tax_number",
                           label: "Tax number",
@@ -27645,26 +27676,92 @@ var render = function() {
                           },
                           expression: "legalDataForm.tax_number"
                         }
-                      })
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "Select",
+                        {
+                          staticClass: "w-full md:w-1/3 md:ml-1",
+                          attrs: {
+                            name: "country",
+                            label: "Country",
+                            placeholder: "Country where team is established.",
+                            errors: _vm.$page.errors.country
+                          },
+                          model: {
+                            value: _vm.legalDataForm.country,
+                            callback: function($$v) {
+                              _vm.$set(_vm.legalDataForm, "country", $$v)
+                            },
+                            expression: "legalDataForm.country"
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "Guatemala" } }, [
+                            _vm._v("Guatemala")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "El Salvador" } }, [
+                            _vm._v("El Salvador")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Honduras" } }, [
+                            _vm._v("Honduras")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Panama" } }, [
+                            _vm._v("Panama")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Costa Rica" } }, [
+                            _vm._v("Costa Rica")
+                          ])
+                        ]
+                      )
                     ],
                     1
                   ),
                   _vm._v(" "),
-                  _c("Input", {
-                    attrs: {
-                      name: "use_of_funds",
-                      label: "Use of funds",
-                      placeholder: "Add a use of funds",
-                      errors: _vm.$page.errors.use_of_funds
-                    },
-                    model: {
-                      value: _vm.legalDataForm.use_of_funds,
-                      callback: function($$v) {
-                        _vm.$set(_vm.legalDataForm, "use_of_funds", $$v)
-                      },
-                      expression: "legalDataForm.use_of_funds"
-                    }
-                  })
+                  _c(
+                    "div",
+                    { staticClass: "w-full flex flex-col md:flex-row" },
+                    [
+                      _c("Input", {
+                        staticClass: "w-full md:w-1/2 md:mr-1",
+                        attrs: {
+                          name: "account_number",
+                          label: "Bank account number",
+                          placeholder: "Add bank account number",
+                          errors: _vm.$page.errors.account_number
+                        },
+                        model: {
+                          value: _vm.legalDataForm.account_number,
+                          callback: function($$v) {
+                            _vm.$set(_vm.legalDataForm, "account_number", $$v)
+                          },
+                          expression: "legalDataForm.account_number"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("Input", {
+                        staticClass: "w-full md:w-1/2 md:ml-1",
+                        attrs: {
+                          name: "bank",
+                          label: "Bank",
+                          placeholder: "Add bank",
+                          errors: _vm.$page.errors.bank
+                        },
+                        model: {
+                          value: _vm.legalDataForm.bank,
+                          callback: function($$v) {
+                            _vm.$set(_vm.legalDataForm, "bank", $$v)
+                          },
+                          expression: "legalDataForm.bank"
+                        }
+                      })
+                    ],
+                    1
+                  )
                 ]
               },
               proxy: true
@@ -27672,7 +27769,7 @@ var render = function() {
             {
               key: "footer",
               fn: function() {
-                return [_c("LoadingButton", [_vm._v("Update legal data")])]
+                return [_c("LoadingButton", [_vm._v("Update financial data")])]
               },
               proxy: true
             }

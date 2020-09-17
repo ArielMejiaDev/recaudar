@@ -3,8 +3,9 @@
 namespace App\Http\Requests\Admin\Team;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class UpdateTeamLegalDataRequest extends FormRequest
+class UpdateTeamFinancialDataRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +27,9 @@ class UpdateTeamLegalDataRequest extends FormRequest
         return [
             'legal_representative' => ['required', 'min:5'],
             'tax_number' => ['required', 'min:5'],
-            'use_of_funds' => ['required', 'min:5']
+            'country' => Rule::in(['Guatemala', 'El Salvador', 'Honduras', 'Panama', 'Costa Rica']),
+            'account_number' => ['required', 'min:5'],
+            'bank' => ['required', 'min:5'],
         ];
     }
 }

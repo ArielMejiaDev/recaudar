@@ -49,6 +49,7 @@
                         </div>
                     </div>
                     <Input v-model="profileDataForm.impact" name="impact" label="Impact" placeholder="Add Impact" :errors="$page.errors.impact" />
+                    <Input v-model="profileDataForm.use_of_funds" name="use_of_funds" label="Use of funds" placeholder="Add a use of funds" :errors="$page.errors.use_of_funds" />
                     <Textarea v-model="profileDataForm.description" name="description" label="Description" placeholder="Add a description" :errors="$page.errors.description"></Textarea>
                 </template>
 
@@ -82,17 +83,27 @@
         <form @submit.prevent="submitLegalDataForm" class="mt-16">
             <Panel>
                 <template v-slot:header>
-                    <Title>Legal data</Title>
+                    <Title>Financial data</Title>
                 </template>
                 <template v-slot:body>
                     <div class="w-full flex flex-col md:flex-row">
-                        <Input class="w-full md:w-1/2 md:mr-1" v-model="legalDataForm.legal_representative" name="legal_representative" label="Legal Representative" placeholder="Add legal representative" :errors="$page.errors.legal_representative" />
-                        <Input class="w-full md:w-1/2 md:ml-1" v-model="legalDataForm.tax_number" name="tax_number" label="Tax number" placeholder="Add tax number" :errors="$page.errors.tax_number" />
+                        <Input class="w-full md:w-1/3 md:mr-1" v-model="legalDataForm.legal_representative" name="legal_representative" label="Legal Representative" placeholder="Add legal representative" :errors="$page.errors.legal_representative" />
+                        <Input class="w-full md:w-1/3 md:mx-1" v-model="legalDataForm.tax_number" name="tax_number" label="Tax number" placeholder="Add tax number" :errors="$page.errors.tax_number" />
+                        <Select class="w-full md:w-1/3 md:ml-1" v-model="legalDataForm.country" name="country" label="Country" placeholder="Country where team is established." :errors="$page.errors.country">
+                            <option value="Guatemala">Guatemala</option>
+                            <option value="El Salvador">El Salvador</option>
+                            <option value="Honduras">Honduras</option>
+                            <option value="Panama">Panama</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                        </Select>
                     </div>
-                    <Input v-model="legalDataForm.use_of_funds" name="use_of_funds" label="Use of funds" placeholder="Add a use of funds" :errors="$page.errors.use_of_funds" />
+                    <div class="w-full flex flex-col md:flex-row">
+                        <Input class="w-full md:w-1/2 md:mr-1" v-model="legalDataForm.account_number" name="account_number" label="Bank account number" placeholder="Add bank account number" :errors="$page.errors.account_number" />
+                        <Input class="w-full md:w-1/2 md:ml-1" v-model="legalDataForm.bank" name="bank" label="Bank" placeholder="Add bank" :errors="$page.errors.bank" />
+                    </div>
                 </template>
                 <template v-slot:footer>
-                    <LoadingButton>Update legal data</LoadingButton>
+                    <LoadingButton>Update financial data</LoadingButton>
                 </template>
             </Panel>
         </form>
@@ -130,8 +141,9 @@ export default {
                 status: this.team.status,
                 category: this.team.category,
                 theme: this.team.theme,
-                description: this.team.description,
                 impact: this.team.impact,
+                use_of_funds: this.team.use_of_funds,
+                description: this.team.description,
             },
             contactDataForm: {
                 contact: this.team.contact,
@@ -142,7 +154,10 @@ export default {
             legalDataForm: {
                 legal_representative: this.team.legal_representative,
                 tax_number: this.team.tax_number,
-                use_of_funds: this.team.use_of_funds,
+                country: this.team.country,
+                account_number: this.team.account_number,
+                bank: this.team.bank,
+                // use_of_funds: this.team.use_of_funds,
             },
             loading: false,
         }

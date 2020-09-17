@@ -14,7 +14,7 @@ use App\Http\Controllers\Admin\Admins\AdminController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\Teams\TeamController;
 use App\Http\Controllers\Admin\Teams\UpdateTeamContact;
-use App\Http\Controllers\Admin\Teams\UpdateTeamLegalData;
+use App\Http\Controllers\Admin\Teams\UpdateTeamFinancialData;
 use App\Http\Controllers\Admin\Teams\UpdateTeamProfile;
 use App\Http\Controllers\Admin\Teams\UpdateTeamStatus;
 use App\Http\Controllers\Admin\Transactions\TransactionsController;
@@ -35,7 +35,7 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'appAdmin'])->group(func
 
     Route::put('/teams/update-contact/{team}', UpdateTeamContact::class)->name('admin.teams.update-contact');
 
-    Route::put('/teams/update-legal-data/{team}', UpdateTeamLegalData::class)->name('admin.teams.update-legal-data');
+    Route::put('/teams/update-legal-data/{team}', UpdateTeamFinancialData::class)->name('admin.teams.update-legal-data');
 
     Route::resource('transactions', TransactionsController::class, ['as' => 'admin']);
 
