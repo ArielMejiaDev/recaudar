@@ -17,8 +17,8 @@ class CreatePlansTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('info')->nullable();
-            $table->string('amount')->nullable();
-            $table->string('currency')->default('Q');
+            $table->string('amount_in_local_currency')->nullable();
+            $table->string('amount_in_dollars')->nullable();
             $table->string('banner')->nullable();
             $table->softDeletes();
             $table->timestamps();

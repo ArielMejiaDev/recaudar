@@ -2139,6 +2139,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_Select__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../Shared/Select */ "./resources/js/Shared/Select.vue");
 /* harmony import */ var _Shared_Textarea__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../Shared/Textarea */ "./resources/js/Shared/Textarea.vue");
 /* harmony import */ var _Shared_LoadingButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../Shared/LoadingButton */ "./resources/js/Shared/LoadingButton.vue");
+/* harmony import */ var _Shared_AvatarUploader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../Shared/AvatarUploader */ "./resources/js/Shared/AvatarUploader.vue");
+/* harmony import */ var _Shared_ImageUploader__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../Shared/ImageUploader */ "./resources/js/Shared/ImageUploader.vue");
 //
 //
 //
@@ -2252,6 +2254,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 
 
@@ -2270,6 +2294,8 @@ __webpack_require__.r(__webpack_exports__);
     Title: _Shared_Title__WEBPACK_IMPORTED_MODULE_2__["default"],
     Input: _Shared_Input__WEBPACK_IMPORTED_MODULE_3__["default"],
     Select: _Shared_Select__WEBPACK_IMPORTED_MODULE_4__["default"],
+    AvatarUploader: _Shared_AvatarUploader__WEBPACK_IMPORTED_MODULE_7__["default"],
+    ImageUploader: _Shared_ImageUploader__WEBPACK_IMPORTED_MODULE_8__["default"],
     Textarea: _Shared_Textarea__WEBPACK_IMPORTED_MODULE_5__["default"],
     LoadingButton: _Shared_LoadingButton__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
@@ -2286,6 +2312,10 @@ __webpack_require__.r(__webpack_exports__);
         use_of_funds: this.team.use_of_funds,
         description: this.team.description
       },
+      mediaForm: {
+        logo: this.team.logo,
+        banner: this.team.banner
+      },
       contactDataForm: {
         contact: this.team.contact,
         contact_phone: this.team.contact_phone,
@@ -2297,10 +2327,12 @@ __webpack_require__.r(__webpack_exports__);
         tax_number: this.team.tax_number,
         country: this.team.country,
         account_number: this.team.account_number,
-        bank: this.team.bank // use_of_funds: this.team.use_of_funds,
-
+        bank: this.team.bank
       },
-      loading: false
+      loadingProfileData: false,
+      loadingMedia: false,
+      loadingContactData: false,
+      loadingLegalDataForm: false
     };
   },
   props: {
@@ -2310,34 +2342,49 @@ __webpack_require__.r(__webpack_exports__);
     submitProfileDataForm: function submitProfileDataForm() {
       var _this = this;
 
-      this.loading = true;
+      this.loadingProfileData = true;
       var route = this.route('admin.teams.update-profile', {
         team: this.team.id
       });
       this.$inertia.put(route, this.profileDataForm).then(function () {
-        return _this.loading = false;
+        return _this.loadingProfileData = false;
+      });
+    },
+    submitMediaForm: function submitMediaForm() {
+      var _this2 = this;
+
+      this.loadingMedia = true;
+      var route = this.route('admin.teams.update-media', {
+        team: this.team.id
+      });
+      var form = new FormData();
+      form.append('logo', this.mediaForm.logo || '');
+      form.append('banner', this.mediaForm.banner || '');
+      form.append('_method', 'put');
+      this.$inertia.post(route, form).then(function () {
+        return _this2.loadingMedia = false;
       });
     },
     submitContactDataForm: function submitContactDataForm() {
-      var _this2 = this;
+      var _this3 = this;
 
-      this.loading = true;
+      this.loadingContactData = true;
       var route = this.route('admin.teams.update-contact', {
         team: this.team.id
       });
       this.$inertia.put(route, this.contactDataForm).then(function () {
-        return _this2.loading = false;
+        return _this3.loadingContactData = false;
       });
     },
     submitLegalDataForm: function submitLegalDataForm() {
-      var _this3 = this;
+      var _this4 = this;
 
-      this.loading = true;
+      this.loadingLegalDataForm = true;
       var route = this.route('admin.teams.update-legal-data', {
         team: this.team.id
       });
       this.$inertia.put(route, this.legalDataForm).then(function () {
-        return _this3.loading = false;
+        return _this4.loadingLegalDataForm = false;
       });
     }
   }
@@ -3588,6 +3635,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_Textarea__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../Shared/Textarea */ "./resources/js/Shared/Textarea.vue");
 /* harmony import */ var _Shared_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../Shared/Select */ "./resources/js/Shared/Select.vue");
 /* harmony import */ var _Shared_ImageUploader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../Shared/ImageUploader */ "./resources/js/Shared/ImageUploader.vue");
+/* harmony import */ var _Shared_IconInput__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../Shared/IconInput */ "./resources/js/Shared/IconInput.vue");
+/* harmony import */ var _Shared_Icon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../Shared/Icon */ "./resources/js/Shared/Icon.vue");
 //
 //
 //
@@ -3637,6 +3686,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+
+
 
 
 
@@ -3655,9 +3710,9 @@ __webpack_require__.r(__webpack_exports__);
       toggle: true,
       form: {
         title: null,
+        amount_in_local_currency: null,
+        amount_in_dollars: null,
         info: null,
-        currency: null,
-        amount: null,
         banner: null
       },
       loading: false
@@ -3668,6 +3723,8 @@ __webpack_require__.r(__webpack_exports__);
     Title: _Shared_Title__WEBPACK_IMPORTED_MODULE_0__["default"],
     Panel: _Shared_Panel__WEBPACK_IMPORTED_MODULE_2__["default"],
     Input: _Shared_Input__WEBPACK_IMPORTED_MODULE_3__["default"],
+    IconInput: _Shared_IconInput__WEBPACK_IMPORTED_MODULE_8__["default"],
+    Icon: _Shared_Icon__WEBPACK_IMPORTED_MODULE_9__["default"],
     Select: _Shared_Select__WEBPACK_IMPORTED_MODULE_6__["default"],
     Textarea: _Shared_Textarea__WEBPACK_IMPORTED_MODULE_5__["default"],
     ImageUploader: _Shared_ImageUploader__WEBPACK_IMPORTED_MODULE_7__["default"],
@@ -3695,8 +3752,8 @@ __webpack_require__.r(__webpack_exports__);
       this.loading = true;
       var form = new FormData();
       form.append('title', this.form.title);
-      form.append('currency', this.form.currency);
-      form.append('amount', this.form.amount || '');
+      form.append('amount_in_local_currency', this.form.amount_in_local_currency || '');
+      form.append('amount_in_dollars', this.form.amount_in_dollars || '');
       form.append('info', this.form.info);
       form.append('banner', this.form.banner || '');
       var route = this.route('teams.plans.store', {
@@ -3728,6 +3785,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_Textarea__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../Shared/Textarea */ "./resources/js/Shared/Textarea.vue");
 /* harmony import */ var _Shared_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../Shared/Select */ "./resources/js/Shared/Select.vue");
 /* harmony import */ var _Shared_ImageUploader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../Shared/ImageUploader */ "./resources/js/Shared/ImageUploader.vue");
+/* harmony import */ var _Shared_IconInput__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../Shared/IconInput */ "./resources/js/Shared/IconInput.vue");
 //
 //
 //
@@ -3772,11 +3830,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
+
 
 
 
@@ -3796,8 +3850,8 @@ __webpack_require__.r(__webpack_exports__);
       form: {
         title: this.plan.title,
         info: this.plan.info,
-        currency: this.plan.currency,
-        amount: this.plan.amount,
+        amount_in_local_currency: this.plan.amount_in_local_currency,
+        amount_in_dollars: this.plan.amount_in_dollars,
         banner: null
       },
       loading: false
@@ -3808,6 +3862,7 @@ __webpack_require__.r(__webpack_exports__);
     Title: _Shared_Title__WEBPACK_IMPORTED_MODULE_0__["default"],
     Panel: _Shared_Panel__WEBPACK_IMPORTED_MODULE_2__["default"],
     Input: _Shared_Input__WEBPACK_IMPORTED_MODULE_3__["default"],
+    IconInput: _Shared_IconInput__WEBPACK_IMPORTED_MODULE_8__["default"],
     Select: _Shared_Select__WEBPACK_IMPORTED_MODULE_6__["default"],
     Textarea: _Shared_Textarea__WEBPACK_IMPORTED_MODULE_5__["default"],
     ImageUploader: _Shared_ImageUploader__WEBPACK_IMPORTED_MODULE_7__["default"],
@@ -3836,8 +3891,8 @@ __webpack_require__.r(__webpack_exports__);
       this.loading = true;
       var form = new FormData();
       form.append('title', this.form.title);
-      form.append('currency', this.form.currency);
-      form.append('amount', this.form.amount || '');
+      form.append('amount_in_local_currency', this.form.amount_in_local_currency || '');
+      form.append('amount_in_dollars', this.form.amount_in_dollars || '');
       form.append('info', this.form.info);
       form.append('banner', this.form.banner || '');
       form.append('_method', 'put');
@@ -5920,9 +5975,85 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Icon",
   props: ['name']
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Shared/IconInput.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Shared/IconInput.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "IconInput",
+  data: function data() {
+    return {
+      data: null
+    };
+  },
+  props: {
+    value: String,
+    name: null,
+    icon: null,
+    label: String,
+    type: {
+      type: String,
+      "default": 'text'
+    },
+    required: {
+      type: Boolean,
+      "default": true
+    },
+    autocomplete: {
+      type: String,
+      "default": 'off'
+    },
+    disabled: {
+      type: Boolean,
+      "default": false
+    },
+    placeholder: String,
+    errors: {
+      type: Array,
+      "default": function _default() {
+        return [];
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -27481,11 +27612,124 @@ var render = function() {
               key: "footer",
               fn: function() {
                 return [
-                  _c("LoadingButton", { attrs: { loading: _vm.loading } }, [
-                    _vm._v(
-                      "\n                    Update profile\n                "
-                    )
+                  _c(
+                    "LoadingButton",
+                    { attrs: { loading: _vm.loadingProfileData } },
+                    [
+                      _vm._v(
+                        "\n                    Update profile\n                "
+                      )
+                    ]
+                  )
+                ]
+              },
+              proxy: true
+            }
+          ])
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        staticClass: "mt-16",
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.submitMediaForm($event)
+          }
+        }
+      },
+      [
+        _c("Panel", {
+          scopedSlots: _vm._u([
+            {
+              key: "header",
+              fn: function() {
+                return [
+                  _c("Title", { staticClass: "flex items-start" }, [
+                    _c("div", { staticClass: "text-gray-800 mr-2" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-6 h-6",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            viewBox: "0 0 24 24",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              "stroke-width": "2",
+                              d:
+                                "M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v("\n                    Media\n                ")
                   ])
+                ]
+              },
+              proxy: true
+            },
+            {
+              key: "body",
+              fn: function() {
+                return [
+                  _c("AvatarUploader", {
+                    staticClass: "mb-4",
+                    attrs: {
+                      name: "logo",
+                      label: "Logo",
+                      "current-file": _vm.team.logo,
+                      errors: _vm.$page.errors.logo
+                    },
+                    model: {
+                      value: _vm.mediaForm.logo,
+                      callback: function($$v) {
+                        _vm.$set(_vm.mediaForm, "logo", $$v)
+                      },
+                      expression: "mediaForm.logo"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("ImageUploader", {
+                    attrs: {
+                      name: "banner",
+                      label: "Banner",
+                      "current-file": _vm.team.banner,
+                      errors: _vm.$page.errors.banner
+                    },
+                    model: {
+                      value: _vm.mediaForm.banner,
+                      callback: function($$v) {
+                        _vm.$set(_vm.mediaForm, "banner", $$v)
+                      },
+                      expression: "mediaForm.banner"
+                    }
+                  })
+                ]
+              },
+              proxy: true
+            },
+            {
+              key: "footer",
+              fn: function() {
+                return [
+                  _c(
+                    "LoadingButton",
+                    { attrs: { loading: _vm.loadingMedia } },
+                    [_vm._v("Update media")]
+                  )
                 ]
               },
               proxy: true
@@ -27601,7 +27845,13 @@ var render = function() {
             {
               key: "footer",
               fn: function() {
-                return [_c("LoadingButton", [_vm._v("Update contact data")])]
+                return [
+                  _c(
+                    "LoadingButton",
+                    { attrs: { loading: _vm.loadingContactData } },
+                    [_vm._v("Update contact data")]
+                  )
+                ]
               },
               proxy: true
             }
@@ -27769,7 +28019,13 @@ var render = function() {
             {
               key: "footer",
               fn: function() {
-                return [_c("LoadingButton", [_vm._v("Update financial data")])]
+                return [
+                  _c(
+                    "LoadingButton",
+                    { attrs: { loading: _vm.loadingLegalDataForm } },
+                    [_vm._v("Update financial data")]
+                  )
+                ]
               },
               proxy: true
             }
@@ -30235,119 +30491,51 @@ var render = function() {
               key: "body",
               fn: function() {
                 return [
+                  _c("Input", {
+                    ref: "title",
+                    attrs: {
+                      name: "title",
+                      label: "Title",
+                      placeholder: "Add plans title",
+                      errors: _vm.$page.errors.title
+                    },
+                    model: {
+                      value: _vm.form.title,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "title", $$v)
+                      },
+                      expression: "form.title"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.toggle
+                    ? _c(
+                        "span",
+                        {
+                          staticClass:
+                            "text-blue-500 font-bold text-sm leading-loose tracking-tighter hover:underline hover:text-blue-600 cursor-pointer focus:outline-none focus:text-blue-600 focus:underline",
+                          on: { click: _vm.showAmountInput }
+                        },
+                        [_vm._v("Variable amount")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  !_vm.toggle
+                    ? _c(
+                        "span",
+                        {
+                          staticClass:
+                            "text-blue-500 font-bold text-sm leading-loose tracking-tighter hover:underline hover:text-blue-600 cursor-pointer focus:outline-none focus:text-blue-600 focus:underline",
+                          on: { click: _vm.showAmountInput }
+                        },
+                        [_vm._v("Add amount")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
                   _c(
                     "div",
-                    { staticClass: "w-full flex flex-col lg:flex-row" },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "w-full lg:w-1/2 lg:mr-1" },
-                        [
-                          _c("Input", {
-                            ref: "title",
-                            attrs: {
-                              name: "title",
-                              label: "Title",
-                              placeholder: "Add plans title",
-                              errors: _vm.$page.errors.title
-                            },
-                            model: {
-                              value: _vm.form.title,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "title", $$v)
-                              },
-                              expression: "form.title"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "w-full lg:w-1/2 lg:ml-1" },
-                        [
-                          _c(
-                            "Select",
-                            {
-                              attrs: {
-                                name: "currency",
-                                label: "Plans currency",
-                                placeholder:
-                                  "Please select a currency for the plan",
-                                errors: _vm.$page.errors.currency
-                              },
-                              model: {
-                                value: _vm.form.currency,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.form, "currency", $$v)
-                                },
-                                expression: "form.currency"
-                              }
-                            },
-                            [
-                              _c("option", { attrs: { value: "GTQ" } }, [
-                                _vm._v("Quetzales")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "USD" } }, [
-                                _vm._v("Dollars")
-                              ])
-                            ]
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "mb-4" }, [
-                    _c("div", { staticClass: "flex items-center" }, [
-                      _vm.toggle
-                        ? _c(
-                            "label",
-                            {
-                              staticClass:
-                                "text-sm text-gray-600 block mb-1 mr-4",
-                              attrs: { for: "amount" }
-                            },
-                            [_vm._v("Amount")]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.toggle
-                        ? _c(
-                            "span",
-                            {
-                              staticClass:
-                                "text-blue-500 font-bold text-sm leading-loose tracking-tighter hover:underline hover:text-blue-600 cursor-pointer focus:outline-none focus:text-blue-600 focus:underline",
-                              on: { click: _vm.showAmountInput }
-                            },
-                            [_vm._v("Variable amount")]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      !_vm.toggle
-                        ? _c(
-                            "span",
-                            {
-                              staticClass:
-                                "text-blue-500 font-bold text-sm leading-loose tracking-tighter hover:underline hover:text-blue-600 cursor-pointer focus:outline-none focus:text-blue-600 focus:underline",
-                              on: { click: _vm.showAmountInput }
-                            },
-                            [_vm._v("Add amount")]
-                          )
-                        : _vm._e()
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
+                    {
                       directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.amount,
-                          expression: "form.amount"
-                        },
                         {
                           name: "show",
                           rawName: "v-show",
@@ -30355,38 +30543,61 @@ var render = function() {
                           expression: "toggle"
                         }
                       ],
-                      ref: "amount",
-                      staticClass: "w-full form-input rounded-lg",
-                      attrs: {
-                        id: "amount",
-                        name: "amount",
-                        type: "number",
-                        required: "required",
-                        autocomplete: "off",
-                        placeholder: "Add an amount for the plan...",
-                        required: false
-                      },
-                      domProps: { value: _vm.form.amount },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.form, "amount", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm.$page.errors.amount
-                      ? _c(
-                          "p",
+                      staticClass: "w-full flex flex-col md:flex-row"
+                    },
+                    [
+                      _c("IconInput", {
+                        staticClass: "w-full md:w-1/2 md:mr-1",
+                        attrs: {
+                          name: "amount_in_local_currency",
+                          placeholder: "Amount in local currency",
+                          required: false
+                        },
+                        scopedSlots: _vm._u([
                           {
-                            staticClass: "text-red-600 text-xs font-bold my-1"
+                            key: "icon",
+                            fn: function() {
+                              return [_vm._v("Q")]
+                            },
+                            proxy: true
+                          }
+                        ]),
+                        model: {
+                          value: _vm.form.amount_in_local_currency,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "amount_in_local_currency", $$v)
                           },
-                          [_vm._v(_vm._s(_vm.$page.errors.amount[0]))]
-                        )
-                      : _vm._e()
-                  ]),
+                          expression: "form.amount_in_local_currency"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("IconInput", {
+                        staticClass: "w-full md:w-1/2 md:mr-1",
+                        attrs: {
+                          name: "amount_in_dollars",
+                          placeholder: "Amount in dollars",
+                          required: false
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "icon",
+                            fn: function() {
+                              return [_vm._v("$")]
+                            },
+                            proxy: true
+                          }
+                        ]),
+                        model: {
+                          value: _vm.form.amount_in_dollars,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "amount_in_dollars", $$v)
+                          },
+                          expression: "form.amount_in_dollars"
+                        }
+                      })
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
                   _c("Textarea", {
                     attrs: {
@@ -30504,119 +30715,51 @@ var render = function() {
               key: "body",
               fn: function() {
                 return [
+                  _c("Input", {
+                    ref: "title",
+                    attrs: {
+                      name: "title",
+                      label: "Title",
+                      placeholder: "Add plans title",
+                      errors: _vm.$page.errors.title
+                    },
+                    model: {
+                      value: _vm.form.title,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "title", $$v)
+                      },
+                      expression: "form.title"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.toggle
+                    ? _c(
+                        "span",
+                        {
+                          staticClass:
+                            "text-blue-500 font-bold text-sm leading-loose tracking-tighter hover:underline hover:text-blue-600 cursor-pointer focus:outline-none focus:text-blue-600 focus:underline",
+                          on: { click: _vm.showAmountInput }
+                        },
+                        [_vm._v("Variable amount")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  !_vm.toggle
+                    ? _c(
+                        "span",
+                        {
+                          staticClass:
+                            "text-blue-500 font-bold text-sm leading-loose tracking-tighter hover:underline hover:text-blue-600 cursor-pointer focus:outline-none focus:text-blue-600 focus:underline",
+                          on: { click: _vm.showAmountInput }
+                        },
+                        [_vm._v("Add amount")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
                   _c(
                     "div",
-                    { staticClass: "w-full flex flex-col lg:flex-row" },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "w-full lg:w-1/2 lg:mr-1" },
-                        [
-                          _c("Input", {
-                            ref: "title",
-                            attrs: {
-                              name: "title",
-                              label: "Title",
-                              placeholder: "Add plans title",
-                              errors: _vm.$page.errors.title
-                            },
-                            model: {
-                              value: _vm.form.title,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "title", $$v)
-                              },
-                              expression: "form.title"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "w-full lg:w-1/2 lg:ml-1" },
-                        [
-                          _c(
-                            "Select",
-                            {
-                              attrs: {
-                                name: "currency",
-                                label: "Plans currency",
-                                placeholder:
-                                  "Please select a currency for the plan",
-                                errors: _vm.$page.errors.currency
-                              },
-                              model: {
-                                value: _vm.form.currency,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.form, "currency", $$v)
-                                },
-                                expression: "form.currency"
-                              }
-                            },
-                            [
-                              _c("option", { attrs: { value: "GTQ" } }, [
-                                _vm._v("Quetzales")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "USD" } }, [
-                                _vm._v("Dollars")
-                              ])
-                            ]
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "mb-4" }, [
-                    _c("div", { staticClass: "flex items-center" }, [
-                      _vm.toggle
-                        ? _c(
-                            "label",
-                            {
-                              staticClass:
-                                "text-sm text-gray-600 block mb-1 mr-4",
-                              attrs: { for: "amount" }
-                            },
-                            [_vm._v("Amount")]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.toggle
-                        ? _c(
-                            "span",
-                            {
-                              staticClass:
-                                "text-blue-500 font-bold text-sm leading-loose tracking-tighter hover:underline hover:text-blue-600 cursor-pointer focus:outline-none focus:text-blue-600 focus:underline",
-                              on: { click: _vm.showAmountInput }
-                            },
-                            [_vm._v("Variable amount")]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      !_vm.toggle
-                        ? _c(
-                            "span",
-                            {
-                              staticClass:
-                                "text-blue-500 font-bold text-sm leading-loose tracking-tighter hover:underline hover:text-blue-600 cursor-pointer focus:outline-none focus:text-blue-600 focus:underline",
-                              on: { click: _vm.showAmountInput }
-                            },
-                            [_vm._v("Add amount")]
-                          )
-                        : _vm._e()
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
+                    {
                       directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.amount,
-                          expression: "form.amount"
-                        },
                         {
                           name: "show",
                           rawName: "v-show",
@@ -30624,38 +30767,61 @@ var render = function() {
                           expression: "toggle"
                         }
                       ],
-                      ref: "amount",
-                      staticClass: "w-full form-input rounded-lg",
-                      attrs: {
-                        id: "amount",
-                        name: "amount",
-                        type: "number",
-                        required: "required",
-                        autocomplete: "off",
-                        placeholder: "Add an amount for the plan...",
-                        required: false
-                      },
-                      domProps: { value: _vm.form.amount },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.form, "amount", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm.$page.errors.amount
-                      ? _c(
-                          "p",
+                      staticClass: "w-full flex flex-col md:flex-row"
+                    },
+                    [
+                      _c("IconInput", {
+                        staticClass: "w-full md:w-1/2 md:mr-1",
+                        attrs: {
+                          name: "amount_in_local_currency",
+                          placeholder: "Amount in local currency",
+                          required: false
+                        },
+                        scopedSlots: _vm._u([
                           {
-                            staticClass: "text-red-600 text-xs font-bold my-1"
+                            key: "icon",
+                            fn: function() {
+                              return [_vm._v("Q")]
+                            },
+                            proxy: true
+                          }
+                        ]),
+                        model: {
+                          value: _vm.form.amount_in_local_currency,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "amount_in_local_currency", $$v)
                           },
-                          [_vm._v(_vm._s(_vm.$page.errors.amount[0]))]
-                        )
-                      : _vm._e()
-                  ]),
+                          expression: "form.amount_in_local_currency"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("IconInput", {
+                        staticClass: "w-full md:w-1/2 md:mr-1",
+                        attrs: {
+                          name: "amount_in_dollars",
+                          placeholder: "Amount in dollars",
+                          required: false
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "icon",
+                            fn: function() {
+                              return [_vm._v("$")]
+                            },
+                            proxy: true
+                          }
+                        ]),
+                        model: {
+                          value: _vm.form.amount_in_dollars,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "amount_in_dollars", $$v)
+                          },
+                          expression: "form.amount_in_dollars"
+                        }
+                      })
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
                   _c("Textarea", {
                     attrs: {
@@ -34080,6 +34246,102 @@ var render = function() {
           })
         ]
       )
+    : _vm.name === "user"
+    ? _c(
+        "svg",
+        {
+          staticClass: "w-6 h-6",
+          attrs: {
+            fill: "none",
+            stroke: "currentColor",
+            viewBox: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg"
+          }
+        },
+        [
+          _c("path", {
+            attrs: {
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round",
+              "stroke-width": "2",
+              d:
+                "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+            }
+          })
+        ]
+      )
+    : _vm.name === "dollar"
+    ? _c(
+        "svg",
+        {
+          staticClass: "w-6 h-6",
+          attrs: {
+            fill: "none",
+            stroke: "currentColor",
+            viewBox: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg"
+          }
+        },
+        [
+          _c("path", {
+            attrs: {
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round",
+              "stroke-width": "2",
+              d:
+                "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            }
+          })
+        ]
+      )
+    : _vm.name === "cash"
+    ? _c(
+        "svg",
+        {
+          staticClass: "w-6 h-6",
+          attrs: {
+            fill: "none",
+            stroke: "currentColor",
+            viewBox: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg"
+          }
+        },
+        [
+          _c("path", {
+            attrs: {
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round",
+              "stroke-width": "2",
+              d:
+                "M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+            }
+          })
+        ]
+      )
+    : _vm.name === "@"
+    ? _c(
+        "svg",
+        {
+          staticClass: "w-6 h-6",
+          attrs: {
+            fill: "none",
+            stroke: "currentColor",
+            viewBox: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg"
+          }
+        },
+        [
+          _c("path", {
+            attrs: {
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round",
+              "stroke-width": "2",
+              d:
+                "M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+            }
+          })
+        ]
+      )
     : _vm.name === "inbox"
     ? _c(
         "svg",
@@ -34150,6 +34412,88 @@ var render = function() {
         ]
       )
     : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Shared/IconInput.vue?vue&type=template&id=6082b2a5&":
+/*!********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Shared/IconInput.vue?vue&type=template&id=6082b2a5& ***!
+  \********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "flex flex-col mb-4" }, [
+    _vm.label
+      ? _c(
+          "label",
+          {
+            staticClass: "text-sm text-gray-600 block mb-1",
+            attrs: { for: _vm.name }
+          },
+          [_vm._v(_vm._s(_vm.label))]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c("div", { staticClass: "relative" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "absolute flex border border-transparent left-0 top-0 h-full w-10 overflow-hidden"
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass:
+                "flex items-center justify-center rounded-tl rounded-bl z-10 bg-gray-100 text-gray-600 text-lg h-full w-full"
+            },
+            [_vm._t("icon")],
+            2
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "relative form-input rounded-lg w-full pl-12",
+        class: _vm.disabled ? "bg-gray-200" : null,
+        attrs: {
+          id: _vm.name,
+          name: _vm.name,
+          type: _vm.type,
+          required: _vm.required,
+          autocomplete: _vm.autocomplete,
+          placeholder: _vm.placeholder,
+          disabled: _vm.disabled
+        },
+        domProps: { value: _vm.value },
+        on: {
+          input: function($event) {
+            return _vm.$emit("input", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _vm.errors.length
+      ? _c("div", { staticClass: "text-red-600 text-xs font-bold my-1" }, [
+          _vm._v(_vm._s(_vm.errors[0]))
+        ])
+      : _vm._e()
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -50965,6 +51309,7 @@ var map = {
 	"./Shared/Card.vue": "./resources/js/Shared/Card.vue",
 	"./Shared/FileUploader.vue": "./resources/js/Shared/FileUploader.vue",
 	"./Shared/Icon.vue": "./resources/js/Shared/Icon.vue",
+	"./Shared/IconInput.vue": "./resources/js/Shared/IconInput.vue",
 	"./Shared/ImageUploader.vue": "./resources/js/Shared/ImageUploader.vue",
 	"./Shared/Input.vue": "./resources/js/Shared/Input.vue",
 	"./Shared/Layouts/Auth.vue": "./resources/js/Shared/Layouts/Auth.vue",
@@ -54070,6 +54415,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Icon_vue_vue_type_template_id_75bd2355___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Icon_vue_vue_type_template_id_75bd2355___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Shared/IconInput.vue":
+/*!*******************************************!*\
+  !*** ./resources/js/Shared/IconInput.vue ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _IconInput_vue_vue_type_template_id_6082b2a5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./IconInput.vue?vue&type=template&id=6082b2a5& */ "./resources/js/Shared/IconInput.vue?vue&type=template&id=6082b2a5&");
+/* harmony import */ var _IconInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./IconInput.vue?vue&type=script&lang=js& */ "./resources/js/Shared/IconInput.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _IconInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _IconInput_vue_vue_type_template_id_6082b2a5___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _IconInput_vue_vue_type_template_id_6082b2a5___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Shared/IconInput.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Shared/IconInput.vue?vue&type=script&lang=js&":
+/*!********************************************************************!*\
+  !*** ./resources/js/Shared/IconInput.vue?vue&type=script&lang=js& ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_IconInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./IconInput.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Shared/IconInput.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_IconInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Shared/IconInput.vue?vue&type=template&id=6082b2a5&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/Shared/IconInput.vue?vue&type=template&id=6082b2a5& ***!
+  \**************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_IconInput_vue_vue_type_template_id_6082b2a5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./IconInput.vue?vue&type=template&id=6082b2a5& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Shared/IconInput.vue?vue&type=template&id=6082b2a5&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_IconInput_vue_vue_type_template_id_6082b2a5___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_IconInput_vue_vue_type_template_id_6082b2a5___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

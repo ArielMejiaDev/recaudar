@@ -13,6 +13,7 @@ use App\User;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -71,9 +72,9 @@ class PlansController extends Controller
     {
         if($request->hasFile('banner')) {
             $banner = S3Uploader::upload('banner', 'teams_plans_banners');
-            $data = array_merge(['banner' => $banner], $request->only('title', 'currency', 'amount', 'info'));
+            $data = array_merge(['banner' => $banner], $request->only('title', 'currency', 'amount_in_local_currency', 'amount_in_dollars', 'info'));
         }
-        $team->plans()->create($data ?? $request->only('title', 'currency', 'amount', 'info'));
+        $team->plans()->create($data ?? $request->only('title', 'currency', 'amount_in_local_currency', 'amount_in_dollars', 'info'));
         return redirect()->route('teams.plans.index', $team)->with(['success' => trans('Plan created!')]);
     }
 
@@ -105,9 +106,9 @@ class PlansController extends Controller
     {
         if($request->hasFile('banner')) {
             $banner = S3Uploader::upload('banner', 'teams_plans_banners', $plan->banner);
-            $data = array_merge(['banner' => $banner], $request->only('title', 'currency', 'amount', 'info'));
+            $data = array_merge(['banner' => $banner], $request->only('title', 'amount_in_local_currency', 'amount_in_dollars', 'info'));
         }
-        $plan->update($data ?? $request->only('title', 'currency', 'amount', 'info'));
+        $plan->update($data ?? $request->only('title', 'amount_in_local_currency', 'amount_in_dollars', 'info'));
         return redirect()->route('teams.plans.index', $team)->with(['success' => trans('Plan updated!')]);
     }
 
@@ -120,6 +121,7 @@ class PlansController extends Controller
      */
     public function destroy(Team $team, Plan $plan)
     {
+        Storage::disk('s3')->delete( 'teams_plans_banners/' . basename($plan->banner));
         $plan->delete();
         return redirect()->route('teams.plans.index', $team)->with(['warning' => trans('Plan deleted!')]);
     }

@@ -61,12 +61,12 @@ class PlanEditTest extends TestCase
         $response = $this->put(route('teams.plans.update', ['team' => $team, 'plan' => $plan]), [
             'title' => '',
             'info' => 'lorem ...',
-            'currency' => 'INVALID CURRENCY CODE',
-            'amount' => 'random text',
+            'amount_in_local_currency' => 'random text',
+            'amount_in_dollars' => 'any',
             'banner' => '12345678',
         ]);
 
-        $response->assertSessionHasErrors(['title', 'info', 'currency', 'amount', 'banner']);
+        $response->assertSessionHasErrors(['title', 'info', 'amount_in_local_currency', 'amount_in_dollars', 'banner']);
     }
     /** @test */
     public function test_members_can_store_plan()
@@ -84,8 +84,8 @@ class PlanEditTest extends TestCase
         $response = $this->put(route('teams.plans.update', ['team' => $team, 'plan' => $plan]), [
             'title' => 'An awesome Plan title',
             'info' => 'lorem ipsum dolor siet lorem ...',
-            'currency' => collect(['GTQ', 'USD'])->random(),
-            'amount' => $faker->numberBetween(100, 500),
+            'amount_in_dollars' => $amount =$faker->numberBetween(100, 800),
+            'amount_in_local_currency' => ($amount * 7.5),
             'banner' => UploadedFile::fake()->image('photo1.jpg'),
         ]);
         $response->assertSessionHas(['success']);

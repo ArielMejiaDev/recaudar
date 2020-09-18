@@ -9,8 +9,8 @@ $factory->define(Plan::class, function (Faker $faker) {
     return [
         'title' => $faker->text(5),
         'info' => $faker->text,
-        'amount' => $faker->numberBetween(100, 500),
-        'currency' => $faker->currencyCode,
+        'amount_in_local_currency' => $faker->numberBetween(100, 500),
+        'amount_in_dollars' => $faker->numberBetween(100, 500),
         'banner' => $faker->imageUrl(),
     ];
 });

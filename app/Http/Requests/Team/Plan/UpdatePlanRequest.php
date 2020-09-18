@@ -26,9 +26,9 @@ class UpdatePlanRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string', 'min:3', Rule::unique('plans', 'title')->ignore($this->plan->id)],
-            'currency' => Rule::in(['GTQ', 'USD']),
+            'amount_in_local_currency' => is_null($this->amount_in_local_currency) ? 'nullable' : 'numeric',
+            'amount_in_dollars' => is_null($this->amount_in_dollars) ? 'nullable' : 'numeric',
             'info' => 'nullable|string|min:20',
-            'amount' => is_null($this->amount) ? 'nullable' : 'numeric',
             'banner' => 'nullable|image',
         ];
     }

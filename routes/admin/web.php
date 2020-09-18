@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\Teams\TeamController;
 use App\Http\Controllers\Admin\Teams\UpdateTeamContact;
 use App\Http\Controllers\Admin\Teams\UpdateTeamFinancialData;
+use App\Http\Controllers\Admin\Teams\UpdateTeamMediaController;
 use App\Http\Controllers\Admin\Teams\UpdateTeamProfile;
 use App\Http\Controllers\Admin\Teams\UpdateTeamStatus;
 use App\Http\Controllers\Admin\Transactions\TransactionsController;
@@ -32,6 +33,8 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'appAdmin'])->group(func
     Route::put('/teams/update-status/{team}', UpdateTeamStatus::class)->name('admin.teams.update-status');
 
     Route::put('/teams/update-profile/{team}', UpdateTeamProfile::class)->name('admin.teams.update-profile');
+
+    Route::put('/teams/update-media/{team}', UpdateTeamMediaController::class)->name('admin.teams.update-media');
 
     Route::put('/teams/update-contact/{team}', UpdateTeamContact::class)->name('admin.teams.update-contact');
 

@@ -54,9 +54,29 @@
                 </template>
 
                 <template v-slot:footer>
-                    <LoadingButton :loading="loading">
+                    <LoadingButton :loading="loadingProfileData">
                         Update profile
                     </LoadingButton>
+                </template>
+            </Panel>
+        </form>
+
+        <form @submit.prevent="submitMediaForm" class="mt-16">
+            <Panel>
+                <template v-slot:header>
+                    <Title class="flex items-start">
+                        <div class="text-gray-800 mr-2">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        </div>
+                        Media
+                    </Title>
+                </template>
+                <template v-slot:body>
+                    <AvatarUploader v-model="mediaForm.logo" class="mb-4" name="logo" label="Logo" :current-file="team.logo" :errors="$page.errors.logo" />
+                    <ImageUploader v-model="mediaForm.banner" name="banner" label="Banner" :current-file="team.banner" :errors="$page.errors.banner" />
+                </template>
+                <template v-slot:footer>
+                    <LoadingButton :loading="loadingMedia">Update media</LoadingButton>
                 </template>
             </Panel>
         </form>
@@ -75,7 +95,7 @@
                     <Input v-model="contactDataForm.office_address" name="office_address" label="Office Address" placeholder="Add office address" :errors="$page.errors.office_address" />
                 </template>
                 <template v-slot:footer>
-                    <LoadingButton>Update contact data</LoadingButton>
+                    <LoadingButton :loading="loadingContactData">Update contact data</LoadingButton>
                 </template>
             </Panel>
         </form>
@@ -103,7 +123,7 @@
                     </div>
                 </template>
                 <template v-slot:footer>
-                    <LoadingButton>Update financial data</LoadingButton>
+                    <LoadingButton :loading="loadingLegalDataForm">Update financial data</LoadingButton>
                 </template>
             </Panel>
         </form>
@@ -119,6 +139,8 @@ import Input from "../../../Shared/Input";
 import Select from "../../../Shared/Select";
 import Textarea from "../../../Shared/Textarea";
 import LoadingButton from "../../../Shared/LoadingButton";
+import AvatarUploader from "../../../Shared/AvatarUploader";
+import ImageUploader from "../../../Shared/ImageUploader";
 
 export default {
     metaInfo: { title: 'Edit team' },
@@ -129,6 +151,8 @@ export default {
         Title,
         Input,
         Select,
+        AvatarUploader,
+        ImageUploader,
         Textarea,
         LoadingButton,
     },
@@ -145,6 +169,10 @@ export default {
                 use_of_funds: this.team.use_of_funds,
                 description: this.team.description,
             },
+            mediaForm: {
+                logo: this.team.logo,
+                banner: this.team.banner,
+            },
             contactDataForm: {
                 contact: this.team.contact,
                 contact_phone: this.team.contact_phone,
@@ -157,9 +185,11 @@ export default {
                 country: this.team.country,
                 account_number: this.team.account_number,
                 bank: this.team.bank,
-                // use_of_funds: this.team.use_of_funds,
             },
-            loading: false,
+            loadingProfileData: false,
+            loadingMedia: false,
+            loadingContactData: false,
+            loadingLegalDataForm: false,
         }
     },
     props: {
@@ -167,19 +197,28 @@ export default {
     },
     methods: {
         submitProfileDataForm() {
-            this.loading = true;
+            this.loadingProfileData = true;
             const route = this.route('admin.teams.update-profile', { team:this.team.id });
-            this.$inertia.put(route, this.profileDataForm).then(() => this.loading = false);
+            this.$inertia.put(route, this.profileDataForm).then(() => this.loadingProfileData = false);
+        },
+        submitMediaForm() {
+            this.loadingMedia = true;
+            const route = this.route('admin.teams.update-media', { team:this.team.id });
+            const form = new FormData();
+            form.append('logo', this.mediaForm.logo || '');
+            form.append('banner', this.mediaForm.banner || '');
+            form.append('_method', 'put');
+            this.$inertia.post(route, form).then(() => this.loadingMedia = false);
         },
         submitContactDataForm() {
-            this.loading = true;
+            this.loadingContactData = true;
             const route = this.route('admin.teams.update-contact', { team:this.team.id });
-            this.$inertia.put(route, this.contactDataForm).then(() => this.loading = false);
+            this.$inertia.put(route, this.contactDataForm).then(() => this.loadingContactData = false);
         },
         submitLegalDataForm() {
-            this.loading = true;
+            this.loadingLegalDataForm = true;
             const route = this.route('admin.teams.update-legal-data', { team:this.team.id });
-            this.$inertia.put(route, this.legalDataForm).then(() => this.loading = false);
+            this.$inertia.put(route, this.legalDataForm).then(() => this.loadingLegalDataForm = false);
         }
     }
 }
