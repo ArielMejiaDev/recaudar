@@ -33,6 +33,7 @@
                         <IconInput v-model="form.amount_in_dollars" class="w-full md:w-1/2 md:mr-1" name="amount_in_dollars" placeholder="Amount in dollars" :required="false">
                             <template v-slot:icon>$</template>
                         </IconInput>
+
                     </div>
 
                     <Textarea v-model="form.info" name="info" label="Optional information about the plan" placeholder="Add plans info ..." :errors="$page.errors.info" :required="false" />

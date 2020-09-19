@@ -42,10 +42,12 @@ class UserIndexTest extends TestCase
     {
         $user = factory(User::class)->create();
         $team = factory(Team::class)->create();
-        $exampleUser = factory(User::class)->create(['name' => 'John Doe']);
+        $team->users()->attach($user, ['role_name' => 'team_admin']);
         $this->actingAs($user);
-        $team->users()->attach($user);
-        $team->users()->attach($exampleUser);
+
+        $exampleUser = factory(User::class)->create(['name' => 'John Doe']);
+        $team->users()->attach($exampleUser, ['role_name' => 'team_member']);
+
         $response = $this->get(route('teams.users.index', $team));
         $response->assertOk();
         $response->assertPropCount('users.data', 1);

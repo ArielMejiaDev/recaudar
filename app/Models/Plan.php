@@ -15,4 +15,16 @@ class Plan extends Model
     {
         return $this->belongsToMany(Team::class);
     }
+
+//
+
+//    public function getAmountInDollarsAttribute()
+//    {
+//        return number_format($this->amount_in_dollars, 2);
+//    }
+
+//    public function getAmountInLocalCurrencyAttribute()
+//    {
+//        return number_format($this->amount_in_local_currency, 2);
+//    }
 }

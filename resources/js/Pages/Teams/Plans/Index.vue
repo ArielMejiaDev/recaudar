@@ -3,7 +3,7 @@
 
         <Table
             title="Plans"
-            :headers="['plan', 'currency', 'amount', '']"
+            :headers="['plan', 'amount in local currency', 'amount in dollars', '']"
             :searchbox="{show: true, placeholder: 'Search ...'}"
             v-model="search"
             :action="{show: true, text: 'Add a plan', link: route('teams.plans.create', $page.team['slug']), type: 'info'}"
@@ -15,12 +15,12 @@
                     </td>
                     <td>
                         <InertiaLink :href="route('teams.plans.edit', {team: $page.team['slug'], plan: plan.id})">
-                            <Pill type="success">{{ plan.currency }}</Pill>
+                            {{ plan.amount_in_local_currency | local_format }}
                         </InertiaLink>
                     </td>
                     <td>
                         <InertiaLink :href="route('teams.plans.edit', {team: $page.team['slug'], plan: plan.id})">
-                            {{ plan.amount }}
+                            {{ plan.amount_in_dollars | dollar_format }}
                         </InertiaLink>
                     </td>
                     <td>
@@ -87,6 +87,22 @@ export default {
         Table,
         Pill,
         Icon,
+    },
+    filters: {
+        dollar_format: function(value , style = 'currency') {
+            return new Intl.NumberFormat('en-US', {
+                style: style,
+                currency: 'USD',
+                minimumFractionDigits: 2
+            }).format(value);
+        },
+        local_format: function(value, style = 'currency', countryCode = 'es-GT', currencyCode = 'GTQ') {
+            return new Intl.NumberFormat(countryCode, {
+                style: style,
+                currency: currencyCode,
+                minimumFractionDigits: 2
+            }).format(value);
+        },
     }
 }
 </script>

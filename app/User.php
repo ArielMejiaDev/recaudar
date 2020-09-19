@@ -59,12 +59,13 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function getRoleAttribute()
     {
-        $adminTeam = $this->teams()->whereName('recaudar')->first();
-        if($adminTeam) {
-            return $adminTeam->role->role_name;
+        if ($this->id === auth()->id()) {
+            if($adminTeam = $this->teams()->whereName('recaudar')->first()) {
+                return $adminTeam->role->role_name;
+            }
         }
-        if(request()->team) {
-            return ucfirst(str_replace('team_', '', $this->teams()->find(request()->team->id)->role->role_name));
+        if(request()->team && $team = $this->teams()->where('teams.id', request()->team->id)->first() ) {
+            return ucfirst(str_replace('team_', '', $team->role->role_name));
         }
         return null;
     }

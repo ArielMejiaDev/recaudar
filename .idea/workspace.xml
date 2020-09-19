@@ -6,22 +6,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/Shared/IconInput.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Teams/Plans/Edit.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Teams/Plans/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1d3bf607-8854-473a-a50e-28587dc910a9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1d3bf607-8854-473a-a50e-28587dc910a9.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Team/Plans/PlansController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Team/Plans/PlansController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Team/Plan/StorePlanRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Team/Plan/StorePlanRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Team/Plan/UpdatePlanRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Team/Plan/UpdatePlanRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Plan.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Plan.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/factories/PlanFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/PlanFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_09_005822_create_plans_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_09_005822_create_plans_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Admin/Teams/Edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Teams/Edit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Admin/Teams/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Teams/Index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Plans/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Plans/Create.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Plans/Edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Plans/Edit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Plans/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Plans/Index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Shared/Icon.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Shared/Icon.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/admin/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Team/Plans/PlanCreateTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Team/Plans/PlanCreateTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Team/Plans/PlanEditTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Team/Plans/PlanEditTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Team/User/UserIndexTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Team/User/UserIndexTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,25 +213,25 @@
       <recent name="$PROJECT_DIR$/app/Providers" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.UpdateTeamMediaTest.test_app_admins_cannot_update_team_media_with_invalid_data">
-    <configuration name="PlanEditTest.test_members_can_store_plan" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Team\Plans\PlanEditTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Team/Plans/PlanEditTest.php" method="test_members_can_store_plan" scope="Method" />
+  <component name="RunManager" selected="PHPUnit.TeamPlanUpdateTest.test_admins_can_update_team_plan_on_admin_team_plans">
+    <configuration name="TeamPlanUpdateTest.test_admins_can_update_team_plan_on_admin_team_plans" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Admin\Team\Plans\TeamPlanUpdateTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Admin/Team/Plans/TeamPlanUpdateTest.php" method="test_admins_can_update_team_plan_on_admin_team_plans" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="UpdateTeamMediaTest.test_app_admins_can_update_team_media" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Admin\Team\UpdateTeamMediaTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Admin/Team/UpdateTeamMediaTest.php" method="test_app_admins_can_update_team_media" scope="Method" />
+    <configuration name="TeamPlanUpdateTest.test_admins_cannot_update_team_plan_on_admin_team_plans_with_invalid_data" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Admin\Team\Plans\TeamPlanUpdateTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Admin/Team/Plans/TeamPlanUpdateTest.php" method="test_admins_cannot_update_team_plan_on_admin_team_plans_with_invalid_data" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="UpdateTeamMediaTest.test_app_admins_cannot_update_team_media_with_invalid_data" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Admin\Team\UpdateTeamMediaTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Admin/Team/UpdateTeamMediaTest.php" method="test_app_admins_cannot_update_team_media_with_invalid_data" scope="Method" />
+    <configuration name="TeamPlanUpdateTest.test_auth_users_but_not_team_members_cannot_update_team_plan_on_admin_team_plans" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Admin\Team\Plans\TeamPlanUpdateTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Admin/Team/Plans/TeamPlanUpdateTest.php" method="test_auth_users_but_not_team_members_cannot_update_team_plan_on_admin_team_plans" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="UpdateTeamMediaTest.test_auth_users_but_not_team_members_cannot_update_team_media" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Admin\Team\UpdateTeamMediaTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Admin/Team/UpdateTeamMediaTest.php" method="test_auth_users_but_not_team_members_cannot_update_team_media" scope="Method" />
+    <configuration name="TeamPlanUpdateTest.test_guests_cannot_update_team_plan_on_admin_team_plans" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Admin\Team\Plans\TeamPlanUpdateTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Admin/Team/Plans/TeamPlanUpdateTest.php" method="test_guests_cannot_update_team_plan_on_admin_team_plans" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="UpdateTeamMediaTest.test_guests_cannot_update_team_media" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Admin\Team\UpdateTeamMediaTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Admin/Team/UpdateTeamMediaTest.php" method="test_guests_cannot_update_team_media" scope="Method" />
+    <configuration name="TeamPlanUpdateTest.test_team_members_cannot_update_team_plan_on_admin_team_plans" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Admin\Team\Plans\TeamPlanUpdateTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Admin/Team/Plans/TeamPlanUpdateTest.php" method="test_team_members_cannot_update_team_plan_on_admin_team_plans" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -238,11 +240,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.UpdateTeamMediaTest.test_app_admins_cannot_update_team_media_with_invalid_data" />
-        <item itemvalue="PHPUnit.UpdateTeamMediaTest.test_app_admins_can_update_team_media" />
-        <item itemvalue="PHPUnit.UpdateTeamMediaTest.test_auth_users_but_not_team_members_cannot_update_team_media" />
-        <item itemvalue="PHPUnit.UpdateTeamMediaTest.test_guests_cannot_update_team_media" />
-        <item itemvalue="PHPUnit.PlanEditTest.test_members_can_store_plan" />
+        <item itemvalue="PHPUnit.TeamPlanUpdateTest.test_admins_can_update_team_plan_on_admin_team_plans" />
+        <item itemvalue="PHPUnit.TeamPlanUpdateTest.test_admins_cannot_update_team_plan_on_admin_team_plans_with_invalid_data" />
+        <item itemvalue="PHPUnit.TeamPlanUpdateTest.test_team_members_cannot_update_team_plan_on_admin_team_plans" />
+        <item itemvalue="PHPUnit.TeamPlanUpdateTest.test_auth_users_but_not_team_members_cannot_update_team_plan_on_admin_team_plans" />
+        <item itemvalue="PHPUnit.TeamPlanUpdateTest.test_guests_cannot_update_team_plan_on_admin_team_plans" />
       </list>
     </recent_temporary>
   </component>
@@ -263,7 +265,7 @@
       <workItem from="1599375162717" duration="41766000" />
       <workItem from="1599568840588" duration="49012000" />
       <workItem from="1599912651529" duration="14000" />
-      <workItem from="1600106574225" duration="59035000" />
+      <workItem from="1600106574225" duration="85261000" />
     </task>
     <servers />
   </component>
@@ -295,10 +297,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="560" y="199" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599009457164" />
-    <state x="100" y="100" width="1720" height="880" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1600197105542">
+    <state x="100" y="100" width="1720" height="880" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1600495568467">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="100" y="100" width="1720" height="880" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1600197105542" />
+    <state x="100" y="100" width="1720" height="880" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1600495568467" />
     <state x="726" y="195" key="#com.intellij.ide.util.MemberChooser" timestamp="1599442852305">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -315,34 +317,34 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="632" y="236" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599075333250" />
-    <state x="632" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600404384683">
+    <state x="632" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600505312679">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1912" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1599239067549" />
-    <state x="632" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1600404384683" />
+    <state x="632" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1600505312679" />
     <state x="745" y="463" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#" timestamp="1600197006715">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="745" y="463" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#/0.0.1920.1080@0.0.1920.1080" timestamp="1600197006715" />
-    <state width="1868" height="312" key="GridCell.Tab.0.bottom" timestamp="1600406907968">
+    <state width="1868" height="485" key="GridCell.Tab.0.bottom" timestamp="1600505370779">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1868" height="312" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1600406907968" />
+    <state width="1868" height="485" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1600505370779" />
     <state width="1868" height="312" key="GridCell.Tab.0.bottom/0.23.1920.1001@0.23.1920.1001" timestamp="1599540733274" />
-    <state width="1868" height="312" key="GridCell.Tab.0.center" timestamp="1600406907967">
+    <state width="1868" height="485" key="GridCell.Tab.0.center" timestamp="1600505370778">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1868" height="312" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1600406907967" />
+    <state width="1868" height="485" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1600505370778" />
     <state width="1868" height="312" key="GridCell.Tab.0.center/0.23.1920.1001@0.23.1920.1001" timestamp="1599540733273" />
-    <state width="1868" height="312" key="GridCell.Tab.0.left" timestamp="1600406907967">
+    <state width="1868" height="485" key="GridCell.Tab.0.left" timestamp="1600505370777">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1868" height="312" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1600406907967" />
+    <state width="1868" height="485" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1600505370777" />
     <state width="1868" height="312" key="GridCell.Tab.0.left/0.23.1920.1001@0.23.1920.1001" timestamp="1599540733272" />
-    <state width="1868" height="312" key="GridCell.Tab.0.right" timestamp="1600406907968">
+    <state width="1868" height="485" key="GridCell.Tab.0.right" timestamp="1600505370778">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1868" height="312" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1600406907968" />
+    <state width="1868" height="485" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1600505370778" />
     <state width="1868" height="312" key="GridCell.Tab.0.right/0.23.1920.1001@0.23.1920.1001" timestamp="1599540733274" />
     <state x="751" y="450" width="417" height="182" key="NewPhpFileDialog" timestamp="1599514841051">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -359,11 +361,11 @@
     </state>
     <state x="1860" y="197" width="759" height="686" key="find.popup/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1599246337844" />
     <state x="580" y="197" width="759" height="686" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1599101933738" />
-    <state x="541" y="252" key="run.anything.popup" timestamp="1599652487509">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="541" y="252" key="run.anything.popup" timestamp="1600491187708">
+      <screen x="0" y="23" width="1920" height="1001" />
     </state>
     <state x="541" y="252" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1599652487509" />
-    <state x="541" y="252" key="run.anything.popup/0.23.1920.1001@0.23.1920.1001" timestamp="1599446024511" />
+    <state x="541" y="252" key="run.anything.popup/0.23.1920.1001@0.23.1920.1001" timestamp="1600491187708" />
     <state x="541" y="48" width="838" height="1032" key="search.everywhere.popup" timestamp="1599496571268">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

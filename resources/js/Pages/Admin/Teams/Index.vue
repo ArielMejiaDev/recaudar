@@ -2,7 +2,7 @@
     <div>
         <Table
             title="Teams"
-            :headers="['team', 'status']"
+            :headers="['team', 'status', 'plans']"
             :searchbox="{show: true, placeholder: 'Search ...'}"
             v-model="search"
             :action="{show: false}"
@@ -18,6 +18,11 @@
                         <Pill :type="team.status === 'pending' ? 'danger' : 'success'">
                             {{ team.status }}
                         </Pill>
+                    </td>
+                    <td>
+                        <InertiaLink :href="route('admin.teams.plans.index', { team: team.id })">
+                            <Icon name="directory-filled" class="text-gray-500 hover:text-gray-600" />
+                        </InertiaLink>
                     </td>
                 </tr>
             </template>
@@ -42,6 +47,7 @@ import Table from "../../../Shared/Table";
 import Pill from "../../../Shared/Pill";
 import _ from "lodash";
 import Modal from "../../../Shared/Modal";
+import Icon from "../../../Shared/Icon";
 
 export default {
     metaInfo: { title: 'Admin Teams' },
@@ -57,6 +63,7 @@ export default {
     components: {
         Table,
         Pill,
+        Icon,
         Modal,
     },
     methods: {

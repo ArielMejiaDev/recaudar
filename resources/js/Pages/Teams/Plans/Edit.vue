@@ -62,8 +62,8 @@ export default {
             form: {
                 title: this.plan.title,
                 info: this.plan.info,
-                amount_in_local_currency: this.plan.amount_in_local_currency,
-                amount_in_dollars: this.plan.amount_in_dollars,
+                amount_in_local_currency: this.local_format(this.plan.amount_in_local_currency),
+                amount_in_dollars: this.dollar_format(this.plan.amount_in_dollars),
                 banner: null,
             },
             loading: false,
@@ -104,6 +104,18 @@ export default {
             const route = this.route('teams.plans.update', { team: this.$page.team['slug'], plan: this.plan.id});
             this.$inertia.post(route, form)
                 .then(() => this.loading = false)
+        },
+        dollar_format(value) {
+            return new Intl.NumberFormat('en-US', {
+                currency: 'USD',
+                minimumFractionDigits: 2
+            }).format(value);
+        },
+        local_format(value, style = 'currency', countryCode = 'es-GT', currencyCode = 'GTQ') {
+            return new Intl.NumberFormat(countryCode, {
+                currency: currencyCode,
+                minimumFractionDigits: 2
+            }).format(value);
         },
     },
 }

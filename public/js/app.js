@@ -2407,6 +2407,267 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _Shared_Modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../Shared/Modal */ "./resources/js/Shared/Modal.vue");
+/* harmony import */ var _Shared_Icon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../Shared/Icon */ "./resources/js/Shared/Icon.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  metaInfo: {
+    title: 'Admin Teams'
+  },
+  layout: _Shared_Layouts_SidebarLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
+  name: "Index",
+  data: function data() {
+    return {
+      search: this.filters.search,
+      confirm: false,
+      selectedTeam: null
+    };
+  },
+  components: {
+    Table: _Shared_Table__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Pill: _Shared_Pill__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Icon: _Shared_Icon__WEBPACK_IMPORTED_MODULE_5__["default"],
+    Modal: _Shared_Modal__WEBPACK_IMPORTED_MODULE_4__["default"]
+  },
+  methods: {
+    changeStatus: function changeStatus() {
+      console.log('change status of ' + this.selectedTeam.name);
+      var route = this.route('admin.teams.update-status', {
+        'team': this.selectedTeam.id
+      });
+      this.$inertia.put(route, {
+        status: this.selectedTeam.status
+      });
+    }
+  },
+  props: {
+    teams: Object,
+    filters: Array | Object
+  },
+  watch: {
+    search: lodash__WEBPACK_IMPORTED_MODULE_3___default.a.throttle(function (value) {
+      var route = this.route('admin.teams.index', {
+        search: value
+      });
+      this.$inertia.replace(route);
+    }, 200)
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Teams/Plans/Edit.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Admin/Teams/Plans/Edit.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Shared_Layouts_SidebarLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../Shared/Layouts/SidebarLayout */ "./resources/js/Shared/Layouts/SidebarLayout.vue");
+/* harmony import */ var _Shared_Panel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../Shared/Panel */ "./resources/js/Shared/Panel.vue");
+/* harmony import */ var _Shared_Title__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../Shared/Title */ "./resources/js/Shared/Title.vue");
+/* harmony import */ var _Shared_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../Shared/Input */ "./resources/js/Shared/Input.vue");
+/* harmony import */ var _Shared_IconInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../Shared/IconInput */ "./resources/js/Shared/IconInput.vue");
+/* harmony import */ var _Shared_Icon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../Shared/Icon */ "./resources/js/Shared/Icon.vue");
+/* harmony import */ var _Shared_Textarea__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../Shared/Textarea */ "./resources/js/Shared/Textarea.vue");
+/* harmony import */ var _Shared_ImageUploader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../Shared/ImageUploader */ "./resources/js/Shared/ImageUploader.vue");
+/* harmony import */ var _Shared_LoadingButton__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../Shared/LoadingButton */ "./resources/js/Shared/LoadingButton.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  metaInfo: {
+    title: 'Edit plan'
+  },
+  layout: _Shared_Layouts_SidebarLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
+  name: "Edit",
+  components: {
+    Panel: _Shared_Panel__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Title: _Shared_Title__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Input: _Shared_Input__WEBPACK_IMPORTED_MODULE_3__["default"],
+    IconInput: _Shared_IconInput__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Icon: _Shared_Icon__WEBPACK_IMPORTED_MODULE_5__["default"],
+    Textarea: _Shared_Textarea__WEBPACK_IMPORTED_MODULE_6__["default"],
+    ImageUploader: _Shared_ImageUploader__WEBPACK_IMPORTED_MODULE_7__["default"],
+    LoadingButton: _Shared_LoadingButton__WEBPACK_IMPORTED_MODULE_8__["default"]
+  },
+  data: function data() {
+    return {
+      toggle: true,
+      loading: false,
+      form: {
+        title: this.plan.title,
+        amount_in_local_currency: this.local_format(this.plan.amount_in_local_currency),
+        amount_in_dollars: this.dollar_format(this.plan.amount_in_dollars),
+        info: this.plan.info,
+        banner: null
+      }
+    };
+  },
+  props: {
+    team: Object,
+    plan: Object
+  },
+  methods: {
+    showAmountInput: function showAmountInput() {
+      this.toggle = !this.toggle; // if(this.toggle) {
+      //     this.$nextTick(() => this.$refs.amount_in_local_currency.focus());
+      // }
+    },
+    dollar_format: function dollar_format(value) {
+      return new Intl.NumberFormat('en-US', {
+        currency: 'USD',
+        minimumFractionDigits: 2
+      }).format(value);
+    },
+    local_format: function local_format(value) {
+      var countryCode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'es-GT';
+      var currencyCode = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'GTQ';
+      return new Intl.NumberFormat(countryCode, {
+        currency: currencyCode,
+        minimumFractionDigits: 2
+      }).format(value);
+    },
+    submit: function submit() {
+      var _this = this;
+
+      this.loading = true;
+      var route = this.route('admin.teams.plans.update', {
+        team: this.team.id,
+        plan: this.plan.id
+      });
+      var form = new FormData();
+      form.append('title', this.form.title || '');
+      form.append('amount_in_local_currency', this.form.amount_in_local_currency || '');
+      form.append('amount_in_dollars', this.form.amount_in_dollars || '');
+      form.append('info', this.form.info || '');
+      form.append('banner', this.form.banner || '');
+      form.append('_method', 'put');
+      this.$inertia.post(route, form).then(function () {
+        return _this.loading = false;
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Teams/Plans/Index.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Admin/Teams/Plans/Index.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Shared_Layouts_SidebarLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../Shared/Layouts/SidebarLayout */ "./resources/js/Shared/Layouts/SidebarLayout.vue");
+/* harmony import */ var _Shared_Table__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../Shared/Table */ "./resources/js/Shared/Table.vue");
+/* harmony import */ var _Shared_Modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../Shared/Modal */ "./resources/js/Shared/Modal.vue");
+/* harmony import */ var _Shared_Icon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../Shared/Icon */ "./resources/js/Shared/Icon.vue");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_4__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2452,44 +2713,59 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   metaInfo: {
-    title: 'Admin Teams'
+    title: 'Team plans'
   },
   layout: _Shared_Layouts_SidebarLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
   name: "Index",
+  components: {
+    Table: _Shared_Table__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Icon: _Shared_Icon__WEBPACK_IMPORTED_MODULE_3__["default"],
+    Modal: _Shared_Modal__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
   data: function data() {
     return {
       search: this.filters.search,
       confirm: false,
-      selectedTeam: null
+      selectedPlan: null
     };
   },
-  components: {
-    Table: _Shared_Table__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Pill: _Shared_Pill__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Modal: _Shared_Modal__WEBPACK_IMPORTED_MODULE_4__["default"]
-  },
-  methods: {
-    changeStatus: function changeStatus() {
-      console.log('change status of ' + this.selectedTeam.name);
-      var route = this.route('admin.teams.update-status', {
-        'team': this.selectedTeam.id
-      });
-      this.$inertia.put(route, {
-        status: this.selectedTeam.status
-      });
-    }
-  },
   props: {
-    teams: Object,
+    team: Object,
+    plans: Object,
     filters: Array | Object
   },
   watch: {
-    search: lodash__WEBPACK_IMPORTED_MODULE_3___default.a.throttle(function (value) {
-      var route = this.route('admin.teams.index', {
+    search: lodash__WEBPACK_IMPORTED_MODULE_4___default.a.throttle(function (value) {
+      var route = this.route('admin.teams.plans.index', {
+        team: this.team,
         search: value
       });
       this.$inertia.replace(route);
     }, 200)
+  },
+  methods: {
+    deletePlan: function deletePlan() {//
+    }
+  },
+  filters: {
+    dollar_format: function dollar_format(value) {
+      var style = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'currency';
+      return new Intl.NumberFormat('en-US', {
+        style: style,
+        currency: 'USD',
+        minimumFractionDigits: 2
+      }).format(value);
+    },
+    local_format: function local_format(value) {
+      var style = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'currency';
+      var countryCode = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'es-GT';
+      var currencyCode = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'GTQ';
+      return new Intl.NumberFormat(countryCode, {
+        style: style,
+        currency: currencyCode,
+        minimumFractionDigits: 2
+      }).format(value);
+    }
   }
 });
 
@@ -3690,6 +3966,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -3850,8 +4127,8 @@ __webpack_require__.r(__webpack_exports__);
       form: {
         title: this.plan.title,
         info: this.plan.info,
-        amount_in_local_currency: this.plan.amount_in_local_currency,
-        amount_in_dollars: this.plan.amount_in_dollars,
+        amount_in_local_currency: this.local_format(this.plan.amount_in_local_currency),
+        amount_in_dollars: this.dollar_format(this.plan.amount_in_dollars),
         banner: null
       },
       loading: false
@@ -3903,6 +4180,21 @@ __webpack_require__.r(__webpack_exports__);
       this.$inertia.post(route, form).then(function () {
         return _this2.loading = false;
       });
+    },
+    dollar_format: function dollar_format(value) {
+      return new Intl.NumberFormat('en-US', {
+        currency: 'USD',
+        minimumFractionDigits: 2
+      }).format(value);
+    },
+    local_format: function local_format(value) {
+      var style = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'currency';
+      var countryCode = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'es-GT';
+      var currencyCode = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'GTQ';
+      return new Intl.NumberFormat(countryCode, {
+        currency: currencyCode,
+        minimumFractionDigits: 2
+      }).format(value);
     }
   }
 });
@@ -4022,6 +4314,26 @@ __webpack_require__.r(__webpack_exports__);
     Table: _Shared_Table__WEBPACK_IMPORTED_MODULE_2__["default"],
     Pill: _Shared_Pill__WEBPACK_IMPORTED_MODULE_3__["default"],
     Icon: _Shared_Icon__WEBPACK_IMPORTED_MODULE_4__["default"]
+  },
+  filters: {
+    dollar_format: function dollar_format(value) {
+      var style = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'currency';
+      return new Intl.NumberFormat('en-US', {
+        style: style,
+        currency: 'USD',
+        minimumFractionDigits: 2
+      }).format(value);
+    },
+    local_format: function local_format(value) {
+      var style = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'currency';
+      var countryCode = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'es-GT';
+      var currencyCode = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'GTQ';
+      return new Intl.NumberFormat(countryCode, {
+        style: style,
+        currency: currencyCode,
+        minimumFractionDigits: 2
+      }).format(value);
+    }
   }
 });
 
@@ -5955,6 +6267,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -28064,7 +28380,7 @@ var render = function() {
       _c("Table", {
         attrs: {
           title: "Teams",
-          headers: ["team", "status"],
+          headers: ["team", "status", "plans"],
           searchbox: { show: true, placeholder: "Search ..." },
           action: { show: false },
           pagination: { show: true, links: _vm.teams.links }
@@ -28129,6 +28445,30 @@ var render = function() {
                       )
                     ],
                     1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          attrs: {
+                            href: _vm.route("admin.teams.plans.index", {
+                              team: team.id
+                            })
+                          }
+                        },
+                        [
+                          _c("Icon", {
+                            staticClass: "text-gray-500 hover:text-gray-600",
+                            attrs: { name: "directory-filled" }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
                   )
                 ])
               })
@@ -28163,6 +28503,397 @@ var render = function() {
               },
               action: function($event) {
                 _vm.changeStatus()
+                _vm.confirm = !_vm.confirm
+              }
+            }
+          })
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Teams/Plans/Edit.vue?vue&type=template&id=f0f266de&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Admin/Teams/Plans/Edit.vue?vue&type=template&id=f0f266de&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "form",
+    {
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          return _vm.submit($event)
+        }
+      }
+    },
+    [
+      _c("Panel", {
+        scopedSlots: _vm._u([
+          {
+            key: "header",
+            fn: function() {
+              return [_c("Title", [_vm._v("Edit a plan")])]
+            },
+            proxy: true
+          },
+          {
+            key: "body",
+            fn: function() {
+              return [
+                _c("Input", {
+                  attrs: {
+                    name: "title",
+                    label: "Title",
+                    placeholder: "Add a title",
+                    errors: _vm.$page.errors.title
+                  },
+                  model: {
+                    value: _vm.form.title,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "title", $$v)
+                    },
+                    expression: "form.title"
+                  }
+                }),
+                _vm._v(" "),
+                _vm.toggle
+                  ? _c(
+                      "span",
+                      {
+                        staticClass:
+                          "text-blue-500 font-bold text-sm leading-loose tracking-tighter hover:underline hover:text-blue-600 cursor-pointer focus:outline-none focus:text-blue-600 focus:underline",
+                        on: { click: _vm.showAmountInput }
+                      },
+                      [_vm._v("Variable amount")]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                !_vm.toggle
+                  ? _c(
+                      "span",
+                      {
+                        staticClass:
+                          "text-blue-500 font-bold text-sm leading-loose tracking-tighter hover:underline hover:text-blue-600 cursor-pointer focus:outline-none focus:text-blue-600 focus:underline",
+                        on: { click: _vm.showAmountInput }
+                      },
+                      [_vm._v("Add amount")]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.toggle,
+                        expression: "toggle"
+                      }
+                    ],
+                    staticClass: "w-full flex flex-col md:flex-row"
+                  },
+                  [
+                    _c("IconInput", {
+                      ref: "amount_in_local_currency",
+                      staticClass: "w-full md:w-1/2 md:mr-1",
+                      attrs: {
+                        name: "amount_in_local_currency",
+                        placeholder: "Amount in local currency",
+                        required: false
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "icon",
+                          fn: function() {
+                            return [_vm._v("Q")]
+                          },
+                          proxy: true
+                        }
+                      ]),
+                      model: {
+                        value: _vm.form.amount_in_local_currency,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "amount_in_local_currency", $$v)
+                        },
+                        expression: "form.amount_in_local_currency"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("IconInput", {
+                      staticClass: "w-full md:w-1/2 md:mr-1",
+                      attrs: {
+                        name: "amount_in_dollars",
+                        placeholder: "Amount in dollars",
+                        required: false
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "icon",
+                          fn: function() {
+                            return [_vm._v("$")]
+                          },
+                          proxy: true
+                        }
+                      ]),
+                      model: {
+                        value: _vm.form.amount_in_dollars,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "amount_in_dollars", $$v)
+                        },
+                        expression: "form.amount_in_dollars"
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("Textarea", {
+                  attrs: {
+                    name: "info",
+                    label: "Optional information about the plan",
+                    placeholder: "Add plans info ...",
+                    errors: _vm.$page.errors.info,
+                    required: false
+                  },
+                  model: {
+                    value: _vm.form.info,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "info", $$v)
+                    },
+                    expression: "form.info"
+                  }
+                }),
+                _vm._v(" "),
+                _c("ImageUploader", {
+                  attrs: {
+                    "current-file": _vm.plan.banner,
+                    name: "banner",
+                    label: "Plans banner",
+                    errors: _vm.$page.errors.banner
+                  },
+                  model: {
+                    value: _vm.form.banner,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "banner", $$v)
+                    },
+                    expression: "form.banner"
+                  }
+                })
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "footer",
+            fn: function() {
+              return [
+                _c("LoadingButton", { attrs: { loading: _vm.loading } }, [
+                  _vm._v("Update plan")
+                ])
+              ]
+            },
+            proxy: true
+          }
+        ])
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Teams/Plans/Index.vue?vue&type=template&id=a9eb014a&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Admin/Teams/Plans/Index.vue?vue&type=template&id=a9eb014a&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("Table", {
+        attrs: {
+          title: _vm.team.name + " plans",
+          headers: [
+            "plan",
+            "Amount in local currency",
+            "Amount in dollars",
+            "Delete"
+          ],
+          searchbox: { show: true, placeholder: "Search ..." },
+          action: { show: false },
+          pagination: { show: true, links: _vm.plans.links }
+        },
+        scopedSlots: _vm._u([
+          {
+            key: "tableData",
+            fn: function() {
+              return _vm._l(_vm.plans.data, function(plan, index) {
+                return _c("tr", { key: index }, [
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          attrs: {
+                            href: _vm.route("admin.teams.plans.edit", {
+                              team: _vm.team.id,
+                              plan: plan.id
+                            })
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(plan.title) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          attrs: {
+                            href: _vm.route("admin.teams.plans.edit", {
+                              team: _vm.team.id,
+                              plan: plan.id
+                            })
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(
+                                _vm._f("local_format")(
+                                  plan.amount_in_local_currency
+                                )
+                              ) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          attrs: {
+                            href: _vm.route("admin.teams.plans.edit", {
+                              team: _vm.team.id,
+                              plan: plan.id
+                            })
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(
+                                _vm._f("dollar_format")(plan.amount_in_dollars)
+                              ) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "text-gray-500 hover:text-gray-600",
+                        on: {
+                          click: function($event) {
+                            _vm.confirm = !_vm.confirm
+                            _vm.selectedPlan = plan
+                          }
+                        }
+                      },
+                      [_c("Icon", { attrs: { name: "trash" } })],
+                      1
+                    )
+                  ])
+                ])
+              })
+            },
+            proxy: true
+          }
+        ]),
+        model: {
+          value: _vm.search,
+          callback: function($$v) {
+            _vm.search = $$v
+          },
+          expression: "search"
+        }
+      }),
+      _vm._v(" "),
+      _vm.confirm
+        ? _c("Modal", {
+            attrs: {
+              type: "danger",
+              title:
+                "Are you sure to delete the plan " +
+                _vm.selectedPlan.title +
+                "?",
+              info:
+                "This is going to delete the plan from the team profile page.",
+              "close-button-text": "Cancel",
+              "action-button-text": "Delete plan"
+            },
+            on: {
+              close: function($event) {
+                _vm.confirm = !_vm.confirm
+              },
+              action: function($event) {
+                _vm.deletePlan()
                 _vm.confirm = !_vm.confirm
               }
             }
@@ -30912,7 +31643,12 @@ var render = function() {
       _c("Table", {
         attrs: {
           title: "Plans",
-          headers: ["plan", "currency", "amount", ""],
+          headers: [
+            "plan",
+            "amount in local currency",
+            "amount in dollars",
+            ""
+          ],
           searchbox: { show: true, placeholder: "Search ..." },
           action: {
             show: true,
@@ -30961,11 +31697,16 @@ var render = function() {
                           }
                         },
                         [
-                          _c("Pill", { attrs: { type: "success" } }, [
-                            _vm._v(_vm._s(plan.currency))
-                          ])
-                        ],
-                        1
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(
+                                _vm._f("local_format")(
+                                  plan.amount_in_local_currency
+                                )
+                              ) +
+                              "\n                    "
+                          )
+                        ]
                       )
                     ],
                     1
@@ -30987,7 +31728,9 @@ var render = function() {
                         [
                           _vm._v(
                             "\n                        " +
-                              _vm._s(plan.amount) +
+                              _vm._s(
+                                _vm._f("dollar_format")(plan.amount_in_dollars)
+                              ) +
                               "\n                    "
                           )
                         ]
@@ -34384,6 +35127,50 @@ var render = function() {
             attrs: {
               d:
                 "M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
+            }
+          })
+        ]
+      )
+    : _vm.name === "directory-filled"
+    ? _c(
+        "svg",
+        {
+          staticClass: "w-6 h-6",
+          attrs: {
+            fill: "currentColor",
+            viewBox: "0 0 20 20",
+            xmlns: "http://www.w3.org/2000/svg"
+          }
+        },
+        [
+          _c("path", {
+            attrs: {
+              d:
+                "M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+            }
+          })
+        ]
+      )
+    : _vm.name === "collection"
+    ? _c(
+        "svg",
+        {
+          staticClass: "w-6 h-6",
+          attrs: {
+            fill: "none",
+            stroke: "currentColor",
+            viewBox: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg"
+          }
+        },
+        [
+          _c("path", {
+            attrs: {
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round",
+              "stroke-width": "2",
+              d:
+                "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
             }
           })
         ]
@@ -51271,6 +52058,8 @@ var map = {
 	"./Pages/Admin/Dashboard/Index.vue": "./resources/js/Pages/Admin/Dashboard/Index.vue",
 	"./Pages/Admin/Teams/Edit.vue": "./resources/js/Pages/Admin/Teams/Edit.vue",
 	"./Pages/Admin/Teams/Index.vue": "./resources/js/Pages/Admin/Teams/Index.vue",
+	"./Pages/Admin/Teams/Plans/Edit.vue": "./resources/js/Pages/Admin/Teams/Plans/Edit.vue",
+	"./Pages/Admin/Teams/Plans/Index.vue": "./resources/js/Pages/Admin/Teams/Plans/Index.vue",
 	"./Pages/Admin/Transactions/Index.vue": "./resources/js/Pages/Admin/Transactions/Index.vue",
 	"./Pages/Auth/Login.vue": "./resources/js/Pages/Auth/Login.vue",
 	"./Pages/Auth/Passwords/Confirm.vue": "./resources/js/Pages/Auth/Passwords/Confirm.vue",
@@ -51438,6 +52227,10 @@ var map = {
 	"./Admin/Teams/Edit.vue": "./resources/js/Pages/Admin/Teams/Edit.vue",
 	"./Admin/Teams/Index": "./resources/js/Pages/Admin/Teams/Index.vue",
 	"./Admin/Teams/Index.vue": "./resources/js/Pages/Admin/Teams/Index.vue",
+	"./Admin/Teams/Plans/Edit": "./resources/js/Pages/Admin/Teams/Plans/Edit.vue",
+	"./Admin/Teams/Plans/Edit.vue": "./resources/js/Pages/Admin/Teams/Plans/Edit.vue",
+	"./Admin/Teams/Plans/Index": "./resources/js/Pages/Admin/Teams/Plans/Index.vue",
+	"./Admin/Teams/Plans/Index.vue": "./resources/js/Pages/Admin/Teams/Plans/Index.vue",
 	"./Admin/Transactions/Index": "./resources/js/Pages/Admin/Transactions/Index.vue",
 	"./Admin/Transactions/Index.vue": "./resources/js/Pages/Admin/Transactions/Index.vue",
 	"./Auth/Login": "./resources/js/Pages/Auth/Login.vue",
@@ -51793,6 +52586,144 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_6cfe6540___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_6cfe6540___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Admin/Teams/Plans/Edit.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/Pages/Admin/Teams/Plans/Edit.vue ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Edit_vue_vue_type_template_id_f0f266de_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Edit.vue?vue&type=template&id=f0f266de&scoped=true& */ "./resources/js/Pages/Admin/Teams/Plans/Edit.vue?vue&type=template&id=f0f266de&scoped=true&");
+/* harmony import */ var _Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Edit.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Admin/Teams/Plans/Edit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Edit_vue_vue_type_template_id_f0f266de_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Edit_vue_vue_type_template_id_f0f266de_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "f0f266de",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Admin/Teams/Plans/Edit.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Admin/Teams/Plans/Edit.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/Pages/Admin/Teams/Plans/Edit.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Edit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Teams/Plans/Edit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Admin/Teams/Plans/Edit.vue?vue&type=template&id=f0f266de&scoped=true&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/Pages/Admin/Teams/Plans/Edit.vue?vue&type=template&id=f0f266de&scoped=true& ***!
+  \**************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_f0f266de_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Edit.vue?vue&type=template&id=f0f266de&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Teams/Plans/Edit.vue?vue&type=template&id=f0f266de&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_f0f266de_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_f0f266de_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Admin/Teams/Plans/Index.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/Pages/Admin/Teams/Plans/Index.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Index_vue_vue_type_template_id_a9eb014a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Index.vue?vue&type=template&id=a9eb014a&scoped=true& */ "./resources/js/Pages/Admin/Teams/Plans/Index.vue?vue&type=template&id=a9eb014a&scoped=true&");
+/* harmony import */ var _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Index.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Admin/Teams/Plans/Index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Index_vue_vue_type_template_id_a9eb014a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Index_vue_vue_type_template_id_a9eb014a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "a9eb014a",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Admin/Teams/Plans/Index.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Admin/Teams/Plans/Index.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/Pages/Admin/Teams/Plans/Index.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Teams/Plans/Index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Admin/Teams/Plans/Index.vue?vue&type=template&id=a9eb014a&scoped=true&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/Pages/Admin/Teams/Plans/Index.vue?vue&type=template&id=a9eb014a&scoped=true& ***!
+  \***************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_a9eb014a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Index.vue?vue&type=template&id=a9eb014a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Teams/Plans/Index.vue?vue&type=template&id=a9eb014a&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_a9eb014a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_a9eb014a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
