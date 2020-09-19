@@ -41,12 +41,11 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'appAdmin'])->group(func
 
     Route::put('/teams/update-legal-data/{team}', UpdateTeamFinancialData::class)->name('admin.teams.update-legal-data');
 
-    // quitar el admin porque se repite en la ruta
-    Route::get('/admin/teams/{team}/plans', [PlanController::class, 'index'])->name('admin.teams.plans.index');
+    Route::get('/teams/{team}/plans', [PlanController::class, 'index'])->name('admin.teams.plans.index');
 
-    Route::get('/admin/teams/{team}/plans/{plan}/edit', [PlanController::class, 'edit'])->name('admin.teams.plans.edit');
+    Route::get('/teams/{team}/plans/{plan}/edit', [PlanController::class, 'edit'])->name('admin.teams.plans.edit');
 
-    Route::put('/admin/teams/{team}/plans/{plan}/update', [PlanController::class, 'update'])->name('admin.teams.plans.update');
+    Route::put('/teams/{team}/plans/{plan}/update', [PlanController::class, 'update'])->name('admin.teams.plans.update');
 
     Route::resource('transactions', TransactionsController::class, ['as' => 'admin']);
 
