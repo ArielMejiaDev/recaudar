@@ -11,6 +11,7 @@
 
 // this route is just for admin purpouse
 use App\Http\Controllers\Admin\Admins\AdminController;
+use App\Http\Controllers\Admin\Charges\ChargeController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\Teams\Plans\PlanController;
 use App\Http\Controllers\Admin\Teams\TeamController;
@@ -46,6 +47,8 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'appAdmin'])->group(func
     Route::get('/teams/{team}/plans/{plan}/edit', [PlanController::class, 'edit'])->name('admin.teams.plans.edit');
 
     Route::put('/teams/{team}/plans/{plan}/update', [PlanController::class, 'update'])->name('admin.teams.plans.update');
+
+    Route::resource('charges', ChargeController::class, ['as' => 'admin'])->except('show');
 
     Route::resource('transactions', TransactionsController::class, ['as' => 'admin']);
 

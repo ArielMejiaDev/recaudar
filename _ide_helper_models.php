@@ -12,13 +12,38 @@
 
 namespace App\Models{
 /**
+ * App\Models\Charge
+ *
+ * @property int $id
+ * @property string $country
+ * @property string $country_charge
+ * @property string $payment_gateway
+ * @property string $payment_gateway_charge
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Charge newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Charge newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Charge query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Charge whereCountry($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Charge whereCountryCharge($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Charge whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Charge whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Charge wherePaymentGateway($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Charge wherePaymentGatewayCharge($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Charge whereUpdatedAt($value)
+ */
+	class Charge extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Plan
  *
  * @property int $id
  * @property string $title
  * @property string|null $info
- * @property string|null $amount
- * @property string $currency
+ * @property string|null $amount_in_local_currency
+ * @property string|null $amount_in_dollars
  * @property string|null $banner
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -29,10 +54,10 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Plan newQuery()
  * @method static \Illuminate\Database\Query\Builder|Plan onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Plan query()
- * @method static \Illuminate\Database\Eloquent\Builder|Plan whereAmount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Plan whereAmountInDollars($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Plan whereAmountInLocalCurrency($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Plan whereBanner($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Plan whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Plan whereCurrency($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Plan whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Plan whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Plan whereInfo($value)
@@ -82,6 +107,9 @@ namespace App\Models{
  * @property string|null $twitter_account
  * @property string|null $instagram_account
  * @property string|null $theme
+ * @property string $bank
+ * @property string $account_number
+ * @property string $country
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -93,12 +121,15 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Team newQuery()
  * @method static \Illuminate\Database\Query\Builder|Team onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Team query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Team whereAccountNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Team whereBank($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereBanner($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereBeneficiaries($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereCategory($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereContact($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereContactEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereContactPhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Team whereCountry($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereDescription($value)
@@ -123,6 +154,17 @@ namespace App\Models{
  * @method static \Illuminate\Database\Query\Builder|Team withoutTrashed()
  */
 	class Team extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Transaction
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction query()
+ */
+	class Transaction extends \Eloquent {}
 }
 
 namespace App{

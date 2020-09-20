@@ -10,7 +10,7 @@
                 </div>
             </div>
 
-            <input :id="name" :value="value" @input="$emit('input', $event.target.value)" :name="name" :type="type" class="relative form-input rounded-lg w-full pl-12" :required="required" :autocomplete="autocomplete" :placeholder="placeholder" :disabled="disabled" :class="disabled ? 'bg-gray-200' : null">
+            <input :id="name" :value="value" @input="$emit('input', $event.target.value)" :name="name" :type="type" :min="min" :max="max" :step="step" class="relative form-input rounded-lg w-full pl-12" :required="required" :autocomplete="autocomplete" :placeholder="placeholder" :disabled="disabled" :class="disabled ? 'bg-gray-200' : null" >
 
         </div>
         <div v-if="errors.length" class="text-red-600 text-xs font-bold my-1">{{ errors[0] }}</div>
@@ -45,6 +45,9 @@ export default {
             default: false,
         },
         placeholder: String,
+        step: String,
+        min: String,
+        max: String,
         errors: {
             type: Array,
             default: () => [],

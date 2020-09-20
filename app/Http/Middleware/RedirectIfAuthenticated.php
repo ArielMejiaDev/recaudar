@@ -19,6 +19,9 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
+            if(auth()->user()->teams->where('role.role_name', 'app_admin')->count()) {
+                return redirect()->route('admin.dashboard');
+            }
             return redirect(RouteServiceProvider::HOME);
         }
 

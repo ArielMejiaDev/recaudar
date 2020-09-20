@@ -86,6 +86,12 @@
                     </InertiaLink>
                 </li>
                 <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('admin.transactions*') ? 'bg-gray-900' : null">
+                    <InertiaLink :href="route('admin.charges.index')" class="flex items-center text-gray-300">
+                        <Icon class="text-gray-500 mr-2" name="collection" />
+                        Charges
+                    </InertiaLink>
+                </li>
+                <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('admin.transactions*') ? 'bg-gray-900' : null">
                     <InertiaLink :href="route('admin.transactions.index')" class="flex items-center text-gray-300">
                         <Icon class="text-gray-500 mr-2" name="directory" />
                         Transactions

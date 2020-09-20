@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
              AttachUsersToTeamsSeeder::class,
              AttachPlansToTeamsSeeder::class,
              TestingAdminsSeeder::class,
+             ChargeSeeder::class,
          ]);
     }
 }
