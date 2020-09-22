@@ -6,23 +6,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Charge/Create.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Charge/Edit.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Charge/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1d3bf607-8854-473a-a50e-28587dc910a9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1d3bf607-8854-473a-a50e-28587dc910a9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/frontend.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/about-us.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/landing/call-to-action.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/landing/faqs.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/landing/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/landing/foundations-call-to-action.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/landing/foundations-info.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/landing/hero.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/landing/navbar-dark.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/landing/navbar-green.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/landing/navbar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/landing/step-one.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/landing/step-three.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/landing/step-two.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/landing/steps.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/teams-page.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/teams/themes/classic.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/teams/themes/columns.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/teams/themes/condensed.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/terms-for-users.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper_models.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper_models.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ChargeController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Partials/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Partials/Sidebar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Shared/IconInput.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Shared/IconInput.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Shared/Layouts/SidebarLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Shared/Layouts/SidebarLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,18 +208,18 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/Pages/Admin/Charge" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/components/landing" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/components/landing" />
       <recent name="$PROJECT_DIR$/resources/js/Pages/Admin/Charge" />
       <recent name="$PROJECT_DIR$/resources/js/Pages/Teams/Plans" />
       <recent name="$PROJECT_DIR$/resources/js/Pages/Teams/Profile" />
       <recent name="$PROJECT_DIR$/resources/js/Pages/Teams/Users" />
-      <recent name="$PROJECT_DIR$/resources/js/Pages/Teams" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/js/Pages/AdminDashboard/Dashboard" />
@@ -212,7 +229,11 @@
       <recent name="$PROJECT_DIR$/app/Providers" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.ChargeDestroyTest.test_app_admins_cannot_delete_a_charge">
+  <component name="RunManager" selected="PHPUnit.ChargeDestroyTest">
+    <configuration name="ChargeDestroyTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Admin\Charge\ChargeDestroyTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Admin/Charge/ChargeDestroyTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
     <configuration name="ChargeDestroyTest.test_app_admins_cannot_delete_a_charge" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\Admin\Charge\ChargeDestroyTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Admin/Charge/ChargeDestroyTest.php" method="test_app_admins_cannot_delete_a_charge" scope="Method" />
       <method v="2" />
@@ -229,21 +250,17 @@
       <TestRunner class="Tests\Feature\Admin\Charge\ChargeDestroyTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Admin/Charge/ChargeDestroyTest.php" method="test_team_members_cannot_delete_a_charge" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ChargeUpdateTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Admin\Charge\ChargeUpdateTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Admin/Charge/ChargeUpdateTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.ChargeDestroyTest" />
         <item itemvalue="PHPUnit.ChargeDestroyTest.test_app_admins_cannot_delete_a_charge" />
         <item itemvalue="PHPUnit.ChargeDestroyTest.test_team_members_cannot_delete_a_charge" />
         <item itemvalue="PHPUnit.ChargeDestroyTest.test_auth_users_cannot_delete_a_charge" />
         <item itemvalue="PHPUnit.ChargeDestroyTest.test_guests_cannot_delete_a_charge" />
-        <item itemvalue="PHPUnit.ChargeUpdateTest" />
       </list>
     </recent_temporary>
   </component>
@@ -264,7 +281,7 @@
       <workItem from="1599375162717" duration="41766000" />
       <workItem from="1599568840588" duration="49012000" />
       <workItem from="1599912651529" duration="14000" />
-      <workItem from="1600106574225" duration="102481000" />
+      <workItem from="1600106574225" duration="130281000" />
     </task>
     <servers />
   </component>
@@ -300,6 +317,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="100" y="100" width="1720" height="880" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1600495568467" />
+    <state x="619" y="327" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600656646736">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="619" y="327" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1600656646736" />
     <state x="726" y="195" key="#com.intellij.ide.util.MemberChooser" timestamp="1599442852305">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -316,40 +337,41 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="632" y="236" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599075333250" />
-    <state x="632" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600586956350">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="421" y="181" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600664438332">
+      <screen x="0" y="0" width="1280" height="800" />
     </state>
+    <state x="421" y="181" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.800/1280.0.1920.1080@0.0.1280.800" timestamp="1600664438332" />
     <state x="1912" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1599239067549" />
     <state x="632" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1600586956350" />
     <state x="745" y="463" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#" timestamp="1600197006715">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="745" y="463" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#/0.0.1920.1080@0.0.1920.1080" timestamp="1600197006715" />
-    <state width="1868" height="485" key="GridCell.Tab.0.bottom" timestamp="1600593562830">
+    <state width="1868" height="485" key="GridCell.Tab.0.bottom" timestamp="1600593588104">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1868" height="485" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1600593562830" />
+    <state width="1868" height="485" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1600593588104" />
     <state width="1868" height="312" key="GridCell.Tab.0.bottom/0.23.1920.1001@0.23.1920.1001" timestamp="1599540733274" />
-    <state width="1868" height="485" key="GridCell.Tab.0.center" timestamp="1600593562829">
+    <state width="1868" height="485" key="GridCell.Tab.0.center" timestamp="1600593588103">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1868" height="485" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1600593562829" />
+    <state width="1868" height="485" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1600593588103" />
     <state width="1868" height="312" key="GridCell.Tab.0.center/0.23.1920.1001@0.23.1920.1001" timestamp="1599540733273" />
-    <state width="1868" height="485" key="GridCell.Tab.0.left" timestamp="1600593562828">
+    <state width="1868" height="485" key="GridCell.Tab.0.left" timestamp="1600593588102">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1868" height="485" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1600593562828" />
+    <state width="1868" height="485" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1600593588102" />
     <state width="1868" height="312" key="GridCell.Tab.0.left/0.23.1920.1001@0.23.1920.1001" timestamp="1599540733272" />
-    <state width="1868" height="485" key="GridCell.Tab.0.right" timestamp="1600593562830">
+    <state width="1868" height="485" key="GridCell.Tab.0.right" timestamp="1600593588103">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1868" height="485" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1600593562830" />
+    <state width="1868" height="485" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1600593588103" />
     <state width="1868" height="312" key="GridCell.Tab.0.right/0.23.1920.1001@0.23.1920.1001" timestamp="1599540733274" />
-    <state x="751" y="450" width="417" height="182" key="NewPhpFileDialog" timestamp="1599514841051">
+    <state x="751" y="450" width="417" height="182" key="NewPhpFileDialog" timestamp="1600635554596">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="2031" y="450" width="417" height="182" key="NewPhpFileDialog/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1599244989437" />
-    <state x="751" y="450" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599514841051" />
+    <state x="751" y="450" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1600635554596" />
     <state x="352" y="91" width="1216" height="897" key="SettingsEditor" timestamp="1599325269349">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -360,14 +382,15 @@
     </state>
     <state x="1860" y="197" width="759" height="686" key="find.popup/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1599246337844" />
     <state x="580" y="197" width="759" height="686" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1599101933738" />
-    <state x="541" y="252" key="run.anything.popup" timestamp="1600491187708">
+    <state x="541" y="252" key="run.anything.popup" timestamp="1600747733322">
       <screen x="0" y="23" width="1920" height="1001" />
     </state>
     <state x="541" y="252" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1599652487509" />
-    <state x="541" y="252" key="run.anything.popup/0.23.1920.1001@0.23.1920.1001" timestamp="1600491187708" />
-    <state x="541" y="48" width="838" height="1032" key="search.everywhere.popup" timestamp="1599496571268">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="541" y="252" key="run.anything.popup/0.23.1920.1001@0.23.1920.1001" timestamp="1600747733322" />
+    <state x="541" y="48" width="838" height="1032" key="search.everywhere.popup" timestamp="1600746341713">
+      <screen x="0" y="23" width="1920" height="1001" />
     </state>
     <state x="541" y="48" width="838" height="1032" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1599496571268" />
+    <state x="541" y="48" width="838" height="1032" key="search.everywhere.popup/0.23.1920.1001@0.23.1920.1001" timestamp="1600746341713" />
   </component>
 </project>

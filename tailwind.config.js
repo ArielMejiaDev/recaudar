@@ -26,14 +26,48 @@ module.exports = {
                 '72': '18rem',
                 '84': '21rem',
                 '96': '24rem',
+                '128': '32rem',
             },
+            colors: {
+                pink: '#fe5971',
+                mint: '#66ddbd',
+                deepmint: '#52d2b3',
+                deeppink: '#f95367',
+                deepblue: '#212939',
+            },
+            margin: {
+                '96': '24rem',
+                '128': '32rem',
+            }
         },
         container: {
           center: true,
           padding: "1rem",
         },
+        fontFamily: {
+            display: ['montserrat', 'sans-serif'],
+            body: ['coolvetica', 'sans-serif']
+        },
+        fontSize: {
+            'xs': '.75rem',
+            'sm': '.875rem',
+            'tiny': '.875rem',
+            'base': '1rem',
+            'lg': '1.125rem',
+            'xl': '1.25rem',
+            '2xl': '1.5rem',
+            '3xl': '1.875rem',
+            '4xl': '2.25rem',
+            '5xl': '3rem',
+            '6xl': '4rem',
+            '7xl': '5rem',
+            '8xl': '6rem',
+            '9xl': '7rem',
+            '10xl': '8rem',
+        },
     },
     variants: {
+        opacity: ['responsive', 'hover'],
         boxShadow: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
         textColor: ['responsive', 'hover', 'focus', 'active', 'focus-within'],
     },

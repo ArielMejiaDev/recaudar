@@ -18,8 +18,15 @@ mix.js('resources/js/app.js', 'public/js')
         postCss: [
             require('tailwindcss')()
         ],
-    })
-    .version()
+    }).version()
+
+mix.sass('resources/sass/frontend.scss', 'public/css')
+    .options({
+    processCssUrls: false,
+    postCss: [
+        require('tailwindcss')()
+    ],
+}).version()
 
 mix.browserSync({
     proxy: 'recaudar-org.test',

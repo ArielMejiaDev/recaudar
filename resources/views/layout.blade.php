@@ -9,19 +9,20 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Recaudar.com') }}</title>
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.min.js" defer></script>
 {{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
 
-    <!-- Styles -->
+<!-- Styles -->
     <link href="{{ mix('css/frontend.css') }}" rel="stylesheet">
 
     <!-- Pixel Code for https://app.heyflow.co/ -->
 {{--    <script async src="https://app.heyflow.co/pixel/GDqj84ofOlDbfPj3"></script>--}}
 
-    <!-- Smartlock -->
+<!-- Smartlock -->
 {{--    <script type='text/javascript'>--}}
 {{--        window.smartlook||(function(d) {--}}
 {{--            var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];--}}
@@ -31,7 +32,7 @@
 {{--        smartlook('init', 'bfc6432b77e4654dba2229a55021edf3e6f9ed90');--}}
 {{--    </script>--}}
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
 {{--    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172133505-1"></script>--}}
 {{--    <script>--}}
 {{--        window.dataLayer = window.dataLayer || [];--}}
@@ -40,50 +41,24 @@
 {{--        gtag('config', 'UA-172133505-1');--}}
 {{--    </script>--}}
 
-    <!-- Hotjar Tracking Code for www.recaudar.com -->
-{{--    <script>--}}
-{{--        (function(h,o,t,j,a,r){--}}
-{{--            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};--}}
-{{--            h._hjSettings={hjid:1477096,hjsv:6};--}}
-{{--            a=o.getElementsByTagName('head')[0];--}}
-{{--            r=o.createElement('script');r.async=1;--}}
-{{--            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;--}}
-{{--            a.appendChild(r);--}}
-{{--        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');--}}
-{{--    </script>--}}
+<!-- Hotjar Tracking Code for www.recaudar.com -->
+    {{--    <script>--}}
+    {{--        (function(h,o,t,j,a,r){--}}
+    {{--            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};--}}
+    {{--            h._hjSettings={hjid:1477096,hjsv:6};--}}
+    {{--            a=o.getElementsByTagName('head')[0];--}}
+    {{--            r=o.createElement('script');r.async=1;--}}
+    {{--            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;--}}
+    {{--            a.appendChild(r);--}}
+    {{--        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');--}}
+    {{--    </script>--}}
 
-{{--    {!! SEO::generate() !!}--}}
+    {{--    {!! SEO::generate() !!}--}}
 
 </head>
 <body>
-
-<div id="app">
-
-    <x-landing.hero />
-
-    <x-landing.steps :team="$team" />
-
-    <x-landing.step-one :teams="$teams" />
-
-    <x-landing.step-two />
-
-    <x-landing.step-three />
-
-    <x-landing.call-to-action />
-
-    <x-landing.foundations-info />
-
-    <x-landing.faqs />
-
-    <x-landing.foundations-call-to-action/>
-
-    <x-landing.footer />
-
-{{--    @if (session('modal_message'))--}}
-{{--        <Okalert :message="'{{ session('modal_message') }}'"></Okalert>--}}
-{{--    @endif--}}
-
-</div>
-
+    <div id="app">
+        @yield('content')
+    </div>
 </body>
 </html>

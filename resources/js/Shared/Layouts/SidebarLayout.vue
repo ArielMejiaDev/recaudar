@@ -27,7 +27,7 @@
                                 <InertiaLink v-if="$page.auth.user.role === 'app_admin'" @click.passive="dropdownOpen = !dropdownOpen" :href="route('admin.dashboard')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Home</InertiaLink>
                                 <InertiaLink v-else @click.passive="dropdownOpen = !dropdownOpen" :href="route('teams.index')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Home</InertiaLink>
                                 <InertiaLink @click.passive="dropdownOpen = !dropdownOpen" :href="route('profile.show')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</InertiaLink>
-                                <a @click="$inertia.post(route('logout'))" href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</a>
+                                <a @click.prevent="logout" method="post" href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</a>
                             </div>
                         </div>
                     </div>
@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import Sidebar from "../../Partials/Sidebar";
 import SearchInput from "../SearchInput";
 import Avatar from "../Avatar";
@@ -64,5 +65,10 @@ export default {
         Avatar,
         Alert,
     },
+    methods: {
+        logout() {
+            axios.post(this.route('logout').url(), {}).finally(() => window.location.href = '/');
+        }
+    }
 }
 </script>
