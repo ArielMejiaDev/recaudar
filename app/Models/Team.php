@@ -21,4 +21,10 @@ class Team extends Model
     {
         return $this->belongsToMany(Plan::class);
     }
+
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }

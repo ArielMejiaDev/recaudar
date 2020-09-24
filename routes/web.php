@@ -12,7 +12,9 @@
 */
 
 use App\Http\Controllers\Frontend\AboutUsPageController;
+use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\LandingPageController;
+use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\ProfilePageController;
 use App\Http\Controllers\Frontend\TeamPageController;
 use App\Http\Controllers\Frontend\TermsForUsersPageController;
@@ -21,9 +23,12 @@ Route::domain('{team:slug}.' . basename(config('app.url')))->group(function () {
 
     Route::get('/', ProfilePageController::class)->name('profile-page');
 
-//    Route::get('/', 'Foundations\\HomepageController')->name('foundations.homepage')->middleware('approvedFoundation');
+    // quitar tambien la referencia a esta ruta en los temas y despues quitar esta ruta
+    Route::get('/checkout/{amount}', CheckoutController::class)->name('checkout');
 
-//    Route::get('/checkout/{amount}', 'Foundations\\CheckoutController')->name('checkout');
+    Route::post('/pay/{plan}', PaymentController::class)->name('pay');
+
+//    Route::get('/certificate/{}', CertificateController)->name('donation-certificate');
 //
 //    Route::post('/pay', 'Foundations\\PaymentController')->name('pay');
 //

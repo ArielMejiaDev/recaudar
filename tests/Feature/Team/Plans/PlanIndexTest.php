@@ -42,6 +42,7 @@ class PlanIndexTest extends TestCase
     public function test_team_members_can_access_to_teams_plans_index_and_view_plans()
     {
         $team = factory(Team::class)->create();
+        $team->plans->first()->delete();
         $team->plans()->save(factory(Plan::class)->make());
         $user = factory(User::class)->create();
         $this->actingAs($user);
@@ -49,6 +50,7 @@ class PlanIndexTest extends TestCase
         $response = $this->get(route('teams.plans.index', $team));
         $response->assertOk();
         $response->assertPropCount('plans.data', 1);
+        $team->refresh();
         $response->assertPropValue('plans.data', function($plan) use($team) {
             $this->assertEquals($team->plans->first()->title, $plan[0]['title']);
         });

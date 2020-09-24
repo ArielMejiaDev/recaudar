@@ -10,7 +10,7 @@ class TeamPageController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $teams = Team::where('name', '!=', 'recaudar')->simplePaginate();
+        $teams = Team::where('name', '!=', 'recaudar')->where('status', 'approved')->simplePaginate();
         if($request->has('categoria')) {
             $teams = Team::where('name', '!=', 'recaudar')->whereCategory(ucfirst($request->categoria))->simplePaginate();
         }

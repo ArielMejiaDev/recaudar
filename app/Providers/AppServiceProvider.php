@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Team;
+use App\Observers\TeamObserver;
 use App\Observers\UserObserver;
 use App\User;
 use Illuminate\Pagination\Paginator;
@@ -27,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         User::observe(UserObserver::class);
+        Team::observe(TeamObserver::class);
         Paginator::useTailwind();
     }
 }

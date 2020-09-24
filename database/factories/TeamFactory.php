@@ -27,7 +27,7 @@ $factory->define(Team::class, function (Faker $faker) {
         'facebook_account' => $faker->url,
         'twitter_account' => $faker->url,
         'instagram_account' => $faker->url,
-        'theme' => 'classic',
+        'theme' => 'condensed',
         'account_number' => $faker->bankAccountNumber,
         'bank' => $faker->company,
         'country' => collect(['Guatemala', 'El Salvador', 'Honduras', 'Panama', 'Costa Rica'])->random(),

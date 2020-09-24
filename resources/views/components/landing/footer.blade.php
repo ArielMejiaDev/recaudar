@@ -35,10 +35,7 @@
                 <h2 class="title-font font-medium text-gray-100 tracking-widest text-sm mb-3">Acerca de nosotros</h2>
                 <nav class="list-none mb-8">
                     <li class="py-2">
-                        <a class="text-gray-600 hover:text-gray-100" href="#">Quienes somos</a>
-                    </li>
-                    <li class="py-2">
-                        <a class="text-gray-600 hover:text-gray-100">Carreras</a>
+                        <a class="text-gray-600 hover:text-gray-100" href="{{ route('about-us') }}">Quienes somos</a>
                     </li>
                     <li class="py-2">
                         <a class="text-gray-600 hover:text-gray-100">Clientes</a>
@@ -51,9 +48,6 @@
                 <nav class="list-none mb-8">
                     <li class="py-2">
                         <a href="#" class="text-gray-600 hover:text-gray-100">Contacto</a>
-                    </li>
-                    <li class="py-2">
-                        <a href="#" class="text-gray-600 hover:text-gray-100">Politicas de privacidad</a>
                     </li>
                     <li class="py-2">
                         <a href="{{ route('terms-for-users') }}" class="text-gray-600 hover:text-gray-100">Terminos y condiciones</a>

@@ -75,7 +75,7 @@
 
     <x-landing.faqs />
 
-    <x-landing.foundations-call-to-action/>
+    <x-landing.second-call-to-action/>
 
     <x-landing.footer />
 

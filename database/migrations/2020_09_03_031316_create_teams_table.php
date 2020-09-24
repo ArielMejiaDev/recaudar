@@ -36,7 +36,7 @@ class CreateTeamsTable extends Migration
             $table->string('facebook_account')->nullable();
             $table->string('twitter_account')->nullable();
             $table->string('instagram_account')->nullable();
-            $table->string('theme', 30)->nullable()->default('classic');
+            $table->string('theme', 30)->nullable()->default('columns');
             $table->string('bank');
             $table->string('account_number');
             $table->string('country');

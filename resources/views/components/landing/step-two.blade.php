@@ -1,13 +1,13 @@
 <div id="step-two" class="sm:h-screen bg-pink overflow-hidden relative flex flex-col items-center justify-center relative pt-4 pb-20 lg:py-0 lg:py-0 font-body">
 
     <!-- Blobs -->
-    <svg class="absolute fill-current text-deeppink z-0" style="top: -100px; right: -400px" width="800" height="800" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+    <svg class="absolute fill-current text-melon z-0" style="top: -100px; right: -400px" width="800" height="800" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
         <g transform="translate(300,300)">
             <path d="M155.6,-110.7C184.5,-87.8,179,-24.1,162.6,32.8C146.2,89.8,118.9,139.9,68.6,177.8C18.2,215.6,-55.1,241.2,-111.6,218.9C-168.2,196.6,-207.9,126.6,-205.4,67.1C-202.9,7.5,-158.1,-41.4,-116.8,-67.2C-75.6,-92.9,-37.8,-95.5,12.8,-105.7C63.3,-115.8,126.7,-133.7,155.6,-110.7Z" />
         </g>
     </svg>
 
-    <svg class="absolute fill-current text-deeppink z-0" style="bottom: -400px; left: -350px" width="800" height="800" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+    <svg class="absolute fill-current text-melon z-0" style="bottom: -400px; left: -350px" width="800" height="800" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
         <g transform="translate(300,300)">
             <path d="M150.6,-186C187.3,-180.7,203.5,-126.1,207,-76.4C210.5,-26.8,201.3,17.8,178.9,49.3C156.5,80.7,120.9,99,88.8,106.1C56.8,113.2,28.4,109.1,1,107.8C-26.5,106.4,-52.9,107.8,-65.3,94.3C-77.6,80.8,-75.9,52.5,-75.8,30C-75.8,7.5,-77.4,-9.1,-89.4,-46.7C-101.4,-84.2,-123.9,-142.8,-110.7,-155.7C-97.6,-168.6,-48.8,-135.8,4.1,-141.5C57,-147.1,114,-191.3,150.6,-186Z" />
         </g>

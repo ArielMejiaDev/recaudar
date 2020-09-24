@@ -38,6 +38,7 @@ class PlanDestroyTest extends TestCase
     public function test_team_members_can_delete_a_team_plan()
     {
         $team = factory(Team::class)->create();
+        $team->plans->first()->delete();
         $plan = factory(Plan::class)->create();
         $team->plans()->attach($plan);
 

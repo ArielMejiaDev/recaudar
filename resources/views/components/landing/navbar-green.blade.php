@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="flex items-center justify-between flex-wrap bg-teal-400 absolute right-0 left-0 top-0 z-20 py-6 px-4 lg:px-12">
+<nav x-data="{ open: false }" class="flex items-center justify-between flex-wrap bg-teal-400 absolute right-0 left-0 top-0 z-20 py-6 px-4 lg:px-12 font-body">
     <a href="{{ config('app.url') }}" class="flex items-center flex-shrink-0 text-pink mr-6">
         <svg class="fill-current w-10 lg:h-16 lg:w-16 mr-4" viewBox="0 0 1322 1062" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M996.085 738.03C1004.33 731.552 1022.89 729.392 1035.26 722.914C1047.63 716.435 1055.88 705.638 1060 697C1060 697 1022.89 707.797 996.085 705.638C973.405 705.638 981.652 753.147 996.085 738.03Z"/>

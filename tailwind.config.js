@@ -30,9 +30,9 @@ module.exports = {
             },
             colors: {
                 pink: '#fe5971',
+                melon: '#f95367',
                 mint: '#66ddbd',
                 deepmint: '#52d2b3',
-                deeppink: '#f95367',
                 deepblue: '#212939',
             },
             margin: {
