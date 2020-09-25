@@ -29,7 +29,7 @@
                 <img class="w-full h-56 object-cover z-0" src="{{ $team->banner }}" alt="{{ $team->name }}">
 
                 <div class="bg-black opacity-100 lg:opacity-0 hover:opacity-100 bg-opacity-50 lg:bg-opacity-0 hover:bg-opacity-50 flex items-center justify-center absolute inset-0">
-                    <a href="#" class="bg-pink py-2 px-4 md:py-4 md:px-8 lg:py-2 lg:px-4 text-center text-gray-100 rounded hover:bg-deeppink text-2xl tracking-wide z-10">
+                    <a href="{{ route('profile-page', $team) }}" class="bg-pink py-2 px-4 md:py-4 md:px-8 lg:py-2 lg:px-4 text-center text-gray-100 rounded hover:bg-deeppink text-2xl tracking-wide z-10">
                         Donar
                     </a>
                 </div>

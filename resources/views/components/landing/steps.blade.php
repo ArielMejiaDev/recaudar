@@ -36,12 +36,12 @@
 
             <div class="w-full lg:w-7/12">
 
-                <a href="#" class="rounded-lg shadow-2xl overflow-hidden block m-2 md:mt-20 md:mx-20">
+                <a href="{{ route('profile-page', $team) }}" class="rounded-lg shadow-2xl overflow-hidden block m-2 md:mt-20 md:mx-20">
                     <img class="w-full h-64 object-cover lg:h-full" src="{{ $team->banner }}" alt="Foundation image">
                 </a>
 
                 <div class="flex justify-center">
-                    <a href="#" class="mt-4 md:mt-12 bg-pink rounded text-white hover:bg-red-600 px-8 py-4 text-2xl focus:outline-none">Ver Fundación</a>
+                    <a href="{{ route('profile-page', $team) }}" class="mt-4 md:mt-12 bg-pink rounded text-white hover:bg-red-600 px-8 py-4 text-2xl focus:outline-none">Ver Fundación</a>
                 </div>
 
             </div>

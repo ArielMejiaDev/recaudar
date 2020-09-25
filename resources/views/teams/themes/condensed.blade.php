@@ -133,8 +133,9 @@
                                                 <p class="leading-relaxed text-base">{{ $plan->description }}</p>
                                             @endif
 
-                                            <a @click.prevent="selectPlan({{ $plan }})" class="mt-3 text-pink inline-flex items-center cursor-pointer">
-                                                Donar {{ $currency }} @money($plan->amount_in_local_currency)
+                                            <a @click.prevent="selectPlan({{ $plan }})"
+                                               class="mt-3 text-pink inline-flex items-center cursor-pointer"
+                                               x-text='money_format({{ $plan->amount_in_local_currency }})'>
                                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                                                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                                                 </svg>
@@ -204,7 +205,7 @@
                                 </div>
                             </div>
 
-                            <input type="hidden" id="currency" value="{{ $currency }}">
+                            <input type="hidden" id="currency" value="{{ $locale->currencyCode() }}">
 
                             <div class="my-2 p-2">
                                 <input x-model="email" class="w-full px-5 py-2 text-gray-700 bg-gray-100 border border-gray-300 rounded focus:outline-none" id="email" name="email" type="email" placeholder="Email">
@@ -247,7 +248,7 @@
                                     x-bind:disabled="submitting"
                                     x-show.transition="!submitting"
                                     class="px-4 py-2 text-white font-light tracking-wider bg-gray-900 rounded-lg uppercase w-full focus:outline-none focus:shadow-outline"
-                                    type="submit" x-text="`Pay {{ $currency }} ${selectedAmount}`"></button>
+                                    type="submit" x-text="money_format(selectedAmount)"></button>
                                 <p class="text-gray-900 leading-loose tracking-wider font-medium" x-show.transition="submitting" x-text="submittingText"></p>
                             </div>
                         </div>
@@ -277,6 +278,14 @@
                     errors: {},
                     planId: '',
                     submittingText: 'Loading...',
+                    money_format(value) {
+                        const amount = parseInt(value) || 0;
+                        return new Intl.NumberFormat('{{ $locale->countryCode() }}', {
+                            style: 'currency',
+                            currency: '{{ $locale->currencyCode() }}',
+                            minimumFractionDigits: 2
+                        }).format(amount)
+                    },
                     selectPlan(plan) {
                         this.planId = plan.id;
                         this.selectedAmount = plan.amount_in_local_currency;

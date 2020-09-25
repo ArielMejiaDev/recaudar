@@ -6,16 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/contact.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/moonlight.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/moonlight.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/LocaleCodeResolver.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/navbar-green.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/navbar-green.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ProfilePageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ProfilePageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/step-one.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/step-one.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/steps.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/steps.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/condensed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams/themes/condensed.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,7 +256,7 @@
       <workItem from="1599375162717" duration="41766000" />
       <workItem from="1599568840588" duration="49012000" />
       <workItem from="1599912651529" duration="14000" />
-      <workItem from="1600106574225" duration="172298000" />
+      <workItem from="1600106574225" duration="178409000" />
     </task>
     <servers />
   </component>
@@ -308,10 +304,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="645" y="275" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599189890395" />
-    <state x="412" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1600589592694">
+    <state x="412" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601031289781">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="412" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1600589592694" />
+    <state x="412" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1601031289781" />
     <state x="632" y="236" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599075333250">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -346,11 +342,15 @@
     </state>
     <state width="1868" height="312" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1600987950491" />
     <state width="1868" height="312" key="GridCell.Tab.0.right/0.23.1920.1001@0.23.1920.1001" timestamp="1599540733274" />
-    <state x="751" y="450" width="417" height="182" key="NewPhpFileDialog" timestamp="1600635554596">
+    <state x="663" y="203" key="NewPhpClassDialog" timestamp="1601027405866">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="663" y="203" key="NewPhpClassDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1601027405866" />
+    <state x="751" y="450" width="417" height="182" key="NewPhpFileDialog" timestamp="1601027383970">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="2031" y="450" width="417" height="182" key="NewPhpFileDialog/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1599244989437" />
-    <state x="751" y="450" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1600635554596" />
+    <state x="751" y="450" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1601027383970" />
     <state x="352" y="91" width="1216" height="897" key="SettingsEditor" timestamp="1599325269349">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
