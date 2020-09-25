@@ -25,7 +25,7 @@
         </button>
     </div>
     {{--Responsive Navbar--}}
-    <div x-show.transition.in.duration.200ms.out.duration.50ms="open" @click.away="open = false" class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+    <div x-cloak x-show.transition.in.duration.200ms.out.duration.50ms="open" @click.away="open = false" class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <div class="text-sm lg:flex-grow">
             <a href="{{ config('app.url') . '/#faqs' }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Preguntas frecuentes</a>
             <a href="{{ route('about-us') }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Quiénes somos</a>

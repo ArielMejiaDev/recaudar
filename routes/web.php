@@ -13,7 +13,9 @@
 
 use App\Http\Controllers\Frontend\AboutUsPageController;
 use App\Http\Controllers\Frontend\CheckoutController;
+use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\LandingPageController;
+use App\Http\Controllers\Frontend\NewsletterController;
 use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\ProfilePageController;
 use App\Http\Controllers\Frontend\TeamPageController;
@@ -43,3 +45,9 @@ Route::get('/terminos-y-condiciones', TermsForUsersPageController::class)->name(
 Route::get('/quienes-somos', AboutUsPageController::class)->name('about-us');
 
 Route::get('/fundaciones', TeamPageController::class)->name('teams-page');
+
+Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
+
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+Route::post('/newsletter', NewsletterController::class)->name('newsletter.store');

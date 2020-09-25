@@ -47,7 +47,7 @@
                 <h2 class="title-font font-medium text-gray-100 tracking-widest text-sm mb-3">Recursos</h2>
                 <nav class="list-none mb-8">
                     <li class="py-2">
-                        <a href="#" class="text-gray-600 hover:text-gray-100">Contacto</a>
+                        <a href="{{ route('contact.create') }}" class="text-gray-600 hover:text-gray-100">Contacto</a>
                     </li>
                     <li class="py-2">
                         <a href="{{ route('terms-for-users') }}" class="text-gray-600 hover:text-gray-100">Terminos y condiciones</a>
@@ -62,7 +62,7 @@
 
         <div class="container px-5 py-8 flex flex-wrap mx-auto items-center justify-center">
 
-            <form method="POST" action="#" class="flex flex-col md:flex-row md:flex-no-wrap flex-wrap justify-center md:justify-start">
+            <form method="POST" action="{{ route('newsletter.store') }}" class="flex flex-col md:flex-row md:flex-no-wrap flex-wrap justify-center md:justify-start">
                 @csrf
 
                 <input autocomplete="off" class="w-full md:w-64 my-1 md:my-0 bg-gray-100 rounded sm:mr-4 mr-2 border border-gray-400 focus:outline-none focus:border-indigo-500 text-base py-2 px-4" placeholder="Email" name="email" type="email">
