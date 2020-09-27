@@ -19,3 +19,12 @@ html {
 }
 
 [x-cloak] { display: none; }
+
+@media print {
+    .printable-certificate {
+        margin-top: 4rem !important;
+    }
+    .no-print {
+        visibility: hidden;
+    }
+}

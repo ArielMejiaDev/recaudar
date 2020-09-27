@@ -22,6 +22,10 @@ class Team extends Model
         return $this->belongsToMany(Plan::class);
     }
 
+    public function availablePlans()
+    {
+        return $this->plans()->where('title', '!=', 'variable amount plan')->get();
+    }
 
     public function transactions()
     {

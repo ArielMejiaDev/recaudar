@@ -29,14 +29,14 @@ class PlansController extends Controller
     {
 
         $plans = $team->plans()
-            ->where('title', '!=', 'variable amount plan')
+            ->where('title', '!=', 'of variable amount')
             ->select('title', 'type_of_amount', 'currency', 'amount')
             ->paginate(5);
 
         if ($request->has('search')) {
             $plans = $team->plans()
                         ->select(['title', 'type_of_amount', 'currency', 'amount'])
-                        ->where('title', '!=', 'variable amount plan')
+                        ->where('title', '!=', 'of variable amount')
                         ->where(function($query) use($request) {
                             $query->where('title', 'LIKE', "%{$request->search}%")
                                 ->orWhere('currency', 'LIKE', "%{$request->search}%")

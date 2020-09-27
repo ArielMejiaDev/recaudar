@@ -12,4 +12,9 @@ class Transaction extends Model
     {
         return $this->belongsTo(Team::class);
     }
+
+    public function plan()
+    {
+        return $this->belongsTo(Plan::class);
+    }
 }

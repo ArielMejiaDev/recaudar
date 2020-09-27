@@ -65,7 +65,7 @@
 
             <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
 
-                @foreach ($team->plans as $plan)
+                @foreach ($team->availablePlans() as $plan)
 
                     <div class="p-4 w-full lg:w-1/3 sm:mb-0 mb-6 z-10">
 

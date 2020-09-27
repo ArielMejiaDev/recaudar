@@ -12,6 +12,7 @@
 */
 
 use App\Http\Controllers\Frontend\AboutUsPageController;
+use App\Http\Controllers\Frontend\CertificateController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\LandingPageController;
@@ -30,7 +31,7 @@ Route::domain('{team:slug}.' . basename(config('app.url')))->group(function () {
 
     Route::post('/pay/{plan}', PaymentController::class)->name('pay');
 
-//    Route::get('/certificate/{}', CertificateController)->name('donation-certificate');
+    Route::get('/certificate/{transaction}', CertificateController::class)->name('certificate');
 //
 //    Route::post('/pay', 'Foundations\\PaymentController')->name('pay');
 //

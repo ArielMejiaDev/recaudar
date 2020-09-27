@@ -191,9 +191,12 @@
                         </div>
                     </div>
                     <div class="p-2 md:p-8">
-                        <div class="text-red-500 text-xs text-center font-bold mb-4 p-2 uppercase w-full rounded-lg bg-red-100" x-show="errors.transaction" x-text="errors.transaction"></div>
 
+                        {{--Error Alerts--}}
+                        <div class="text-red-500 text-xs text-center font-bold mb-4 p-2 uppercase w-full rounded-lg bg-red-100" x-show="errors.transaction" x-text="errors.transaction"></div>
                         <div class="text-red-500 text-xs text-center font-bold mb-4 p-2 uppercase w-full rounded-lg bg-red-100" x-show="errors.amount" x-text="errors.amount"></div>
+                        <div class="text-red-500 text-xs text-center font-bold mb-4 p-2 uppercase w-full rounded-lg bg-red-100" x-show="errors.deviceFingerprintID" x-text="errors.deviceFingerprintID"></div>
+                        {{--End Error Alerts--}}
 
                         <div class="bg-gray-200 rounded py-2">
 
@@ -264,6 +267,52 @@
 
     @push('scripts')
         <script>
+            // DeviceFingerPrint
+            const merchantID  = 'visanetgt_jupiter'
+            var environment = "{{  config('pagalogt.environment') }}"
+            environment = environment.toLowerCase
+            // DeviceFingerPrint
+            const deviceFingerprintID = cybs_dfprofiler(`${merchantID}`,`${environment}`);
+            function cybs_dfprofiler(merchantID, environment) {
+                if (environment.toLowerCase() == 'live') {
+                    var org_id = 'k8vif92e'
+                } else {
+                    var org_id = '1snn5n9w'
+                }
+                var sessionID = new Date().getTime()
+                //One-Pixel Image Code
+                var paragraphTM = document.createElement("p")
+                str = "";
+                str = "background:url(https://h.online-metrix.net/fp/clear.png?org_id=" + org_id + "&session_id=" + merchantID + sessionID + "&m=1)"
+                paragraphTM.styleSheets = str
+                document.body.appendChild(paragraphTM)
+                var img = document.createElement("img")
+                str = "https://h.online-metrix.net/fp/clear.png?org_id=" + org_id + "&session_id=" + merchantID + sessionID + "&m=2"
+                img.src = str
+                img.alt = ""
+                document.body.appendChild(img)
+                //Flash Code
+                var objectTM = document.createElement("object")
+                objectTM.data = "https://h.online-metrix.net/fp/fp.swf?org_id=" + org_id + "&session_id=" + merchantID + sessionID
+                objectTM.type = "application/x-shockwave-flash"
+                objectTM.width = "1"
+                objectTM.height = "1"
+                objectTM.id = "thm_fp"
+                var param = document.createElement("param")
+                param.name = "movie"
+                param.value = "https://h.online-metrix.net/fp/fp.swf?org_id=" + org_id + "&session_id=" + merchantID + sessionID
+                objectTM.appendChild(param)
+                document.body.appendChild(objectTM)
+                //JavaScript Code
+                var tmscript = document.createElement("script")
+                tmscript.src = "https://h.online-metrix.net/fp/tags.js?org_id=" + org_id + "&session_id=" + merchantID + sessionID
+                tmscript.type = "text/javascript"
+                document.body.appendChild(tmscript)
+                return sessionID
+            }
+            // End DeviceFingerPrint
+
+            // Checkout form
             function form() {
                 return {
                     email: '',
@@ -293,7 +342,8 @@
                     },
                     submit() {
                         this.submitting = true;
-                        fetch(`/pay/${this.planId || 1}`, {
+                        const planId = this.planId || {{ $variablePlanId }};
+                        fetch(`/pay/${planId}`, {
                             headers: {
                                 "Content-Type": "application/json",
                                 "Accept": "application/json",
@@ -311,6 +361,7 @@
                                 currency: document.getElementById('currency').value,
                                 amount: this.selectedAmount,
                                 recurrence: this.recurrence || 0,
+                                deviceFingerprintID: deviceFingerprintID,
                             }) })
                             .then(response => response.json()
                                 .then(data => {
@@ -325,6 +376,7 @@
                     }
                 }
             }
+            // End Checkout Form
         </script>
     @endpush
 

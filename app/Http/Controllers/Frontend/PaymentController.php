@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Factories\ChargeFactory;
 use App\Http\Controllers\Controller;
 use App\Models\Charge;
 use App\Models\Plan;
 use App\Models\Team;
 use App\Models\Transaction;
+use App\Services\ChargeResolver;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 use PagaloGT;
@@ -25,15 +27,22 @@ class PaymentController extends Controller
             'currency' => ['required'],
             'amount' => ['required', 'numeric', 'min:25'],
             'recurrence' => ['boolean'],
+            'deviceFingerprintID' => ['required', 'min:13']
         ]);
+
+        if ($plan->title === 'of variable amount' && $team->plans->first()->id !== $plan->id) {
+            throw ValidationException::withMessages([
+                'transaction' => trans('Transaction Fail, please try again later.')
+            ]);
+        }
 
         $splitName = explode(' ', $request->name, 2);
         $firstname = $splitName[0];
         $lastname = !empty($splitName[1]) ? $splitName[1] : '';
 
-        $product = 'Aporte a la fundacion ' . $team->name . ' plan ' . $plan->title;
+        $product = "Contribution to organization {$team->name} with plan {$plan->title}";
         if($request->recurrence) {
-            $product = 'Aporte recurrente a la fundacion ' . $team->name . ' plan ' . $plan->title;
+            $product = "Recurrent contribution to organization {$team->name} with plan {$plan->title}";
         }
 
         $response = PagaloGT::add(1, $product, $request->amount)
@@ -43,13 +52,20 @@ class PaymentController extends Controller
             ->pay();
 
         if($response->successful()) {
-
-            $team->transactions()->create([
+            $charge = (new ChargeFactory)->make($team);
+            $transaction = $team->transactions()->create([
                 'plan_id' => $plan->id,
                 'charge_id' => Charge::whereCountry($team->country)->firstOrFail()->id,
+                'name' => $request->name,
+                'email' => $request->email,
+                'currency' => 'local',
+                'amount' => $request->amount,
+                'type' => $request->recurrence ? 'recurrent' : 'single',
+                'amount_to_deposit' => $charge->calculateDeposit(),
+                'income' => $charge->calculateIncome(),
             ]);
 
-            return response()->json(['redirect' => route('profile-page', $team)]);
+            return response()->json(['redirect' => route('certificate', ['team' => $team, 'transaction' => $transaction])]);
         }
 
         throw ValidationException::withMessages([

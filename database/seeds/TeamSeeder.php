@@ -18,6 +18,7 @@ class TeamSeeder extends Seeder
             'slug' => 'recaudar',
             'category' => 'Admin',
             'status' => 'approved',
+            'country' => 'Guatemala',
         ]);
 
         factory(Team::class)->create([
@@ -27,6 +28,7 @@ class TeamSeeder extends Seeder
             'public' => 'Personas interesadas en seguridad alimentaria y el medio ambiente',
             'category' => 'Ambientales',
             'beneficiaries' => 25,
+            'country' => 'Guatemala',
         ]);
 
         factory(Team::class)->create([
@@ -35,7 +37,8 @@ class TeamSeeder extends Seeder
             'category' => 'Educacion',
             'description' => 'Centro Educativo San Judas Tadeo es un proyecto social sin fines de lucro, bajo el apoyo de la Parroquia San Judas Tadeo y Fundación Guatemalteca de Promoción Humana con más de 25 años en el país. El objetivo principal es brindar educación de calidad a las comunidades más necesitadas del sector de Santa Fe y La Libertad principalmente. Formamos niños, niñas y jóvenes con educación académica de calidad, basada en valores Agustinianos.',
             'beneficiaries' => 570,
-            'public' => 'Organización Educativa'
+            'public' => 'Organización Educativa',
+            'country' => 'Guatemala',
         ]);
 
         factory(Team::class)->create([
@@ -46,6 +49,7 @@ class TeamSeeder extends Seeder
             'public' => 'Familias más afectadas por el covid 19.',
             'impact' => 'Somos una organización para servir a las familias más afectadas por el COVID-19.',
             'beneficiaries' => 200,
+            'country' => 'Guatemala',
         ]);
 
     }

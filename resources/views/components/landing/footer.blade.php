@@ -1,4 +1,4 @@
-<footer class="text-gray-700 body-font bg-gray-900 relative">
+<footer class="text-gray-700 body-font bg-gray-900 relative no-print">
 
     <a href="#app" class="absolute bg-gray-800 p-2 lg:p-4 rounded fill-current text-gray-100" style="right: 50px;top: 30px;">
         <svg class="w-6 h-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M5 15l7-7 7 7"></path></svg>

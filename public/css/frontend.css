@@ -23848,6 +23848,16 @@ html {
   display: none;
 }
 
+@media print {
+  .printable-certificate {
+    margin-top: 4rem !important;
+  }
+
+  .no-print {
+    visibility: hidden;
+  }
+}
+
 @media (min-width: 640px){
   .sm\:container{
     width: 100%;

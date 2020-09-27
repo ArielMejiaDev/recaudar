@@ -13,9 +13,9 @@
     <div class="w-auto hidden lg:block flex items-center">
         <div class="text-sm lg:flex-grow">
             <a href="{{ config('app.url') . '/#faqs' }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-900 hover:text-gray-700 text-xl mr-4">Preguntas frecuentes</a>
-            <a href="{{ route('about-us') }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-900 hover:text-gray-700 text-xl mr-4">Quiénes somos</a>
-            <a href="{{ route('login') }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-900 text-xl mr-4 py-2 px-6 border-4 border-pink hover:bg-pink hover:text-white rounded-full">Log in</a>
-            <a href="{{ route('register') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-900 text-xl mr-4 py-2 px-6 border-4 border-teal-400 bg-teal-400 hover:bg-transparent hover:text-blue-900 rounded-full">Crea tu perfil</a>
+            <a href="{{ config('app.url') . '/quienes-somos' }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-900 hover:text-gray-700 text-xl mr-4">Quiénes somos</a>
+            <a href="{{ config('app.url') . '/login' }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-900 text-xl mr-4 py-2 px-6 border-4 border-pink hover:bg-pink hover:text-white rounded-full">Log in</a>
+            <a href="{{ config('app.url') . '/register' }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-900 text-xl mr-4 py-2 px-6 border-4 border-teal-400 bg-teal-400 hover:bg-transparent hover:text-blue-900 rounded-full">Crea tu perfil</a>
         </div>
     </div>
     {{--End Desktop Navbar--}}
@@ -28,9 +28,9 @@
     <div x-show.transition.in.duration.200ms.out.duration.50ms="open" @click.away="open = false" class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <div class="text-sm lg:flex-grow">
             <a href="{{ config('app.url') . '/#faqs' }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Preguntas frecuentes</a>
-            <a href="{{ route('about-us') }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Quiénes somos</a>
-            <a href="{{ route('login') }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Log in</a>
-            <a href="{{ route('register') }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Crea tu perfil</a>
+            <a href="{{ config('app.url') . '/quienes-somos' }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Quiénes somos</a>
+            <a href="{{ config('app.url') . '/login' }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Log in</a>
+            <a href="{{ config('app.url') . '/register' }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Crea tu perfil</a>
         </div>
     </div>
     {{--End Responsive Navbar--}}

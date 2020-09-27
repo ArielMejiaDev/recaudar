@@ -21,6 +21,14 @@ class CreateTransactionsTable extends Migration
             $table->foreign('plan_id')->references('id')->on('plans');
             $table->unsignedBigInteger('charge_id');
             $table->foreign('charge_id')->references('id')->on('charges');
+            $table->string('name');
+            $table->string('email');
+            $table->string('currency');
+            $table->decimal('amount');
+            $table->string('type');
+            $table->decimal('amount_to_deposit');
+            $table->decimal('income');
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

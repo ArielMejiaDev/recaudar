@@ -15,7 +15,7 @@ class TeamObserver
     public function created(Team $team)
     {
         $team->plans()->create([
-            'title' => 'variable amount plan',
+            'title' => 'of variable amount',
         ]);
     }
 
