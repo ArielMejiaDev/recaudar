@@ -24,7 +24,7 @@ export default {
         data: null,
     }),
     props: {
-        value: String,
+        value: null,
         name: null,
         icon: null,
         label: String,

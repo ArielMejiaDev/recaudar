@@ -5,33 +5,34 @@
                 <Title info="This settings are used to calculate the amount to collect.">Edit Charge</Title>
             </template>
             <template v-slot:body>
-                <Select v-model="form.country" name="Country" label="Country" placeholder="Add a country" :errors="$page.errors.country">
-                    <option value="Guatemala">Guatemala</option>
-                    <option value="El Salvador">El Salvador</option>
-                    <option value="Honduras">Honduras</option>
-                    <option value="Panama">Panama</option>
-                    <option value="Costa Rica">Costa Rica</option>
-                </Select>
 
-                <IconInput v-model="form.country_charge" name="country_charge" label="Country Charge" placeholder="Add a charge for the country" :errors="$page.errors.country_charge" type="number" min="0" max="0.9" step="0.01" >
-                    <template v-slot:icon>
-                        <Icon name="dollar" />
-                    </template>
-                </IconInput>
+                <div class="flex">
+                    <Select class="w-full md:w-1/2 md:mr-1" v-model="form.country" name="country" label="Country" placeholder="Add a country" :errors="$page.errors.country">
+                        <option value="Guatemala">Guatemala</option>
+                        <option value="El Salvador">El Salvador</option>
+                        <option value="Honduras">Honduras</option>
+                        <option value="Panama">Panama</option>
+                        <option value="Costa Rica">Costa Rica</option>
+                    </Select>
 
-                <Select v-model="form.payment_gateway" name="payment_gateway" label="Payment gateway" placeholder="Add a payment gateway" :errors="$page.errors.payment_gateway">
-                    <option value="pagalogt">PagaloGT</option>
-                    <option value="pagadito">Pagadito</option>
-                    <option value="paypal">Paypal</option>
-                    <option value="bac">Bac</option>
-                    <option value="payu">PayU</option>
-                </Select>
+                    <IconInput class="w-full md:w-1/2 md:ml-1" v-model="form.income" name="income" label="Income" placeholder="Add an income" :errors="$page.errors.income" type="number" min="0" max="100" >
+                        <template v-slot:icon>%</template>
+                    </IconInput>
+                </div>
 
-                <IconInput v-model="form.payment_gateway_charge" name="payment_gateway_charge" label="Country Charge" placeholder="Add a charge for the payment charge" :errors="$page.errors.payment_gateway_charge" type="number" min="0" max="0.9" step="0.01" >
-                    <template v-slot:icon>
-                        <Icon name="dollar" />
-                    </template>
-                </IconInput>
+                <div class="flex">
+                    <Select class="w-full md:w-1/2 md:mr-1" v-model="form.gateway" name="gateway" label="Payment gateway" placeholder="Add a payment gateway" :errors="$page.errors.gateway">
+                        <option value="pagalogt">PagaloGT</option>
+                        <option value="pagadito">Pagadito</option>
+                        <option value="paypal">Paypal</option>
+                        <option value="bac">Bac</option>
+                        <option value="payu">PayU</option>
+                    </Select>
+
+                    <IconInput class="w-full md:w-1/2 md:ml-1" v-model="form.gateway_charge" name="gateway_charge" label="Gateway Charge" placeholder="Add a charge for the payment gateway" :errors="$page.errors.gateway_charge" type="number" min="0" max="100" >
+                        <template v-slot:icon>%</template>
+                    </IconInput>
+                </div>
 
             </template>
 
@@ -60,9 +61,9 @@ export default {
         return {
             form: {
                 country: this.charge.country,
-                country_charge: this.charge.country_charge,
-                payment_gateway: this.charge.payment_gateway,
-                payment_gateway_charge: this.charge.payment_gateway_charge,
+                income: this.charge.income * 100,
+                gateway: this.charge.gateway,
+                gateway_charge: this.charge.gateway_charge * 100,
             },
             loading: false,
         }

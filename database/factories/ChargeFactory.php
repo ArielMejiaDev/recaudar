@@ -1,15 +1,16 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+/** @var Factory $factory */
 
 use App\Models\Charge;
 use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factory;
 
 $factory->define(Charge::class, function (Faker $faker) {
     return [
         'country' => collect(['Guatemala', 'El Salvador', 'Honduras', 'Panama', 'Costa Rica'])->random(),
-        'country_charge' => collect([00.20, 00.30, 00.40])->random(),
-        'payment_gateway' => collect(['pagalogt', 'pagadito', 'paypal', 'bac', 'payu'])->random(),
-        'payment_gateway_charge' => collect([00.50, 00.60, 00.70])->random(),
+        'income' => collect([00.20, 00.30, 00.40])->random(),
+        'gateway' => collect(['pagalogt', 'pagadito', 'paypal', 'bac', 'payu'])->random(),
+        'gateway_charge' => collect([00.50, 00.60, 00.70])->random(),
     ];
 });

@@ -16,9 +16,9 @@ class CreateChargesTable extends Migration
         Schema::create('charges', function (Blueprint $table) {
             $table->id();
             $table->string('country');
-            $table->decimal('country_charge');
-            $table->string('payment_gateway');
-            $table->decimal('payment_gateway_charge');
+            $table->decimal('income');
+            $table->string('gateway');
+            $table->decimal('gateway_charge');
             $table->softDeletes();
             $table->timestamps();
         });

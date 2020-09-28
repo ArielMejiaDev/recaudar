@@ -16,9 +16,9 @@ class ChargeSeeder extends Seeder
 
         factory(Charge::class)->create([
             'country' => 'Guatemala',
-            'country_charge' => 0.025,
-            'payment_gateway' => 'pagalogt',
-            'payment_gateway_charge' => 0.055,
+            'income' => 0.025,
+            'gateway' => 'pagalogt',
+            'gateway_charge' => 0.055,
         ]);
     }
 }

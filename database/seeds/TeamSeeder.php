@@ -37,7 +37,7 @@ class TeamSeeder extends Seeder
             'contact' => 'Esteban Ruano',
             'contact_phone' => '47686992',
             'contact_email' => 'informacion@selvavirgen.org',
-            'theme' => 'classic',
+            'theme' => 'condensed',
             'logo' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/teams_logos/fundacion_selva_virgen_logo.png',
             'banner' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/teams_logos/fundacion_selva_virgen_logo.png'
         ]);
@@ -79,7 +79,7 @@ class TeamSeeder extends Seeder
             'contact' => 'Nancy Pivaral de Barrios.',
             'contact_phone' => '30690057',
             'contact_email' => 'fundacion@sanjudastadeo.edu.gt',
-            'theme' => 'classic',
+            'theme' => 'condensed',
             'logo' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/teams_logos/fundacion_guatemalteca_de_promocion_humana.png',
             'banner' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/teams_logos/fundacion_guatemalteca_de_promocion_humana.png',
         ]);
@@ -118,7 +118,7 @@ class TeamSeeder extends Seeder
             'contact' => 'Esta información no esta disponible en este momento.',
             'contact_phone' => 'Esta información no esta disponible en este momento.',
             'contact_email' => 'guatedon.crisis@gmail.com',
-            'theme' => 'classic',
+            'theme' => 'condensed',
             'logo' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/teams_logos/guatedon_logo.jpg',
             'banner' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/teams_logos/guatedon_logo.jpg'
         ]);

@@ -21,13 +21,13 @@ class ChargeController extends Controller
      */
     public function index(Request $request)
     {
-        $charges = Charge::paginate(5);
+        $charges = Charge::orderByDesc('id')->paginate(5);
 
         if($request->has('search')) {
-            $charges = Charge::select(['id', 'country', 'payment_gateway'])->where(function($query) use ($request) {
+            $charges = Charge::select(['id', 'country', 'gateway'])->where(function($query) use ($request) {
                 return $query->where('country', 'LIKE', "%{$request->search}%")
-                    ->orWhere('payment_gateway', 'LIKE', "%{$request->search}%");
-            })->paginate(5);
+                    ->orWhere('gateway', 'LIKE', "%{$request->search}%");
+            })->orderByDesc('id')->paginate(5);
         }
 
         return Inertia::render('Admin/Charge/Index', [
@@ -54,7 +54,12 @@ class ChargeController extends Controller
      */
     public function store(UpdateOrStoreChargeRequest $request)
     {
-        Charge::create($request->validated());
+        Charge::create([
+            'country' => $request->get('country'),
+            'income' => ($request->income / 100),
+            'gateway' => $request->get('gateway'),
+            'gateway_charge' => ($request->gateway_charge / 100),
+        ]);
         return redirect()->route('admin.charges.index')->with(['success' => trans('Charge created!')]);
     }
 
@@ -80,7 +85,12 @@ class ChargeController extends Controller
      */
     public function update(UpdateOrStoreChargeRequest $request, Charge $charge)
     {
-        $charge->update($request->validated());
+        $charge->update([
+            'country' => $request->get('country'),
+            'income' => ($request->income / 100),
+            'gateway' => $request->get('gateway'),
+            'gateway_charge' => ($request->gateway_charge / 100),
+        ]);
         return redirect()->route('admin.charges.index')->with(['success' => trans('Charge updated!')]);
     }
 

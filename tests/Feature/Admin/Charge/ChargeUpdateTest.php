@@ -74,12 +74,12 @@ class ChargeUpdateTest extends TestCase
 
         $response = $this->put(route('admin.charges.update', ['charge' => $charge]), [
             'country' => 'Any',
-            'country_charge' => 'lorem',
-            'payment_gateway' => '',
-            'payment_gateway_charge' => 'ipsum'
+            'income' => 'lorem',
+            'gateway' => '',
+            'gateway_charge' => 'ipsum'
         ]);
         $response->assertRedirect();
-        $response->assertSessionHasErrors(['country', 'country_charge', 'payment_gateway', 'payment_gateway_charge']);
+        $response->assertSessionHasErrors(['country', 'income', 'gateway', 'gateway_charge']);
         $charge->refresh();
         $this->assertNotEquals('Any', $charge->country);
     }
@@ -97,9 +97,9 @@ class ChargeUpdateTest extends TestCase
 
         $response = $this->put(route('admin.charges.update', ['charge' => $charge]), [
             'country' => 'Guatemala',
-            'country_charge' => 3.0,
-            'payment_gateway' => 'pagalogt',
-            'payment_gateway_charge' => 2.0
+            'income' => 3,
+            'gateway' => 'pagalogt',
+            'gateway_charge' => 2
         ]);
         $response->assertRedirect();
         $charge->refresh();

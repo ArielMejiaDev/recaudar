@@ -2124,6 +2124,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -2141,9 +2146,9 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: {
         country: null,
-        country_charge: null,
-        payment_gateway: null,
-        payment_gateway_charge: null
+        income: null,
+        gateway: null,
+        gateway_charge: null
       },
       loading: false
     };
@@ -2232,6 +2237,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2249,9 +2255,9 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: {
         country: this.charge.country,
-        country_charge: this.charge.country_charge,
-        payment_gateway: this.charge.payment_gateway,
-        payment_gateway_charge: this.charge.payment_gateway_charge
+        income: this.charge.income * 100,
+        gateway: this.charge.gateway,
+        gateway_charge: this.charge.gateway_charge * 100
       },
       loading: false
     };
@@ -6681,7 +6687,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   props: {
-    value: String,
+    value: null,
     name: null,
     icon: null,
     label: String,
@@ -27952,138 +27958,162 @@ var render = function() {
             fn: function() {
               return [
                 _c(
-                  "Select",
-                  {
-                    attrs: {
-                      name: "Country",
-                      label: "Country",
-                      placeholder: "Add a country",
-                      errors: _vm.$page.errors.country
-                    },
-                    model: {
-                      value: _vm.form.country,
-                      callback: function($$v) {
-                        _vm.$set(_vm.form, "country", $$v)
-                      },
-                      expression: "form.country"
-                    }
-                  },
+                  "div",
+                  { staticClass: "flex" },
                   [
-                    _c("option", { attrs: { value: "Guatemala" } }, [
-                      _vm._v("Guatemala")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "El Salvador" } }, [
-                      _vm._v("El Salvador")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "Honduras" } }, [
-                      _vm._v("Honduras")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "Panama" } }, [
-                      _vm._v("Panama")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "Costa Rica" } }, [
-                      _vm._v("Costa Rica")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("IconInput", {
-                  attrs: {
-                    name: "country_charge",
-                    label: "Country Charge",
-                    placeholder: "Add a charge for the country",
-                    errors: _vm.$page.errors.country_charge,
-                    type: "number",
-                    min: "0",
-                    max: "9.9",
-                    step: "0.10"
-                  },
-                  scopedSlots: _vm._u([
-                    {
-                      key: "icon",
-                      fn: function() {
-                        return [_c("Icon", { attrs: { name: "dollar" } })]
+                    _c(
+                      "Select",
+                      {
+                        staticClass: "w-full md:w-1/2 md:mr-1",
+                        attrs: {
+                          name: "Country",
+                          label: "Country",
+                          placeholder: "Add a country",
+                          errors: _vm.$page.errors.country
+                        },
+                        model: {
+                          value: _vm.form.country,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "country", $$v)
+                          },
+                          expression: "form.country"
+                        }
                       },
-                      proxy: true
-                    }
-                  ]),
-                  model: {
-                    value: _vm.form.country_charge,
-                    callback: function($$v) {
-                      _vm.$set(_vm.form, "country_charge", $$v)
-                    },
-                    expression: "form.country_charge"
-                  }
-                }),
+                      [
+                        _c("option", { attrs: { value: "Guatemala" } }, [
+                          _vm._v("Guatemala")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "El Salvador" } }, [
+                          _vm._v("El Salvador")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "Honduras" } }, [
+                          _vm._v("Honduras")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "Panama" } }, [
+                          _vm._v("Panama")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "Costa Rica" } }, [
+                          _vm._v("Costa Rica")
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("IconInput", {
+                      staticClass: "w-full md:w-1/2 md:ml-1",
+                      attrs: {
+                        name: "income",
+                        label: "Income",
+                        placeholder: "Add an income",
+                        errors: _vm.$page.errors.income,
+                        type: "number",
+                        min: "0",
+                        max: "9.9",
+                        step: "0.10",
+                        required: false
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "icon",
+                          fn: function() {
+                            return [_vm._v("%")]
+                          },
+                          proxy: true
+                        }
+                      ]),
+                      model: {
+                        value: _vm.form.income,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "income", $$v)
+                        },
+                        expression: "form.income"
+                      }
+                    })
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _c(
-                  "Select",
-                  {
-                    attrs: {
-                      name: "payment_gateway",
-                      label: "Payment gateway",
-                      placeholder: "Add a payment gateway",
-                      errors: _vm.$page.errors.payment_gateway
-                    },
-                    model: {
-                      value: _vm.form.payment_gateway,
-                      callback: function($$v) {
-                        _vm.$set(_vm.form, "payment_gateway", $$v)
-                      },
-                      expression: "form.payment_gateway"
-                    }
-                  },
+                  "div",
+                  { staticClass: "flex" },
                   [
-                    _c("option", { attrs: { value: "pagalogt" } }, [
-                      _vm._v("PagaloGT")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "pagadito" } }, [
-                      _vm._v("Pagadito")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "paypal" } }, [
-                      _vm._v("Paypal")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "bac" } }, [_vm._v("Bac")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "payu" } }, [_vm._v("PayU")])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("IconInput", {
-                  attrs: {
-                    name: "payment_gateway_charge",
-                    label: "Country Charge",
-                    placeholder: "Add a charge for the payment charge",
-                    errors: _vm.$page.errors.payment_gateway_charge,
-                    type: "number",
-                    min: "0",
-                    max: "9.9",
-                    step: "0.10"
-                  },
-                  scopedSlots: _vm._u([
-                    {
-                      key: "icon",
-                      fn: function() {
-                        return [_c("Icon", { attrs: { name: "dollar" } })]
+                    _c(
+                      "Select",
+                      {
+                        staticClass: "w-full md:w-1/2 md:mr-1",
+                        attrs: {
+                          name: "payment_gateway",
+                          label: "Payment gateway",
+                          placeholder: "Add a payment gateway",
+                          errors: _vm.$page.errors.gateway
+                        },
+                        model: {
+                          value: _vm.form.gateway,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "gateway", $$v)
+                          },
+                          expression: "form.gateway"
+                        }
                       },
-                      proxy: true
-                    }
-                  ]),
-                  model: {
-                    value: _vm.form.payment_gateway_charge,
-                    callback: function($$v) {
-                      _vm.$set(_vm.form, "payment_gateway_charge", $$v)
-                    },
-                    expression: "form.payment_gateway_charge"
-                  }
-                })
+                      [
+                        _c("option", { attrs: { value: "pagalogt" } }, [
+                          _vm._v("PagaloGT")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "pagadito" } }, [
+                          _vm._v("Pagadito")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "paypal" } }, [
+                          _vm._v("Paypal")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "bac" } }, [
+                          _vm._v("Bac")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "payu" } }, [
+                          _vm._v("PayU")
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("IconInput", {
+                      staticClass: "w-full md:w-1/2 md:ml-1",
+                      attrs: {
+                        name: "gateway_charge",
+                        label: "Gateway charge percentage",
+                        placeholder:
+                          "Add a charge for the payment charge percentage",
+                        errors: _vm.$page.errors.gateway_charge,
+                        type: "number",
+                        min: "0",
+                        max: "100",
+                        required: false
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "icon",
+                          fn: function() {
+                            return [_vm._v("%")]
+                          },
+                          proxy: true
+                        }
+                      ]),
+                      model: {
+                        value: _vm.form.gateway_charge,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "gateway_charge", $$v)
+                        },
+                        expression: "form.gateway_charge"
+                      }
+                    })
+                  ],
+                  1
+                )
               ]
             },
             proxy: true
@@ -28163,138 +28193,158 @@ var render = function() {
             fn: function() {
               return [
                 _c(
-                  "Select",
-                  {
-                    attrs: {
-                      name: "Country",
-                      label: "Country",
-                      placeholder: "Add a country",
-                      errors: _vm.$page.errors.country
-                    },
-                    model: {
-                      value: _vm.form.country,
-                      callback: function($$v) {
-                        _vm.$set(_vm.form, "country", $$v)
-                      },
-                      expression: "form.country"
-                    }
-                  },
+                  "div",
+                  { staticClass: "flex" },
                   [
-                    _c("option", { attrs: { value: "Guatemala" } }, [
-                      _vm._v("Guatemala")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "El Salvador" } }, [
-                      _vm._v("El Salvador")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "Honduras" } }, [
-                      _vm._v("Honduras")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "Panama" } }, [
-                      _vm._v("Panama")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "Costa Rica" } }, [
-                      _vm._v("Costa Rica")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("IconInput", {
-                  attrs: {
-                    name: "country_charge",
-                    label: "Country Charge",
-                    placeholder: "Add a charge for the country",
-                    errors: _vm.$page.errors.country_charge,
-                    type: "number",
-                    min: "0",
-                    max: "0.9",
-                    step: "0.01"
-                  },
-                  scopedSlots: _vm._u([
-                    {
-                      key: "icon",
-                      fn: function() {
-                        return [_c("Icon", { attrs: { name: "dollar" } })]
+                    _c(
+                      "Select",
+                      {
+                        staticClass: "w-full md:w-1/2 md:mr-1",
+                        attrs: {
+                          name: "country",
+                          label: "Country",
+                          placeholder: "Add a country",
+                          errors: _vm.$page.errors.country
+                        },
+                        model: {
+                          value: _vm.form.country,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "country", $$v)
+                          },
+                          expression: "form.country"
+                        }
                       },
-                      proxy: true
-                    }
-                  ]),
-                  model: {
-                    value: _vm.form.country_charge,
-                    callback: function($$v) {
-                      _vm.$set(_vm.form, "country_charge", $$v)
-                    },
-                    expression: "form.country_charge"
-                  }
-                }),
+                      [
+                        _c("option", { attrs: { value: "Guatemala" } }, [
+                          _vm._v("Guatemala")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "El Salvador" } }, [
+                          _vm._v("El Salvador")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "Honduras" } }, [
+                          _vm._v("Honduras")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "Panama" } }, [
+                          _vm._v("Panama")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "Costa Rica" } }, [
+                          _vm._v("Costa Rica")
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("IconInput", {
+                      staticClass: "w-full md:w-1/2 md:ml-1",
+                      attrs: {
+                        name: "income",
+                        label: "Income",
+                        placeholder: "Add an income",
+                        errors: _vm.$page.errors.income,
+                        type: "number",
+                        min: "0",
+                        max: "100"
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "icon",
+                          fn: function() {
+                            return [_vm._v("%")]
+                          },
+                          proxy: true
+                        }
+                      ]),
+                      model: {
+                        value: _vm.form.income,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "income", $$v)
+                        },
+                        expression: "form.income"
+                      }
+                    })
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _c(
-                  "Select",
-                  {
-                    attrs: {
-                      name: "payment_gateway",
-                      label: "Payment gateway",
-                      placeholder: "Add a payment gateway",
-                      errors: _vm.$page.errors.payment_gateway
-                    },
-                    model: {
-                      value: _vm.form.payment_gateway,
-                      callback: function($$v) {
-                        _vm.$set(_vm.form, "payment_gateway", $$v)
-                      },
-                      expression: "form.payment_gateway"
-                    }
-                  },
+                  "div",
+                  { staticClass: "flex" },
                   [
-                    _c("option", { attrs: { value: "pagalogt" } }, [
-                      _vm._v("PagaloGT")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "pagadito" } }, [
-                      _vm._v("Pagadito")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "paypal" } }, [
-                      _vm._v("Paypal")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "bac" } }, [_vm._v("Bac")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "payu" } }, [_vm._v("PayU")])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("IconInput", {
-                  attrs: {
-                    name: "payment_gateway_charge",
-                    label: "Country Charge",
-                    placeholder: "Add a charge for the payment charge",
-                    errors: _vm.$page.errors.payment_gateway_charge,
-                    type: "number",
-                    min: "0",
-                    max: "0.9",
-                    step: "0.01"
-                  },
-                  scopedSlots: _vm._u([
-                    {
-                      key: "icon",
-                      fn: function() {
-                        return [_c("Icon", { attrs: { name: "dollar" } })]
+                    _c(
+                      "Select",
+                      {
+                        staticClass: "w-full md:w-1/2 md:mr-1",
+                        attrs: {
+                          name: "gateway",
+                          label: "Payment gateway",
+                          placeholder: "Add a payment gateway",
+                          errors: _vm.$page.errors.gateway
+                        },
+                        model: {
+                          value: _vm.form.gateway,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "gateway", $$v)
+                          },
+                          expression: "form.gateway"
+                        }
                       },
-                      proxy: true
-                    }
-                  ]),
-                  model: {
-                    value: _vm.form.payment_gateway_charge,
-                    callback: function($$v) {
-                      _vm.$set(_vm.form, "payment_gateway_charge", $$v)
-                    },
-                    expression: "form.payment_gateway_charge"
-                  }
-                })
+                      [
+                        _c("option", { attrs: { value: "pagalogt" } }, [
+                          _vm._v("PagaloGT")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "pagadito" } }, [
+                          _vm._v("Pagadito")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "paypal" } }, [
+                          _vm._v("Paypal")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "bac" } }, [
+                          _vm._v("Bac")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "payu" } }, [
+                          _vm._v("PayU")
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("IconInput", {
+                      staticClass: "w-full md:w-1/2 md:ml-1",
+                      attrs: {
+                        name: "gateway_charge",
+                        label: "Gateway Charge",
+                        placeholder: "Add a charge for the payment gateway",
+                        errors: _vm.$page.errors.gateway_charge,
+                        type: "number",
+                        min: "0",
+                        max: "100"
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "icon",
+                          fn: function() {
+                            return [_vm._v("%")]
+                          },
+                          proxy: true
+                        }
+                      ]),
+                      model: {
+                        value: _vm.form.gateway_charge,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "gateway_charge", $$v)
+                        },
+                        expression: "form.gateway_charge"
+                      }
+                    })
+                  ],
+                  1
+                )
               ]
             },
             proxy: true
@@ -28390,7 +28440,7 @@ var render = function() {
                             })
                           }
                         },
-                        [_vm._v(_vm._s(charge.payment_gateway))]
+                        [_vm._v(_vm._s(charge.gateway))]
                       )
                     ],
                     1
@@ -28435,7 +28485,7 @@ var render = function() {
               type: "danger",
               title:
                 "Are you sure to change charge for " +
-                _vm.selectedCharge.payment_gateway +
+                _vm.selectedCharge.gateway +
                 " in " +
                 _vm.selectedCharge.country +
                 "?",
@@ -34818,7 +34868,7 @@ var render = function() {
                   "li",
                   {
                     staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2",
-                    class: _vm.route().current("admin.transactions*")
+                    class: _vm.route().current("admin.charges*")
                       ? "bg-gray-900"
                       : null
                   },

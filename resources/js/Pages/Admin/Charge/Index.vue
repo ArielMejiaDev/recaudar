@@ -13,7 +13,7 @@
                         <InertiaLink :href="route('admin.charges.edit', { charge: charge.id })">{{ charge.country }}</InertiaLink>
                     </td>
                     <td>
-                        <InertiaLink :href="route('admin.charges.edit', { charge: charge.id })">{{ charge.payment_gateway }}</InertiaLink>
+                        <InertiaLink :href="route('admin.charges.edit', { charge: charge.id })">{{ charge.gateway }}</InertiaLink>
                     </td>
                     <td @click="confirm = !confirm;selectedCharge = charge">
                         <Icon name="trash" class="text-gray-500 hover:text-gray-600" />
@@ -24,7 +24,7 @@
         <Modal
             v-if="confirm"
             type="danger"
-            :title="`Are you sure to change charge for ${selectedCharge.payment_gateway} in ${selectedCharge.country}?`"
+            :title="`Are you sure to change charge for ${selectedCharge.gateway} in ${selectedCharge.country}?`"
             info="This action will invalid this charge."
             close-button-text="Cancel"
             action-button-text="Delete charge"

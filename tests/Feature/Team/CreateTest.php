@@ -50,6 +50,7 @@ class CreateTest extends TestCase
             'country' => 'Guatemala',
             'bank' => 'Bank of Guatemala',
             'account_number' => $faker->bankAccountNumber,
+            'terms' => true,
         ]);
         $this->assertDatabaseCount('teams', 1);
     }
