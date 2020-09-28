@@ -100,6 +100,10 @@
                     <Input class="w-full md:w-1/2 md:ml-1" v-model="form.bank" name="bank" label="Bank" placeholder="Add a bank" :errors="$page.errors.bank" />
                 </div>
 
+                <div class="flex">
+                    <Toggle v-model="form.terms" :link="route('terms-for-teams')" class="mr-4" type="info" name="terms" label="Accept terms & conditions" value="false" errors="$page.errors.terms" />
+                </div>
+
             </template>
 
             <template v-slot:footer>
@@ -109,10 +113,11 @@
             <Modal
                 v-if="confirmation"
                 type="danger"
-                title="The team must be appoved to manage your team and plans."
-                info="You will receive an email when your team is confirmed."
+                :title="form.terms === false ? 'You must accept terms to create a team' : 'The team must be appoved to manage your team and plans.'"
+                :info="form.terms === false ? '' : 'You will receive an email when your team is confirmed.'"
                 action-button-text="Ok"
-                @action="submit();confirmation = !confirmation"
+                @close="confirmation = ! confirmation"
+                @action="submit()"
             />
 
         </Panel>
@@ -131,6 +136,7 @@ import AvatarUploader from "../../Shared/AvatarUploader";
 import ImageUploader from "../../Shared/ImageUploader";
 import LoadingButton from "../../Shared/LoadingButton";
 import Modal from "../../Shared/Modal";
+import Toggle from "../../Shared/Toggle";
 
 export default {
     metaInfo: { title: 'Create a team' },
@@ -155,6 +161,7 @@ export default {
                 country: null,
                 bank: null,
                 account_number: null,
+                terms: false,
             },
             sending: false,
             confirmation: false,
@@ -171,11 +178,18 @@ export default {
         ImageUploader,
         LoadingButton,
         Modal,
+        Toggle,
     },
     methods: {
         submit() {
+            if(this.form.terms === false) {
+                return this.confirmation = ! this.confirmation;
+            }
             this.sending = true;
-            this.$inertia.post(this.route('teams.store'), this.form).then(() => this.sending = false);
+            this.$inertia.post(this.route('teams.store'), this.form).then(() => {
+                this.sending = false;
+                this.confirmation = ! this.confirmation;
+            });
         },
     },
 }

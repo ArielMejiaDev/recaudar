@@ -34,7 +34,8 @@
                      class="transition-all duration-500 ease-in-out absolute w-6 h-6 bg-white rounded-full shadow inset-y-0 left-0"></div>
             </div>
 
-            <span class="text-sm leading-5 font-medium text-gray-700 block ml-2" v-if="label">{{ label }}</span>
+            <span v-if="!link && label" class="text-sm leading-5 font-medium text-gray-700 block ml-2">{{ label }}</span>
+            <a :href="link" target="_blank" v-else class="text-sm leading-5 font-medium text-blue-500 block ml-2 hover:underline hover:text-blue-600">{{ label }}</a>
 
         </label>
 
@@ -70,6 +71,7 @@
                 type: String,
                 default: null,
             },
+            link: null,
             errors: null,
         },
         methods: {

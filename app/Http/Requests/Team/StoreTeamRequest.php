@@ -41,6 +41,7 @@ class StoreTeamRequest extends FormRequest
             'contact_phone' => 'required|min:6',
             'contact_email' => 'required|email',
             'office_address' => 'required|min:20',
+            'terms' => ['required', 'accepted']
         ];
     }
 }

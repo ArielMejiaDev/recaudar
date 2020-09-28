@@ -3687,6 +3687,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_ImageUploader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../Shared/ImageUploader */ "./resources/js/Shared/ImageUploader.vue");
 /* harmony import */ var _Shared_LoadingButton__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../Shared/LoadingButton */ "./resources/js/Shared/LoadingButton.vue");
 /* harmony import */ var _Shared_Modal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../Shared/Modal */ "./resources/js/Shared/Modal.vue");
+/* harmony import */ var _Shared_Toggle__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../Shared/Toggle */ "./resources/js/Shared/Toggle.vue");
 //
 //
 //
@@ -3809,6 +3810,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 
 
@@ -3843,7 +3850,8 @@ __webpack_require__.r(__webpack_exports__);
         tax_number: null,
         country: null,
         bank: null,
-        account_number: null
+        account_number: null,
+        terms: false
       },
       sending: false,
       confirmation: false
@@ -3859,15 +3867,21 @@ __webpack_require__.r(__webpack_exports__);
     AvatarUploader: _Shared_AvatarUploader__WEBPACK_IMPORTED_MODULE_6__["default"],
     ImageUploader: _Shared_ImageUploader__WEBPACK_IMPORTED_MODULE_7__["default"],
     LoadingButton: _Shared_LoadingButton__WEBPACK_IMPORTED_MODULE_8__["default"],
-    Modal: _Shared_Modal__WEBPACK_IMPORTED_MODULE_9__["default"]
+    Modal: _Shared_Modal__WEBPACK_IMPORTED_MODULE_9__["default"],
+    Toggle: _Shared_Toggle__WEBPACK_IMPORTED_MODULE_10__["default"]
   },
   methods: {
     submit: function submit() {
       var _this = this;
 
+      if (this.form.terms === false) {
+        return this.confirmation = !this.confirmation;
+      }
+
       this.sending = true;
       this.$inertia.post(this.route('teams.store'), this.form).then(function () {
-        return _this.sending = false;
+        _this.sending = false;
+        _this.confirmation = !_this.confirmation;
       });
     }
   }
@@ -8122,6 +8136,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Toggle",
   data: function data() {
@@ -8147,6 +8162,7 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       "default": null
     },
+    link: null,
     errors: null
   },
   methods: {
@@ -31305,6 +31321,32 @@ var render = function() {
                         })
                       ],
                       1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "flex" },
+                      [
+                        _c("Toggle", {
+                          staticClass: "mr-4",
+                          attrs: {
+                            link: _vm.route("terms-for-teams"),
+                            type: "info",
+                            name: "terms",
+                            label: "Accept terms & conditions",
+                            value: "false",
+                            errors: "$page.errors.terms"
+                          },
+                          model: {
+                            value: _vm.form.terms,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "terms", $$v)
+                            },
+                            expression: "form.terms"
+                          }
+                        })
+                      ],
+                      1
                     )
                   ]
                 },
@@ -31332,15 +31374,21 @@ var render = function() {
                   attrs: {
                     type: "danger",
                     title:
-                      "The team must be appoved to manage your team and plans.",
+                      _vm.form.terms === false
+                        ? "You must accept terms to create a team"
+                        : "The team must be appoved to manage your team and plans.",
                     info:
-                      "You will receive an email when your team is confirmed.",
+                      _vm.form.terms === false
+                        ? ""
+                        : "You will receive an email when your team is confirmed.",
                     "action-button-text": "Ok"
                   },
                   on: {
-                    action: function($event) {
-                      _vm.submit()
+                    close: function($event) {
                       _vm.confirmation = !_vm.confirmation
+                    },
+                    action: function($event) {
+                      return _vm.submit()
                     }
                   }
                 })
@@ -36886,7 +36934,7 @@ var render = function() {
           "div",
           {
             staticClass:
-              "fixed inset-0 w-full h-screen flex items-center justify-center bg-semi-75",
+              "fixed inset-0 w-full h-screen flex items-center justify-center bg-semi-75 z-10",
             on: {
               keydown: function($event) {
                 if (
@@ -38617,7 +38665,7 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _vm.label
+        !_vm.link && _vm.label
           ? _c(
               "span",
               {
@@ -38626,7 +38674,15 @@ var render = function() {
               },
               [_vm._v(_vm._s(_vm.label))]
             )
-          : _vm._e()
+          : _c(
+              "a",
+              {
+                staticClass:
+                  "text-sm leading-5 font-medium text-blue-500 block ml-2 hover:underline hover:text-blue-600",
+                attrs: { href: _vm.link, target: "_blank" }
+              },
+              [_vm._v(_vm._s(_vm.label))]
+            )
       ]
     ),
     _vm._v(" "),

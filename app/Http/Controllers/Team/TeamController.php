@@ -39,6 +39,7 @@ class TeamController extends Controller
     public function store(StoreTeamRequest $request)
     {
         $data = array_merge(['slug' => Str::slug($request->name), 'status' => 'pending'], $request->validated());
+        unset($data['terms']);
         $team = Team::create($data);
         auth()->user()->teams()->attach($team, ['role_name' => 'admin']);
         Notification::route('mail', 'info@recaudar.com')->notify(new NewTeamCreatedNotification($team, auth()->user()));

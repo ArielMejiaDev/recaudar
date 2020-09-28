@@ -1,7 +1,7 @@
 <template>
     <transition name="fade">
 
-        <div v-if="showComponent" @keydown.esc="close()" class="fixed inset-0 w-full h-screen flex items-center justify-center bg-semi-75" @click.self="close">
+        <div v-if="showComponent" @keydown.esc="close()" class="fixed inset-0 w-full h-screen flex items-center justify-center bg-semi-75 z-10" @click.self="close">
 
             <div @click.prevent="close" class="fixed inset-0 transition-opacity">
                 <div class="absolute inset-0 bg-gray-900 opacity-75"></div>

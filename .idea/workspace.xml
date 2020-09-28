@@ -6,9 +6,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/terms-for-teams.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/TeamSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/TeamSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Team/TeamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Team/TeamController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Team/StoreTeamRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Team/StoreTeamRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Shared/Modal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Shared/Modal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Shared/Toggle.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Shared/Toggle.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +189,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -196,11 +203,11 @@
       <recent name="$PROJECT_DIR$/app/Providers" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/resources/lang" />
       <recent name="$PROJECT_DIR$/resources/views/components/landing" />
       <recent name="$PROJECT_DIR$/resources/js/Pages/Admin/Charge" />
       <recent name="$PROJECT_DIR$/resources/js/Pages/Teams/Plans" />
-      <recent name="$PROJECT_DIR$/resources/js/Pages/Teams/Profile" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.PlanIndexTest.test_team_members_can_access_to_teams_plans_index_and_view_plans">
@@ -257,7 +264,7 @@
       <workItem from="1599912651529" duration="14000" />
       <workItem from="1600106574225" duration="178576000" />
       <workItem from="1601033452225" duration="282000" />
-      <workItem from="1601035310376" duration="34641000" />
+      <workItem from="1601035310376" duration="39707000" />
     </task>
     <servers />
   </component>

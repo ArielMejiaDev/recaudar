@@ -20,6 +20,7 @@ use App\Http\Controllers\Frontend\NewsletterController;
 use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\ProfilePageController;
 use App\Http\Controllers\Frontend\TeamPageController;
+use App\Http\Controllers\Frontend\TermsForTeamsPageController;
 use App\Http\Controllers\Frontend\TermsForUsersPageController;
 
 Route::domain('{team:slug}.' . basename(config('app.url')))->group(function () {
@@ -42,6 +43,8 @@ Route::domain('{team:slug}.' . basename(config('app.url')))->group(function () {
 Route::get('/', LandingPageController::class)->name('welcome');
 
 Route::get('/terminos-y-condiciones', TermsForUsersPageController::class)->name('terms-for-users');
+
+Route::get('/terminos-y-condiciones-organizaciones', TermsForTeamsPageController::class)->name('terms-for-teams');
 
 Route::get('/quienes-somos', AboutUsPageController::class)->name('about-us');
 
