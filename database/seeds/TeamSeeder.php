@@ -37,9 +37,12 @@ class TeamSeeder extends Seeder
             'contact' => 'Esteban Ruano',
             'contact_phone' => '47686992',
             'contact_email' => 'informacion@selvavirgen.org',
-            'theme' => 'condensed',
+            'theme' => 'columns',
             'logo' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/teams_logos/fundacion_selva_virgen_logo.png',
-            'banner' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/teams_logos/fundacion_selva_virgen_logo.png'
+            'banner' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/teams_logos/fundacion_selva_virgen_logo.png',
+            'facebook_account' => null,
+            'twitter_account' => null,
+            'instagram_account' => null,
         ]);
 
 //        $selvaVirgen->users()->create([
@@ -82,6 +85,9 @@ class TeamSeeder extends Seeder
             'theme' => 'condensed',
             'logo' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/teams_logos/fundacion_guatemalteca_de_promocion_humana.png',
             'banner' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/teams_logos/fundacion_guatemalteca_de_promocion_humana.png',
+            'facebook_account' => null,
+            'twitter_account' => null,
+            'instagram_account' => null,
         ]);
 
         $promocionHumana->plans()->create([
@@ -118,9 +124,12 @@ class TeamSeeder extends Seeder
             'contact' => 'Esta información no esta disponible en este momento.',
             'contact_phone' => 'Esta información no esta disponible en este momento.',
             'contact_email' => 'guatedon.crisis@gmail.com',
-            'theme' => 'condensed',
+            'theme' => 'classic',
             'logo' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/teams_logos/guatedon_logo.jpg',
-            'banner' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/teams_logos/guatedon_logo.jpg'
+            'banner' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/teams_logos/guatedon_logo.jpg',
+            'facebook_account' => null,
+            'twitter_account' => null,
+            'instagram_account' => null,
         ]);
 
         $guatedon->plans()->create([

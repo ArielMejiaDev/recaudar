@@ -29,16 +29,14 @@ class ChargeFactory
         if (! $this->typeOfAmount) {
             $this->typeOfAmount = self::LOCAL_CURRENCY_AMOUNT;
         }
-        $charge = Charge::whereCountry($team->country)->orderByDesc('id')->first(['country_charge', 'payment_gateway_charge', 'payment_gateway']);
-        // solo son temporales en lo que refactorizo la migracion para colocar nombres mas eloquentes y el factory y tambien el backend de esta seccion
-        $incomeCharge = $charge->country_charge;
-        $gatewayCharge = $charge->payment_gateway_charge;
-        $gatewayname = $charge->payment_gateway;
+
+        $charge = Charge::whereCountry($team->country)->orderByDesc('id')->first(['income', 'gateway', 'gateway_charge']);
 
         $gateways = [
             'pagalogt' => PagaloGTCharge::class,
         ];
-        return new $gateways[$gatewayname]($incomeCharge, $gatewayCharge, $this->typeOfAmount);
+
+        return new $gateways[$charge->gateway]($charge->income, $charge->gateway_charge, $this->typeOfAmount);
     }
 
     public function setLocalCurrencyAmount()

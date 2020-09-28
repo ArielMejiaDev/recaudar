@@ -24,7 +24,7 @@ class Team extends Model
 
     public function availablePlans()
     {
-        return $this->plans()->where('title', '!=', 'variable amount plan')->get();
+        return $this->plans()->where('title', '!=', 'of variable amount')->get();
     }
 
     public function transactions()

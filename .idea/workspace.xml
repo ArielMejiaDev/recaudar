@@ -6,23 +6,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/components/checkout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/dynamic-list-of-plans.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Charges/PagaloGTCharge.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Charges/PagaloGTCharge.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Factories/ChargeFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Factories/ChargeFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Charges/ChargeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Charges/ChargeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Admin/Charge/UpdateOrStoreChargeRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/Charge/UpdateOrStoreChargeRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/ChargeFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ChargeFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_20_010558_create_charges_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_20_010558_create_charges_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/ChargeSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ChargeSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Team.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Team.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/TeamSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/TeamSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Admin/Charge/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Charge/Create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Admin/Charge/Edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Charge/Edit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Admin/Charge/Edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Charge/Show.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Pages/Admin/Charge/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Charge/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Partials/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Partials/Sidebar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Shared/IconInput.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Shared/IconInput.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Admin/Charge/ChargeStoreTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Admin/Charge/ChargeStoreTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Admin/Charge/ChargeUpdateTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Admin/Charge/ChargeUpdateTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Team/CreateTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Team/CreateTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/classic.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams/themes/classic.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/columns.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams/themes/columns.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/condensed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams/themes/condensed.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,7 +270,7 @@
       <workItem from="1599912651529" duration="14000" />
       <workItem from="1600106574225" duration="178576000" />
       <workItem from="1601033452225" duration="282000" />
-      <workItem from="1601035310376" duration="43169000" />
+      <workItem from="1601035310376" duration="53741000" />
     </task>
     <servers />
   </component>

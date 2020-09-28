@@ -10,10 +10,10 @@
             <template v-slot:tableData>
                 <tr v-for="(charge, index) in charges.data" :key="index">
                     <td>
-                        <InertiaLink :href="route('admin.charges.edit', { charge: charge.id })">{{ charge.country }}</InertiaLink>
+                        <InertiaLink :href="route('admin.charges.show', { charge: charge.id })">{{ charge.country }}</InertiaLink>
                     </td>
                     <td>
-                        <InertiaLink :href="route('admin.charges.edit', { charge: charge.id })">{{ charge.gateway }}</InertiaLink>
+                        <InertiaLink :href="route('admin.charges.show', { charge: charge.id })">{{ charge.gateway }}</InertiaLink>
                     </td>
                     <td @click="confirm = !confirm;selectedCharge = charge">
                         <Icon name="trash" class="text-gray-500 hover:text-gray-600" />

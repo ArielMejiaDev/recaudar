@@ -64,34 +64,16 @@ class ChargeController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the specified resource.
      *
      * @param Charge $charge
      * @return Response
      */
-    public function edit(Charge $charge)
+    public function show(Charge $charge)
     {
-        return Inertia::render('Admin/Charge/Edit', [
+        return Inertia::render('Admin/Charge/Show', [
             'charge' => $charge,
         ]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @param Charge $charge
-     * @return RedirectResponse
-     */
-    public function update(UpdateOrStoreChargeRequest $request, Charge $charge)
-    {
-        $charge->update([
-            'country' => $request->get('country'),
-            'income' => ($request->income / 100),
-            'gateway' => $request->get('gateway'),
-            'gateway_charge' => ($request->gateway_charge / 100),
-        ]);
-        return redirect()->route('admin.charges.index')->with(['success' => trans('Charge updated!')]);
     }
 
     /**
