@@ -6,43 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Charges/Charge.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Charges/PagaloGTCharge.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Factories/ChargeFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/DateToStringFormatter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/es.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/es/auth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/es/pagination.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/es/passwords.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/es/validation-inline.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/es/validation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/certificate.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/moonlight.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/moonlight.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/PaymentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ProfilePageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ProfilePageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Team/Plans/PlansController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Team/Plans/PlansController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Team.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Team.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Transaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Transaction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Observers/TeamObserver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Observers/TeamObserver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/TransactionFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/TransactionFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_24_014515_create_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_24_014515_create_transactions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/ChargeSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ChargeSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/TeamSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/TeamSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/frontend.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/frontend.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/frontend.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/frontend.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/about-us.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about-us.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/navbar-dark.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/navbar-dark.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/navbar-green.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/navbar-green.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/columns.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams/themes/columns.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/condensed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams/themes/condensed.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -291,7 +257,7 @@
       <workItem from="1599912651529" duration="14000" />
       <workItem from="1600106574225" duration="178576000" />
       <workItem from="1601033452225" duration="282000" />
-      <workItem from="1601035310376" duration="31389000" />
+      <workItem from="1601035310376" duration="34641000" />
     </task>
     <servers />
   </component>

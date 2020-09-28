@@ -14,9 +14,9 @@ class DatabaseSeeder extends Seeder
          $this->call([
              TeamSeeder::class,
              UserSeeder::class,
-             PlanSeeder::class,
              AttachUsersToTeamsSeeder::class,
-             AttachPlansToTeamsSeeder::class,
+//             PlanSeeder::class,
+//             AttachPlansToTeamsSeeder::class,
              TestingAdminsSeeder::class,
              ChargeSeeder::class,
              TransactionSeeder::class,
