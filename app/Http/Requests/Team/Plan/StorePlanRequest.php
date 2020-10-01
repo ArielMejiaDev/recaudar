@@ -26,9 +26,9 @@ class StorePlanRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string', 'min:3', Rule::unique('plans', 'title')],
-            'amount_in_local_currency' => is_null($this->amount_in_local_currency) ? 'nullable' : 'numeric',
-            'amount_in_dollars' => is_null($this->amount_in_dollars) ? 'nullable' : 'numeric',
-            'info' => 'nullable|string|min:20',
+            'amount_in_local_currency' => ['required', 'numeric'],
+            'amount_in_dollars' => ['required', 'numeric'],
+            'info' => 'required|string|min:20',
             'banner' => 'nullable|image',
         ];
     }

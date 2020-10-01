@@ -2836,6 +2836,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -2863,7 +2865,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      toggle: true,
       loading: false,
       form: {
         title: this.plan.title,
@@ -2876,7 +2877,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     team: Object,
-    plan: Object
+    plan: Object,
+    locale: Object
   },
   methods: {
     showAmountInput: function showAmountInput() {
@@ -3061,17 +3063,118 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_Layouts_SidebarLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../Shared/Layouts/SidebarLayout */ "./resources/js/Shared/Layouts/SidebarLayout.vue");
+/* harmony import */ var _Shared_Table__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../Shared/Table */ "./resources/js/Shared/Table.vue");
+/* harmony import */ var _Shared_Pill__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../Shared/Pill */ "./resources/js/Shared/Pill.vue");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Shared_Modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../Shared/Modal */ "./resources/js/Shared/Modal.vue");
+/* harmony import */ var _Shared_Icon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../Shared/Icon */ "./resources/js/Shared/Icon.vue");
 //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   metaInfo: {
     title: 'Transactions'
   },
   layout: _Shared_Layouts_SidebarLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
-  name: "Index"
+  name: "Index",
+  data: function data() {
+    return {
+      search: this.filters.search,
+      confirm: false,
+      selectedTransaction: null
+    };
+  },
+  components: {
+    Table: _Shared_Table__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Pill: _Shared_Pill__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Icon: _Shared_Icon__WEBPACK_IMPORTED_MODULE_5__["default"],
+    Modal: _Shared_Modal__WEBPACK_IMPORTED_MODULE_4__["default"]
+  },
+  props: {
+    transactions: Object,
+    filters: Array | Object
+  },
+  methods: {
+    changeRecurrence: function changeRecurrence() {
+      var route = this.route('admin.transactions.update', {
+        transaction: this.selectedTransaction.id
+      });
+      this.$inertia.put(route);
+    }
+  },
+  watch: {
+    search: lodash__WEBPACK_IMPORTED_MODULE_3___default.a.throttle(function (value) {
+      var route = this.route('admin.teams.index', {
+        search: value
+      });
+      this.$inertia.replace(route);
+    }, 200)
+  }
 });
 
 /***/ }),
@@ -4252,15 +4355,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -4278,7 +4372,6 @@ __webpack_require__.r(__webpack_exports__);
   name: "Create",
   data: function data() {
     return {
-      toggle: true,
       form: {
         title: null,
         amount_in_local_currency: null,
@@ -4302,7 +4395,8 @@ __webpack_require__.r(__webpack_exports__);
     LoadingButton: _Shared_LoadingButton__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   props: {
-    team: Object
+    team: Object,
+    locale: Object
   },
   methods: {
     showAmountInput: function showAmountInput() {
@@ -4401,6 +4495,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -4417,7 +4512,6 @@ __webpack_require__.r(__webpack_exports__);
   name: "Edit",
   data: function data() {
     return {
-      toggle: true,
       form: {
         title: this.plan.title,
         info: this.plan.info,
@@ -4441,7 +4535,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     team: Object,
-    plan: Object
+    plan: Object,
+    locale: Object
   },
   methods: {
     showAmountInput: function showAmountInput() {
@@ -4559,6 +4654,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -4584,6 +4684,22 @@ __webpack_require__.r(__webpack_exports__);
         plan: this.selectedPlan.id
       });
       this.$inertia["delete"](route);
+    },
+    copyLinkToClipboard: function copyLinkToClipboard(plan) {
+      this.selectedPlan = plan;
+      var route = this.route('donate-direct-link', {
+        team: this.team.slug,
+        amount: plan.amount_in_local_currency
+      });
+      var el = document.createElement('input');
+      el.value = route.url();
+      el.setAttribute('readonly', '');
+      el.style.position = 'absolute';
+      el.style.left = '-9999px';
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
     }
   },
   watch: {
@@ -5003,6 +5119,206 @@ __webpack_require__.r(__webpack_exports__);
     facebook_account: String,
     twitter_account: String,
     instagram_account: String
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Teams/Transaction/Index.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Teams/Transaction/Index.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Shared_Layouts_SidebarLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../Shared/Layouts/SidebarLayout */ "./resources/js/Shared/Layouts/SidebarLayout.vue");
+/* harmony import */ var _Shared_Title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../Shared/Title */ "./resources/js/Shared/Title.vue");
+/* harmony import */ var _Shared_Table__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../Shared/Table */ "./resources/js/Shared/Table.vue");
+/* harmony import */ var _Shared_Pill__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../Shared/Pill */ "./resources/js/Shared/Pill.vue");
+/* harmony import */ var _Shared_Icon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../Shared/Icon */ "./resources/js/Shared/Icon.vue");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_5__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  metaInfo: {
+    title: 'Transactions'
+  },
+  name: "Index",
+  data: function data() {
+    return {
+      search: this.filters.search
+    };
+  },
+  watch: {
+    search: lodash__WEBPACK_IMPORTED_MODULE_5___default.a.throttle(function (value) {
+      var route = this.route('teams.transactions.index', {
+        team: this.$page.team['slug'],
+        search: value
+      });
+      this.$inertia.replace(route, {
+        preserveState: true
+      });
+    }, 200)
+  },
+  layout: _Shared_Layouts_SidebarLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
+  props: {
+    filters: Object,
+    team: Object,
+    transactions: Object
+  },
+  components: {
+    Title: _Shared_Title__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Table: _Shared_Table__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Pill: _Shared_Pill__WEBPACK_IMPORTED_MODULE_3__["default"],
+    Icon: _Shared_Icon__WEBPACK_IMPORTED_MODULE_4__["default"]
+  },
+  methods: {
+    currency: function currency(transaction) {
+      var countryCode = transaction.currency == 'dollars' ? 'en-US' : 'es-GT';
+      var currencyCode = transaction.currency == 'dollars' ? 'USD' : 'GTQ';
+      return new Intl.NumberFormat(countryCode, {
+        style: 'currency',
+        currency: currencyCode,
+        minimumFractionDigits: 2
+      }).format(transaction.amount_to_deposit);
+    }
+  },
+  filters: {
+    dollar_format: function dollar_format(value) {
+      var style = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'currency';
+      return new Intl.NumberFormat('en-US', {
+        style: style,
+        currency: 'USD',
+        minimumFractionDigits: 2
+      }).format(value);
+    },
+    local_format: function local_format(value) {
+      var style = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'currency';
+      var countryCode = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'es-GT';
+      var currencyCode = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'GTQ';
+      return new Intl.NumberFormat(countryCode, {
+        style: style,
+        currency: currencyCode,
+        minimumFractionDigits: 2
+      }).format(value);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Teams/Transaction/Show.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Teams/Transaction/Show.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Shared_Panel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../Shared/Panel */ "./resources/js/Shared/Panel.vue");
+/* harmony import */ var _Shared_Pill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../Shared/Pill */ "./resources/js/Shared/Pill.vue");
+/* harmony import */ var _Shared_Title__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../Shared/Title */ "./resources/js/Shared/Title.vue");
+/* harmony import */ var _Shared_Layouts_SidebarLayout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../Shared/Layouts/SidebarLayout */ "./resources/js/Shared/Layouts/SidebarLayout.vue");
+/* harmony import */ var _Shared_ListItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../Shared/ListItem */ "./resources/js/Shared/ListItem.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  metaInfo: {
+    title: 'Transaction'
+  },
+  layout: _Shared_Layouts_SidebarLayout__WEBPACK_IMPORTED_MODULE_3__["default"],
+  name: "Show",
+  props: {
+    team: Object,
+    transaction: Object,
+    locale: Object
+  },
+  components: {
+    Panel: _Shared_Panel__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Title: _Shared_Title__WEBPACK_IMPORTED_MODULE_2__["default"],
+    ListItem: _Shared_ListItem__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Pill: _Shared_Pill__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  methods: {
+    currency: function currency(value) {
+      return new Intl.NumberFormat(this.locale.country.toString(), {
+        style: 'currency',
+        currency: this.locale.currency.toString(),
+        minimumFractionDigits: 2
+      }).format(value);
+    }
   }
 });
 
@@ -5929,12 +6245,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Sidebar",
@@ -6567,6 +6877,18 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -7548,7 +7870,7 @@ __webpack_require__.r(__webpack_exports__);
       return this.title.slice(0, 2);
     },
     randomColor: function randomColor() {
-      var colors = ['bg-green-500', 'bg-blue-800', 'bg-purple-500', 'bg-red-500', 'bg-indigo-500', 'bg-orange-500', 'bg-pink-500', 'bg-teal-500'];
+      var colors = ['bg-green-500', 'bg-blue-800', 'bg-purple-500', 'bg-red-500', 'bg-indigo-500', 'bg-orange-500', 'bg-teal-500'];
       return colors[Math.floor(Math.random() * colors.length)];
     }
   },
@@ -29354,43 +29676,9 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _vm.toggle
-                  ? _c(
-                      "span",
-                      {
-                        staticClass:
-                          "text-blue-500 font-bold text-sm leading-loose tracking-tighter hover:underline hover:text-blue-600 cursor-pointer focus:outline-none focus:text-blue-600 focus:underline",
-                        on: { click: _vm.showAmountInput }
-                      },
-                      [_vm._v("Variable amount")]
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                !_vm.toggle
-                  ? _c(
-                      "span",
-                      {
-                        staticClass:
-                          "text-blue-500 font-bold text-sm leading-loose tracking-tighter hover:underline hover:text-blue-600 cursor-pointer focus:outline-none focus:text-blue-600 focus:underline",
-                        on: { click: _vm.showAmountInput }
-                      },
-                      [_vm._v("Add amount")]
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
                 _c(
                   "div",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.toggle,
-                        expression: "toggle"
-                      }
-                    ],
-                    staticClass: "w-full flex flex-col md:flex-row"
-                  },
+                  { staticClass: "w-full flex flex-col md:flex-row" },
                   [
                     _c("IconInput", {
                       ref: "amount_in_local_currency",
@@ -29398,13 +29686,17 @@ var render = function() {
                       attrs: {
                         name: "amount_in_local_currency",
                         placeholder: "Amount in local currency",
-                        required: false
+                        errors: _vm.$page.errors.amount_in_local_currency
                       },
                       scopedSlots: _vm._u([
                         {
                           key: "icon",
                           fn: function() {
-                            return [_vm._v("Q")]
+                            return [
+                              _c("span", { staticClass: "text-xs" }, [
+                                _vm._v(_vm._s(_vm.locale.currency))
+                              ])
+                            ]
                           },
                           proxy: true
                         }
@@ -29423,13 +29715,17 @@ var render = function() {
                       attrs: {
                         name: "amount_in_dollars",
                         placeholder: "Amount in dollars",
-                        required: false
+                        errors: _vm.$page.errors.amount_in_dollars
                       },
                       scopedSlots: _vm._u([
                         {
                           key: "icon",
                           fn: function() {
-                            return [_vm._v("$")]
+                            return [
+                              _c("span", { staticClass: "text-xs" }, [
+                                _vm._v("USD")
+                              ])
+                            ]
                           },
                           proxy: true
                         }
@@ -29449,10 +29745,9 @@ var render = function() {
                 _c("Textarea", {
                   attrs: {
                     name: "info",
-                    label: "Optional information about the plan",
+                    label: "Information about the plan",
                     placeholder: "Add plans info ...",
-                    errors: _vm.$page.errors.info,
-                    required: false
+                    errors: _vm.$page.errors.info
                   },
                   model: {
                     value: _vm.form.info,
@@ -29705,7 +30000,257 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("Admin Transactions")])
+  return _c(
+    "div",
+    [
+      _c("Table", {
+        attrs: {
+          title: "Transactions",
+          headers: ["amount", "status", "type", "active", "date"],
+          searchbox: { show: true, placeholder: "Search ..." },
+          action: { show: false },
+          pagination: { show: true, links: _vm.transactions.links }
+        },
+        scopedSlots: _vm._u([
+          {
+            key: "tableData",
+            fn: function() {
+              return _vm._l(_vm.transactions.data, function(
+                transaction,
+                index
+              ) {
+                return _c("tr", { key: index }, [
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          attrs: {
+                            href: _vm.route("admin.transactions.show", {
+                              transaction: transaction.id
+                            })
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(transaction.amount_to_deposit) +
+                              "\n                        "
+                          ),
+                          _c("span", { staticClass: "text-gray-600" }, [
+                            _vm._v(_vm._s(transaction.currency))
+                          ])
+                        ]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          attrs: {
+                            href: _vm.route("admin.transactions.show", {
+                              transaction: transaction.id
+                            })
+                          }
+                        },
+                        [
+                          _c(
+                            "Pill",
+                            {
+                              attrs: {
+                                type:
+                                  transaction.status === "approved"
+                                    ? "success"
+                                    : "danger"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(transaction.status) +
+                                  "\n                        "
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          attrs: {
+                            href: _vm.route("admin.transactions.show", {
+                              transaction: transaction.id
+                            })
+                          }
+                        },
+                        [
+                          _c(
+                            "Pill",
+                            {
+                              attrs: {
+                                type:
+                                  transaction.type === "recurrent"
+                                    ? "warning"
+                                    : null
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(transaction.type) +
+                                  "\n                        "
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("td", [
+                    transaction.type === "recurrent" &&
+                    transaction.reviewed === "pending"
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "focus:outline-none",
+                            attrs: {
+                              href: _vm.route("admin.transactions.show", {
+                                transaction: transaction.id
+                              })
+                            },
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                _vm.confirm = !_vm.confirm
+                                _vm.selectedTransaction = transaction
+                              }
+                            }
+                          },
+                          [
+                            _c("Icon", {
+                              staticClass: "text-red-500 hover:text-red-600",
+                              attrs: { name: "x-circle" }
+                            })
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    transaction.type === "recurrent" &&
+                    transaction.reviewed === "checked"
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "focus:outline-none",
+                            attrs: {
+                              href: _vm.route("admin.transactions.show", {
+                                transaction: transaction.id
+                              })
+                            },
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                _vm.confirm = !_vm.confirm
+                                _vm.selectedTransaction = transaction
+                              }
+                            }
+                          },
+                          [
+                            _c("Icon", {
+                              staticClass:
+                                "text-green-500 hover:text-green-600",
+                              attrs: { name: "check-circle" }
+                            })
+                          ],
+                          1
+                        )
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          attrs: {
+                            href: _vm.route("admin.transactions.show", {
+                              transaction: transaction.id
+                            })
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(transaction.readable_created_at) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ])
+              })
+            },
+            proxy: true
+          }
+        ]),
+        model: {
+          value: _vm.search,
+          callback: function($$v) {
+            _vm.search = $$v
+          },
+          expression: "search"
+        }
+      }),
+      _vm._v(" "),
+      _vm.confirm
+        ? _c("Modal", {
+            attrs: {
+              type: "danger",
+              title:
+                _vm.selectedTransaction.reviewed === "pending"
+                  ? "Are you sure to active transaction recurrence?"
+                  : "Are you sure to disable transaction recurrence?",
+              info: "This change is going to impact on plan charges.",
+              "close-button-text": "Cancel",
+              "action-button-text":
+                _vm.selectedTransaction.reviewed === "pending"
+                  ? "Active recurrence"
+                  : "Disabled recurrence"
+            },
+            on: {
+              close: function($event) {
+                _vm.confirm = !_vm.confirm
+              },
+              action: function($event) {
+                _vm.changeRecurrence()
+                _vm.confirm = !_vm.confirm
+              }
+            }
+          })
+        : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -32051,56 +32596,26 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _vm.toggle
-                    ? _c(
-                        "span",
-                        {
-                          staticClass:
-                            "text-blue-500 font-bold text-sm leading-loose tracking-tighter hover:underline hover:text-blue-600 cursor-pointer focus:outline-none focus:text-blue-600 focus:underline",
-                          on: { click: _vm.showAmountInput }
-                        },
-                        [_vm._v("Variable amount")]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  !_vm.toggle
-                    ? _c(
-                        "span",
-                        {
-                          staticClass:
-                            "text-blue-500 font-bold text-sm leading-loose tracking-tighter hover:underline hover:text-blue-600 cursor-pointer focus:outline-none focus:text-blue-600 focus:underline",
-                          on: { click: _vm.showAmountInput }
-                        },
-                        [_vm._v("Add amount")]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
                   _c(
                     "div",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.toggle,
-                          expression: "toggle"
-                        }
-                      ],
-                      staticClass: "w-full flex flex-col md:flex-row"
-                    },
+                    { staticClass: "w-full flex flex-col md:flex-row" },
                     [
                       _c("IconInput", {
                         staticClass: "w-full md:w-1/2 md:mr-1",
                         attrs: {
                           name: "amount_in_local_currency",
                           placeholder: "Amount in local currency",
-                          required: false
+                          errors: _vm.$page.errors.amount_in_local_currency
                         },
                         scopedSlots: _vm._u([
                           {
                             key: "icon",
                             fn: function() {
-                              return [_vm._v("Q")]
+                              return [
+                                _c("span", { staticClass: "text-xs" }, [
+                                  _vm._v(_vm._s(_vm.locale.currency))
+                                ])
+                              ]
                             },
                             proxy: true
                           }
@@ -32119,13 +32634,17 @@ var render = function() {
                         attrs: {
                           name: "amount_in_dollars",
                           placeholder: "Amount in dollars",
-                          required: false
+                          errors: _vm.$page.errors.amount_in_dollars
                         },
                         scopedSlots: _vm._u([
                           {
                             key: "icon",
                             fn: function() {
-                              return [_vm._v("$")]
+                              return [
+                                _c("span", { staticClass: "text-xs" }, [
+                                  _vm._v("USD")
+                                ])
+                              ]
                             },
                             proxy: true
                           }
@@ -32145,10 +32664,9 @@ var render = function() {
                   _c("Textarea", {
                     attrs: {
                       name: "info",
-                      label: "Optional information about the plan",
+                      label: "Information about the plan",
                       placeholder: "Add plans info ...",
-                      errors: _vm.$page.errors.info,
-                      required: false
+                      errors: _vm.$page.errors.info
                     },
                     model: {
                       value: _vm.form.info,
@@ -32275,56 +32793,26 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _vm.toggle
-                    ? _c(
-                        "span",
-                        {
-                          staticClass:
-                            "text-blue-500 font-bold text-sm leading-loose tracking-tighter hover:underline hover:text-blue-600 cursor-pointer focus:outline-none focus:text-blue-600 focus:underline",
-                          on: { click: _vm.showAmountInput }
-                        },
-                        [_vm._v("Variable amount")]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  !_vm.toggle
-                    ? _c(
-                        "span",
-                        {
-                          staticClass:
-                            "text-blue-500 font-bold text-sm leading-loose tracking-tighter hover:underline hover:text-blue-600 cursor-pointer focus:outline-none focus:text-blue-600 focus:underline",
-                          on: { click: _vm.showAmountInput }
-                        },
-                        [_vm._v("Add amount")]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
                   _c(
                     "div",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.toggle,
-                          expression: "toggle"
-                        }
-                      ],
-                      staticClass: "w-full flex flex-col md:flex-row"
-                    },
+                    { staticClass: "w-full flex flex-col md:flex-row" },
                     [
                       _c("IconInput", {
                         staticClass: "w-full md:w-1/2 md:mr-1",
                         attrs: {
                           name: "amount_in_local_currency",
                           placeholder: "Amount in local currency",
-                          required: false
+                          errors: _vm.$page.errors.amount_in_local_currency
                         },
                         scopedSlots: _vm._u([
                           {
                             key: "icon",
                             fn: function() {
-                              return [_vm._v("Q")]
+                              return [
+                                _c("span", { staticClass: "text-xs" }, [
+                                  _vm._v(_vm._s(_vm.locale.currency))
+                                ])
+                              ]
                             },
                             proxy: true
                           }
@@ -32343,13 +32831,17 @@ var render = function() {
                         attrs: {
                           name: "amount_in_dollars",
                           placeholder: "Amount in dollars",
-                          required: false
+                          errors: _vm.$page.errors.amount_in_dollars
                         },
                         scopedSlots: _vm._u([
                           {
                             key: "icon",
                             fn: function() {
-                              return [_vm._v("$")]
+                              return [
+                                _c("span", { staticClass: "text-xs" }, [
+                                  _vm._v("USD")
+                                ])
+                              ]
                             },
                             proxy: true
                           }
@@ -32369,10 +32861,9 @@ var render = function() {
                   _c("Textarea", {
                     attrs: {
                       name: "info",
-                      label: "Optional information about the plan",
+                      label: "Information about the plan",
                       placeholder: "Add plans info ...",
-                      errors: _vm.$page.errors.info,
-                      required: false
+                      errors: _vm.$page.errors.info
                     },
                     model: {
                       value: _vm.form.info,
@@ -32459,7 +32950,8 @@ var render = function() {
             "plan",
             "amount in local currency",
             "amount in dollars",
-            ""
+            "copy link",
+            "Delete"
           ],
           searchbox: { show: true, placeholder: "Search ..." },
           action: {
@@ -32550,6 +33042,28 @@ var render = function() {
                     ],
                     1
                   ),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "text-xs font-semibold focus:outline-none hover:text-blue-500",
+                        class:
+                          _vm.selectedPlan === plan
+                            ? "text-blue-500"
+                            : "text-gray-500",
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.copyLinkToClipboard(plan)
+                          }
+                        }
+                      },
+                      [_c("Icon", { attrs: { name: "link" } })],
+                      1
+                    )
+                  ]),
                   _vm._v(" "),
                   _c("td", [
                     _c(
@@ -33049,6 +33563,258 @@ var render = function() {
           }
         ])
       })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Teams/Transaction/Index.vue?vue&type=template&id=0273546f&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Teams/Transaction/Index.vue?vue&type=template&id=0273546f& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("Table", {
+        attrs: {
+          title: "Transactions",
+          headers: ["By", "Amount", "Status", "Date"],
+          searchbox: { show: true, placeholder: "Search ..." },
+          action: { show: false },
+          pagination: { show: true, links: _vm.transactions.links }
+        },
+        scopedSlots: _vm._u([
+          {
+            key: "tableData",
+            fn: function() {
+              return _vm._l(_vm.transactions.data, function(
+                transaction,
+                index
+              ) {
+                return _c("tr", { key: index }, [
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          attrs: {
+                            href: _vm.route("teams.transactions.show", {
+                              team: _vm.$page.team["slug"],
+                              transaction: transaction.id
+                            })
+                          }
+                        },
+                        [_vm._v(_vm._s(transaction.name))]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          attrs: {
+                            href: _vm.route("teams.transactions.show", {
+                              team: _vm.$page.team["slug"],
+                              transaction: transaction.id
+                            })
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(transaction.amount_to_deposit) +
+                              "\n                        "
+                          ),
+                          _c("span", { staticClass: "text-gray-600" }, [
+                            _vm._v(_vm._s(transaction.currency))
+                          ])
+                        ]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          attrs: {
+                            href: _vm.route("teams.transactions.show", {
+                              team: _vm.$page.team["slug"],
+                              transaction: transaction.id
+                            })
+                          }
+                        },
+                        [
+                          _c(
+                            "Pill",
+                            {
+                              attrs: {
+                                type:
+                                  transaction.status === "approved"
+                                    ? "success"
+                                    : "danger"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(transaction.status) +
+                                  "\n                        "
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          attrs: {
+                            href: _vm.route("teams.transactions.show", {
+                              team: _vm.$page.team["slug"],
+                              transaction: transaction.id
+                            })
+                          }
+                        },
+                        [_vm._v(_vm._s(transaction.readable_created_at))]
+                      )
+                    ],
+                    1
+                  )
+                ])
+              })
+            },
+            proxy: true
+          }
+        ]),
+        model: {
+          value: _vm.search,
+          callback: function($$v) {
+            _vm.search = $$v
+          },
+          expression: "search"
+        }
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Teams/Transaction/Show.vue?vue&type=template&id=4835c070&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Teams/Transaction/Show.vue?vue&type=template&id=4835c070& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "Panel",
+    {
+      scopedSlots: _vm._u([
+        {
+          key: "header",
+          fn: function() {
+            return [
+              _c("Title", { attrs: { info: "Transaction details" } }, [
+                _vm._v("Transaction")
+              ])
+            ]
+          },
+          proxy: true
+        }
+      ])
+    },
+    [
+      _vm._v(" "),
+      _c("ListItem", { attrs: { label: "Donation by" } }, [
+        _vm._v(_vm._s(_vm.transaction.name))
+      ]),
+      _vm._v(" "),
+      _c("ListItem", { attrs: { label: "Email" } }, [
+        _vm._v(_vm._s(_vm.transaction.email))
+      ]),
+      _vm._v(" "),
+      _c("ListItem", { attrs: { label: "Type" } }, [
+        _vm._v(_vm._s(_vm.transaction.type))
+      ]),
+      _vm._v(" "),
+      _c("ListItem", { attrs: { label: "Date" } }, [
+        _vm._v(_vm._s(_vm.transaction.readable_created_at))
+      ]),
+      _vm._v(" "),
+      _c(
+        "ListItem",
+        { attrs: { label: "Status" } },
+        [
+          _c(
+            "Pill",
+            {
+              attrs: {
+                type:
+                  _vm.transaction.status === "approved" ? "success" : "danger"
+              }
+            },
+            [_vm._v(_vm._s(_vm.transaction.status))]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("ListItem", { attrs: { label: "Amount" } }, [
+        _c("div", { staticClass: "flex" }, [
+          _c("div", [_vm._v(_vm._s(_vm.transaction.amount_to_deposit))]),
+          _vm._v(" "),
+          _c("span", { staticClass: "text-gray-600 ml-2" }, [
+            _vm._v(_vm._s(_vm.transaction.currency))
+          ])
+        ])
+      ])
     ],
     1
   )
@@ -34379,6 +35145,40 @@ var render = function() {
                 _c(
                   "li",
                   {
+                    staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2",
+                    class: _vm.route().current("calendar*")
+                      ? "bg-gray-900"
+                      : null
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "flex items-center text-gray-300",
+                        attrs: {
+                          href: _vm.route("profile-page", {
+                            team: _vm.$page.team.slug
+                          }),
+                          target: "_blank"
+                        }
+                      },
+                      [
+                        _c("Icon", {
+                          staticClass: "text-gray-500 mr-2",
+                          attrs: { name: "external-link" }
+                        }),
+                        _vm._v(
+                          "\n                    Profile\n                "
+                        )
+                      ],
+                      1
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
                     staticClass:
                       "px-2 py-3 text-gray-300 hover:bg-gray-900 rounded",
                     class: _vm.route().current("teams.dashboard")
@@ -34525,87 +35325,35 @@ var render = function() {
                   "li",
                   {
                     staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2",
-                    class: _vm.route().current("calendar*")
+                    class: _vm.route().current("teams.transactions*")
                       ? "bg-gray-900"
                       : null
                   },
                   [
                     _c(
-                      "a",
+                      "InertiaLink",
                       {
                         staticClass: "flex items-center text-gray-300",
-                        attrs: { href: "#" }
+                        attrs: {
+                          href: _vm.route(
+                            "teams.transactions.index",
+                            _vm.$page.team["slug"]
+                          )
+                        }
                       },
                       [
                         _c("Icon", {
                           staticClass: "text-gray-500 mr-2",
-                          attrs: { name: "calendar" }
+                          attrs: { name: "switch" }
                         }),
                         _vm._v(
-                          "\n                    Calendar\n                "
+                          "\n                    Transactions\n                "
                         )
                       ],
                       1
                     )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2",
-                    class: _vm.route().current("documents*")
-                      ? "bg-gray-900"
-                      : null
-                  },
-                  [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "flex items-center text-gray-300",
-                        attrs: { href: "#" }
-                      },
-                      [
-                        _c("Icon", {
-                          staticClass: "text-gray-500 mr-2",
-                          attrs: { name: "directory" }
-                        }),
-                        _vm._v(
-                          "\n                    Documents\n                "
-                        )
-                      ],
-                      1
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2",
-                    class: _vm.route().current("reports*")
-                      ? "bg-gray-900"
-                      : null
-                  },
-                  [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "flex items-center text-gray-300",
-                        attrs: { href: "#" }
-                      },
-                      [
-                        _c("Icon", {
-                          staticClass: "text-gray-500 mr-2",
-                          attrs: { name: "barchart" }
-                        }),
-                        _vm._v(
-                          "\n                    Reports\n                "
-                        )
-                      ],
-                      1
-                    )
-                  ]
+                  ],
+                  1
                 )
               ])
             : _vm._e(),
@@ -34724,7 +35472,7 @@ var render = function() {
                       [
                         _c("Icon", {
                           staticClass: "text-gray-500 mr-2",
-                          attrs: { name: "directory" }
+                          attrs: { name: "switch" }
                         }),
                         _vm._v(
                           "\n                    Transactions\n                "
@@ -36036,6 +36784,138 @@ var render = function() {
             attrs: {
               d:
                 "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+            }
+          })
+        ]
+      )
+    : _vm.name === "external-link"
+    ? _c(
+        "svg",
+        {
+          staticClass: "w-6 h-6",
+          attrs: {
+            fill: "currentColor",
+            viewBox: "0 0 20 20",
+            xmlns: "http://www.w3.org/2000/svg"
+          }
+        },
+        [
+          _c("path", {
+            attrs: {
+              d:
+                "M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"
+            }
+          }),
+          _c("path", {
+            attrs: {
+              d:
+                "M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"
+            }
+          })
+        ]
+      )
+    : _vm.name === "switch"
+    ? _c(
+        "svg",
+        {
+          staticClass: "w-6 h-6",
+          attrs: {
+            fill: "currentColor",
+            viewBox: "0 0 20 20",
+            xmlns: "http://www.w3.org/2000/svg"
+          }
+        },
+        [
+          _c("path", {
+            attrs: {
+              d:
+                "M8 5a1 1 0 100 2h5.586l-1.293 1.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L13.586 5H8zM12 15a1 1 0 100-2H6.414l1.293-1.293a1 1 0 10-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L6.414 15H12z"
+            }
+          })
+        ]
+      )
+    : _vm.name === "link"
+    ? _c(
+        "svg",
+        {
+          staticClass: "w-6 h-6",
+          attrs: {
+            fill: "currentColor",
+            viewBox: "0 0 20 20",
+            xmlns: "http://www.w3.org/2000/svg"
+          }
+        },
+        [
+          _c("path", {
+            attrs: {
+              "fill-rule": "evenodd",
+              d:
+                "M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z",
+              "clip-rule": "evenodd"
+            }
+          })
+        ]
+      )
+    : _vm.name === "whatsapp"
+    ? _c(
+        "svg",
+        {
+          staticClass: "w-6 h-6",
+          attrs: {
+            fill: "currentColor",
+            viewBox: "0 0 512 512",
+            xmlns: "http://www.w3.org/2000/svg"
+          }
+        },
+        [
+          _c("path", {
+            attrs: {
+              d:
+                "m256 0c-140.609375 0-256 115.390625-256 256 0 46.40625 12.511719 91.582031 36.238281 131.105469l-36.238281 124.894531 124.894531-36.238281c39.523438 23.726562 84.699219 36.238281 131.105469 36.238281 140.609375 0 256-115.390625 256-256s-115.390625-256-256-256zm160.054688 364.167969-11.910157 11.910156c-16.851562 16.851563-55.605469 15.515625-80.507812 10.707031-82.800781-15.992187-179.335938-109.5625-197.953125-190.59375-9.21875-40.140625-4.128906-75.039062 9.183594-88.355468l11.910156-11.910157c6.574218-6.570312 17.253906-6.5625 23.820312 0l47.648438 47.652344c3.179687 3.179687 4.921875 7.394531 4.921875 11.90625s-1.742188 8.730469-4.921875 11.898437l-11.90625 11.921876c-13.125 13.15625-13.125 34.527343 0 47.652343l78.683594 77.648438c13.164062 13.164062 34.46875 13.179687 47.652343 0l11.910157-11.90625c6.148437-6.183594 17.632812-6.203125 23.832031 0l47.636719 47.636719c6.46875 6.441406 6.714843 17.113281 0 23.832031zm0 0"
+            }
+          })
+        ]
+      )
+    : _vm.name === "check-circle"
+    ? _c(
+        "svg",
+        {
+          staticClass: "w-6 h-6",
+          attrs: {
+            fill: "currentColor",
+            viewBox: "0 0 20 20",
+            xmlns: "http://www.w3.org/2000/svg"
+          }
+        },
+        [
+          _c("path", {
+            attrs: {
+              "fill-rule": "evenodd",
+              d:
+                "M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z",
+              "clip-rule": "evenodd"
+            }
+          })
+        ]
+      )
+    : _vm.name === "x-circle"
+    ? _c(
+        "svg",
+        {
+          staticClass: "w-6 h-6",
+          attrs: {
+            fill: "currentColor",
+            viewBox: "0 0 20 20",
+            xmlns: "http://www.w3.org/2000/svg"
+          }
+        },
+        [
+          _c("path", {
+            attrs: {
+              "fill-rule": "evenodd",
+              d:
+                "M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z",
+              "clip-rule": "evenodd"
             }
           })
         ]
@@ -52937,6 +53817,8 @@ var map = {
 	"./Pages/Teams/Profile/EditLogo.vue": "./resources/js/Pages/Teams/Profile/EditLogo.vue",
 	"./Pages/Teams/Profile/EditPromotionalVideo.vue": "./resources/js/Pages/Teams/Profile/EditPromotionalVideo.vue",
 	"./Pages/Teams/Profile/EditSocialNetworks.vue": "./resources/js/Pages/Teams/Profile/EditSocialNetworks.vue",
+	"./Pages/Teams/Transaction/Index.vue": "./resources/js/Pages/Teams/Transaction/Index.vue",
+	"./Pages/Teams/Transaction/Show.vue": "./resources/js/Pages/Teams/Transaction/Show.vue",
 	"./Pages/Teams/Users/Create.vue": "./resources/js/Pages/Teams/Users/Create.vue",
 	"./Pages/Teams/Users/Edit.vue": "./resources/js/Pages/Teams/Users/Edit.vue",
 	"./Pages/Teams/Users/Index.vue": "./resources/js/Pages/Teams/Users/Index.vue",
@@ -53134,6 +54016,10 @@ var map = {
 	"./Teams/Profile/EditPromotionalVideo.vue": "./resources/js/Pages/Teams/Profile/EditPromotionalVideo.vue",
 	"./Teams/Profile/EditSocialNetworks": "./resources/js/Pages/Teams/Profile/EditSocialNetworks.vue",
 	"./Teams/Profile/EditSocialNetworks.vue": "./resources/js/Pages/Teams/Profile/EditSocialNetworks.vue",
+	"./Teams/Transaction/Index": "./resources/js/Pages/Teams/Transaction/Index.vue",
+	"./Teams/Transaction/Index.vue": "./resources/js/Pages/Teams/Transaction/Index.vue",
+	"./Teams/Transaction/Show": "./resources/js/Pages/Teams/Transaction/Show.vue",
+	"./Teams/Transaction/Show.vue": "./resources/js/Pages/Teams/Transaction/Show.vue",
 	"./Teams/Users/Create": "./resources/js/Pages/Teams/Users/Create.vue",
 	"./Teams/Users/Create.vue": "./resources/js/Pages/Teams/Users/Create.vue",
 	"./Teams/Users/Edit": "./resources/js/Pages/Teams/Users/Edit.vue",
@@ -55174,6 +56060,144 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditSocialNetworks_vue_vue_type_template_id_f2151078___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditSocialNetworks_vue_vue_type_template_id_f2151078___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Teams/Transaction/Index.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/Pages/Teams/Transaction/Index.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Index_vue_vue_type_template_id_0273546f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Index.vue?vue&type=template&id=0273546f& */ "./resources/js/Pages/Teams/Transaction/Index.vue?vue&type=template&id=0273546f&");
+/* harmony import */ var _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Index.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Teams/Transaction/Index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Index_vue_vue_type_template_id_0273546f___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Index_vue_vue_type_template_id_0273546f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Teams/Transaction/Index.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Teams/Transaction/Index.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/Pages/Teams/Transaction/Index.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Teams/Transaction/Index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Teams/Transaction/Index.vue?vue&type=template&id=0273546f&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/Pages/Teams/Transaction/Index.vue?vue&type=template&id=0273546f& ***!
+  \***************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_0273546f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Index.vue?vue&type=template&id=0273546f& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Teams/Transaction/Index.vue?vue&type=template&id=0273546f&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_0273546f___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_0273546f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Teams/Transaction/Show.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/Pages/Teams/Transaction/Show.vue ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Show_vue_vue_type_template_id_4835c070___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Show.vue?vue&type=template&id=4835c070& */ "./resources/js/Pages/Teams/Transaction/Show.vue?vue&type=template&id=4835c070&");
+/* harmony import */ var _Show_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Show.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Teams/Transaction/Show.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Show_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Show_vue_vue_type_template_id_4835c070___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Show_vue_vue_type_template_id_4835c070___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Teams/Transaction/Show.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Teams/Transaction/Show.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/Pages/Teams/Transaction/Show.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Show_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Show.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Teams/Transaction/Show.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Show_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Teams/Transaction/Show.vue?vue&type=template&id=4835c070&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/Pages/Teams/Transaction/Show.vue?vue&type=template&id=4835c070& ***!
+  \**************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Show_vue_vue_type_template_id_4835c070___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Show.vue?vue&type=template&id=4835c070& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Teams/Transaction/Show.vue?vue&type=template&id=4835c070&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Show_vue_vue_type_template_id_4835c070___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Show_vue_vue_type_template_id_4835c070___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

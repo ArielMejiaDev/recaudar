@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin\Transactions;
 
 use App\Http\Controllers\Controller;
+use App\Models\Team;
 use App\Models\Transaction;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Inertia\Inertia;
 
 class TransactionsController extends Controller
@@ -12,39 +15,22 @@ class TransactionsController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Inertia::render('Admin/Transactions/Index');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $transactions = Transaction::orderByDesc('id')->paginate();
+        return Inertia::render('Admin/Transactions/Index', [
+            'transactions' => $transactions,
+            'filters' => $request->only('search'),
+        ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Transaction  $transaction
-     * @return \Illuminate\Http\Response
+     * @param Transaction $transaction
+     * @return Response
      */
     public function show(Transaction $transaction)
     {
@@ -52,36 +38,17 @@ class TransactionsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Transaction  $transaction
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Transaction $transaction)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Transaction  $transaction
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Transaction $transaction
+     * @return RedirectResponse
      */
     public function update(Request $request, Transaction $transaction)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Transaction  $transaction
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Transaction $transaction)
-    {
-        //
+        $transaction->update([
+            'reviewed' => $transaction->reviewed === 'pending' ? 'checked' : 'pending',
+        ]);
+        return redirect()->route('admin.transactions.index')->with(['success' => trans('Transaction updated!')]);
     }
 }

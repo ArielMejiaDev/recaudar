@@ -47,20 +47,20 @@
                     <div class="p-4 rounded-t-lg text-gray-800 w-full flex justify-between border-b border-gray-300">
                         <span>Credit Card</span>
                         <div class="flex">
-                            <img class="h-10 w-10 object-contain" src="https://i.pinimg.com/originals/5f/4c/af/5f4caf894f84805419739ad92ba94f26.png" alt="Visa">
-                            <img class="h-10 w-10 object-contain" src="https://cam.mastercard.com/content/dam/mccom/global/logos/logo-mastercard-mobile.svg" alt="Master card">
+                            <img class="h-10 w-10 object-contain mr-2" src="{{ asset('images/checkout/visa.svg') }}" alt="Visa">
+                            <img class="h-10 w-10 object-contain" src="{{ asset('images/checkout/mastercard.svg') }}" alt="Master card">
                         </div>
                     </div>
 
                     <input type="hidden" id="currency" value="{{ $locale->currencyCode() }}">
 
                     <div class="my-2 p-2">
-                        <input x-model="email" class="w-full px-5 py-2 text-gray-700 bg-gray-100 border border-gray-300 rounded focus:outline-none" id="email" name="email" type="email" placeholder="Email">
+                        <input x-model="email" class="w-full px-5 py-2 text-gray-700 bg-gray-100 border border-gray-300 rounded focus:bg-white focus:outline-none" id="email" name="email" type="email" placeholder="Email">
                         <p class="text-red-500 text-xs font-bold my-1" x-show="errors.email" x-text="errors.email"></p>
                     </div>
 
                     <div class="my-2 p-2">
-                        <input x-model="name" class="w-full px-5 py-2 text-gray-700 bg-gray-100 border border-gray-300 rounded focus:outline-none" id="name" name="name" type="text" placeholder="Name">
+                        <input x-model="name" class="w-full px-5 py-2 text-gray-700 bg-gray-100 border border-gray-300 rounded focus:bg-white focus:outline-none" id="name" name="name" type="text" placeholder="Name">
                         <p class="text-red-500 text-xs font-bold my-1" x-show="errors.name" x-text="errors.name"></p>
                     </div>
 
@@ -68,9 +68,9 @@
 
                     <div class="w-full">
                         <div class="flex my-2 p-2">
-                            <input x-model="card" type="text" id="card" class="w-5/6 border-t border-b border-l border-gray-300 flex-1 text-sm bg-gray-100 text-gray-700 p-3 rounded-l focus:outline-none" placeholder="Card Number">
-                            <input x-model="date" type="text" id="date" class="w-1/6 border-t border-b border-gray-300 inline-block text-sm bg-gray-100 text-gray-700 p-3 focus:outline-none" placeholder="MM / YY">
-                            <input x-model="cvc" type="text" id="cvc" class="w-1/6 border-t border-b border-r border-gray-300 inline-block text-sm bg-gray-100 text-gray-700 p-3 rounded-r focus:outline-none" placeholder="CVC">
+                            <input x-model="card" type="text" id="card" class="w-5/6 border-t border-b border-l border-gray-300 flex-1 text-sm bg-gray-100 text-gray-700 p-3 rounded-l focus:bg-white focus:outline-none" placeholder="Card Number">
+                            <input x-model="date" type="text" id="date" class="w-1/6 border-t border-b border-gray-300 inline-block text-sm bg-gray-100 text-gray-700 p-3 focus:bg-white focus:outline-none" placeholder="MM / YY">
+                            <input x-model="cvc" type="text" id="cvc" class="w-1/6 border-t border-b border-r border-gray-300 inline-block text-sm bg-gray-100 text-gray-700 p-3 focus:bg-white rounded-r focus:outline-none" placeholder="CVC">
                         </div>
                         <div class="flex">
                             <p class="text-red-500 text-xs font-bold m-1" x-show="errors.card" x-text="errors.card"></p>
@@ -91,11 +91,7 @@
                 </div>
                 <div class="mt-4">
                     <div class="w-full h-20">
-                        <button
-                            x-bind:disabled="submitting"
-                            x-show.transition="!submitting"
-                            class="px-4 py-2 text-white font-light tracking-wider bg-gray-900 rounded-lg uppercase w-full focus:outline-none focus:shadow-outline"
-                            type="submit" x-text="money_format(selectedAmount)"></button>
+                        <button x-bind:disabled="submitting" x-show.transition="!submitting" class="px-4 py-2 text-white font-light tracking-wider bg-gray-900 rounded-lg uppercase w-full focus:outline-none focus:shadow-outline" type="submit" x-text="money_format(selectedAmount)"></button>
                         <p class="text-gray-900 leading-loose tracking-wider font-medium" x-show.transition="submitting" x-text="submittingText"></p>
                     </div>
                 </div>

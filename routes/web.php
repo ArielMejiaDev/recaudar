@@ -15,6 +15,7 @@ use App\Http\Controllers\Frontend\AboutUsPageController;
 use App\Http\Controllers\Frontend\CertificateController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Frontend\DonateDirectLinkController;
 use App\Http\Controllers\Frontend\LandingPageController;
 use App\Http\Controllers\Frontend\NewsletterController;
 use App\Http\Controllers\Frontend\PaymentController;
@@ -27,16 +28,11 @@ Route::domain('{team:slug}.' . basename(config('app.url')))->group(function () {
 
     Route::get('/', ProfilePageController::class)->name('profile-page');
 
-    // quitar tambien la referencia a esta ruta en los temas y despues quitar esta ruta
-    Route::get('/checkout/{amount}', CheckoutController::class)->name('checkout');
+    Route::get('/donar/{amount?}', DonateDirectLinkController::class)->name('donate-direct-link');
 
     Route::post('/pay/{plan}', PaymentController::class)->name('pay');
 
     Route::get('/certificate/{transaction}', CertificateController::class)->name('certificate');
-//
-//    Route::post('/pay', 'Foundations\\PaymentController')->name('pay');
-//
-//    Route::get('/payment-congrats', 'Foundations\\PaymentCongratsController')->name('payment.congrats');
 
 });
 

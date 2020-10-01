@@ -28,6 +28,12 @@
                 </li>
             </ul>
             <ul v-else-if="$page.team && $page.auth.user.role != 'app_admin'">
+                <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('calendar*') ? 'bg-gray-900' : null">
+                    <a :href="route('profile-page', { team: $page.team.slug})" target="_blank" class="flex items-center text-gray-300">
+                        <Icon name="external-link" class="text-gray-500 mr-2" />
+                        Profile
+                    </a>
+                </li>
                 <li class="px-2 py-3 text-gray-300 hover:bg-gray-900 rounded" :class="route().current('teams.dashboard') ? 'bg-gray-900' : null">
                     <InertiaLink @click.passive="isOpen = !isOpen;" :href="route('teams.dashboard', {team: $page.team['slug']})" class="flex items-center">
                         <Icon name="home" class="text-gray-500 mr-2" />
@@ -52,23 +58,11 @@
                         Plans
                     </InertiaLink>
                 </li>
-                <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('calendar*') ? 'bg-gray-900' : null">
-                    <a href="#" class="flex items-center text-gray-300">
-                        <Icon name="calendar" class="text-gray-500 mr-2" />
-                        Calendar
-                    </a>
-                </li>
-                <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('documents*') ? 'bg-gray-900' : null">
-                    <a href="#" class="flex items-center text-gray-300">
-                        <Icon class="text-gray-500 mr-2" name="directory" />
-                        Documents
-                    </a>
-                </li>
-                <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('reports*') ? 'bg-gray-900' : null">
-                    <a href="#" class="flex items-center text-gray-300">
-                        <Icon name="barchart" class="text-gray-500 mr-2" />
-                        Reports
-                    </a>
+                <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('teams.transactions*') ? 'bg-gray-900' : null">
+                    <InertiaLink :href="route('teams.transactions.index', $page.team['slug'])" class="flex items-center text-gray-300">
+                        <Icon name="switch" class="text-gray-500 mr-2" />
+                        Transactions
+                    </InertiaLink>
                 </li>
             </ul>
             <!--Admin links-->
@@ -93,7 +87,7 @@
                 </li>
                 <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('admin.transactions*') ? 'bg-gray-900' : null">
                     <InertiaLink :href="route('admin.transactions.index')" class="flex items-center text-gray-300">
-                        <Icon class="text-gray-500 mr-2" name="directory" />
+                        <Icon class="text-gray-500 mr-2" name="switch" />
                         Transactions
                     </InertiaLink>
                 </li>

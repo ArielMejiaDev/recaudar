@@ -25,9 +25,9 @@ class UpdatePlanRequest extends FormRequest
     {
         return [
             'title' => ['required', 'min:5'],
-            'amount_in_local_currency' => is_null($this->amount_in_local_currency) ? 'nullable' : 'numeric',
-            'amount_in_dollars' => is_null($this->amount_in_dollars) ? 'nullable' : 'numeric',
-            'info' => ['nullable', 'min:10'],
+            'amount_in_local_currency' => ['required', 'numeric'],
+            'amount_in_dollars' => ['required', 'numeric'],
+            'info' => ['required', 'min:10'],
             'banner' => ['nullable', 'image']
         ];
     }

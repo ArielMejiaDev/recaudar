@@ -3,7 +3,7 @@
 
         <Table
             title="Plans"
-            :headers="['plan', 'amount in local currency', 'amount in dollars', '']"
+            :headers="['plan', 'amount in local currency', 'amount in dollars', 'copy link', 'Delete']"
             :searchbox="{show: true, placeholder: 'Search ...'}"
             v-model="search"
             :action="{show: true, text: 'Add a plan', link: route('teams.plans.create', $page.team['slug']), type: 'info'}"
@@ -22,6 +22,11 @@
                         <InertiaLink :href="route('teams.plans.edit', {team: $page.team['slug'], plan: plan.id})">
                             {{ plan.amount_in_dollars | dollar_format }}
                         </InertiaLink>
+                    </td>
+                    <td>
+                        <button @click.prevent="copyLinkToClipboard(plan)" :class="selectedPlan === plan ? 'text-blue-500' : 'text-gray-500'" class="text-xs font-semibold focus:outline-none hover:text-blue-500">
+                            <Icon name="link" />
+                        </button>
                     </td>
                     <td>
                         <button @click="confirm = !confirm; selectedPlan = plan" class="text-gray-500 text-xs font-semibold focus:outline-none hover:text-gray-600">
@@ -69,6 +74,20 @@ export default {
             const route = this.route('teams.plans.destroy', { team: this.$page.team['slug'] , plan: this.selectedPlan.id});
             this.$inertia.delete(route);
         },
+        copyLinkToClipboard(plan) {
+            this.selectedPlan = plan;
+            const route = this.route('donate-direct-link', { team: this.team.slug, amount: plan.amount_in_local_currency });
+
+            const el = document.createElement('input');
+            el.value = route.url();
+            el.setAttribute('readonly', '');
+            el.style.position = 'absolute';
+            el.style.left = '-9999px';
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+        }
     },
     watch: {
         search: _.throttle(function(value) {

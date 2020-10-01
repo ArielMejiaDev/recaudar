@@ -50,6 +50,6 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'appAdmin'])->group(func
 
     Route::resource('charges', ChargeController::class, ['as' => 'admin'])->except(['edit', 'update']);
 
-    Route::resource('transactions', TransactionsController::class, ['as' => 'admin']);
+    Route::resource('transactions', TransactionsController::class, ['as' => 'admin'])->only(['index', 'show', 'update']);
 
 });

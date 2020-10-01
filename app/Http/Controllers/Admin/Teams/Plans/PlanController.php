@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Team\Plan\UpdatePlanRequest;
 use App\Models\Plan;
 use App\Models\Team;
+use App\Services\LocaleCodeResolver;
 use App\Services\S3Uploader;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -23,10 +24,11 @@ class PlanController extends Controller
      */
     public function index(Request $request, Team $team)
     {
-        $plans = $team->plans()->paginate(10, ['plans.id', 'title', 'amount_in_local_currency', 'amount_in_dollars']);
+        $plans = $team->plans()->where('title', '!=', 'of variable amount')->paginate(10, ['plans.id', 'title', 'amount_in_local_currency', 'amount_in_dollars']);
 
         if($request->has('search')) {
-            $plans = $team->plans()->where(function($query) use($request) {
+            $plans = $team->plans()->where('title', '!=', 'of variable amount')
+                ->where(function($query) use($request) {
                 $query->where('title', 'LIKE', "%{$request->search}%")
                     ->orWhere('amount_in_local_currency', 'LIKE', "%{$request->search}%")
                     ->orWhere('amount_in_dollars', 'LIKE', "%{$request->search}%");
@@ -47,8 +49,15 @@ class PlanController extends Controller
      */
     public function edit(Team $team, Plan $plan)
     {
-        $team = $team->only(['id', 'name']);
-        return Inertia::render('Admin/Teams/Plans/Edit', compact('plan','team'));
+        $locale = (new LocaleCodeResolver)->getLocaleFrom($team->country);
+        return Inertia::render('Admin/Teams/Plans/Edit', [
+            'plan' => $plan,
+            'team' => $team->only(['id', 'name']),
+            'locale' => [
+                'country' => $locale->countryCode(),
+                'currency' => $locale->currencyCode(),
+            ]
+        ]);
     }
 
     /**

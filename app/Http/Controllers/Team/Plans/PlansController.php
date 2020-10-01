@@ -8,6 +8,7 @@ use App\Http\Requests\Team\Plan\StorePlanRequest;
 use App\Http\Requests\Team\Plan\UpdatePlanRequest;
 use App\Models\Plan;
 use App\Models\Team;
+use App\Services\LocaleCodeResolver;
 use App\Services\S3Uploader;
 use App\User;
 use Exception;
@@ -60,8 +61,14 @@ class PlansController extends Controller
      */
     public function create(Team $team)
     {
+        $locale = (new LocaleCodeResolver)->getLocaleFrom($team->country);
+
         return Inertia::render('Teams/Plans/Create', [
             'team' => $team->only('name', 'slug'),
+            'locale' => [
+                'country' => $locale->countryCode(),
+                'currency' => $locale->currencyCode(),
+            ]
         ]);
     }
 
@@ -91,9 +98,15 @@ class PlansController extends Controller
      */
     public function edit(Team $team, Plan $plan)
     {
+        $locale = (new LocaleCodeResolver)->getLocaleFrom($team->country);
+
         return Inertia::render('Teams/Plans/Edit', [
             'team' => $team->only('name', 'slug'),
             'plan' => $plan,
+            'locale' => [
+                'country' => $locale->countryCode(),
+                'currency' => $locale->currencyCode(),
+            ]
         ]);
     }
 

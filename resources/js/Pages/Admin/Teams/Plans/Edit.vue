@@ -6,22 +6,24 @@
             </template>
             <template v-slot:body>
                 <Input v-model="form.title" name="title" label="Title" placeholder="Add a title" :errors="$page.errors.title" />
-                <span v-if="toggle" @click="showAmountInput" class="text-blue-500 font-bold text-sm leading-loose tracking-tighter hover:underline hover:text-blue-600 cursor-pointer focus:outline-none focus:text-blue-600 focus:underline">Variable amount</span>
-                <span v-if="!toggle" @click="showAmountInput" class="text-blue-500 font-bold text-sm leading-loose tracking-tighter hover:underline hover:text-blue-600 cursor-pointer focus:outline-none focus:text-blue-600 focus:underline">Add amount</span>
 
-                <div v-show="toggle" class="w-full flex flex-col md:flex-row">
+                <div class="w-full flex flex-col md:flex-row">
 
-                    <IconInput ref="amount_in_local_currency" v-model="form.amount_in_local_currency" class="w-full md:w-1/2 md:mr-1" name="amount_in_local_currency" placeholder="Amount in local currency" :required="false">
-                        <template v-slot:icon>Q</template>
+                    <IconInput ref="amount_in_local_currency" v-model="form.amount_in_local_currency" class="w-full md:w-1/2 md:mr-1" name="amount_in_local_currency" placeholder="Amount in local currency" :errors="$page.errors.amount_in_local_currency">
+                        <template v-slot:icon>
+                            <span class="text-xs">{{ locale.currency }}</span>
+                        </template>
                     </IconInput>
 
-                    <IconInput v-model="form.amount_in_dollars" class="w-full md:w-1/2 md:mr-1" name="amount_in_dollars" placeholder="Amount in dollars" :required="false">
-                        <template v-slot:icon>$</template>
+                    <IconInput v-model="form.amount_in_dollars" class="w-full md:w-1/2 md:mr-1" name="amount_in_dollars" placeholder="Amount in dollars" :errors="$page.errors.amount_in_dollars">
+                        <template v-slot:icon>
+                            <span class="text-xs">USD</span>
+                        </template>
                     </IconInput>
 
                 </div>
 
-                <Textarea v-model="form.info" name="info" label="Optional information about the plan" placeholder="Add plans info ..." :errors="$page.errors.info" :required="false" />
+                <Textarea v-model="form.info" name="info" label="Information about the plan" placeholder="Add plans info ..." :errors="$page.errors.info" />
 
                 <ImageUploader v-model="form.banner" :current-file="plan.banner" name="banner" label="Plans banner" :errors="$page.errors.banner" />
 
@@ -60,7 +62,6 @@ export default {
     },
     data() {
         return {
-            toggle: true,
             loading: false,
             form: {
                 title: this.plan.title,
@@ -74,6 +75,7 @@ export default {
     props: {
         team: Object,
         plan: Object,
+        locale: Object,
     },
     methods: {
         showAmountInput() {

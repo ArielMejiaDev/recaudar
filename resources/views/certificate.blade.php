@@ -68,3 +68,6 @@
 </div>
 
 @endsection
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></script><script>confetti.start(3000)</script>
+@endpush

@@ -8,6 +8,7 @@ use App\Http\Controllers\Team\Profile\UpdateTeamPromotionalVideoController;
 use App\Http\Controllers\Team\Profile\UpdateTeamSocialNetworksController;
 use App\Http\Controllers\Team\TeamController;
 use App\Http\Controllers\Team\TeamDashboardController;
+use App\Http\Controllers\Team\Transaction\TransactionController;
 use App\Http\Controllers\Team\User\UserController;
 
 
@@ -75,6 +76,8 @@ Route::prefix('teams')->middleware(['auth', 'verified', 'userIsATeamMember'])->g
     Route::prefix('/{team:slug}')->group(function() {
 
         Route::resource('plans', PlansController::class, ['as' => 'teams'])->except('show');
+
+        Route::resource('transactions', TransactionController::class, ['as' => 'teams'])->only(['index', 'show']);
 
     });
 

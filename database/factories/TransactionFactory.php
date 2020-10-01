@@ -13,11 +13,12 @@ $factory->define(Transaction::class, function (Faker $faker) {
         'charge_id' => factory(\App\Models\Charge::class),
         'name' => $faker->firstName,
         'email' => $faker->email,
-        'currency' => collect(['local', 'dollars'])->random(),
+        'currency' => collect(['USD', 'GTQ'])->random(),
         'amount' => $amount = $faker->numberBetween(100, 500),
         'type' => collect(['recurrent', 'single'])->random(),
         'amount_to_deposit' => $amount * 0.92,
         'income' => $amount * 0.025,
-        'status' => collect(['checked', 'pending'])->random(),
+        'status' => collect(['approved', 'pending'])->random(),
+        'reviewed' => collect(['checked', 'pending'])->random(),
     ];
 });

@@ -29,6 +29,7 @@ class CreateTransactionsTable extends Migration
             $table->decimal('amount_to_deposit');
             $table->decimal('income');
             $table->string('status')->default('pending');
+            $table->string('reviewed')->default('pending');
             $table->timestamps();
         });
     }
