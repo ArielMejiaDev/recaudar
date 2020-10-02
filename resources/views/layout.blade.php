@@ -12,10 +12,9 @@
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-
-{{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
-
-<!-- Styles -->
+    <!-- SEO -->
+    {!! SEO::generate() !!}
+    <!-- Styles -->
     <link href="{{ mix('css/frontend.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
@@ -55,7 +54,6 @@
     {{--        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');--}}
     {{--    </script>--}}
 
-    {{--    {!! SEO::generate() !!}--}}
 </head>
 <body>
     <div id="app">

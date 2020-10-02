@@ -8,14 +8,17 @@
         <ListItem label="Email">{{ transaction.email }}</ListItem>
         <ListItem label="Type">{{ transaction.type }}</ListItem>
         <ListItem label="Date">{{ transaction.readable_created_at }}</ListItem>
-        <ListItem label="Status">
-            <Pill :type="transaction.status === 'approved' ? 'success' : 'danger'">{{ transaction.status }}</Pill>
-        </ListItem>
         <ListItem label="Amount">
             <div class="flex">
                 <div>{{ transaction.amount_to_deposit }}</div>
                 <span class="text-gray-600 ml-2">{{ transaction.currency }}</span>
             </div>
+        </ListItem>
+        <ListItem label="Status">
+            <Pill :type="transaction.status === 'approved' ? 'success' : 'danger'">{{ transaction.status }}</Pill>
+        </ListItem>
+        <ListItem label="Reviewed">
+            <Pill :type="transaction.reviewed === 'checked' ? 'success' : 'danger'">{{ transaction.reviewed }}</Pill>
         </ListItem>
     </Panel>
 
@@ -33,9 +36,7 @@ export default {
     layout: SidebarLayout,
     name: "Show",
     props: {
-        team: Object,
         transaction: Object,
-        locale: Object,
     },
     components: {
         Panel,

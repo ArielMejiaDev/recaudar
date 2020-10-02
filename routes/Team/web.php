@@ -6,6 +6,7 @@ use App\Http\Controllers\Team\Profile\UpdateTeamBannerController;
 use App\Http\Controllers\Team\Profile\UpdateTeamLogoController;
 use App\Http\Controllers\Team\Profile\UpdateTeamPromotionalVideoController;
 use App\Http\Controllers\Team\Profile\UpdateTeamSocialNetworksController;
+use App\Http\Controllers\Team\Profile\UpdateTeamThemeController;
 use App\Http\Controllers\Team\TeamController;
 use App\Http\Controllers\Team\TeamDashboardController;
 use App\Http\Controllers\Team\Transaction\TransactionController;
@@ -59,6 +60,9 @@ Route::prefix('teams')->middleware(['auth', 'verified', 'userIsATeamMember'])->g
 
     Route::put('/{team:slug}/profile/update-banner', UpdateTeamBannerController::class)
         ->name('teams.profile.update_banner');
+
+    Route::put('/{team:slug}/profile/update-theme', UpdateTeamThemeController::class)
+        ->name('teams.profile.update_theme');
 
     Route::put('/{team:slug}/profile/update-social-networks', UpdateTeamSocialNetworksController::class)
         ->name('teams.profile.update_social_networks');

@@ -6,45 +6,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Transaction/Index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Transaction/Show.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/landing/blobs.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/donate-direct-link.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/SEO/LandingPageSeoService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/SEO/TeamPageSeoService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/SEO/TeamProfilePageSeoService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Transactions/Show.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Profile/EditTheme.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/moonlight.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/moonlight.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Teams/Plans/PlanController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Teams/Plans/PlanController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Transactions/TransactionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Transactions/TransactionsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/LandingPageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/LandingPageController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/PaymentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ProfilePageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ProfilePageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Team/Plans/PlansController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Team/Plans/PlansController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Admin/Team/Plan/UpdatePlanRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/Team/Plan/UpdatePlanRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Team/Plan/StorePlanRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Team/Plan/StorePlanRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Team/Plan/UpdatePlanRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Team/Plan/UpdatePlanRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Team.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Team.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Transaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Transaction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/TeamPageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/TeamPageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Team/Profile/TeamProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Team/Profile/TeamProfileController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/TransactionFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/TransactionFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_24_014515_create_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_24_014515_create_transactions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Admin/Teams/Plans/Edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Teams/Plans/Edit.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Admin/Transactions/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Transactions/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Plans/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Plans/Create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Plans/Edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Plans/Edit.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Plans/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Plans/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Profile/Edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Profile/Edit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Profile/EditLogo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Profile/EditLogo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Profile/EditPromotionalVideo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Profile/EditPromotionalVideo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Profile/EditSocialNetworks.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Profile/EditSocialNetworks.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Transaction/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Transaction/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Transaction/Show.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Transaction/Show.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Partials/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Partials/Sidebar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Shared/Icon.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Shared/Icon.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Shared/PinnedLink.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Shared/PinnedLink.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/certificate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/certificate.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/checkout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teams-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams-page.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/Team/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/Team/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Admin/Charge/ChargeEditTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Admin/Charge/ChargeShowTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Admin/Charge/ChargeUpdateTest.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,6 +196,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
       <path value="$PROJECT_DIR$/vendor/reecem/mocker" />
       <path value="$PROJECT_DIR$/vendor/qoraiche/laravel-mail-editor" />
+      <path value="$PROJECT_DIR$/vendor/artesaos/seotools" />
     </include_path>
   </component>
   <component name="ProjectId" id="1gvWtV8XEGx0ZSXa3cCe5m6XYPA" />
@@ -220,18 +211,18 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/Pages/Teams/Transaction" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/Pages/Teams/Profile" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/js/Pages/Teams/Profile" />
+      <recent name="$PROJECT_DIR$/resources/js/Pages/Admin/Transactions" />
       <recent name="$PROJECT_DIR$/resources/js/Pages/Teams/Transaction" />
       <recent name="$PROJECT_DIR$/resources/js/Pages/Teams" />
       <recent name="$PROJECT_DIR$/resources/views" />
-      <recent name="$PROJECT_DIR$/resources/lang" />
-      <recent name="$PROJECT_DIR$/resources/views/components/landing" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/js/Pages/AdminDashboard/Dashboard" />
@@ -296,7 +287,7 @@
       <workItem from="1600106574225" duration="178576000" />
       <workItem from="1601033452225" duration="282000" />
       <workItem from="1601035310376" duration="54750000" />
-      <workItem from="1601444801403" duration="28141000" />
+      <workItem from="1601444801403" duration="38576000" />
     </task>
     <servers />
   </component>
@@ -382,10 +373,10 @@
     </state>
     <state width="1868" height="312" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1601465731714" />
     <state width="1868" height="312" key="GridCell.Tab.0.right/0.23.1920.1001@0.23.1920.1001" timestamp="1599540733274" />
-    <state x="663" y="203" key="NewPhpClassDialog" timestamp="1601200524909">
+    <state x="663" y="203" key="NewPhpClassDialog" timestamp="1601564859669">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="663" y="203" key="NewPhpClassDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1601200524909" />
+    <state x="663" y="203" key="NewPhpClassDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1601564859669" />
     <state x="751" y="450" width="417" height="182" key="NewPhpFileDialog" timestamp="1601027383970">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

@@ -11,6 +11,8 @@
 
         <EditBanner class="mt-16" :banner="team.banner" />
 
+        <EditTheme class="mt-16" :theme="team.theme" />
+
         <EditSocialNetworks
             class="mt-16"
             :facebook_account="team.facebook_account"
@@ -30,6 +32,7 @@ import EditLogo from "./EditLogo";
 import EditBanner from "./EditBanner";
 import EditSocialNetworks from "./EditSocialNetworks";
 import EditPromotionalVideo from "./EditPromotionalVideo";
+import EditTheme from "./EditTheme";
 
 export default {
     metaInfo: { title: 'Team profile' },
@@ -39,6 +42,7 @@ export default {
         Title,
         EditLogo,
         EditBanner,
+        EditTheme,
         EditSocialNetworks,
         EditPromotionalVideo,
     },

@@ -11,6 +11,8 @@ use App\Models\Team;
 use App\Models\Transaction;
 use App\Services\ChargeResolver;
 use App\Services\LocaleCodeResolver;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 use Mail;
@@ -50,38 +52,53 @@ class PaymentController extends Controller
 
         $response = PagaloGT::add(1, $product, $request->amount)
             ->setClient($firstname, $lastname, $request->email)
-            ->withTestCard($request->name)
+            ->withTestCard(Str::of($request->name)->slug()->replace('-', ''))
             ->withTestCredentials()
             ->pay();
 
-        if($response->successful()) {
-            $charge = (new ChargeFactory)->make($team);
+        if(isset($response->json()['decision']) && $response->json()['decision'] === 'ACCEPT') {
 
-            // In the future by adding dollars transactions to teams on any country
-            // // it will first validate if payment is in dollars else search the country and add the currency code of team country
-            $currencyCode = (new LocaleCodeResolver)->getLocaleFrom($team->country)->currencyCode();
-
-            $transaction = $team->transactions()->create([
-                'plan_id' => $plan->id,
-                'charge_id' => Charge::whereCountry($team->country)->firstOrFail()->id,
-                'name' => $request->name,
-                'email' => $request->email,
-                'currency' => $currencyCode,
-                'amount' => $request->amount,
-                'type' => $request->recurrence ? 'recurrent' : 'single',
-                'amount_to_deposit' => $charge->calculateDeposit(),
-                'income' => $charge->calculateIncome(),
-                'status' => 'approved',
-            ]);
+            $transaction = $this->createTransaction($request, $team, $plan);
 
             Mail::to($request->email)->send(new DonationThanks($transaction->id, $team));
 
             return response()->json(['redirect' => route('certificate', ['team' => $team, 'transaction' => $transaction])]);
         }
 
+        $this->createTransaction($request, $team, $plan, 'fail');
+
         throw ValidationException::withMessages([
             'transaction' => trans('Transaction Fail, please try again later.')
         ]);
 
+    }
+
+    /**
+     * @param Request $request
+     * @param Team $team
+     * @param Plan $plan
+     * @param string $status
+     * @return Model
+     */
+    public function createTransaction(Request $request, Team $team, Plan $plan, $status = 'approved')
+    {
+        $charge = (new ChargeFactory)->make($team);
+
+        // In the future by adding dollars transactions to teams on any country
+        // // it will first validate if payment is in dollars else search the country and add the currency code of team country
+        $currencyCode = (new LocaleCodeResolver)->getLocaleFrom($team->country)->currencyCode();
+
+        return $team->transactions()->create([
+            'plan_id' => $plan->id,
+            'charge_id' => Charge::whereCountry($team->country)->firstOrFail()->id,
+            'name' => $request->name,
+            'email' => $request->email,
+            'currency' => $currencyCode,
+            'amount' => $request->amount,
+            'type' => $request->recurrence ? 'recurrent' : 'single',
+            'amount_to_deposit' => $charge->calculateDeposit(),
+            'income' => $charge->calculateIncome(),
+            'status' => $status,
+        ]);
     }
 }

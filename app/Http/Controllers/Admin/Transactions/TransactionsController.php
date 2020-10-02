@@ -30,11 +30,12 @@ class TransactionsController extends Controller
      * Display the specified resource.
      *
      * @param Transaction $transaction
-     * @return Response
+     * @return \Inertia\Response
      */
     public function show(Transaction $transaction)
     {
-        //
+        $transaction = $transaction->only(['id', 'name', 'email', 'currency', 'amount', 'type', 'status', 'reviewed', 'created_at', 'readable_created_at']);
+        return Inertia::render('Admin/Transactions/Show', compact('transaction'));
     }
 
     /**

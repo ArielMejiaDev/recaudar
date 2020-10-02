@@ -14,7 +14,7 @@
             </template>
 
             <template v-slot:footer>
-                <LoadingButton :loading="loading">Update Social networks.</LoadingButton>
+                <LoadingButton :loading="loading">Update Social networks</LoadingButton>
             </template>
 
         </Panel>

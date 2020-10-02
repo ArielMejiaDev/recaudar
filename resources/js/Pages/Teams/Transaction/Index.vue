@@ -70,29 +70,11 @@ export default {
         Pill,
         Icon,
     },
-    methods: {
-        currency(transaction) {
-            const countryCode = transaction.currency == 'dollars' ? 'en-US' : 'es-GT';
-            const currencyCode = transaction.currency == 'dollars' ? 'USD' : 'GTQ';
-            return new Intl.NumberFormat(countryCode, {
-                style: 'currency',
-                currency: currencyCode,
-                minimumFractionDigits: 2
-            }).format(transaction.amount_to_deposit);
-        }
-    },
     filters: {
-        dollar_format: function(value , style = 'currency') {
+        dollar_format: function(value) {
             return new Intl.NumberFormat('en-US', {
-                style: style,
+                style: 'currency',
                 currency: 'USD',
-                minimumFractionDigits: 2
-            }).format(value);
-        },
-        local_format: function(value, style = 'currency', countryCode = 'es-GT', currencyCode = 'GTQ') {
-            return new Intl.NumberFormat(countryCode, {
-                style: style,
-                currency: currencyCode,
                 minimumFractionDigits: 2
             }).format(value);
         },

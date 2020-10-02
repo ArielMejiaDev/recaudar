@@ -44,7 +44,7 @@ export default {
             const form = new FormData();
             form.append('logo', this.form.logo);
             form.append('_method', 'put');
-            const route = this.route('teams.profile.update_logo', { team: this.$page.team['slug']});
+            const route = this.route('teams.profile.update_logo', { team: this.$page.team['slug'] });
             this.$inertia.post(route, form)
                 .then(() => this.loading = false)
         }

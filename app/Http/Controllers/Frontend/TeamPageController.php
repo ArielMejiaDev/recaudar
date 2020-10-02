@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Team;
+use App\Services\SEO\TeamPageSeoService;
 use Illuminate\Http\Request;
 
 class TeamPageController extends Controller
@@ -14,6 +15,7 @@ class TeamPageController extends Controller
         if($request->has('categoria')) {
             $teams = Team::where('name', '!=', 'recaudar')->whereCategory(ucfirst($request->categoria))->simplePaginate();
         }
+        (new TeamPageSeoService)->execute();
         return view('teams-page', compact('teams'));
     }
 }

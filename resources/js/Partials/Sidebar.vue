@@ -40,25 +40,25 @@
                         Dashboard
                     </InertiaLink>
                 </li>
-                <li v-if="$page.team" class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('teams.users*') ? 'bg-gray-900' : null">
+                <li v-if="$page.auth.user.role === 'Admin'" class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('teams.users*') ? 'bg-gray-900' : null">
                     <InertiaLink :href="route('teams.users.index', $page.team['slug'])" class="flex items-center text-gray-300">
                         <Icon name="users" class="text-gray-500 mr-2" />
                         Team
                     </InertiaLink>
                 </li>
-                <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('teams.profile*') ? 'bg-gray-900' : null">
+                <li v-if="$page.auth.user.role === 'Admin' || $page.auth.user.role === 'Editor'" class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('teams.profile*') ? 'bg-gray-900' : null">
                     <InertiaLink :href="route('teams.profile', $page.team['slug'])" class="flex items-center text-gray-300">
                         <Icon class="w-6 text-gray-500 mr-2" name="info" />
                         Team profile
                     </InertiaLink>
                 </li>
-                <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('teams.plans*') ? 'bg-gray-900' : null">
+                <li v-if="$page.auth.user.role === 'Admin' || $page.auth.user.role === 'Editor'" class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('teams.plans*') ? 'bg-gray-900' : null">
                     <InertiaLink :href="route('teams.plans.index', $page.team['slug'])" class="flex items-center text-gray-300">
                         <Icon name="directory" class="text-gray-500 mr-2" />
                         Plans
                     </InertiaLink>
                 </li>
-                <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('teams.transactions*') ? 'bg-gray-900' : null">
+                <li v-if="$page.auth.user.role === 'Admin' || $page.auth.user.role === 'Financial'" class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('teams.transactions*') ? 'bg-gray-900' : null">
                     <InertiaLink :href="route('teams.transactions.index', $page.team['slug'])" class="flex items-center text-gray-300">
                         <Icon name="switch" class="text-gray-500 mr-2" />
                         Transactions
