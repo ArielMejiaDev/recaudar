@@ -14,7 +14,7 @@ class LandingPageController extends Controller
         (new LandingPageSeoService)->execute();
         return view('welcome', [
             'team' => Team::where('name', '!=', 'recaudar')->inRandomOrder()->limit(1)->first(),
-            'teams' => Team::where('name', '!=', 'recaudar')->inRandomOrder()->limit(3)->get(),
+            'teams' => Team::where('name', '!=', 'recaudar')->whereNotNull('logo')->inRandomOrder()->limit(3)->get(),
         ]);
     }
 }

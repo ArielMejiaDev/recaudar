@@ -3,7 +3,7 @@
     <div class="container px-5 py-24 mx-auto">
         <div class="w-full lg:w-2/3 flex flex-col md:flex-row items-center md:items-start mx-auto font-body">
             <h1 class="z-10 text-center md:text-left flex-grow sm:pr-16 text-4xl font-medium title-font text-gray-900">Tu puedes ser parte del cambio.</h1>
-            <a class="z-10 flex-shrink-0 text-white bg-pink border-0 py-4 px-8 focus:outline-none hover:bg-deeppink rounded text-lg mt-10 sm:mt-0 text-2xl" href="{{ route('teams-page') }}">Apoya</a>
+            <a class="z-10 flex-shrink-0 text-white bg-pink border-0 py-4 px-8 focus:outline-none hover:bg-melon rounded text-lg mt-10 sm:mt-0 text-2xl" href="{{ route('teams-page') }}">Apoya</a>
         </div>
     </div>
 

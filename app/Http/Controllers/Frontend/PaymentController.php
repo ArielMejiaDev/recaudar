@@ -8,8 +8,6 @@ use App\Mail\DonationThanks;
 use App\Models\Charge;
 use App\Models\Plan;
 use App\Models\Team;
-use App\Models\Transaction;
-use App\Services\ChargeResolver;
 use App\Services\LocaleCodeResolver;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -29,7 +27,7 @@ class PaymentController extends Controller
             'card' => ['required', 'min:12'],
             'date' => ['required', 'min:4'],
             'cvc' => ['required', 'min:3'],
-            'currency' => ['required'],
+            'currency' => ['required', Rule::in(['GTQ', 'USD'])],
             'amount' => ['required', 'numeric', 'min:25'],
             'recurrence' => ['boolean'],
             'deviceFingerprintID' => ['required', 'min:13']
