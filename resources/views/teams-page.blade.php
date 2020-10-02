@@ -60,7 +60,9 @@
                                             <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="{{ $team->banner }}" alt="{{ $team->name }}">
                                         </a>
                                     @else
-                                        <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="{{ $team->name }}">
+                                        <a href="{{ route('profile-page', $team) }}">
+                                            <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="{{ $team->name }}">
+                                        </a>
                                     @endif
 
                                     <div class="p-6">

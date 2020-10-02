@@ -18,8 +18,23 @@ class TeamPageSeoService
             ->setCanonical(route('teams-page'))
             ->setPrev(route('welcome'));
 
+        $images = Team::select('logo')
+            ->where('name', '!=', 'recaudar')
+            ->where('status', 'approved')
+            ->limit(15)
+            ->pluck('logo')
+            ->toArray() ??
+            Team::select('banner')
+                ->where('name', '!=', 'recaudar')
+                ->where('status', 'approved')
+                ->limit(15)
+                ->pluck('banner')
+                ->toArray() ?? [
+                'https:' . config('app.url') . '/assets/images/landing/hero/bg.jpeg',
+            ];
+
         OpenGraph::addImage(config('app.url') . '/assets/images/landing/hero/bg.jpeg')
-            ->addImages(Team::select('banner')->where('name', '!=', 'recaudar')->where('status', 'approved')->limit(15)->pluck('banner')->toArray())
+            ->addImages($images)
             ->setTitle('Fundaciones - ' . config('app.name'))
             ->setDescription('Lista de fundaciones')
             ->setUrl(route('teams-page'))

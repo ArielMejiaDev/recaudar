@@ -32720,10 +32720,10 @@ var render = function() {
           "div",
           {
             staticClass:
-              "text-center text-gray-800 text-3xl mt-12 flex flex-col items-center"
+              "text-center text-gray-500 text-3xl mt-12 flex flex-col items-center"
           },
           [
-            _c("div", { staticClass: "my-6 text-gray-800" }, [
+            _c("div", { staticClass: "my-6 text-gray-500" }, [
               _c(
                 "svg",
                 {

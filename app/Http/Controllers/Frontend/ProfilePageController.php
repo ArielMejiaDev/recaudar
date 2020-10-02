@@ -12,8 +12,11 @@ class ProfilePageController extends Controller
 {
     public function __invoke(Team $team)
     {
-        (new TeamProfilePageSeoService)->execute($team);
+        if($team->status !== 'approved') return abort(404);
+
         $locale = new LocaleCodeResolver;
+        (new TeamProfilePageSeoService)->execute($team);
+
         return view('teams/themes/' . $team->theme, [
             'team' => $team,
             'locale' => $locale->getLocaleFrom($team->country),

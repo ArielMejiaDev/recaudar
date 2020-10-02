@@ -13,7 +13,6 @@
 
 use App\Http\Controllers\Frontend\AboutUsPageController;
 use App\Http\Controllers\Frontend\CertificateController;
-use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\DonateDirectLinkController;
 use App\Http\Controllers\Frontend\LandingPageController;

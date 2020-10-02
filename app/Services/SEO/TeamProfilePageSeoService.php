@@ -22,13 +22,13 @@ class TeamProfilePageSeoService
             ->setPrev(config('app.url') . '/fundaciones');
 
         OpenGraph::addImage($team->banner)
-            ->addImages(array_merge([$team->banner], $images))
+            ->addImages(array_merge([$team->logo, $team->banner], $images))
             ->setTitle($team->name)
             ->setDescription('Perfil de la fundación ' . $team->name . ' en ' . config('app.url'))
             ->setUrl(route('profile-page', $team))
             ->setSiteName(route('profile-page', $team));
 
-        TwitterCard::setImage($team->banner)
+        TwitterCard::setImage($team->logo)
             ->setTitle($team->name)
             ->setDescription('Perfil de la fundacioón ' . $team->name . ' en ' . config('app.url'))
             ->setUrl(route('profile-page', $team));

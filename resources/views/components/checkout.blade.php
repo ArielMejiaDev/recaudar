@@ -20,8 +20,12 @@
                 <svg class="w-6 h-6 fill-current" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
             </div>
             <div class="text-gray-900 text-2xl font-medium p-3 text-center flex flex-col items-center justify-center">
-                <img class="h-20 w-20 rounded-full shadow-xl border-4 border-gray-400" src="{{ $team->logo }}" alt="logo">
-                <p class="mt-4">Customer information</p>
+                @if ($team->logo)
+                    <img class="h-20 w-20 rounded-full shadow-xl border-4 border-gray-400" src="{{ $team->logo }}" alt="logo">
+                @else
+                    <p class="my-1">{{ $team->name }}</p>
+                @endif
+                    <p class="mt-2 mb-6 {{ !$team->logo ? 'text-lg text-gray-600' : null }}">Customer information</p>
                 <div class="hidden lg:flex font-medium text-xs uppercase flex text-gray-500">
                     <div class="mx-2">Select a foundation</div>
                     <div class="mx-2">
@@ -151,7 +155,7 @@
         // Checkout form
         function form() {
             return {
-                toggle: {{ $team->availablePlans()->first()->id }},
+                toggle: {{ $team->availablePlans()->first()->id ?? $variablePlanId }},
                 email: '',
                 name: '',
                 card: '',

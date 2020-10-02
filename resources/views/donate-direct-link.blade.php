@@ -12,8 +12,12 @@
             <form method="POST" @submit.prevent="submit()" id="checkout" class="w-full max-w-xl bg-white rounded shadow-xl relative mx-auto">
                 @csrf
                 <div class="text-gray-900 text-2xl font-medium p-3 text-center flex flex-col items-center justify-center">
-                    <img class="h-20 w-20 rounded-full shadow-xl border-4 border-gray-400" src="{{ $team->logo }}" alt="logo">
-                    <p class="my-4">Customer information</p>
+                    @if ($team->logo)
+                        <img class="h-20 w-20 rounded-full shadow-xl border-4 border-gray-400" src="{{ $team->logo }}" alt="logo">
+                    @else
+                        <p class="my-1">{{ $team->name }}</p>
+                    @endif
+                    <p class="mt-4 mb-6 {{ !$team->logo ? 'text-lg text-gray-600' : null }}">Customer information</p>
                     <div class="hidden lg:flex font-medium text-xs uppercase flex text-gray-500">
                         <div class="mx-2">Select a foundation</div>
                         <div class="mx-2">
@@ -149,7 +153,7 @@
         // Checkout form
         function form() {
             return {
-                toggle: {{ $team->availablePlans()->first()->id }},
+                toggle: {{ $team->availablePlans()->first()->id ?? $variablePlanId }},
                 email: '',
                 name: '',
                 card: '',
