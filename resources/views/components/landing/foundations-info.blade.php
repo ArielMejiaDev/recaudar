@@ -16,15 +16,23 @@
         <div class="flex flex-col lg:flex-row">
 
             <div class="w-full lg:w-1/2">
-                <h2 class="mt-6 text-4xl font-bold tracking-wider text-gray-900 text-center">¿Eres una organización no lucrativa?</h2>
+                <h2 class="mt-6 text-4xl font-bold tracking-wider text-gray-900 text-center">
+                    {{ trans('Are you a non-profit organization?') }}
+                </h2>
 
                 <div class="mt-6 text-md md:text-xl font-display text-left text-gray-900">
 
-                    <p class="my-4">¡Hagamos una alianza! Sé parte de la familia de Recaudar y obtén más fondos para tu causa de una manera fácil y segura.</p>
+                    <p class="my-4">
+                        {{ trans("Let's make an alliance! Be part of the Recaudar family and get more funds for your cause in an easy and safe way.") }}
+                    </p>
 
-                    <p class="my-4">Contamos con una propuesta de valor atractiva, tendrás acceso a contenido exclusivo, webinars, capacitaciones, workshops y mucho más.</p>
+                    <p class="my-4">
+                        {{ trans('We have an attractive value proposition, you will have access to exclusive content, webinars, trainings, workshops and much more.') }}
+                    </p>
 
-                    <p class="my-4">Independízate y dile adiós a intermediarios innecesarios. Sumérgete en el marketing moderno y la automatización.</p>
+                    <p class="my-4">
+                        {{ trans('Go independent and say goodbye to unnecessary intermediaries. Dive into modern marketing and automation.') }}
+                    </p>
 
                 </div>
 
@@ -40,7 +48,9 @@
         </div>
     </div>
 
-    <a class="my-6 py-4 px-8 rounded bg-pink text-white text-3xl hover:bg-red-600 shadow-lg z-10" href="/register">Regístrate</a>
+    <a class="my-6 py-4 px-8 rounded bg-pink text-white text-3xl hover:bg-red-600 shadow-lg z-10" href="/register">
+        {{ trans('Sign up') }}
+    </a>
 
     <div class="absolute bottom-0">
         <a href="#faqs">

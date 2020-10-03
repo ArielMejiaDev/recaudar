@@ -14,6 +14,22 @@ class ShowProfileFormsController extends Controller
      */
     public function __invoke()
     {
-        return Inertia::render('User/Profile/Show');
+        $trans = [
+            'profile' => trans('Profile'),
+            'change_credentials' => trans('Change Credentials'),
+            'name' => trans('Name'),
+            'email' => trans('Email'),
+            'this_are_the_credentials_to_login' => trans('This are the credentials to login.'),
+            'change_password' => trans('Change Password'),
+            'be_careful_if_you_change_the_password' => trans('Be careful, if you change the password.'),
+            'you_must_confirm_the_new_password_to_update_it' => trans('You must confirm the new password to update it.'),
+            'password' => trans('Password'),
+            'new_password' => trans('New Password'),
+            'confirm_password' => trans('Confirm Password'),
+            'change_avatar' => trans('Change Avatar'),
+            'the_avatar_would_be_public' => trans('The avatar would be public.'),
+            'upload' => trans('Upload'),
+        ];
+        return Inertia::render('User/Profile/Show', ['trans' => $trans]);
     }
 }

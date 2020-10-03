@@ -14,10 +14,11 @@
 
     <div class="h-full flex flex-col items-center justify-around text-gray-900 z-10 relative mb-12 mx-4">
         <div class="text-pink text-6xl border-4 border-pink rounded-full px-10 flex items-center justify-center mt-8">1</div>
-        <h2 class="mt-6 font-bold tracking-wider text-center {{ $teams->isEmpty() ? 'text-8xl' : 'text-4xl'}}">Escoge un proyecto</h2>
+        <h2 class="mt-6 font-bold tracking-wider text-center {{ $teams->isEmpty() ? 'text-8xl' : 'text-4xl'}}">
+            {{ trans('Choose a project') }}
+        </h2>
         <p class="mt-3 font-display text-center w-full px-2 sm:w-1/2 {{ $teams->isEmpty() ? 'text-2xl' : 'text-xl' }}">
-            ¡Sé parte del cambio! Selecciona la iniciativa que más te apasione para contribuir a una causa. Juntos,
-            a través de Recaudar, crearemos un mundo mejor.
+            {{ trans('Be part of the change! Select the initiative that you are most passionate about to contribute to a cause. Together, through Collect, we will create a better world.') }}
         </p>
     </div>
 
@@ -30,7 +31,7 @@
 
                 <div class="bg-black opacity-100 lg:opacity-0 hover:opacity-100 bg-opacity-50 lg:bg-opacity-0 hover:bg-opacity-50 flex items-center justify-center absolute inset-0">
                     <a href="{{ route('profile-page', $team) }}" class="bg-pink py-2 px-4 md:py-4 md:px-8 lg:py-2 lg:px-4 text-center text-gray-100 rounded hover:bg-deeppink text-2xl tracking-wide z-10">
-                        Donar
+                        {{ trans('Donate') }}
                     </a>
                 </div>
 

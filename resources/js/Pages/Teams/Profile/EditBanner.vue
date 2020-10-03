@@ -2,7 +2,7 @@
     <form @submit.prevent="submit">
         <Panel>
             <template v-slot:header>
-                <Title info="This is the banner for the profile page.">Banner</Title>
+                <Title :info="trans.this_is_the_banner_for_the_profile_page">Banner</Title>
             </template>
 
             <template v-slot:body>
@@ -12,7 +12,9 @@
             </template>
 
             <template v-slot:footer>
-                <LoadingButton :loading="loading">Upload logo</LoadingButton>
+                <LoadingButton :loading="loading">
+                    {{ $page.global_trans.update }} Banner
+                </LoadingButton>
             </template>
         </Panel>
     </form>
@@ -53,6 +55,7 @@ export default {
     },
     props: {
         banner: String,
+        trans: Object,
     },
 }
 </script>

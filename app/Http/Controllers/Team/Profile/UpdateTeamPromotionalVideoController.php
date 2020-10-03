@@ -18,7 +18,7 @@ class UpdateTeamPromotionalVideoController extends Controller
      */
     public function __invoke(Request $request, Team $team)
     {
-        $request->validate(['promotional_video' => 'required|url']);
+        $request->validate(['promotional_video' => 'required|url'], [], ['promotional_video' => trans('Promotional Video')]);
         $team->update(['promotional_video' => $request->promotional_video]);
         return redirect()->route('teams.profile', $team)->with(['success' => trans('Promotional video added!')]);
     }

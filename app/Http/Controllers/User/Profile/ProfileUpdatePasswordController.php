@@ -29,7 +29,7 @@ class ProfileUpdatePasswordController extends Controller
         auth()->user()->update([
             'password' => Hash::make($request->get('new_password'))
         ]);
-        return redirect()->route('profile.show')->with(['success' => trans('Password updated!')]);
+        return redirect()->route('profile.show')->with(['success' => trans('Profile') . ' ' . trans('Updated')]);
     }
 
     public function passwordMatch(String $password)

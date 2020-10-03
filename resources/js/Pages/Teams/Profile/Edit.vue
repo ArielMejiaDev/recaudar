@@ -1,26 +1,27 @@
 <template>
     <div>
 
-        <div class="flex items-center justify-between pb-12 border-b border-gray-300">
+        <div class="flex items-center justify-between pb-4 border-b border-gray-300">
             <div class="flex-1 min-w-0">
-                <Title>{{ team.name }} Profile</Title>
+                <Title>{{ team.name }}</Title>
             </div>
         </div>
 
-        <EditLogo class="mt-16" :logo="team.logo" />
+        <EditLogo :trans="trans" class="mt-8" :logo="team.logo" />
 
-        <EditBanner class="mt-16" :banner="team.banner" />
+        <EditBanner :trans="trans" class="mt-8" :banner="team.banner" />
 
-        <EditTheme class="mt-16" :theme="team.theme" />
+        <EditTheme :trans="trans" class="mt-8" :theme="team.theme" />
 
         <EditSocialNetworks
-            class="mt-16"
+            :trans="trans"
+            class="mt-8"
             :facebook_account="team.facebook_account"
             :twitter_account="team.twitter_account"
             :instagram_account="team.twitter_account"
         />
 
-        <EditPromotionalVideo :promotional_video="team.promotional_video" class="mt-16" />
+        <EditPromotionalVideo :trans="trans" :promotional_video="team.promotional_video" class="mt-8" />
 
     </div>
 </template>
@@ -48,8 +49,7 @@ export default {
     },
     props: {
         team: Object,
-    },
-    methods: {
+        trans: Object,
     },
 }
 </script>

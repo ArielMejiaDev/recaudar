@@ -19,49 +19,49 @@
             </div>
         </div>
         <div class="px-2 py-6 md:block" :class="isOpen? 'block': 'hidden'">
-            <ul v-if="route().current('teams.index') || route().current('profile.show') && $page.auth.user.role !== 'app_admin'">
-                <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('teams.index') ? 'bg-gray-900' : null">
+            <ul v-if="route().current('teams.index') || route().current('teams.create') || route().current('teams.edit') || route().current('profile.show')">
+                <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('teams.*') ? 'bg-gray-900' : null">
                     <InertiaLink :href="route('teams.index')" class="flex items-center text-gray-300">
                         <Icon name="users" class="text-gray-500 mr-2" />
-                        Teams
+                        {{ $page.global_trans.teams }}
                     </InertiaLink>
                 </li>
             </ul>
-            <ul v-else-if="$page.team && $page.auth.user.role != 'app_admin'">
-                <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('calendar*') ? 'bg-gray-900' : null">
+            <ul v-else>
+                <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2">
                     <a :href="route('profile-page', { team: $page.team.slug})" target="_blank" class="flex items-center text-gray-300">
                         <Icon name="external-link" class="text-gray-500 mr-2" />
-                        Profile
+                        {{ $page.global_trans.profile }}
                     </a>
                 </li>
                 <li class="px-2 py-3 text-gray-300 hover:bg-gray-900 rounded" :class="route().current('teams.dashboard') ? 'bg-gray-900' : null">
                     <InertiaLink @click.passive="isOpen = !isOpen;" :href="route('teams.dashboard', {team: $page.team['slug']})" class="flex items-center">
                         <Icon name="home" class="text-gray-500 mr-2" />
-                        Dashboard
+                        {{ $page.global_trans.home }}
                     </InertiaLink>
                 </li>
                 <li v-if="$page.auth.user.role === 'Admin'" class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('teams.users*') ? 'bg-gray-900' : null">
                     <InertiaLink :href="route('teams.users.index', $page.team['slug'])" class="flex items-center text-gray-300">
                         <Icon name="users" class="text-gray-500 mr-2" />
-                        Team
+                        {{ $page.global_trans.team }}
                     </InertiaLink>
                 </li>
                 <li v-if="$page.auth.user.role === 'Admin' || $page.auth.user.role === 'Editor'" class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('teams.profile*') ? 'bg-gray-900' : null">
                     <InertiaLink :href="route('teams.profile', $page.team['slug'])" class="flex items-center text-gray-300">
                         <Icon class="w-6 text-gray-500 mr-2" name="info" />
-                        Team profile
+                        {{ $page.global_trans.team_profile }}
                     </InertiaLink>
                 </li>
                 <li v-if="$page.auth.user.role === 'Admin' || $page.auth.user.role === 'Editor'" class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('teams.plans*') ? 'bg-gray-900' : null">
                     <InertiaLink :href="route('teams.plans.index', $page.team['slug'])" class="flex items-center text-gray-300">
                         <Icon name="directory" class="text-gray-500 mr-2" />
-                        Plans
+                        {{ $page.global_trans.plans }}
                     </InertiaLink>
                 </li>
                 <li v-if="$page.auth.user.role === 'Admin' || $page.auth.user.role === 'Financial'" class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('teams.transactions*') ? 'bg-gray-900' : null">
                     <InertiaLink :href="route('teams.transactions.index', $page.team['slug'])" class="flex items-center text-gray-300">
                         <Icon name="switch" class="text-gray-500 mr-2" />
-                        Transactions
+                        {{ $page.global_trans.transactions }}
                     </InertiaLink>
                 </li>
             </ul>
@@ -70,25 +70,25 @@
                 <li class="px-2 py-3 text-gray-300 hover:bg-gray-900 rounded" :class="route().current('admin.dashboard') ? 'bg-gray-900' : null">
                     <InertiaLink @click.passive="isOpen = !isOpen;" :href="route('admin.dashboard')" class="flex items-center">
                         <Icon name="home" class="text-gray-500 mr-2" />
-                        Dashboard
+                        {{ $page.global_trans.home }}
                     </InertiaLink>
                 </li>
                 <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('admin.teams*') ? 'bg-gray-900' : null">
                     <InertiaLink :href="route('admin.teams.index')" class="flex items-center text-gray-300">
                         <Icon class="text-gray-500 mr-2" name="users"/>
-                        Teams
+                        {{ $page.global_trans.teams }}
                     </InertiaLink>
                 </li>
                 <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('admin.charges*') ? 'bg-gray-900' : null">
                     <InertiaLink :href="route('admin.charges.index')" class="flex items-center text-gray-300">
                         <Icon class="text-gray-500 mr-2" name="collection" />
-                        Charges
+                        {{ $page.global_trans.charges }}
                     </InertiaLink>
                 </li>
                 <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('admin.transactions*') ? 'bg-gray-900' : null">
                     <InertiaLink :href="route('admin.transactions.index')" class="flex items-center text-gray-300">
                         <Icon class="text-gray-500 mr-2" name="switch" />
-                        Transactions
+                        {{ $page.global_trans.transactions }}
                     </InertiaLink>
                 </li>
             </ul>
@@ -97,10 +97,14 @@
 
             <ul class="mt-6 md:hidden">
                 <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('profile*') ? 'bg-gray-900' : null">
-                    <InertiaLink @click.passive="isOpen = !isOpen" href="/profile" class="flex items-center mx-2 text-gray-300">Profile</InertiaLink>
+                    <InertiaLink @click.passive="isOpen = !isOpen" href="/profile" class="flex items-center mx-2 text-gray-300">
+                        {{ $page.global_trans.profile }}
+                    </InertiaLink>
                 </li>
                 <li @click="$inertia.post(route('logout'))" class="px-2 py-3 hover:bg-gray-900 rounded mt-2">
-                    <button class="mx-2 text-gray-300" @click="$inertia.post(route('logout'))">Logout</button>
+                    <button class="mx-2 text-gray-300" @click="$inertia.post(route('logout'))">
+                        {{ $page.global_trans.logout }}
+                    </button>
                 </li>
             </ul>
 

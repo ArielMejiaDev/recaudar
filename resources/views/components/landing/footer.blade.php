@@ -25,32 +25,34 @@
 
                 <div class="flex justify-center">
                     <p class="mt-2 text-sm text-gray-500 w-56 sm:w-auto">
-                        Somos el corazón de la caridad, porque conectamos organizaciones y donadores de una manera fácil y segura para cambiar el mundo.
+                        {{ trans("It's time to help! We are the heart of charity and safety is paramount in Raising.") }}
                     </p>
                 </div>
 
             </div>
 
             <div class="lg:w-1/3 md:w-1/2 w-full px-4 text-center lg:text-right hidden lg:block">
-                <h2 class="title-font font-medium text-gray-100 tracking-widest text-sm mb-3">Acerca de nosotros</h2>
+                <h2 class="title-font font-medium text-gray-100 tracking-widest text-sm mb-3">
+                    {{ trans('Recaudar') }}
+                </h2>
                 <nav class="list-none mb-8">
                     <li class="py-2">
-                        <a class="text-gray-600 hover:text-gray-100" href="{{ route('about-us') }}">Quienes somos</a>
+                        <a class="text-gray-600 hover:text-gray-100" href="{{ route('about-us') }}">{{ trans('About us') }}</a>
                     </li>
                     <li class="py-2">
-                        <a class="text-gray-600 hover:text-gray-100">Clientes</a>
+                        <a class="text-gray-600 hover:text-gray-100">{{ trans('Clients') }}</a>
                     </li>
                 </nav>
             </div>
 
             <div class="lg:w-1/3 md:w-1/2 w-full px-4 text-center lg:text-right hidden lg:block">
-                <h2 class="title-font font-medium text-gray-100 tracking-widest text-sm mb-3">Recursos</h2>
+                <h2 class="title-font font-medium text-gray-100 tracking-widest text-sm mb-3">{{ trans('Resources') }}</h2>
                 <nav class="list-none mb-8">
                     <li class="py-2">
-                        <a href="{{ route('contact.create') }}" class="text-gray-600 hover:text-gray-100">Contacto</a>
+                        <a href="{{ route('contact.create') }}" class="text-gray-600 hover:text-gray-100">{{ trans('Contact us') }}</a>
                     </li>
                     <li class="py-2">
-                        <a href="{{ route('terms-for-users') }}" class="text-gray-600 hover:text-gray-100">Terminos y condiciones</a>
+                        <a href="{{ route('terms-for-users') }}" class="text-gray-600 hover:text-gray-100">{{ trans('Terms & conditions') }}</a>
                     </li>
                 </nav>
             </div>
@@ -70,7 +72,7 @@
                 <button class="w-full md:w-auto my-1 md:my-0 inline-flex text-white justify-center bg-pink border-0 py-2 px-6 focus:outline-none focus:shadow-outline hover:bg-deeppink rounded">Enviar</button>
 
                 <p class="text-gray-500 text-sm md:ml-6 mt-2 sm:text-left text-center">
-                    Deja tu email para enterarte de mas novedades.
+                    {{ trans('Leave your email to find out more news.') }}
                 </p>
 
             </form>
@@ -123,10 +125,14 @@
 
     <div class="bg-gray-800">
         <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-            <p class="text-gray-500 text-sm text-center sm:text-left">© {{ now()->format('Y') }} Recaudar.com —
-                <a href="#" class="text-gray-600 ml-1" target="_blank">Terminos y condiciones.</a>
+            <p class="text-gray-500 text-sm text-center sm:text-left">© {{ now()->format('Y') }} {{ config('app.name') }} —
+                <a href="#" class="text-gray-600 ml-1" target="_blank">
+                    {{ trans('Terms & conditions') }}
+                </a>
             </p>
-            <span class="sm:ml-auto sm:mt-0 mt-2 sm:w-auto w-full sm:text-left text-center text-gray-500 text-sm">Todos los derechos reservados.</span>
+            <span class="sm:ml-auto sm:mt-0 mt-2 sm:w-auto w-full sm:text-left text-center text-gray-500 text-sm">
+                {{ trans('All rights reserved.') }}
+            </span>
         </div>
     </div>
 

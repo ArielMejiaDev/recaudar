@@ -2,20 +2,24 @@
     <div class="w-full flex flex-col lg:flex-row items-start mt-16">
 
         <div class="w-full lg:w-4/12 mb-6 lg:mb-0 lg:pr-12">
-            <Title info="This avatar would be public.">Change Avatar.</Title>
+            <Title :info="trans.the_avatar_would_be_public">
+                {{ trans.change_avatar }}
+            </Title>
         </div>
 
         <div class="w-full lg:w-8/12">
             <form @submit.prevent="submit">
                 <Panel class="w-full">
                     <template v-slot:header>
-                        <Title info="This would be your profile image.">Change Avatar</Title>
+                        <Title>
+                            {{ trans.change_avatar }}
+                        </Title>
                     </template>
                     <template v-slot:body>
-                        <AvatarUploader :current-file="$page.auth.user.avatar" name="avatar" v-model="form.avatar" :errors="$page.errors.avatar" />
+                        <AvatarUploader :current-file="$page.auth.user.avatar" name="avatar" v-model="form.avatar" :options="{ buttonText: trans.upload, showButton: true}" :errors="$page.errors.avatar" />
                     </template>
                     <template v-slot:footer>
-                        <LoadingButton :loading="sending">Change avatar</LoadingButton>
+                        <LoadingButton :loading="sending">{{ $page.global_trans.update }}</LoadingButton>
                     </template>
                 </Panel>
             </form>
@@ -61,6 +65,9 @@ export default {
                 this.confirmation = false;
             });
         },
+    },
+    props: {
+        trans: Object,
     },
 }
 </script>

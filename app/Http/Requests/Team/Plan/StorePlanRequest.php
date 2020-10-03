@@ -32,4 +32,14 @@ class StorePlanRequest extends FormRequest
             'banner' => 'nullable|image',
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'title' => trans('Title'),
+            'amount_in_local_currency' => trans('Amount in Local Currency'),
+            'amount_in_dollars' => trans('Amount in Dollars'),
+            'info' => trans('Information About the Plan'),
+        ];
+    }
 }

@@ -2,22 +2,26 @@
     <div class="w-full flex flex-col lg:flex-row items-start mt-16">
 
         <div class="w-full lg:w-4/12 mb-6 lg:mb-0 lg:pr-12">
-            <Title info="Be careful, if you change the password, this change cannot be revert.">Change password</Title>
+            <Title :info="trans.be_careful_if_you_change_the_password">
+                {{ trans.change_password }}
+            </Title>
         </div>
 
         <div class="w-full lg:w-8/12">
             <form @submit.prevent="confirmation = !confirmation">
                 <Panel class="w-full">
                     <template v-slot:header>
-                        <Title info="You must confirm the new password to update it.">Change Password</Title>
+                        <Title :info="trans.you_must_confirm_the_new_password_to_update_it">
+                            {{ trans.change_password }}
+                        </Title>
                     </template>
                     <template v-slot:body>
-                        <Input name="password" label="Current password" :required="false" type="password" placeholder="type your current password."  v-model="form.password" :errors="$page.errors.password" />
-                        <Input name="new_password" label="New password" :required="false" type="password" placeholder="type your new password."  v-model="form.new_password" :errors="$page.errors.new_password" />
-                        <Input name="new_password_confirmation" label="Confirm new password" :required="false" type="password" placeholder="type your new password again."  v-model="form.new_password_confirmation" :errors="$page.errors.new_password_confirmation" />
+                        <Input name="password" :label="trans.password" :required="false" type="password" placeholder="type your current password."  v-model="form.password" :errors="$page.errors.password" />
+                        <Input name="new_password" :label="trans.new_password" :required="false" type="password" placeholder="type your new password."  v-model="form.new_password" :errors="$page.errors.new_password" />
+                        <Input name="new_password_confirmation" :label="trans.confirm_password" :required="false" type="password" placeholder="type your new password again."  v-model="form.new_password_confirmation" :errors="$page.errors.new_password_confirmation" />
                     </template>
                     <template v-slot:footer>
-                        <LoadingButton :loading="sending" type="danger">Change password</LoadingButton>
+                        <LoadingButton :loading="sending" type="danger">{{ $page.global_trans.update }}</LoadingButton>
                     </template>
                 </Panel>
             </form>
@@ -26,10 +30,9 @@
         <Modal
             v-if="confirmation"
             type="danger"
-            title="Are you sure?"
-            info="This change cannot be revert!"
-            close-button-text="Close"
-            action-button-text="Change Password"
+            :title="$page.global_trans.are_you_sure_to_update_the_record"
+            :close-button-text="$page.global_trans.cancel"
+            :action-button-text="$page.global_trans.update"
             @close="confirmation = !confirmation"
             @action="submit" />
 
@@ -71,6 +74,9 @@ export default {
                 this.confirmation = false;
             });
         },
+    },
+    props: {
+        trans: Object,
     },
 }
 </script>

@@ -28,4 +28,11 @@ class ProfileUpdatePasswordRequest extends FormRequest
             'new_password' => 'required|min:8|confirmed',
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'new_password' => trans('New Password'),
+        ];
+    }
 }

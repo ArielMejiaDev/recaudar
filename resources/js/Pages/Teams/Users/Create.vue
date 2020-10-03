@@ -11,15 +11,15 @@
 
             <Panel>
                 <template v-slot:header>
-                    <Title info="The user role defines the actions that a user can do">Create a user</Title>
+                    <Title info="The user role defines the actions that a user can do">{{ trans.create_a_user }}</Title>
                 </template>
 
                 <template v-slot:body>
-                    <Input v-model="form.name" name="name" label="Name" :errors="$page.errors.name" />
-                    <Input v-model="form.email" name="email" label="Email" type="email" :errors="$page.errors.email" />
+                    <Input v-model="form.name" name="name" :label="trans.name" :errors="$page.errors.name" />
+                    <Input v-model="form.email" name="email" :label="trans.email" type="email" :errors="$page.errors.email" />
 
-                    <Select v-model="form.role" name="role" label="Role" :errors="$page.errors.role">
-                        <option selected disabled value="null">Please select a role for the user</option>
+                    <Select v-model="form.role" name="role" :label="trans.role" :placeholder="`${$page.global_trans.select} ${trans.role}`" :errors="$page.errors.role">
+<!--                        <option selected disabled value="null">Please select a role for the user</option>-->
                         <option value="team_admin">Admin</option>
                         <option value="team_editor">Editor</option>
                         <option value="team_financial">Financial</option>
@@ -28,7 +28,7 @@
                 </template>
 
                 <template v-slot:footer>
-                    <LoadingButton :loading="loading">Add user</LoadingButton>
+                    <LoadingButton :loading="loading">{{ $page.global_trans.create }}</LoadingButton>
                 </template>
 
             </Panel>
@@ -74,6 +74,7 @@ export default {
     },
     props: {
         team: Object,
+        trans: Object,
     },
     methods: {
         submit() {

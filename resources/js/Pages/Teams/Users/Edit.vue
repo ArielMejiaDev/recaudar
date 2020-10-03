@@ -11,12 +11,11 @@
 
             <Panel>
                 <template v-slot:header>
-                    <Title info="The user role defines the actions that a user can do">Edit role of {{ user.name }}</Title>
+                    <Title :info="trans.the_user_role_defines_the_actions_that_a_user_can_do">{{ trans.edit_role_of }} {{ user.name }}</Title>
                 </template>
 
                 <template v-slot:body>
-                    <Select v-model="form.role" name="role" label="Role" :errors="$page.errors.role">
-                        <option selected disabled value="null">Please select a role for the user</option>
+                    <Select v-model="form.role" name="role" :label="trans.role" :placeholder="`${$page.global_trans.select} ${trans.role}`" :errors="$page.errors.role">
                         <option value="team_admin">Admin</option>
                         <option value="team_editor">Editor</option>
                         <option value="team_financial">Financial</option>
@@ -25,14 +24,12 @@
                 </template>
 
                 <template v-slot:footer>
-                    <LoadingButton :loading="loading">Update Role</LoadingButton>
+                    <LoadingButton :loading="loading">{{ $page.global_trans.update }}</LoadingButton>
                 </template>
 
             </Panel>
 
         </form>
-
-
 
     </div>
 </template>
@@ -70,6 +67,7 @@ export default {
     props: {
         team: Object,
         user: Object,
+        trans: Object,
     },
     methods: {
         submit() {

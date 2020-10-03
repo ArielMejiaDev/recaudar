@@ -4,15 +4,17 @@
 
         <Panel>
             <template v-slot:header>
-                <Title>Promotional video</Title>
+                <Title>{{ trans.promotional_video }}</Title>
             </template>
 
             <template v-slot:body>
-                <Input v-model="form.promotional_video" name="promotional_video" :errors="$page.errors.promotional_video" :required="false" placeholder="Add the video url" />
+                <Input v-model="form.promotional_video" name="promotional_video" :errors="$page.errors.promotional_video" :required="false" />
             </template>
 
             <template v-slot:footer>
-                <LoadingButton :loading="loading">Update promotional video</LoadingButton>
+                <LoadingButton :loading="loading">
+                    {{ $page.global_trans.update }} {{ trans.promotional_video }}
+                </LoadingButton>
             </template>
 
         </Panel>
@@ -52,6 +54,7 @@ export default {
     },
     props: {
         promotional_video: String,
+        trans: Object,
     },
 }
 </script>

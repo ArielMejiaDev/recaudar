@@ -4,11 +4,11 @@
 
         <Panel>
             <template v-slot:header>
-                <Title>Theme</Title>
+                <Title>{{ trans.theme }}</Title>
             </template>
 
             <template v-slot:body>
-                <Select v-model="form.theme" name="theme" :errors="$page.errors.theme" placeholder="Change theme">
+                <Select v-model="form.theme" name="theme" :errors="$page.errors.theme" :placeholder="`${ $page.global_trans.select } ${trans.theme}`">
                     <option value="classic">Classic</option>
                     <option value="condensed">Condensed</option>
                     <option value="columns">Columns</option>
@@ -16,7 +16,9 @@
             </template>
 
             <template v-slot:footer>
-                <LoadingButton :loading="loading">Update theme</LoadingButton>
+                <LoadingButton :loading="loading">
+                    {{ $page.global_trans.update }} {{ trans.theme }}
+                </LoadingButton>
             </template>
 
         </Panel>
@@ -56,6 +58,7 @@ export default {
     },
     props: {
         theme: String,
+        trans: Object,
     },
 }
 </script>

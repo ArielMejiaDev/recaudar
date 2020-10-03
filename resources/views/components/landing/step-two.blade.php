@@ -22,14 +22,18 @@
             <div class="w-full lg:w-1/2 flex flex-col lg:flex-row items-center lg:items-start">
                 <div class="text-white text-6xl border-4 border-white rounded-full px-8 mr-6">2</div>
                 <div class="text-white">
-                    <h2 class="mt-6 text-4xl font-bold tracking-wider text-center lg:text-left">Dona fácil y seguro</h2>
+                    <h2 class="mt-6 text-4xl font-bold tracking-wider text-center lg:text-left">
+                        {{ trans('Donate easy and safe') }}
+                    </h2>
 
                     <div class="mt-6 text-md md:text-xl font-display text-left lg:w-10/12">
-                        <p class="my-4">¡Es momento de ayudar! Somos el corazón de la caridad y la seguridad es primordial en Recaudar.</p>
+                        <p class="my-4">
+                            {{ trans("It's time to help! We are the heart of charity and safety is paramount in Raising.") }}
+                        </p>
 
-                        <p class="my-4">Garantizamos que tu donación llegará a organizaciones reales y legalmente establecidas.</p>
+                        <p class="my-4">{{ trans('We guarantee that your donation will reach real and legally established organizations.') }}</p>
 
-                        <p class="my-4">Además, tu información está totalmente protegida con nosotros.</p>
+                        <p class="my-4">{{ trans('In addition, your information is fully protected with us.') }}</p>
                     </div>
 
                 </div>

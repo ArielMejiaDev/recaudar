@@ -4,17 +4,19 @@
 
         <Panel>
             <template v-slot:header>
-                <Title>Social Networks</Title>
+                <Title>{{ trans.social_networks }}</Title>
             </template>
 
             <template v-slot:body>
-                <Input v-model="form.facebook_account" name="facebook_account" label="Facebook link account" :errors="$page.errors.facebook_account" :required="false" placeholder="Add Facebook account link" />
-                <Input v-model="form.twitter_account" name="twitter_account" label="Twitter link account" :errors="$page.errors.twitter_account" :required="false" placeholder="Add Twitter account link" />
-                <Input v-model="form.instagram_account" name="instagram_account" label="Instagram link account" :errors="$page.errors.instagram_account" :required="false" placeholder="Add Instagram account link" />
+                <Input v-model="form.facebook_account" name="facebook_account" :label="trans.facebook_account" :errors="$page.errors.facebook_account" :required="false" />
+                <Input v-model="form.twitter_account" name="twitter_account" :label="trans.twitter_account" :errors="$page.errors.twitter_account" :required="false" />
+                <Input v-model="form.instagram_account" name="instagram_account" :label="trans.instagram_account" :errors="$page.errors.instagram_account" :required="false" />
             </template>
 
             <template v-slot:footer>
-                <LoadingButton :loading="loading">Update Social networks</LoadingButton>
+                <LoadingButton :loading="loading">
+                    {{ $page.global_trans.update }} {{ trans.social_networks }}
+                </LoadingButton>
             </template>
 
         </Panel>
@@ -58,6 +60,7 @@ export default {
         facebook_account: String,
         twitter_account: String,
         instagram_account: String,
+        trans: Object,
     },
 }
 </script>

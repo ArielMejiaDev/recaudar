@@ -19,8 +19,23 @@ class TeamProfileController extends Controller
     public function __invoke(Team $team)
     {
         $data = $team->only('name', 'slug', 'logo', 'banner', 'theme', 'avatar', 'promotional_video', 'facebook_account', 'twitter_account', 'instagram_account');
+
+        $trans = [
+            'profile' => trans('Profile'),
+            'this_is_the_logo_for_the_profile_page' => trans('This is the logo for the profile page.'),
+            'upload' => trans('Upload'),
+            'this_is_the_banner_for_the_profile_page' => trans('This is the banner for the profile page.'),
+            'theme' => trans('Theme'),
+            'social_networks' => trans('Social Networks'),
+            'facebook_account' => trans('Facebook Account'),
+            'twitter_account' => trans('Twitter Account'),
+            'instagram_account' => trans('Instagram Account'),
+            'promotional_video' => trans('Promotional Video'),
+        ];
+
         return Inertia::render('Teams/Profile/Edit', [
             'team' => $data,
+            'trans' => $trans,
         ]);
     }
 }

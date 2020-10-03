@@ -42,8 +42,8 @@
                 <div v-if="$page.flash.error" class="py-4 text-red-500 text-sm font-bold">{{ $page.flash.error }}</div>
                 <div v-else class="py-4 text-red-700 text-sm font-bold">
                     <span v-if="$page.errors.error">{{ $page.errors.error[0] }}</span>
-                    <span v-else-if="Object.keys($page.errors).length === 1">There is one error.</span>
-                    <span v-else>There are {{ Object.keys($page.errors).length }} errors.</span>
+                    <span v-else-if="Object.keys($page.errors).length === 1">{{ $page.global_trans.there_is_one_error }}.</span>
+                    <span v-else>{{ $page.global_trans.there_are }} {{ Object.keys($page.errors).length }} {{ $page.global_trans.errors }}.</span>
                 </div>
             </div>
             <button type="button" class="group mr-2 p-2 text-red-700 focus:outline-none" @click="show = false">

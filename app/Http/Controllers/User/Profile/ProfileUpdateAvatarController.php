@@ -15,6 +15,6 @@ class ProfileUpdateAvatarController extends Controller
         Storage::disk('s3')->delete('avatars/' . basename(auth()->user()->avatar));
         Storage::disk('s3')->setVisibility($file, 'public');
         auth()->user()->update(['avatar' =>  Storage::disk('s3')->url($file)]);
-        return redirect()->route('profile.show')->with(['success' => trans('Avatar updated!')]);
+        return redirect()->route('profile.show')->with(['success' => trans('Profile') . ' ' . trans('Updated')]);
     }
 }

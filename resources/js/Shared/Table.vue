@@ -1,16 +1,16 @@
 <template>
     <div class="py-8">
 
-        <!--        title-->
+        <!--title-->
         <div v-if="title">
             <h2 class="text-2xl font-semibold leading-tight">{{ title }}</h2>
         </div>
-        <!--        endtitle-->
+        <!--endtitle-->
 
 
         <div class="flex items-center my-3" :class="searchbox.show ? 'justify-between' : 'justify-end'">
 
-<!--            Searchbox-->
+            <!--Searchbox-->
             <div class="flex-1 pr-4" v-if="searchbox.show || false">
                 <div class="relative md:w-1/3">
                     <input :value="value" @input="$emit('input', $event.target.value)" type="search" class="w-full pl-10 pr-4 py-2 rounded-lg shadow focus:outline-none focus:shadow-outline text-gray-600 font-medium" :placeholder="searchbox.placeholder || 'Search'">
@@ -23,9 +23,9 @@
                     </div>
                 </div>
             </div>
-<!--            Searchbox-->
+            <!--Searchbox-->
 
-<!--            Action-->
+            <!--Action-->
             <div v-if="action.show || false">
                 <div class="shadow rounded-lg flex">
                     <div class="relative">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </div>
-<!--            End Action-->
+            <!--End Action-->
 
         </div>
 
@@ -43,7 +43,7 @@
         <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
             <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
 
-                <!--                table-->
+                <!--table-->
                 <table class="min-w-full leading-normal">
                     <thead>
                         <tr>
@@ -54,9 +54,9 @@
                         <slot name="tableData"></slot>
                     </tbody>
                 </table>
-                <!--                endtable-->
+                <!--endtable-->
 
-                <!--                Pagination-->
+                <!--Pagination-->
                 <div v-if="pagination.links"  class="hidden xl:block">
                     <div class="w-full flex items-center justify-end xs:mt-0 bg-gray-100">
                         <div class="mr-4 my-4">
@@ -97,10 +97,10 @@
                     class="px-5 py-2 bg-gray-100 border-t flex flex-col xs:flex-row items-center xs:justify-between">
                     <div class="w-full flex items-center xs:mt-0" :class="pagination.prevLink === null ? 'justify-end' : 'justify-between'">
                         <InertiaLink v-if="pagination.prevLink !== null" :class="pagination.prevLink === null ? 'bg-opacity-25' : null" :href="pagination.prevLink || '#'" class="text-sm hover:bg-gray-200 text-gray-500 font-semibold py-0 px-2 rounded cursor-pointer">
-                            Prev
+                            ${$page.global_trans.previous}
                         </InertiaLink>
                         <InertiaLink v-if="pagination.nextLink !== null" :class="pagination.nextLink === null ? 'bg-opacity-25' : null" :href="pagination.nextLink || '#'" class="text-sm hover:bg-gray-200 text-gray-500 font-semibold py-0 px-2 rounded cursor-pointer">
-                            Next
+                            ${$page.global_trans.next}
                         </InertiaLink>
                     </div>
                 </div>
@@ -118,8 +118,8 @@ export default {
     methods: {
         paginationFormatResolver(link) {
             return [
-                link.label === 'Previous' ? 'rounded-l-lg' : null,
-                link.label === 'Next' ? 'rounded-r-lg' : null,
+                link.label === 'Previous' || link.label === 'Anterior'  ? 'rounded-l-lg' : null,
+                link.label === 'Next' || link.label === 'Siguiente' ? 'rounded-r-lg' : null,
                 link.active ? 'bg-gray-200' : 'bg-white',
                 link.url === null ? 'text-opacity-50' : null,
             ]

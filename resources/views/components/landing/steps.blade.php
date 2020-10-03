@@ -26,8 +26,7 @@
                 <div class="flex flex-col items-center text-center md:text-left">
 
                     <p class="text-blue-900 text-xl sm:text-3xl font-bold tracking-wide">
-                        Dona con 3 simples pasos en menos de 5 minutos
-                        a organizaciones sin fines de lucro que ayudan a Guatemala a ser un mejor país.
+                        {{ trans('Donate with 3 simple steps in less than 5 minutes to non-profit organizations that help Guatemala to be a better country.') }}
                     </p>
 
                 </div>
@@ -41,7 +40,9 @@
                 </a>
 
                 <div class="flex justify-center">
-                    <a href="{{ route('profile-page', $team) }}" class="mt-4 md:mt-12 bg-pink rounded text-white hover:bg-red-600 px-8 py-4 text-2xl focus:outline-none">Ver Fundación</a>
+                    <a href="{{ route('profile-page', $team) }}" class="mt-4 md:mt-12 bg-pink rounded text-white hover:bg-red-600 px-8 py-4 text-2xl focus:outline-none">
+                        {{ trans('See foundation') }}
+                    </a>
                 </div>
 
             </div>

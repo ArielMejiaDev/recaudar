@@ -30,6 +30,6 @@ mix.sass('resources/sass/frontend.scss', 'public/css')
 
 mix.browserSync({
     proxy: 'recaudar-org.test',
-    open: false,
+    // open: false,
 });
 

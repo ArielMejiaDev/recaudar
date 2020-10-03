@@ -1,13 +1,11 @@
 <template>
 <div>
 
-    <EditUser />
+    <EditUser :trans="trans" />
 
-    <ChangePassword />
+    <ChangePassword :trans="trans" />
 
-    <EditAvatar />
-
-    <ProfileDetail />
+    <EditAvatar :trans="trans" />
 
 </div>
 </template>
@@ -17,12 +15,14 @@ import SidebarLayout from "../../../Shared/Layouts/SidebarLayout";
 import EditUser from "./UpdateCredentials";
 import ChangePassword from "./UpdatePassword";
 import EditAvatar from "./UpdateAvatar";
-import ProfileDetail from "./Detail";
 
 export default {
     metaInfo: { title: 'Profile' },
     name: "Profile",
     layout: SidebarLayout,
-    components: { EditUser, ChangePassword, EditAvatar, ProfileDetail, },
+    components: { EditUser, ChangePassword, EditAvatar, },
+    props: {
+        trans: Object,
+    }
 }
 </script>

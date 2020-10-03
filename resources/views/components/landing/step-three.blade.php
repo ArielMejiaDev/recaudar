@@ -9,20 +9,22 @@
                 <div class="text-white text-6xl border-4 border-white rounded-full px-8 flex justify-center items-center">3</div>
             </div>
             <div class="lg:ml-12">
-                <h2 class="mt-6 text-4xl font-bold tracking-wider text-white text-center">¡Involúcrate y sé parte de toda la experiencia!</h2>
+                <h2 class="mt-6 text-4xl font-bold tracking-wider text-white text-center">
+                    {{ trans('Get involved and be part of the whole experience') }}
+                </h2>
                 <div class="mt-6 text-xl font-display text-left text-white">
 
                     <p class="my-4">
-                        Disfruta una relación directa con la iniciativa de tu interés.
-
+                        {{ trans('Enjoy a direct relationship with the initiative of your interest.') }}
                     </p>
 
                     <p class="my-4">
-                        Recibirás noticias y actualizaciones de cómo está ayudando tu donativo.
-                        Además, te enviaremos el recibo digital como comprobante de tu donación.
+                        {{ trans('You will receive news and updates on how your donation is helping. In addition, we will send you the digital receipt as proof of your donation.') }}
                     </p>
 
-                    <p class="my-4">Vivirás la experiencia de contribuir por un mundo mejor.</p>
+                    <p class="my-4">
+                        {{ trans('You will live the experience of contributing for a better world.') }}
+                    </p>
 
                 </div>
             </div>

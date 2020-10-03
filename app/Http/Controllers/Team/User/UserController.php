@@ -40,10 +40,21 @@ class UserController extends Controller
                 ->paginate(5);
         }
 
+        $trans = [
+            'users' => trans('Users'),
+            'user' => trans('User'),
+            'role' => trans('Role'),
+            'remove_access_to' => trans('Remove Access To'),
+            'remove_access' => trans('Remove Access'),
+            'you_can_invite_again_the_user_anytime' => trans('You can invite again the user anytime.'),
+            'invite_a_user' => trans('Invite a User')
+        ];
+
         return Inertia::render('Teams/Users/Index', [
             'team' => $team->only('name', 'slug'),
             'filters' => $request->all('search'),
             'users' => $users,
+            'trans' => $trans,
         ]);
     }
 
@@ -55,7 +66,13 @@ class UserController extends Controller
      */
     public function create(Team $team)
     {
-        return Inertia::render('Teams/Users/Create', ['team' => $team->only('name', 'slug')]);
+        $trans = [
+            'create_a_user' => trans('Create a User'),
+            'name' => trans('Name'),
+            'email' => trans('Email'),
+            'role' => trans('Role'),
+        ];
+        return Inertia::render('Teams/Users/Create', ['team' => $team->only('name', 'slug'), 'trans' => $trans]);
     }
 
     /**
@@ -69,7 +86,7 @@ class UserController extends Controller
     public function store(Team $team, StoreUserRequest $request)
     {
         TeamAttachment::addUserTo($team);
-        return redirect()->route('teams.users.index', $team)->with(['success' => trans('User invited!')]);
+        return redirect()->route('teams.users.index', $team)->with(['success' => trans('User') . ' ' . trans('Created')]);
     }
 
     /**
@@ -81,9 +98,15 @@ class UserController extends Controller
      */
     public function edit(Team $team, User $user)
     {
+        $trans = [
+            'role' => trans('Role'),
+            'edit_role_of' => trans('Edit Role Of'),
+            "the_user_role_defines_the_actions_that_a_user_can_do" => trans('The user role defines the actions that a user can do')
+        ];
         return Inertia::render('Teams/Users/Edit', [
             'team' => $team->only('name', 'slug'),
             'user' => $user,
+            'trans' => $trans,
         ]);
     }
 
@@ -99,7 +122,7 @@ class UserController extends Controller
     {
         $request->validate(['role' => Rule::in(['team_admin', 'team_editor', 'team_financial', 'team_member']) ]);
         $user->teams()->updateExistingPivot($team, ['role_name' => $request->role]);
-        return redirect()->route('teams.users.index', $team)->with(['success' => trans('User role updated!')]);
+        return redirect()->route('teams.users.index', $team)->with(['success' => trans('User') . ' ' . trans('Updated')]);
     }
 
     /**
@@ -112,6 +135,6 @@ class UserController extends Controller
     public function destroy(Team $team, User $user)
     {
         $user->teams()->detach($team);
-        return redirect()->route('teams.users.index', $team)->with(['warning' => trans('User access removed!')]);
+        return redirect()->route('teams.users.index', $team)->with(['warning' => trans('User') . ' ' . trans('Deleted')]);
     }
 }

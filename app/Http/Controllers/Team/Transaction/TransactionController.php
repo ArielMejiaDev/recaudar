@@ -39,10 +39,18 @@ class TransactionController extends Controller
             })->select(['id', 'name', 'amount_to_deposit', 'status', 'readable_created_at', 'created_at', 'currency'])->paginate();
         }
 
+        $trans = [
+            'by' => trans('By'),
+            'amount' => trans('Amount'),
+            'date' => trans('Date'),
+            'status' => trans('Status'),
+        ];
+
         return Inertia::render('Teams/Transaction/Index', [
             'team' => $team->only(['id', 'slug']),
             'transactions' => $transactions,
             'filters' => $request->all('search'),
+            'trans' => $trans,
         ]);
     }
 
@@ -58,13 +66,23 @@ class TransactionController extends Controller
         $country = $transaction->currency === 'dollars' ? 'United States' : 'Guatemala';
         $locale = (new LocaleCodeResolver)->getLocaleFrom($country);
 
+        $trans = [
+            'by' => trans('By'),
+            'email' => trans('Email'),
+            'type' => trans('Type'),
+            'date' => trans('Date'),
+            'amount' => trans('Amount'),
+            'status' => trans('Status'),
+        ];
+
         return Inertia::render('Teams/Transaction/Show', [
             'transaction' => $transaction->only(['id', 'name', 'email', 'status', 'currency', 'created_at', 'readable_created_at', 'amount_to_deposit', 'type']),
             'team' => $team->only(['id', 'slug']),
             'locale' => [
                 'country' => $locale->countryCode(),
                 'currency' => $locale->currencyCode(),
-            ]
+            ],
+            'trans' => $trans,
         ]);
     }
 

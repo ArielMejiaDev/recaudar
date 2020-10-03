@@ -24,22 +24,39 @@
 
                 <div class="container px-2 py-2 mx-auto">
 
-                    <h1 class="w-full text-center mb-4 text-gray-700 font-semibold uppercase tracking-tight text-2xl lg:text-5xl">{{ __('CATEGORIES') }}</h1>
+                    <h1 class="w-full text-center mb-4 text-gray-700 font-semibold uppercase tracking-tight text-2xl lg:text-5xl">{{ trans('Categories') }}</h1>
 
                     <div class="relative flex align-items-center justify-center">
                         <div class="flex justify-center my-4 lg:my-8 overflow-x-auto mx-0">
-                            <button class="fill-current text-gray-900 absolute left-0 text-sm top-0 bottom-0 md:hidden">
+                            <button class="fill-current text-gray-900 absolute left-0 text-sm top-0 bottom-0 md:hidden focus:outline-none">
                                 <svg class="w-6 h-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 19l-7-7 7-7"></path></svg>
                             </button>
-                            <a class="py-1 px-2 rounded {{ request()->categoria === 'salud' ? 'bg-pink': 'bg-red-400' }} text-white text-xs lg:text-sm tracking-tighter uppercase hover:bg-pink focus:bg-pink mx-2" href="{{ route('teams-page', ['categoria' => 'salud']) }}">Salud</a>
-                            <a class="py-1 px-2 rounded {{ request()->categoria === 'educacion' ? 'bg-pink': 'bg-red-400' }} text-white text-xs lg:text-sm tracking-tighter uppercase hover:bg-pink focus:bg-pink mx-2" href="{{ route('teams-page', ['categoria' => 'educacion']) }}">Educacion</a>
-                            <a class="py-1 px-2 rounded {{ request()->categoria === 'medio-ambiente' ? 'bg-pink': 'bg-red-400' }} text-white text-xs lg:text-sm tracking-tighter uppercase hover:bg-pink focus:bg-pink mx-2" href="{{ route('teams-page', ['categoria' => 'ambientales']) }}">Ambientales</a>
-                            <a class="py-1 px-2 rounded {{ request()->categoria === 'social' ? 'bg-pink': 'bg-red-400' }} text-white text-xs lg:text-sm tracking-tighter uppercase hover:bg-pink focus:bg-pink mx-2" href="{{ route('teams-page', ['categoria' => 'social']) }}">Social</a>
-                            <a class="py-1 px-2 rounded {{ request()->categoria === 'nutricion' ? 'bg-pink': 'bg-red-400' }} text-white text-xs lg:text-sm tracking-tighter uppercase hover:bg-pink focus:bg-pink mx-2" href="{{ route('teams-page', ['categoria' => 'nutricion']) }}">Nutricion</a>
-                            <a class="py-1 px-2 rounded {{ request()->categoria === 'pobreza' ? 'bg-pink': 'bg-red-400' }} text-white text-xs lg:text-sm tracking-tighter uppercase hover:bg-pink focus:bg-pink mx-2" href="{{ route('teams-page', ['categoria' => 'pobreza']) }}">Pobreza</a>
-                            <a class="py-1 px-2 rounded {{ request()->categoria === 'animales' ? 'bg-pink': 'bg-red-400' }} text-white text-xs lg:text-sm tracking-tighter uppercase hover:bg-pink focus:bg-pink mx-2" href="{{ route('teams-page', ['categoria' => 'animales']) }}">Animales</a>
-                            <a class="py-1 px-2 rounded {{ request()->categoria === 'otros' ? 'bg-pink': 'bg-red-400' }} text-white text-xs lg:text-sm tracking-tighter uppercase hover:bg-pink focus:bg-pink mx-2" href="{{ route('teams-page', ['categoria' => 'otros']) }}">Otros</a>
-                            <button class="fill-current text-gray-900 absolute right-0 text-sm top-0 bottom-0 md:hidden">
+                            <a class="py-1 px-2 rounded {{ request()->categoria === 'salud' ? 'bg-pink': 'bg-red-400' }} text-white text-xs lg:text-sm tracking-tighter uppercase hover:bg-pink focus:bg-pink mx-2" href="{{ route('teams-page', ['categoria' => 'salud']) }}">
+                                {{ trans('Health') }}
+                            </a>
+                            <a class="py-1 px-2 rounded {{ request()->categoria === 'educacion' ? 'bg-pink': 'bg-red-400' }} text-white text-xs lg:text-sm tracking-tighter uppercase hover:bg-pink focus:bg-pink mx-2" href="{{ route('teams-page', ['categoria' => 'educacion']) }}">
+                                {{ trans('Education') }}
+                            </a>
+                            <a class="py-1 px-2 rounded {{ request()->categoria === 'medio-ambiente' ? 'bg-pink': 'bg-red-400' }} text-white text-xs lg:text-sm tracking-tighter uppercase hover:bg-pink focus:bg-pink mx-2" href="{{ route('teams-page', ['categoria' => 'ambientales']) }}">
+                                {{ trans('Environment') }}
+                            </a>
+                            <a class="py-1 px-2 rounded {{ request()->categoria === 'social' ? 'bg-pink': 'bg-red-400' }} text-white text-xs lg:text-sm tracking-tighter uppercase hover:bg-pink focus:bg-pink mx-2" href="{{ route('teams-page', ['categoria' => 'social']) }}">
+                                {{ trans('Social') }}
+                            </a>
+                            <a class="py-1 px-2 rounded {{ request()->categoria === 'nutricion' ? 'bg-pink': 'bg-red-400' }} text-white text-xs lg:text-sm tracking-tighter uppercase hover:bg-pink focus:bg-pink mx-2" href="{{ route('teams-page', ['categoria' => 'nutricion']) }}">
+                                {{ trans('Nutrition') }}
+                            </a>
+                            <a class="py-1 px-2 rounded {{ request()->categoria === 'pobreza' ? 'bg-pink': 'bg-red-400' }} text-white text-xs lg:text-sm tracking-tighter uppercase hover:bg-pink focus:bg-pink mx-2" href="{{ route('teams-page', ['categoria' => 'pobreza']) }}">
+                                {{ trans('Poverty') }}
+                            </a>
+                            <a class="py-1 px-2 rounded {{ request()->categoria === 'animales' ? 'bg-pink': 'bg-red-400' }} text-white text-xs lg:text-sm tracking-tighter uppercase hover:bg-pink focus:bg-pink mx-2" href="{{ route('teams-page', ['categoria' => 'animales']) }}">
+                                {{ trans('Animals') }}
+                            </a>
+                            <a class="py-1 px-2 rounded {{ request()->categoria === 'otros' ? 'bg-pink': 'bg-red-400' }} text-white text-xs lg:text-sm tracking-tighter uppercase hover:bg-pink focus:bg-pink mx-2" href="{{ route('teams-page', ['categoria' => 'otros']) }}">
+                                {{ trans('Others') }}
+                            </a>
+
+                            <button class="fill-current text-gray-900 absolute right-0 text-sm top-0 bottom-0 md:hidden focus:outline-none">
                                 <svg class="w-6 h-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M9 5l7 7-7 7"></path></svg>
                             </button>
                         </div>

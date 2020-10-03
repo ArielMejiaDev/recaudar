@@ -44,11 +44,21 @@ class RegisterController extends Controller
     /**
      * Show the application registration form.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response|\Inertia\Response|\Inertia\ResponseFactory
      */
     public function showRegistrationForm()
     {
-        return inertia('Auth/Register');
+        $trans = [
+            'register' => trans('Register'),
+            'name' => trans('Name'),
+            'email' => trans('Email'),
+            'password' => trans('Password'),
+            'confirm_password' => trans('Confirm Password'),
+            'signup' => trans('Sign up'),
+            'login' => trans('Login'),
+        ];
+
+        return inertia('Auth/Register', compact('trans'));
     }
 
     /**

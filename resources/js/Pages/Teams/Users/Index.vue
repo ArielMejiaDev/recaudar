@@ -2,11 +2,11 @@
     <div>
 
         <Table
-            title="Users"
-            :headers="['user', 'role', '']"
-            :searchbox="{show: true, placeholder: 'Search ...'}"
+            :title="trans.users"
+            :headers="[trans.user, trans.role, $page.global_trans.delete]"
+            :searchbox="{show: true, placeholder: `${$page.global_trans.search} ...`}"
             v-model="search"
-            :action="{show: true, text: 'Invite a User', link: route('teams.users.create', $page.team['slug']), type: 'info'}"
+            :action="{show: true, text: trans.invite_a_user, link: route('teams.users.create', $page.team['slug']), type: 'info'}"
             :pagination="{show: true, links: users.links}">
             <template v-slot:tableData>
                 <tr v-for="(user, index) in users.data" :key="index">
@@ -30,10 +30,10 @@
         <Modal
             v-if="confirm"
             type="danger"
-            :title="`Are you sure to remove access to ${selectedUser.name}?`"
-            info="You can invite again the user anytime."
-            close-button-text="Cancel"
-            action-button-text="Remove access"
+            :title="`${trans.remove_access_to} ${selectedUser.name}`"
+            :info="trans.you_can_invite_again_the_user_anytime"
+            :close-button-text="$page.global_trans.cancel"
+            :action-button-text="trans.remove_access"
             @close="confirm = !confirm;"
             @action="removeUserAccess"
         />
@@ -74,6 +74,7 @@ export default {
         team: Object,
         users: Object,
         filters: Object,
+        trans: Object,
     },
     methods: {
         removeUserAccess() {

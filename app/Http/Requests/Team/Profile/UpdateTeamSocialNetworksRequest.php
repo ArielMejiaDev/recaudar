@@ -29,4 +29,13 @@ class UpdateTeamSocialNetworksRequest extends FormRequest
             'instagram_account' => 'nullable|url',
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'facebook_account' => trans('Facebook Account'),
+            'twitter_account' => trans('Twitter Account'),
+            'instagram_account' => trans('Instagram Account'),
+        ];
+    }
 }

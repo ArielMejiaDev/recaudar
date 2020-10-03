@@ -2,15 +2,17 @@
     <form @submit.prevent="submit">
         <Panel>
             <template v-slot:header>
-                <Title info="This is the logo for the profile page.">Logo</Title>
+                <Title :info="trans.this_is_the_logo_for_the_profile_page">Logo</Title>
             </template>
 
             <template v-slot:body>
-                <AvatarUploader :current-file="logo" v-model="form.logo" name="logo" label="Logo" :errors="$page.errors.logo" />
+                <AvatarUploader :current-file="logo" v-model="form.logo" name="logo" label="Logo" :options="{showButton: true, buttonText: trans.upload}" :errors="$page.errors.logo" />
             </template>
 
             <template v-slot:footer>
-                <LoadingButton :loading="loading">Upload logo</LoadingButton>
+                <LoadingButton :loading="loading">
+                    {{ $page.global_trans.update }} Logo
+                </LoadingButton>
             </template>
         </Panel>
     </form>
@@ -51,6 +53,7 @@ export default {
     },
     props: {
         logo: String,
+        trans: Object,
     },
 }
 </script>

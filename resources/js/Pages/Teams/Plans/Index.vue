@@ -2,11 +2,11 @@
     <div>
 
         <Table
-            title="Plans"
-            :headers="['plan', 'amount in local currency', 'amount in dollars', 'copy link', 'Delete']"
-            :searchbox="{show: true, placeholder: 'Search ...'}"
+            :title="trans.plans"
+            :headers="['plan', trans.amount_in_local_currency, trans.amount_in_dollars, trans.copy_link, trans.delete]"
+            :searchbox="{show: true, placeholder: `${$page.global_trans.search}...`}"
             v-model="search"
-            :action="{show: true, text: 'Add a plan', link: route('teams.plans.create', $page.team['slug']), type: 'info'}"
+            :action="{show: true, text: trans.add_a_plan, link: route('teams.plans.create', $page.team['slug']), type: 'info'}"
             :pagination="{show: true, links: plans.links}">
             <template v-slot:tableData>
                 <tr v-for="(plan, index) in plans.data" :key="index" >
@@ -24,7 +24,7 @@
                         </InertiaLink>
                     </td>
                     <td>
-                        <button @click.prevent="copyLinkToClipboard(plan)" :class="selectedPlan === plan ? 'text-blue-500' : 'text-gray-500'" class="text-xs font-semibold focus:outline-none hover:text-blue-500">
+                        <button @click.prevent="copyLinkToClipboard(plan);clickOnLinkIcon = true" :class="clickOnLinkIcon ? 'text-blue-500' : 'text-gray-500'" class="text-xs font-semibold focus:outline-none hover:text-blue-500">
                             <Icon name="link" />
                         </button>
                     </td>
@@ -40,10 +40,9 @@
         <Modal
             v-if="confirm"
             type="danger"
-            :title="`Are you sure to remove ${selectedPlan.title}?`"
-            info="All plan transactions will be ever available."
-            close-button-text="Cancel"
-            action-button-text="Remove plan"
+            :title="`${trans.are_you_sure_to_remove} ${selectedPlan.title}?`"
+            :close-button-text="$page.global_trans.cancel"
+            :action-button-text="trans.remove_plan"
             @close="confirm = !confirm;"
             @action="removePlan"
         />
@@ -67,6 +66,7 @@ export default {
             confirm: false,
             search: this.filters.search,
             selectedPlan: null,
+            clickOnLinkIcon: false,
         }
     },
     methods: {
@@ -100,6 +100,7 @@ export default {
         filters: Object,
         team: Object,
         plans: Object,
+        trans: Object,
     },
     components: {
         Title,

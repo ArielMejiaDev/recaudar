@@ -24,10 +24,18 @@
                             <div v-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
 
                             <div v-show="dropdownOpen" class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20 shadow-sm">
-                                <InertiaLink v-if="$page.auth.user.role === 'app_admin'" @click.passive="dropdownOpen = !dropdownOpen" :href="route('admin.dashboard')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Home</InertiaLink>
-                                <InertiaLink v-else @click.passive="dropdownOpen = !dropdownOpen" :href="route('teams.index')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Home</InertiaLink>
-                                <InertiaLink @click.passive="dropdownOpen = !dropdownOpen" :href="route('profile.show')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</InertiaLink>
-                                <a @click.prevent="logout" method="post" href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</a>
+                                <InertiaLink v-if="$page.auth.user.role === 'app_admin'" @click.passive="dropdownOpen = !dropdownOpen" :href="route('admin.dashboard')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    {{ $page.global_trans.home }}
+                                </InertiaLink>
+                                <InertiaLink v-else @click.passive="dropdownOpen = !dropdownOpen" :href="route('teams.index')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    {{ $page.global_trans.home }}
+                                </InertiaLink>
+                                <InertiaLink @click.passive="dropdownOpen = !dropdownOpen" :href="route('profile.show')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    {{ $page.global_trans.profile }}
+                                </InertiaLink>
+                                <a @click.prevent="logout" method="post" href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    {{ $page.global_trans.logout }}
+                                </a>
                             </div>
                         </div>
                     </div>

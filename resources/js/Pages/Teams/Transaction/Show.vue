@@ -2,13 +2,15 @@
 
     <Panel>
         <template v-slot:header>
-            <Title info="Transaction details">Transaction</Title>
+            <Title info="Transaction details">
+                {{ $page.global_trans.transactions }}
+            </Title>
         </template>
-        <ListItem label="Donation by">{{ transaction.name }}</ListItem>
-        <ListItem label="Email">{{ transaction.email }}</ListItem>
-        <ListItem label="Type">{{ transaction.type }}</ListItem>
-        <ListItem label="Date">{{ transaction.readable_created_at }}</ListItem>
-        <ListItem label="Status">
+        <ListItem :label="trans.by">{{ transaction.name }}</ListItem>
+        <ListItem :label="trans.email">{{ transaction.email }}</ListItem>
+        <ListItem :label="trans.type">{{ transaction.type }}</ListItem>
+        <ListItem :label="trans.date">{{ transaction.readable_created_at }}</ListItem>
+        <ListItem :label="trans.status">
             <Pill :type="transaction.status === 'approved' ? 'success' : 'danger'">{{ transaction.status }}</Pill>
         </ListItem>
         <ListItem label="Amount">
@@ -36,6 +38,7 @@ export default {
         team: Object,
         transaction: Object,
         locale: Object,
+        trans: Object,
     },
     components: {
         Panel,

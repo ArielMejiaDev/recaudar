@@ -3324,6 +3324,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80'
     };
   },
+  props: {
+    trans: Object
+  },
   methods: {
     submit: function submit() {
       this.$page.errors = {};
@@ -3464,6 +3467,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       success: false
     };
   },
+  props: {
+    trans: Object
+  },
   methods: {
     submit: function submit() {
       var _this = this;
@@ -3555,7 +3561,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   layout: _Shared_Layouts_Auth__WEBPACK_IMPORTED_MODULE_0__["default"],
   props: {
     email: String,
-    token: String
+    token: String,
+    trans: Object
   },
   data: function data() {
     return {
@@ -3664,6 +3671,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80'
     };
   },
+  props: {
+    trans: Object
+  },
   methods: {
     submit: function submit() {
       this.$page.errors = {};
@@ -3717,6 +3727,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         remember: false
       }
     };
+  },
+  props: {
+    trans: Object
   },
   methods: {
     submit: function submit() {
@@ -3942,7 +3955,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -3986,6 +3998,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   layout: _Shared_Layouts_SidebarLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
+  props: {
+    trans: Object
+  },
   components: {
     Panel: _Shared_Panel__WEBPACK_IMPORTED_MODULE_1__["default"],
     Title: _Shared_Title__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -4262,7 +4277,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   props: {
-    team: Object
+    team: Object,
+    trans: Object
   }
 });
 
@@ -4349,7 +4365,8 @@ __webpack_require__.r(__webpack_exports__);
     Icon: _Shared_Icon__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   props: {
-    teams: Array
+    teams: Array,
+    trans: Object
   }
 });
 
@@ -4374,6 +4391,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_ImageUploader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../Shared/ImageUploader */ "./resources/js/Shared/ImageUploader.vue");
 /* harmony import */ var _Shared_IconInput__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../Shared/IconInput */ "./resources/js/Shared/IconInput.vue");
 /* harmony import */ var _Shared_Icon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../Shared/Icon */ "./resources/js/Shared/Icon.vue");
+//
+//
 //
 //
 //
@@ -4460,7 +4479,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     team: Object,
-    locale: Object
+    locale: Object,
+    trans: Object
   },
   methods: {
     showAmountInput: function showAmountInput() {
@@ -4560,6 +4580,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -4600,7 +4622,8 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     team: Object,
     plan: Object,
-    locale: Object
+    locale: Object,
+    trans: Object
   },
   methods: {
     showAmountInput: function showAmountInput() {
@@ -4722,7 +4745,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -4738,7 +4760,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       confirm: false,
       search: this.filters.search,
-      selectedPlan: null
+      selectedPlan: null,
+      clickOnLinkIcon: false
     };
   },
   methods: {
@@ -4781,7 +4804,8 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     filters: Object,
     team: Object,
-    plans: Object
+    plans: Object,
+    trans: Object
   },
   components: {
     Title: _Shared_Title__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -4856,6 +4880,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -4878,9 +4903,9 @@ __webpack_require__.r(__webpack_exports__);
     EditPromotionalVideo: _EditPromotionalVideo__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   props: {
-    team: Object
-  },
-  methods: {}
+    team: Object,
+    trans: Object
+  }
 });
 
 /***/ }),
@@ -4898,6 +4923,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_Title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../Shared/Title */ "./resources/js/Shared/Title.vue");
 /* harmony import */ var _Shared_LoadingButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../Shared/LoadingButton */ "./resources/js/Shared/LoadingButton.vue");
 /* harmony import */ var _Shared_ImageUploader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../Shared/ImageUploader */ "./resources/js/Shared/ImageUploader.vue");
+//
+//
 //
 //
 //
@@ -4955,7 +4982,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   props: {
-    banner: String
+    banner: String,
+    trans: Object
   }
 });
 
@@ -4974,6 +5002,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_Title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../Shared/Title */ "./resources/js/Shared/Title.vue");
 /* harmony import */ var _Shared_AvatarUploader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../Shared/AvatarUploader */ "./resources/js/Shared/AvatarUploader.vue");
 /* harmony import */ var _Shared_LoadingButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../Shared/LoadingButton */ "./resources/js/Shared/LoadingButton.vue");
+//
+//
 //
 //
 //
@@ -5029,7 +5059,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   props: {
-    logo: String
+    logo: String,
+    trans: Object
   }
 });
 
@@ -5048,6 +5079,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_Title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../Shared/Title */ "./resources/js/Shared/Title.vue");
 /* harmony import */ var _Shared_Input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../Shared/Input */ "./resources/js/Shared/Input.vue");
 /* harmony import */ var _Shared_LoadingButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../Shared/LoadingButton */ "./resources/js/Shared/LoadingButton.vue");
+//
+//
 //
 //
 //
@@ -5105,7 +5138,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   props: {
-    promotional_video: String
+    promotional_video: String,
+    trans: Object
   }
 });
 
@@ -5124,6 +5158,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_Title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../Shared/Title */ "./resources/js/Shared/Title.vue");
 /* harmony import */ var _Shared_Input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../Shared/Input */ "./resources/js/Shared/Input.vue");
 /* harmony import */ var _Shared_LoadingButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../Shared/LoadingButton */ "./resources/js/Shared/LoadingButton.vue");
+//
+//
 //
 //
 //
@@ -5187,7 +5223,8 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     facebook_account: String,
     twitter_account: String,
-    instagram_account: String
+    instagram_account: String,
+    trans: Object
   }
 });
 
@@ -5206,6 +5243,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_Title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../Shared/Title */ "./resources/js/Shared/Title.vue");
 /* harmony import */ var _Shared_LoadingButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../Shared/LoadingButton */ "./resources/js/Shared/LoadingButton.vue");
 /* harmony import */ var _Shared_Select__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../Shared/Select */ "./resources/js/Shared/Select.vue");
+//
+//
 //
 //
 //
@@ -5267,7 +5306,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   props: {
-    theme: String
+    theme: String,
+    trans: Object
   }
 });
 
@@ -5358,7 +5398,8 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     filters: Object,
     team: Object,
-    transactions: Object
+    transactions: Object,
+    trans: Object
   },
   components: {
     Title: _Shared_Title__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -5416,6 +5457,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -5430,7 +5473,8 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     team: Object,
     transaction: Object,
-    locale: Object
+    locale: Object,
+    trans: Object
   },
   components: {
     Panel: _Shared_Panel__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -5532,7 +5576,8 @@ __webpack_require__.r(__webpack_exports__);
     LoadingButton: _Shared_LoadingButton__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   props: {
-    team: Object
+    team: Object,
+    trans: Object
   },
   methods: {
     submit: function submit() {
@@ -5600,9 +5645,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -5634,7 +5676,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     team: Object,
-    user: Object
+    user: Object,
+    trans: Object
   },
   methods: {
     submit: function submit() {
@@ -5747,7 +5790,8 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     team: Object,
     users: Object,
-    filters: Object
+    filters: Object,
+    trans: Object
   },
   methods: {
     removeUserAccess: function removeUserAccess() {
@@ -5769,56 +5813,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/User/Profile/Detail.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/User/Profile/Detail.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Shared_ListItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../Shared/ListItem */ "./resources/js/Shared/ListItem.vue");
-/* harmony import */ var _Shared_Panel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../Shared/Panel */ "./resources/js/Shared/Panel.vue");
-/* harmony import */ var _Shared_Title__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../Shared/Title */ "./resources/js/Shared/Title.vue");
-/* harmony import */ var _Shared_Pill__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../Shared/Pill */ "./resources/js/Shared/Pill.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ProfileDetail",
-  components: {
-    Title: _Shared_Title__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Panel: _Shared_Panel__WEBPACK_IMPORTED_MODULE_1__["default"],
-    ListItem: _Shared_ListItem__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Pill: _Shared_Pill__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/User/Profile/Show.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/User/Profile/Show.vue?vue&type=script&lang=js& ***!
@@ -5832,7 +5826,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _UpdateCredentials__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UpdateCredentials */ "./resources/js/Pages/User/Profile/UpdateCredentials.vue");
 /* harmony import */ var _UpdatePassword__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UpdatePassword */ "./resources/js/Pages/User/Profile/UpdatePassword.vue");
 /* harmony import */ var _UpdateAvatar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UpdateAvatar */ "./resources/js/Pages/User/Profile/UpdateAvatar.vue");
-/* harmony import */ var _Detail__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Detail */ "./resources/js/Pages/User/Profile/Detail.vue");
 //
 //
 //
@@ -5845,9 +5838,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-
 
 
 
@@ -5861,8 +5851,10 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     EditUser: _UpdateCredentials__WEBPACK_IMPORTED_MODULE_1__["default"],
     ChangePassword: _UpdatePassword__WEBPACK_IMPORTED_MODULE_2__["default"],
-    EditAvatar: _UpdateAvatar__WEBPACK_IMPORTED_MODULE_3__["default"],
-    ProfileDetail: _Detail__WEBPACK_IMPORTED_MODULE_4__["default"]
+    EditAvatar: _UpdateAvatar__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+  props: {
+    trans: Object
   }
 });
 
@@ -5882,6 +5874,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_AvatarUploader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../Shared/AvatarUploader */ "./resources/js/Shared/AvatarUploader.vue");
 /* harmony import */ var _Shared_LoadingButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../Shared/LoadingButton */ "./resources/js/Shared/LoadingButton.vue");
 /* harmony import */ var _Shared_Modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../Shared/Modal */ "./resources/js/Shared/Modal.vue");
+//
+//
+//
+//
 //
 //
 //
@@ -5945,6 +5941,9 @@ __webpack_require__.r(__webpack_exports__);
         _this.confirmation = false;
       });
     }
+  },
+  props: {
+    trans: Object
   }
 });
 
@@ -6004,6 +6003,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -6020,6 +6021,9 @@ __webpack_require__.r(__webpack_exports__);
       sending: false,
       confirmation: false
     };
+  },
+  props: {
+    trans: Object
   },
   components: {
     Panel: _Shared_Panel__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -6098,6 +6102,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -6133,6 +6140,9 @@ __webpack_require__.r(__webpack_exports__);
         _this.confirmation = false;
       });
     }
+  },
+  props: {
+    trans: Object
   }
 });
 
@@ -6253,6 +6263,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_Icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Shared/Icon */ "./resources/js/Shared/Icon.vue");
+//
+//
+//
+//
 //
 //
 //
@@ -7391,6 +7405,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -8238,7 +8260,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "Table",
   methods: {
     paginationFormatResolver: function paginationFormatResolver(link) {
-      return [link.label === 'Previous' ? 'rounded-l-lg' : null, link.label === 'Next' ? 'rounded-r-lg' : null, link.active ? 'bg-gray-200' : 'bg-white', link.url === null ? 'text-opacity-50' : null];
+      return [link.label === 'Previous' || link.label === 'Anterior' ? 'rounded-l-lg' : null, link.label === 'Next' || link.label === 'Siguiente' ? 'rounded-r-lg' : null, link.active ? 'bg-gray-200' : 'bg-white', link.url === null ? 'text-opacity-50' : null];
     }
   },
   computed: {
@@ -30529,7 +30551,7 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("p", { staticClass: "text-md text-gray-600 text-center" }, [
-            _vm._v("Login")
+            _vm._v(_vm._s(_vm.trans.login))
           ]),
           _vm._v(" "),
           _vm._m(0),
@@ -30541,7 +30563,7 @@ var render = function() {
                 staticClass: "block text-gray-700 text-sm font-bold mb-2",
                 attrs: { for: "email" }
               },
-              [_vm._v("Email Address")]
+              [_vm._v(_vm._s(_vm.trans.email))]
             ),
             _vm._v(" "),
             _c("input", {
@@ -30590,7 +30612,7 @@ var render = function() {
                     staticClass: "block text-gray-700 text-sm font-bold mb-2",
                     attrs: { for: "password" }
                   },
-                  [_vm._v("Password")]
+                  [_vm._v(_vm._s(_vm.trans.password))]
                 ),
                 _vm._v(" "),
                 _c(
@@ -30599,7 +30621,7 @@ var render = function() {
                     staticClass: "text-xs text-gray-500 hover:underline",
                     attrs: { href: _vm.route("password.request") }
                   },
-                  [_vm._v("Forget Password?")]
+                  [_vm._v(_vm._s(_vm.trans.forgot_password))]
                 )
               ],
               1
@@ -30640,7 +30662,16 @@ var render = function() {
               : _vm._e()
           ]),
           _vm._v(" "),
-          _vm._m(1),
+          _c("div", { staticClass: "mt-8" }, [
+            _c(
+              "button",
+              {
+                staticClass:
+                  "w-full bg-gray-800 hover:bg-gray-900 text-white text-sm font-semibold rounded focus:outline-none focus:shadow-outline py-3"
+              },
+              [_vm._v(_vm._s(_vm.trans.login))]
+            )
+          ]),
           _vm._v(" "),
           _c(
             "div",
@@ -30655,7 +30686,7 @@ var render = function() {
                     "text-xs text-gray-500 uppercase hover:underline",
                   attrs: { href: _vm.route("register") }
                 },
-                [_vm._v("or sign up")]
+                [_vm._v(_vm._s(_vm.trans.signup))]
               ),
               _vm._v(" "),
               _c("span", { staticClass: "border-b w-1/5 md:w-1/4" })
@@ -30677,21 +30708,6 @@ var staticRenderFns = [
       { staticClass: "mt-4 flex items-center justify-between" },
       [_c("span", { staticClass: "border-b w-full" })]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mt-8" }, [
-      _c(
-        "button",
-        {
-          staticClass:
-            "w-full bg-gray-800 hover:bg-gray-900 text-white text-sm font-semibold rounded focus:outline-none focus:shadow-outline py-3"
-        },
-        [_vm._v("Login")]
-      )
-    ])
   }
 ]
 render._withStripped = true
@@ -30826,28 +30842,34 @@ var render = function() {
             },
             [
               _vm._v(
-                "\n        We have e-mailed your password reset link!\n    "
+                "\n        " +
+                  _vm._s(_vm.trans.we_have_emailed_your_password_reset_link) +
+                  "\n    "
               )
             ]
           )
         : _vm._e(),
       _vm._v(" "),
       _c("h1", { staticClass: "text-2xl font-bold" }, [
-        _vm._v("Reset Password")
+        _vm._v(_vm._s(_vm.trans.reset_password))
       ]),
       _vm._v(" "),
       _c(
         "h3",
         { staticClass: "text-gray-600 text-sm mb-6" },
         [
-          _vm._v("\n        Remembered Your Password?\n        "),
+          _vm._v(
+            "\n        " +
+              _vm._s(_vm.trans.remembered_your_password) +
+              "\n        "
+          ),
           _c(
             "inertia-link",
             {
               staticClass: "text-gray-700 text-sm font-semibold ml-2",
               attrs: { href: _vm.route("login") }
             },
-            [_vm._v("Sign In")]
+            [_vm._v(_vm._s(_vm.trans.login))]
           )
         ],
         1
@@ -30856,8 +30878,8 @@ var render = function() {
       _c("form-input", {
         staticClass: "mb-8",
         attrs: {
-          label: "Email",
-          placeholder: "Your Email Address",
+          label: _vm.trans.email,
+          placeholder: _vm.trans.your_email_address,
           errors: _vm.$page.errors.email,
           required: "",
           autofocus: "",
@@ -30878,7 +30900,13 @@ var render = function() {
           staticClass:
             "w-full bg-gray-800 hover:bg-gray-900 text-white text-sm font-semibold rounded focus:outline-none focus:shadow-outline py-3"
         },
-        [_vm._v("\n        Send Password Reset Link\n    ")]
+        [
+          _vm._v(
+            "\n        " +
+              _vm._s(_vm.trans.email_password_reset_link) +
+              "\n    "
+          )
+        ]
       )
     ],
     1
@@ -30919,14 +30947,14 @@ var render = function() {
     },
     [
       _c("h1", { staticClass: "text-2xl font-bold mb-6" }, [
-        _vm._v("Reset Password")
+        _vm._v(_vm._s(_vm.trans.reset_password))
       ]),
       _vm._v(" "),
       _c("form-input", {
         staticClass: "mb-6",
         attrs: {
-          label: "Email",
-          placeholder: "Your Email Address",
+          label: _vm.trans.email,
+          placeholder: _vm.trans.your_email_address,
           errors: _vm.$page.errors.email,
           required: "",
           autocomplete: "email"
@@ -30943,8 +30971,8 @@ var render = function() {
       _c("form-input", {
         staticClass: "mb-6",
         attrs: {
-          label: "Password",
-          placeholder: "Your Password",
+          label: _vm.trans.password,
+          placeholder: _vm.trans.your_password,
           type: "password",
           errors: _vm.$page.errors.password,
           autocomplete: "new-password",
@@ -30963,8 +30991,8 @@ var render = function() {
       _c("form-input", {
         staticClass: "mb-8",
         attrs: {
-          label: "Confirm Password",
-          placeholder: "Confirm Your Password",
+          label: _vm.trans.confirm_password,
+          placeholder: _vm.trans.confirm_your_password,
           type: "password",
           errors: _vm.$page.errors.password_confirmation,
           autocomplete: "new-password",
@@ -30985,7 +31013,7 @@ var render = function() {
           staticClass:
             "w-full bg-gray-800 hover:bg-gray-900 text-white text-sm font-semibold rounded focus:outline-none focus:shadow-outline py-3"
         },
-        [_vm._v("\n        Reset Password\n    ")]
+        [_vm._v("\n        " + _vm._s(_vm.trans.reset_password) + "\n    ")]
       )
     ],
     1
@@ -31044,7 +31072,7 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("p", { staticClass: "text-md text-gray-600 text-center" }, [
-            _vm._v("Create a new account")
+            _vm._v(_vm._s(_vm.trans.register))
           ]),
           _vm._v(" "),
           _vm._m(0),
@@ -31056,7 +31084,7 @@ var render = function() {
                 staticClass: "block text-gray-700 text-sm font-bold mb-2",
                 attrs: { for: "name" }
               },
-              [_vm._v("Name")]
+              [_vm._v(_vm._s(_vm.trans.name))]
             ),
             _vm._v(" "),
             _c("input", {
@@ -31101,7 +31129,7 @@ var render = function() {
                 staticClass: "block text-gray-700 text-sm font-bold mb-2",
                 attrs: { for: "email" }
               },
-              [_vm._v("Email Address")]
+              [_vm._v(_vm._s(_vm.trans.email))]
             ),
             _vm._v(" "),
             _c("input", {
@@ -31146,7 +31174,7 @@ var render = function() {
                 staticClass: "block text-gray-700 text-sm font-bold mb-2",
                 attrs: { for: "password" }
               },
-              [_vm._v("Password")]
+              [_vm._v(_vm._s(_vm.trans.password))]
             ),
             _vm._v(" "),
             _c("input", {
@@ -31191,7 +31219,7 @@ var render = function() {
                 staticClass: "block text-gray-700 text-sm font-bold mb-2",
                 attrs: { for: "password_confirmation" }
               },
-              [_vm._v("Confirm Password")]
+              [_vm._v(_vm._s(_vm.trans.confirm_password))]
             ),
             _vm._v(" "),
             _c("input", {
@@ -31237,7 +31265,16 @@ var render = function() {
               : _vm._e()
           ]),
           _vm._v(" "),
-          _vm._m(1),
+          _c("div", { staticClass: "mt-8" }, [
+            _c(
+              "button",
+              {
+                staticClass:
+                  "w-full bg-gray-800 hover:bg-gray-900 text-white text-sm font-semibold rounded focus:outline-none focus:shadow-outline py-3"
+              },
+              [_vm._v(_vm._s(_vm.trans.signup))]
+            )
+          ]),
           _vm._v(" "),
           _c(
             "div",
@@ -31252,7 +31289,7 @@ var render = function() {
                     "text-xs text-gray-500 uppercase hover:underline",
                   attrs: { href: _vm.route("login") }
                 },
-                [_vm._v("Sign In")]
+                [_vm._v(_vm._s(_vm.trans.login))]
               ),
               _vm._v(" "),
               _c("span", { staticClass: "border-b w-1/5 md:w-1/4" })
@@ -31274,21 +31311,6 @@ var staticRenderFns = [
       { staticClass: "mt-4 flex items-center justify-between" },
       [_c("span", { staticClass: "border-b w-full" })]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mt-8" }, [
-      _c(
-        "button",
-        {
-          staticClass:
-            "w-full bg-gray-800 hover:bg-gray-900 text-white text-sm font-semibold rounded focus:outline-none focus:shadow-outline py-3"
-        },
-        [_vm._v("Sign Up")]
-      )
-    ])
   }
 ]
 render._withStripped = true
@@ -31325,12 +31347,17 @@ var render = function() {
     },
     [
       _c("h1", { staticClass: "text-2xl font-bold mb-6" }, [
-        _vm._v("Verify Your Email Address")
+        _vm._v(_vm._s(_vm.trans.verify_your_email_address))
       ]),
       _vm._v(" "),
       _c("h3", { staticClass: "text-gray-600 text-sm mb-10" }, [
         _vm._v(
-          "\n        Before proceeding, please check your email for a verification link. If you did not receive the email click the button below to request another.\n    "
+          "\n        " +
+            _vm._s(
+              _vm.trans
+                .please_click_the_button_below_to_verify_your_email_address
+            ) +
+            "\n    "
         )
       ]),
       _vm._v(" "),
@@ -31340,7 +31367,13 @@ var render = function() {
           staticClass:
             "w-full bg-gray-800 hover:bg-gray-900 text-white text-sm font-semibold rounded focus:outline-none focus:shadow-outline py-3"
         },
-        [_vm._v("\n        Resend Verification Email\n    ")]
+        [
+          _vm._v(
+            "\n        " +
+              _vm._s(_vm.trans.resend_verification_email) +
+              "\n    "
+          )
+        ]
       )
     ]
   )
@@ -31460,7 +31493,9 @@ var render = function() {
               {
                 key: "header",
                 fn: function() {
-                  return [_c("Title", [_vm._v("Create a Team")])]
+                  return [
+                    _c("Title", [_vm._v(_vm._s(_vm.trans.create_a_team))])
+                  ]
                 },
                 proxy: true
               },
@@ -31473,10 +31508,12 @@ var render = function() {
                       {
                         staticClass: "mb-4",
                         attrs: {
-                          info: "This data would be shown in team profile page."
+                          info:
+                            _vm.trans
+                              .the_data_in_this_section_will_be_displayed_on_the_profile_page
                         }
                       },
-                      [_vm._v("Profile")]
+                      [_vm._v(_vm._s(_vm.trans.profile))]
                     ),
                     _vm._v(" "),
                     _c(
@@ -31494,8 +31531,7 @@ var render = function() {
                                 _c("Input", {
                                   attrs: {
                                     name: "name",
-                                    label: "Organization name",
-                                    placeholder: "The organization name.",
+                                    label: _vm.trans.organization_name,
                                     errors: _vm.$page.errors.name
                                   },
                                   model: {
@@ -31517,9 +31553,8 @@ var render = function() {
                                 _c("Input", {
                                   attrs: {
                                     name: "beneficiaries",
-                                    label: "Beneficiaries",
+                                    label: _vm.trans.beneficiaries,
                                     type: "number",
-                                    placeholder: "Add number of beneficiaries",
                                     errors: _vm.$page.errors.beneficiaries
                                   },
                                   model: {
@@ -31541,8 +31576,7 @@ var render = function() {
                                 _c("Input", {
                                   attrs: {
                                     name: "public",
-                                    label: "Public",
-                                    placeholder: "Public",
+                                    label: _vm.trans.public,
                                     errors: _vm.$page.errors.public
                                   },
                                   model: {
@@ -31574,9 +31608,11 @@ var render = function() {
                               {
                                 attrs: {
                                   name: "category",
-                                  label: "Category",
+                                  label: _vm.trans.category,
                                   placeholder:
-                                    "Select the organization category",
+                                    _vm.$page.global_trans.select +
+                                    " " +
+                                    _vm.trans.category,
                                   errors: _vm.$page.errors.category
                                 },
                                 model: {
@@ -31635,8 +31671,7 @@ var render = function() {
                           staticClass: "w-full md:w-1/2 md:ml-1",
                           attrs: {
                             name: "impact",
-                            label: "Impact",
-                            placeholder: "Add a brief organization impact",
+                            label: _vm.trans.impact,
                             errors: _vm.$page.errors.impact
                           },
                           model: {
@@ -31654,8 +31689,7 @@ var render = function() {
                     _c("Input", {
                       attrs: {
                         name: "use_of_funds",
-                        label: "Use of funds",
-                        placeholder: "How the organization use the funds...",
+                        label: _vm.trans.use_of_funds,
                         errors: _vm.$page.errors.use_of_funds
                       },
                       model: {
@@ -31670,8 +31704,7 @@ var render = function() {
                     _c("Textarea", {
                       attrs: {
                         name: "description",
-                        label: "Description",
-                        placeholder: "Add an organization description...",
+                        label: _vm.trans.description,
                         errors: _vm.$page.errors.description
                       },
                       model: {
@@ -31690,10 +31723,12 @@ var render = function() {
                       {
                         staticClass: "mb-8",
                         attrs: {
-                          info: "This information would not be shown publicly."
+                          info:
+                            _vm.trans
+                              .this_information_will_not_be_publicly_visible
                         }
                       },
-                      [_vm._v("Contact")]
+                      [_vm._v(_vm._s(_vm.trans.contact))]
                     ),
                     _vm._v(" "),
                     _c(
@@ -31707,8 +31742,7 @@ var render = function() {
                             _c("Input", {
                               attrs: {
                                 name: "contact",
-                                label: "Contact",
-                                placeholder: "Add a contact name",
+                                label: _vm.trans.contact,
                                 errors: _vm.$page.errors.contact
                               },
                               model: {
@@ -31730,8 +31764,7 @@ var render = function() {
                             _c("Input", {
                               attrs: {
                                 name: "contact_phone",
-                                label: "Contact Phone",
-                                placeholder: "Add contact phone",
+                                label: _vm.trans.contact_phone,
                                 errors: _vm.$page.errors.contact_phone,
                                 type: "phone"
                               },
@@ -31754,8 +31787,7 @@ var render = function() {
                             _c("Input", {
                               attrs: {
                                 name: "contact_email",
-                                label: "Contact Email",
-                                placeholder: "Add contact email",
+                                label: _vm.trans.contact_email,
                                 errors: _vm.$page.errors.contact_email,
                                 type: "email"
                               },
@@ -31776,8 +31808,7 @@ var render = function() {
                     _c("Input", {
                       attrs: {
                         name: "office_address",
-                        label: "Office Address",
-                        placeholder: "Add office address",
+                        label: _vm.trans.office_address,
                         errors: _vm.$page.errors.office_address
                       },
                       model: {
@@ -31796,10 +31827,12 @@ var render = function() {
                       {
                         staticClass: "mb-8",
                         attrs: {
-                          info: "This information would not be shown publicly."
+                          info:
+                            _vm.trans
+                              .this_information_will_not_be_publicly_visible
                         }
                       },
-                      [_vm._v("Financial data")]
+                      [_vm._v(_vm._s(_vm.trans.financial_data))]
                     ),
                     _vm._v(" "),
                     _c(
@@ -31813,9 +31846,7 @@ var render = function() {
                             _c("Input", {
                               attrs: {
                                 name: "legal_representative",
-                                label: "Legal Representative",
-                                placeholder:
-                                  "Add the name of the legal representative",
+                                label: _vm.trans.legal_representative,
                                 errors: _vm.$page.errors.legal_representative
                               },
                               model: {
@@ -31836,13 +31867,12 @@ var render = function() {
                         _vm._v(" "),
                         _c(
                           "div",
-                          { staticClass: "w-full w-1/3 md:ml-1" },
+                          { staticClass: "w-full w-1/3 md:mx-1" },
                           [
                             _c("Input", {
                               attrs: {
                                 name: "tax_number",
-                                label: "Tax Number",
-                                placeholder: "Add the organization tax number.",
+                                label: _vm.trans.tax_number,
                                 errors: _vm.$page.errors.tax_number
                               },
                               model: {
@@ -31866,9 +31896,11 @@ var render = function() {
                               {
                                 attrs: {
                                   name: "country",
-                                  label: "Country",
+                                  label: _vm.trans.country,
                                   placeholder:
-                                    "Country where team is established.",
+                                    _vm.$page.global_trans.select +
+                                    " " +
+                                    _vm.trans.country,
                                   errors: _vm.$page.errors.country
                                 },
                                 model: {
@@ -31921,8 +31953,7 @@ var render = function() {
                           staticClass: "w-full md:w-1/2 md:mr-1",
                           attrs: {
                             name: "account_number",
-                            label: "Bank account number",
-                            placeholder: "Add an account number",
+                            label: _vm.trans.account_number,
                             errors: _vm.$page.errors.account_number
                           },
                           model: {
@@ -31938,8 +31969,7 @@ var render = function() {
                           staticClass: "w-full md:w-1/2 md:ml-1",
                           attrs: {
                             name: "bank",
-                            label: "Bank",
-                            placeholder: "Add a bank",
+                            label: _vm.trans.bank,
                             errors: _vm.$page.errors.bank
                           },
                           model: {
@@ -31964,7 +31994,7 @@ var render = function() {
                             link: _vm.route("terms-for-teams"),
                             type: "info",
                             name: "terms",
-                            label: "Accept terms & conditions",
+                            label: _vm.trans.accept_terms,
                             value: "false",
                             errors: "$page.errors.terms"
                           },
@@ -31988,7 +32018,7 @@ var render = function() {
                 fn: function() {
                   return [
                     _c("LoadingButton", { attrs: { loading: _vm.sending } }, [
-                      _vm._v("Create")
+                      _vm._v(_vm._s(_vm.$page.global_trans.create))
                     ])
                   ]
                 },
@@ -32006,12 +32036,9 @@ var render = function() {
                     type: "danger",
                     title:
                       _vm.form.terms === false
-                        ? "You must accept terms to create a team"
-                        : "The team must be appoved to manage your team and plans.",
-                    info:
-                      _vm.form.terms === false
-                        ? ""
-                        : "You will receive an email when your team is confirmed.",
+                        ? _vm.trans.you_must_accept_terms_to_create_a_team
+                        : _vm.trans
+                            .you_will_receive_an_email_when_the_organization_is_approved,
                     "action-button-text": "Ok"
                   },
                   on: {
@@ -32138,7 +32165,7 @@ var render = function() {
             {
               key: "header",
               fn: function() {
-                return [_c("Title", [_vm._v("Update a Team")])]
+                return [_c("Title", [_vm._v(_vm._s(_vm.trans.update_a_team))])]
               },
               proxy: true
             },
@@ -32151,10 +32178,12 @@ var render = function() {
                     {
                       staticClass: "mb-4",
                       attrs: {
-                        info: "This data would be shown in team profile page."
+                        info:
+                          _vm.trans
+                            .the_data_in_this_section_will_be_displayed_on_the_profile_page
                       }
                     },
-                    [_vm._v("Profile")]
+                    [_vm._v(_vm._s(_vm.trans.profile))]
                   ),
                   _vm._v(" "),
                   _c(
@@ -32168,8 +32197,7 @@ var render = function() {
                           _c("Input", {
                             attrs: {
                               name: "name",
-                              label: "Organization name",
-                              placeholder: "The organization name.",
+                              label: _vm.trans.organization_name,
                               errors: _vm.$page.errors.name
                             },
                             model: {
@@ -32191,9 +32219,8 @@ var render = function() {
                           _c("Input", {
                             attrs: {
                               name: "beneficiaries",
-                              label: "Beneficiaries",
+                              label: _vm.trans.beneficiaries,
                               type: "number",
-                              placeholder: "Add number of beneficiaries",
                               errors: _vm.$page.errors.beneficiaries
                             },
                             model: {
@@ -32215,8 +32242,7 @@ var render = function() {
                           _c("Input", {
                             attrs: {
                               name: "public",
-                              label: "Public",
-                              placeholder: "Public",
+                              label: _vm.trans.public,
                               errors: _vm.$page.errors.public
                             },
                             model: {
@@ -32243,8 +32269,11 @@ var render = function() {
                           staticClass: "w-full w-1/2 md:mr-1",
                           attrs: {
                             name: "category",
-                            label: "Category",
-                            placeholder: "Select the organization category",
+                            label: _vm.trans.category,
+                            placeholder:
+                              _vm.$page.global_trans.select +
+                              " " +
+                              _vm.trans.category,
                             errors: _vm.$page.errors.category
                           },
                           model: {
@@ -32294,8 +32323,7 @@ var render = function() {
                         staticClass: "w-full md:w-1/2 md:ml-1",
                         attrs: {
                           name: "impact",
-                          label: "Impact",
-                          placeholder: "Add a brief organization impact",
+                          label: _vm.trans.impact,
                           errors: _vm.$page.errors.impact
                         },
                         model: {
@@ -32313,8 +32341,7 @@ var render = function() {
                   _c("Input", {
                     attrs: {
                       name: "use_of_funds",
-                      label: "Use of funds",
-                      placeholder: "How the organization use the funds...",
+                      label: _vm.trans.use_of_funds,
                       errors: _vm.$page.errors.use_of_funds
                     },
                     model: {
@@ -32329,8 +32356,7 @@ var render = function() {
                   _c("Textarea", {
                     attrs: {
                       name: "description",
-                      label: "Description",
-                      placeholder: "Add an organization description...",
+                      label: _vm.trans.description,
                       errors: _vm.$page.errors.description
                     },
                     model: {
@@ -32352,7 +32378,7 @@ var render = function() {
                         info: "This information would not be shown publicly."
                       }
                     },
-                    [_vm._v("Contact")]
+                    [_vm._v(_vm._s(_vm.trans.contact))]
                   ),
                   _vm._v(" "),
                   _c(
@@ -32366,8 +32392,7 @@ var render = function() {
                           _c("Input", {
                             attrs: {
                               name: "contact",
-                              label: "Contact",
-                              placeholder: "Add a contact name",
+                              label: _vm.trans.contact,
                               errors: _vm.$page.errors.contact
                             },
                             model: {
@@ -32389,8 +32414,7 @@ var render = function() {
                           _c("Input", {
                             attrs: {
                               name: "contact_phone",
-                              label: "Contact Phone",
-                              placeholder: "Add contact phone",
+                              label: _vm.trans.contact_phone,
                               errors: _vm.$page.errors.contact_phone,
                               type: "phone"
                             },
@@ -32413,8 +32437,7 @@ var render = function() {
                           _c("Input", {
                             attrs: {
                               name: "contact_email",
-                              label: "Contact Email",
-                              placeholder: "Add contact email",
+                              label: _vm.trans.contact_email,
                               errors: _vm.$page.errors.contact_email,
                               type: "email"
                             },
@@ -32435,8 +32458,7 @@ var render = function() {
                   _c("Input", {
                     attrs: {
                       name: "office_address",
-                      label: "Office Address",
-                      placeholder: "Add office address",
+                      label: _vm.trans.office_address,
                       errors: _vm.$page.errors.office_address
                     },
                     model: {
@@ -32455,10 +32477,12 @@ var render = function() {
                     {
                       staticClass: "mb-8",
                       attrs: {
-                        info: "This information would not be shown publicly."
+                        info:
+                          _vm.trans
+                            .this_information_will_not_be_publicly_visible
                       }
                     },
-                    [_vm._v("Financial data")]
+                    [_vm._v(_vm._s(_vm.trans.financial_data))]
                   ),
                   _vm._v(" "),
                   _c(
@@ -32472,9 +32496,7 @@ var render = function() {
                           _c("Input", {
                             attrs: {
                               name: "legal_representative",
-                              label: "Legal Representative",
-                              placeholder:
-                                "Add the name of the legal representative",
+                              label: _vm.trans.legal_representative,
                               errors: _vm.$page.errors.legal_representative
                             },
                             model: {
@@ -32496,8 +32518,7 @@ var render = function() {
                           _c("Input", {
                             attrs: {
                               name: "tax_number",
-                              label: "Tax Number",
-                              placeholder: "Add the organization tax number.",
+                              label: _vm.trans.tax_number,
                               errors: _vm.$page.errors.tax_number
                             },
                             model: {
@@ -32521,9 +32542,7 @@ var render = function() {
                             {
                               attrs: {
                                 name: "country",
-                                label: "Country",
-                                placeholder:
-                                  "Country where team is established.",
+                                label: _vm.trans.country,
                                 errors: _vm.$page.errors.country
                               },
                               model: {
@@ -32572,8 +32591,7 @@ var render = function() {
                         staticClass: "w-full md:w-1/2 md:mr-1",
                         attrs: {
                           name: "account_number",
-                          label: "Bank account number",
-                          placeholder: "Add an account number",
+                          label: _vm.trans.account_number,
                           errors: _vm.$page.errors.account_number
                         },
                         model: {
@@ -32589,8 +32607,7 @@ var render = function() {
                         staticClass: "w-full md:w-1/2 md:ml-1",
                         attrs: {
                           name: "bank",
-                          label: "Bank",
-                          placeholder: "Add a bank",
+                          label: _vm.trans.bank,
                           errors: _vm.$page.errors.bank
                         },
                         model: {
@@ -32613,7 +32630,7 @@ var render = function() {
               fn: function() {
                 return [
                   _c("LoadingButton", { attrs: { loading: _vm.sending } }, [
-                    _vm._v("Update")
+                    _vm._v(_vm._s(_vm.$page.global_trans.update))
                   ])
                 ]
               },
@@ -32662,8 +32679,12 @@ var render = function() {
           [
             _c(
               "Title",
-              { attrs: { info: "In this section you can manage your teams." } },
-              [_vm._v("Your Teams.")]
+              {
+                attrs: {
+                  info: _vm.trans.in_this_section_you_can_manage_your_teams
+                }
+              },
+              [_vm._v(_vm._s(_vm.trans.your_teams) + ".")]
             )
           ],
           1
@@ -32678,7 +32699,11 @@ var render = function() {
               { attrs: { link: _vm.route("teams.create") } },
               [
                 _c("Icon", { attrs: { name: "add" } }),
-                _vm._v("\n                Create\n            ")
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.$page.global_trans.create) +
+                    "\n            "
+                )
               ],
               1
             )
@@ -32701,15 +32726,16 @@ var render = function() {
                 info: team.category,
                 link: _vm.route("teams.dashboard", team.slug),
                 "edit-link": _vm.route("teams.edit", team.slug),
-                "edit-link-text": "Editar",
+                "edit-link-text": _vm.$page.global_trans.edit,
                 "delete-link": _vm.route("teams.delete", team.slug),
-                "delete-link-text": "Eliminar",
+                "delete-link-text": _vm.$page.global_trans.delete,
                 modal: {
                   type: "danger",
-                  title: "esta seguro de eliminar el equipo?",
-                  info: "Esta accion no se puede revertir.",
-                  actionButtonText: "Eliminar",
-                  closeButtonText: "Cancelar"
+                  title:
+                    _vm.$page.global_trans.are_you_sure_to_delete_the_record,
+                  info: _vm.$page.global_trans.this_action_cannot_be_reversed,
+                  actionButtonText: _vm.$page.global_trans.delete,
+                  closeButtonText: _vm.$page.global_trans.cancel
                 }
               }
             })
@@ -32777,9 +32803,11 @@ var render = function() {
         _c(
           "Title",
           {
-            attrs: { info: "This data would be public from team profile site." }
+            attrs: {
+              info: _vm.trans.this_data_would_be_public_from_team_profile_site
+            }
           },
-          [_vm._v("Create a plan")]
+          [_vm._v(_vm._s(_vm.trans.create_a_plan))]
         )
       ],
       1
@@ -32807,8 +32835,7 @@ var render = function() {
                     ref: "title",
                     attrs: {
                       name: "title",
-                      label: "Title",
-                      placeholder: "Add plans title",
+                      label: _vm.trans.title,
                       errors: _vm.$page.errors.title
                     },
                     model: {
@@ -32828,7 +32855,6 @@ var render = function() {
                         staticClass: "w-full md:w-1/2 md:mr-1",
                         attrs: {
                           name: "amount_in_local_currency",
-                          placeholder: "Amount in local currency",
                           errors: _vm.$page.errors.amount_in_local_currency
                         },
                         scopedSlots: _vm._u([
@@ -32857,7 +32883,6 @@ var render = function() {
                         staticClass: "w-full md:w-1/2 md:mr-1",
                         attrs: {
                           name: "amount_in_dollars",
-                          placeholder: "Amount in dollars",
                           errors: _vm.$page.errors.amount_in_dollars
                         },
                         scopedSlots: _vm._u([
@@ -32888,8 +32913,7 @@ var render = function() {
                   _c("Textarea", {
                     attrs: {
                       name: "info",
-                      label: "Information about the plan",
-                      placeholder: "Add plans info ...",
+                      label: _vm.trans.information_about_the_plan,
                       errors: _vm.$page.errors.info
                     },
                     model: {
@@ -32908,7 +32932,7 @@ var render = function() {
                       _c("ImageUploader", {
                         attrs: {
                           name: "banner",
-                          label: "Plans banner",
+                          label: "Banner",
                           errors: _vm.$page.errors.banner
                         },
                         model: {
@@ -32931,7 +32955,11 @@ var render = function() {
               fn: function() {
                 return [
                   _c("LoadingButton", { attrs: { loading: _vm.loading } }, [
-                    _vm._v("Create a plan")
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(_vm.$page.global_trans.create) +
+                        "\n                "
+                    )
                   ])
                 ]
               },
@@ -32974,9 +33002,11 @@ var render = function() {
         _c(
           "Title",
           {
-            attrs: { info: "This data would be public from team profile site." }
+            attrs: {
+              info: _vm.trans.this_data_would_be_public_from_team_profile_site
+            }
           },
-          [_vm._v("Edit a plan")]
+          [_vm._v(_vm._s(_vm.trans.edit_a_plan))]
         )
       ],
       1
@@ -33004,8 +33034,7 @@ var render = function() {
                     ref: "title",
                     attrs: {
                       name: "title",
-                      label: "Title",
-                      placeholder: "Add plans title",
+                      label: _vm.trans.title,
                       errors: _vm.$page.errors.title
                     },
                     model: {
@@ -33025,7 +33054,6 @@ var render = function() {
                         staticClass: "w-full md:w-1/2 md:mr-1",
                         attrs: {
                           name: "amount_in_local_currency",
-                          placeholder: "Amount in local currency",
                           errors: _vm.$page.errors.amount_in_local_currency
                         },
                         scopedSlots: _vm._u([
@@ -33054,7 +33082,6 @@ var render = function() {
                         staticClass: "w-full md:w-1/2 md:mr-1",
                         attrs: {
                           name: "amount_in_dollars",
-                          placeholder: "Amount in dollars",
                           errors: _vm.$page.errors.amount_in_dollars
                         },
                         scopedSlots: _vm._u([
@@ -33085,8 +33112,7 @@ var render = function() {
                   _c("Textarea", {
                     attrs: {
                       name: "info",
-                      label: "Information about the plan",
-                      placeholder: "Add plans info ...",
+                      label: _vm.trans.information_about_the_plan,
                       errors: _vm.$page.errors.info
                     },
                     model: {
@@ -33106,7 +33132,7 @@ var render = function() {
                         attrs: {
                           "current-file": _vm.plan.banner,
                           name: "banner",
-                          label: "Plans banner",
+                          label: "Banner",
                           errors: _vm.$page.errors.banner
                         },
                         model: {
@@ -33129,7 +33155,11 @@ var render = function() {
               fn: function() {
                 return [
                   _c("LoadingButton", { attrs: { loading: _vm.loading } }, [
-                    _vm._v("Update a plan")
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(_vm.$page.global_trans.update) +
+                        "\n                "
+                    )
                   ])
                 ]
               },
@@ -33169,18 +33199,21 @@ var render = function() {
     [
       _c("Table", {
         attrs: {
-          title: "Plans",
+          title: _vm.trans.plans,
           headers: [
             "plan",
-            "amount in local currency",
-            "amount in dollars",
-            "copy link",
-            "Delete"
+            _vm.trans.amount_in_local_currency,
+            _vm.trans.amount_in_dollars,
+            _vm.trans.copy_link,
+            _vm.trans.delete
           ],
-          searchbox: { show: true, placeholder: "Search ..." },
+          searchbox: {
+            show: true,
+            placeholder: _vm.$page.global_trans.search + "..."
+          },
           action: {
             show: true,
-            text: "Add a plan",
+            text: _vm.trans.add_a_plan,
             link: _vm.route("teams.plans.create", _vm.$page.team["slug"]),
             type: "info"
           },
@@ -33273,14 +33306,14 @@ var render = function() {
                       {
                         staticClass:
                           "text-xs font-semibold focus:outline-none hover:text-blue-500",
-                        class:
-                          _vm.selectedPlan === plan
-                            ? "text-blue-500"
-                            : "text-gray-500",
+                        class: _vm.clickOnLinkIcon
+                          ? "text-blue-500"
+                          : "text-gray-500",
                         on: {
                           click: function($event) {
                             $event.preventDefault()
-                            return _vm.copyLinkToClipboard(plan)
+                            _vm.copyLinkToClipboard(plan)
+                            _vm.clickOnLinkIcon = true
                           }
                         }
                       },
@@ -33325,10 +33358,13 @@ var render = function() {
         ? _c("Modal", {
             attrs: {
               type: "danger",
-              title: "Are you sure to remove " + _vm.selectedPlan.title + "?",
-              info: "All plan transactions will be ever available.",
-              "close-button-text": "Cancel",
-              "action-button-text": "Remove plan"
+              title:
+                _vm.trans.are_you_sure_to_remove +
+                " " +
+                _vm.selectedPlan.title +
+                "?",
+              "close-button-text": _vm.$page.global_trans.cancel,
+              "action-button-text": _vm.trans.remove_plan
             },
             on: {
               close: function($event) {
@@ -33371,33 +33407,37 @@ var render = function() {
         "div",
         {
           staticClass:
-            "flex items-center justify-between pb-12 border-b border-gray-300"
+            "flex items-center justify-between pb-4 border-b border-gray-300"
         },
         [
           _c(
             "div",
             { staticClass: "flex-1 min-w-0" },
-            [_c("Title", [_vm._v(_vm._s(_vm.team.name) + " Profile")])],
+            [_c("Title", [_vm._v(_vm._s(_vm.team.name))])],
             1
           )
         ]
       ),
       _vm._v(" "),
-      _c("EditLogo", { staticClass: "mt-16", attrs: { logo: _vm.team.logo } }),
+      _c("EditLogo", {
+        staticClass: "mt-8",
+        attrs: { trans: _vm.trans, logo: _vm.team.logo }
+      }),
       _vm._v(" "),
       _c("EditBanner", {
-        staticClass: "mt-16",
-        attrs: { banner: _vm.team.banner }
+        staticClass: "mt-8",
+        attrs: { trans: _vm.trans, banner: _vm.team.banner }
       }),
       _vm._v(" "),
       _c("EditTheme", {
-        staticClass: "mt-16",
-        attrs: { theme: _vm.team.theme }
+        staticClass: "mt-8",
+        attrs: { trans: _vm.trans, theme: _vm.team.theme }
       }),
       _vm._v(" "),
       _c("EditSocialNetworks", {
-        staticClass: "mt-16",
+        staticClass: "mt-8",
         attrs: {
+          trans: _vm.trans,
           facebook_account: _vm.team.facebook_account,
           twitter_account: _vm.team.twitter_account,
           instagram_account: _vm.team.twitter_account
@@ -33405,8 +33445,11 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("EditPromotionalVideo", {
-        staticClass: "mt-16",
-        attrs: { promotional_video: _vm.team.promotional_video }
+        staticClass: "mt-8",
+        attrs: {
+          trans: _vm.trans,
+          promotional_video: _vm.team.promotional_video
+        }
       })
     ],
     1
@@ -33454,7 +33497,9 @@ var render = function() {
                 _c(
                   "Title",
                   {
-                    attrs: { info: "This is the banner for the profile page." }
+                    attrs: {
+                      info: _vm.trans.this_is_the_banner_for_the_profile_page
+                    }
                   },
                   [_vm._v("Banner")]
                 )
@@ -33497,7 +33542,11 @@ var render = function() {
             fn: function() {
               return [
                 _c("LoadingButton", { attrs: { loading: _vm.loading } }, [
-                  _vm._v("Upload logo")
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.$page.global_trans.update) +
+                      " Banner\n            "
+                  )
                 ])
               ]
             },
@@ -33550,7 +33599,11 @@ var render = function() {
               return [
                 _c(
                   "Title",
-                  { attrs: { info: "This is the logo for the profile page." } },
+                  {
+                    attrs: {
+                      info: _vm.trans.this_is_the_logo_for_the_profile_page
+                    }
+                  },
                   [_vm._v("Logo")]
                 )
               ]
@@ -33566,6 +33619,7 @@ var render = function() {
                     "current-file": _vm.logo,
                     name: "logo",
                     label: "Logo",
+                    options: { showButton: true, buttonText: _vm.trans.upload },
                     errors: _vm.$page.errors.logo
                   },
                   model: {
@@ -33585,7 +33639,11 @@ var render = function() {
             fn: function() {
               return [
                 _c("LoadingButton", { attrs: { loading: _vm.loading } }, [
-                  _vm._v("Upload logo")
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.$page.global_trans.update) +
+                      " Logo\n            "
+                  )
                 ])
               ]
             },
@@ -33635,7 +33693,9 @@ var render = function() {
           {
             key: "header",
             fn: function() {
-              return [_c("Title", [_vm._v("Promotional video")])]
+              return [
+                _c("Title", [_vm._v(_vm._s(_vm.trans.promotional_video))])
+              ]
             },
             proxy: true
           },
@@ -33647,8 +33707,7 @@ var render = function() {
                   attrs: {
                     name: "promotional_video",
                     errors: _vm.$page.errors.promotional_video,
-                    required: false,
-                    placeholder: "Add the video url"
+                    required: false
                   },
                   model: {
                     value: _vm.form.promotional_video,
@@ -33667,7 +33726,13 @@ var render = function() {
             fn: function() {
               return [
                 _c("LoadingButton", { attrs: { loading: _vm.loading } }, [
-                  _vm._v("Update promotional video")
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.$page.global_trans.update) +
+                      " " +
+                      _vm._s(_vm.trans.promotional_video) +
+                      "\n            "
+                  )
                 ])
               ]
             },
@@ -33717,7 +33782,7 @@ var render = function() {
           {
             key: "header",
             fn: function() {
-              return [_c("Title", [_vm._v("Social Networks")])]
+              return [_c("Title", [_vm._v(_vm._s(_vm.trans.social_networks))])]
             },
             proxy: true
           },
@@ -33728,10 +33793,9 @@ var render = function() {
                 _c("Input", {
                   attrs: {
                     name: "facebook_account",
-                    label: "Facebook link account",
+                    label: _vm.trans.facebook_account,
                     errors: _vm.$page.errors.facebook_account,
-                    required: false,
-                    placeholder: "Add Facebook account link"
+                    required: false
                   },
                   model: {
                     value: _vm.form.facebook_account,
@@ -33745,10 +33809,9 @@ var render = function() {
                 _c("Input", {
                   attrs: {
                     name: "twitter_account",
-                    label: "Twitter link account",
+                    label: _vm.trans.twitter_account,
                     errors: _vm.$page.errors.twitter_account,
-                    required: false,
-                    placeholder: "Add Twitter account link"
+                    required: false
                   },
                   model: {
                     value: _vm.form.twitter_account,
@@ -33762,10 +33825,9 @@ var render = function() {
                 _c("Input", {
                   attrs: {
                     name: "instagram_account",
-                    label: "Instagram link account",
+                    label: _vm.trans.instagram_account,
                     errors: _vm.$page.errors.instagram_account,
-                    required: false,
-                    placeholder: "Add Instagram account link"
+                    required: false
                   },
                   model: {
                     value: _vm.form.instagram_account,
@@ -33784,7 +33846,13 @@ var render = function() {
             fn: function() {
               return [
                 _c("LoadingButton", { attrs: { loading: _vm.loading } }, [
-                  _vm._v("Update Social networks")
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.$page.global_trans.update) +
+                      " " +
+                      _vm._s(_vm.trans.social_networks) +
+                      "\n            "
+                  )
                 ])
               ]
             },
@@ -33834,7 +33902,7 @@ var render = function() {
           {
             key: "header",
             fn: function() {
-              return [_c("Title", [_vm._v("Theme")])]
+              return [_c("Title", [_vm._v(_vm._s(_vm.trans.theme))])]
             },
             proxy: true
           },
@@ -33848,7 +33916,8 @@ var render = function() {
                     attrs: {
                       name: "theme",
                       errors: _vm.$page.errors.theme,
-                      placeholder: "Change theme"
+                      placeholder:
+                        _vm.$page.global_trans.select + " " + _vm.trans.theme
                     },
                     model: {
                       value: _vm.form.theme,
@@ -33881,7 +33950,13 @@ var render = function() {
             fn: function() {
               return [
                 _c("LoadingButton", { attrs: { loading: _vm.loading } }, [
-                  _vm._v("Update theme")
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.$page.global_trans.update) +
+                      " " +
+                      _vm._s(_vm.trans.theme) +
+                      "\n            "
+                  )
                 ])
               ]
             },
@@ -33920,9 +33995,17 @@ var render = function() {
     [
       _c("Table", {
         attrs: {
-          title: "Transactions",
-          headers: ["By", "Amount", "Status", "Date"],
-          searchbox: { show: true, placeholder: "Search ..." },
+          title: _vm.$page.global_trans.transactions,
+          headers: [
+            _vm.trans.by,
+            _vm.trans.amount,
+            _vm.trans.status,
+            _vm.trans.date
+          ],
+          searchbox: {
+            show: true,
+            placeholder: _vm.$page.global_trans.search + " ..."
+          },
           action: { show: false },
           pagination: { show: true, links: _vm.transactions.links }
         },
@@ -33997,25 +34080,26 @@ var render = function() {
                         },
                         [
                           _c(
-                            "Pill",
+                            "div",
                             {
-                              attrs: {
-                                type:
-                                  transaction.status === "approved"
-                                    ? "success"
-                                    : "danger"
-                              }
+                              class:
+                                transaction.status === "approved"
+                                  ? "text-green-500"
+                                  : "text-red-500"
                             },
                             [
-                              _vm._v(
-                                "\n                            " +
-                                  _vm._s(transaction.status) +
-                                  "\n                        "
-                              )
-                            ]
+                              _c("Icon", {
+                                attrs: {
+                                  name:
+                                    transaction.status === "approved"
+                                      ? "check-circle"
+                                      : "x-circle"
+                                }
+                              })
+                            ],
+                            1
                           )
-                        ],
-                        1
+                        ]
                       )
                     ],
                     1
@@ -34088,7 +34172,11 @@ var render = function() {
           fn: function() {
             return [
               _c("Title", { attrs: { info: "Transaction details" } }, [
-                _vm._v("Transaction")
+                _vm._v(
+                  "\n            " +
+                    _vm._s(_vm.$page.global_trans.transactions) +
+                    "\n        "
+                )
               ])
             ]
           },
@@ -34098,25 +34186,25 @@ var render = function() {
     },
     [
       _vm._v(" "),
-      _c("ListItem", { attrs: { label: "Donation by" } }, [
+      _c("ListItem", { attrs: { label: _vm.trans.by } }, [
         _vm._v(_vm._s(_vm.transaction.name))
       ]),
       _vm._v(" "),
-      _c("ListItem", { attrs: { label: "Email" } }, [
+      _c("ListItem", { attrs: { label: _vm.trans.email } }, [
         _vm._v(_vm._s(_vm.transaction.email))
       ]),
       _vm._v(" "),
-      _c("ListItem", { attrs: { label: "Type" } }, [
+      _c("ListItem", { attrs: { label: _vm.trans.type } }, [
         _vm._v(_vm._s(_vm.transaction.type))
       ]),
       _vm._v(" "),
-      _c("ListItem", { attrs: { label: "Date" } }, [
+      _c("ListItem", { attrs: { label: _vm.trans.date } }, [
         _vm._v(_vm._s(_vm.transaction.readable_created_at))
       ]),
       _vm._v(" "),
       _c(
         "ListItem",
-        { attrs: { label: "Status" } },
+        { attrs: { label: _vm.trans.status } },
         [
           _c(
             "Pill",
@@ -34209,7 +34297,7 @@ var render = function() {
                           "The user role defines the actions that a user can do"
                       }
                     },
-                    [_vm._v("Create a user")]
+                    [_vm._v(_vm._s(_vm.trans.create_a_user))]
                   )
                 ]
               },
@@ -34222,7 +34310,7 @@ var render = function() {
                   _c("Input", {
                     attrs: {
                       name: "name",
-                      label: "Name",
+                      label: _vm.trans.name,
                       errors: _vm.$page.errors.name
                     },
                     model: {
@@ -34237,7 +34325,7 @@ var render = function() {
                   _c("Input", {
                     attrs: {
                       name: "email",
-                      label: "Email",
+                      label: _vm.trans.email,
                       type: "email",
                       errors: _vm.$page.errors.email
                     },
@@ -34255,7 +34343,9 @@ var render = function() {
                     {
                       attrs: {
                         name: "role",
-                        label: "Role",
+                        label: _vm.trans.role,
+                        placeholder:
+                          _vm.$page.global_trans.select + " " + _vm.trans.role,
                         errors: _vm.$page.errors.role
                       },
                       model: {
@@ -34267,14 +34357,6 @@ var render = function() {
                       }
                     },
                     [
-                      _c(
-                        "option",
-                        {
-                          attrs: { selected: "", disabled: "", value: "null" }
-                        },
-                        [_vm._v("Please select a role for the user")]
-                      ),
-                      _vm._v(" "),
                       _c("option", { attrs: { value: "team_admin" } }, [
                         _vm._v("Admin")
                       ]),
@@ -34301,7 +34383,7 @@ var render = function() {
               fn: function() {
                 return [
                   _c("LoadingButton", { attrs: { loading: _vm.loading } }, [
-                    _vm._v("Add user")
+                    _vm._v(_vm._s(_vm.$page.global_trans.create))
                   ])
                 ]
               },
@@ -34375,10 +34457,17 @@ var render = function() {
                     {
                       attrs: {
                         info:
-                          "The user role defines the actions that a user can do"
+                          _vm.trans
+                            .the_user_role_defines_the_actions_that_a_user_can_do
                       }
                     },
-                    [_vm._v("Edit role of " + _vm._s(_vm.user.name))]
+                    [
+                      _vm._v(
+                        _vm._s(_vm.trans.edit_role_of) +
+                          " " +
+                          _vm._s(_vm.user.name)
+                      )
+                    ]
                   )
                 ]
               },
@@ -34393,7 +34482,9 @@ var render = function() {
                     {
                       attrs: {
                         name: "role",
-                        label: "Role",
+                        label: _vm.trans.role,
+                        placeholder:
+                          _vm.$page.global_trans.select + " " + _vm.trans.role,
                         errors: _vm.$page.errors.role
                       },
                       model: {
@@ -34405,14 +34496,6 @@ var render = function() {
                       }
                     },
                     [
-                      _c(
-                        "option",
-                        {
-                          attrs: { selected: "", disabled: "", value: "null" }
-                        },
-                        [_vm._v("Please select a role for the user")]
-                      ),
-                      _vm._v(" "),
                       _c("option", { attrs: { value: "team_admin" } }, [
                         _vm._v("Admin")
                       ]),
@@ -34439,7 +34522,7 @@ var render = function() {
               fn: function() {
                 return [
                   _c("LoadingButton", { attrs: { loading: _vm.loading } }, [
-                    _vm._v("Update Role")
+                    _vm._v(_vm._s(_vm.$page.global_trans.update))
                   ])
                 ]
               },
@@ -34479,12 +34562,19 @@ var render = function() {
     [
       _c("Table", {
         attrs: {
-          title: "Users",
-          headers: ["user", "role", ""],
-          searchbox: { show: true, placeholder: "Search ..." },
+          title: _vm.trans.users,
+          headers: [
+            _vm.trans.user,
+            _vm.trans.role,
+            _vm.$page.global_trans.delete
+          ],
+          searchbox: {
+            show: true,
+            placeholder: _vm.$page.global_trans.search + " ..."
+          },
           action: {
             show: true,
-            text: "Invite a User",
+            text: _vm.trans.invite_a_user,
             link: _vm.route("teams.users.create", _vm.$page.team["slug"]),
             type: "info"
           },
@@ -34575,13 +34665,10 @@ var render = function() {
         ? _c("Modal", {
             attrs: {
               type: "danger",
-              title:
-                "Are you sure to remove access to " +
-                _vm.selectedUser.name +
-                "?",
-              info: "You can invite again the user anytime.",
-              "close-button-text": "Cancel",
-              "action-button-text": "Remove access"
+              title: _vm.trans.remove_access_to + " " + _vm.selectedUser.name,
+              info: _vm.trans.you_can_invite_again_the_user_anytime,
+              "close-button-text": _vm.$page.global_trans.cancel,
+              "action-button-text": _vm.trans.remove_access
             },
             on: {
               close: function($event) {
@@ -34593,98 +34680,6 @@ var render = function() {
         : _vm._e()
     ],
     1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/User/Profile/Detail.vue?vue&type=template&id=45d332e2&scoped=true&":
-/*!*****************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/User/Profile/Detail.vue?vue&type=template&id=45d332e2&scoped=true& ***!
-  \*****************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "w-full flex flex-col lg:flex-row items-start mt-16" },
-    [
-      _c(
-        "div",
-        { staticClass: "w-full lg:w-4/12 mb-6 lg:mb-0 lg:pr-12" },
-        [_c("Title", [_vm._v("Your settings")])],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "w-full lg:w-8/12" },
-        [
-          _c(
-            "Panel",
-            {
-              staticClass: "w-full",
-              scopedSlots: _vm._u([
-                {
-                  key: "header",
-                  fn: function() {
-                    return [
-                      _c(
-                        "Title",
-                        {
-                          attrs: {
-                            info: "Some random text just to show how it looks."
-                          }
-                        },
-                        [_vm._v("User Detail.")]
-                      )
-                    ]
-                  },
-                  proxy: true
-                }
-              ])
-            },
-            [
-              _vm._v(" "),
-              _c("ListItem", {
-                attrs: { label: "Name", value: _vm.$page.auth.user.name }
-              }),
-              _vm._v(" "),
-              _c(
-                "ListItem",
-                { attrs: { label: "Email" } },
-                [
-                  _c(
-                    "Pill",
-                    [
-                      _c("InertiaLink", { attrs: { href: "/inertia" } }, [
-                        _vm._v(_vm._s(_vm.$page.auth.user.email))
-                      ])
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ]
   )
 }
 var staticRenderFns = []
@@ -34712,13 +34707,11 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("EditUser"),
+      _c("EditUser", { attrs: { trans: _vm.trans } }),
       _vm._v(" "),
-      _c("ChangePassword"),
+      _c("ChangePassword", { attrs: { trans: _vm.trans } }),
       _vm._v(" "),
-      _c("EditAvatar"),
-      _vm._v(" "),
-      _c("ProfileDetail")
+      _c("EditAvatar", { attrs: { trans: _vm.trans } })
     ],
     1
   )
@@ -34753,9 +34746,17 @@ var render = function() {
         "div",
         { staticClass: "w-full lg:w-4/12 mb-6 lg:mb-0 lg:pr-12" },
         [
-          _c("Title", { attrs: { info: "This avatar would be public." } }, [
-            _vm._v("Change Avatar.")
-          ])
+          _c(
+            "Title",
+            { attrs: { info: _vm.trans.the_avatar_would_be_public } },
+            [
+              _vm._v(
+                "\n            " +
+                  _vm._s(_vm.trans.change_avatar) +
+                  "\n        "
+              )
+            ]
+          )
         ],
         1
       ),
@@ -34779,13 +34780,13 @@ var render = function() {
                   key: "header",
                   fn: function() {
                     return [
-                      _c(
-                        "Title",
-                        {
-                          attrs: { info: "This would be your profile image." }
-                        },
-                        [_vm._v("Change Avatar")]
-                      )
+                      _c("Title", [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(_vm.trans.change_avatar) +
+                            "\n                    "
+                        )
+                      ])
                     ]
                   },
                   proxy: true
@@ -34798,6 +34799,10 @@ var render = function() {
                         attrs: {
                           "current-file": _vm.$page.auth.user.avatar,
                           name: "avatar",
+                          options: {
+                            buttonText: _vm.trans.upload,
+                            showButton: true
+                          },
                           errors: _vm.$page.errors.avatar
                         },
                         model: {
@@ -34817,7 +34822,7 @@ var render = function() {
                   fn: function() {
                     return [
                       _c("LoadingButton", { attrs: { loading: _vm.sending } }, [
-                        _vm._v("Change avatar")
+                        _vm._v(_vm._s(_vm.$page.global_trans.update))
                       ])
                     ]
                   },
@@ -34876,12 +34881,15 @@ var render = function() {
               _c(
                 "Title",
                 {
-                  attrs: {
-                    info:
-                      "This information will be displayed publicly so be careful what you share."
-                  }
+                  attrs: { info: _vm.trans.this_are_the_credentials_to_login }
                 },
-                [_vm._v("Profile")]
+                [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.trans.profile) +
+                      "\n            "
+                  )
+                ]
               )
             ],
             1
@@ -34898,7 +34906,9 @@ var render = function() {
                     key: "header",
                     fn: function() {
                       return [
-                        _c("Title", [_vm._v("Change profile information.")])
+                        _c("Title", [
+                          _vm._v(_vm._s(_vm.trans.change_credentials))
+                        ])
                       ]
                     },
                     proxy: true
@@ -34909,7 +34919,7 @@ var render = function() {
                       return [
                         _c("Input", {
                           attrs: {
-                            label: "Name",
+                            label: _vm.trans.name,
                             name: "name",
                             errors: _vm.$page.errors.name
                           },
@@ -34924,7 +34934,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("Input", {
                           attrs: {
-                            label: "Email",
+                            label: _vm.trans.email,
                             name: "email",
                             type: "email",
                             errors: _vm.$page.errors.email
@@ -34948,7 +34958,7 @@ var render = function() {
                         _c(
                           "LoadingButton",
                           { attrs: { loading: _vm.sending } },
-                          [_vm._v("Update")]
+                          [_vm._v(_vm._s(_vm.$page.global_trans.update))]
                         )
                       ]
                     },
@@ -34965,9 +34975,9 @@ var render = function() {
       _vm.confirmation
         ? _c("Modal", {
             attrs: {
-              title: "Are you sure to update your profile?",
-              "close-button-text": "Cancel",
-              "action-button-text": "Confirm"
+              title: _vm.$page.global_trans.are_you_sure_to_update_the_record,
+              "close-button-text": _vm.$page.global_trans.cancel,
+              "action-button-text": _vm.$page.global_trans.update
             },
             on: {
               close: function($event) {
@@ -35017,12 +35027,15 @@ var render = function() {
           _c(
             "Title",
             {
-              attrs: {
-                info:
-                  "Be careful, if you change the password, this change cannot be revert."
-              }
+              attrs: { info: _vm.trans.be_careful_if_you_change_the_password }
             },
-            [_vm._v("Change password")]
+            [
+              _vm._v(
+                "\n            " +
+                  _vm._s(_vm.trans.change_password) +
+                  "\n        "
+              )
+            ]
           )
         ],
         1
@@ -35052,10 +35065,17 @@ var render = function() {
                         {
                           attrs: {
                             info:
-                              "You must confirm the new password to update it."
+                              _vm.trans
+                                .you_must_confirm_the_new_password_to_update_it
                           }
                         },
-                        [_vm._v("Change Password")]
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.trans.change_password) +
+                              "\n                    "
+                          )
+                        ]
                       )
                     ]
                   },
@@ -35068,7 +35088,7 @@ var render = function() {
                       _c("Input", {
                         attrs: {
                           name: "password",
-                          label: "Current password",
+                          label: _vm.trans.password,
                           required: false,
                           type: "password",
                           placeholder: "type your current password.",
@@ -35086,7 +35106,7 @@ var render = function() {
                       _c("Input", {
                         attrs: {
                           name: "new_password",
-                          label: "New password",
+                          label: _vm.trans.new_password,
                           required: false,
                           type: "password",
                           placeholder: "type your new password.",
@@ -35104,7 +35124,7 @@ var render = function() {
                       _c("Input", {
                         attrs: {
                           name: "new_password_confirmation",
-                          label: "Confirm new password",
+                          label: _vm.trans.confirm_password,
                           required: false,
                           type: "password",
                           placeholder: "type your new password again.",
@@ -35129,7 +35149,7 @@ var render = function() {
                       _c(
                         "LoadingButton",
                         { attrs: { loading: _vm.sending, type: "danger" } },
-                        [_vm._v("Change password")]
+                        [_vm._v(_vm._s(_vm.$page.global_trans.update))]
                       )
                     ]
                   },
@@ -35146,10 +35166,9 @@ var render = function() {
         ? _c("Modal", {
             attrs: {
               type: "danger",
-              title: "Are you sure?",
-              info: "This change cannot be revert!",
-              "close-button-text": "Close",
-              "action-button-text": "Change Password"
+              title: _vm.$page.global_trans.are_you_sure_to_update_the_record,
+              "close-button-text": _vm.$page.global_trans.cancel,
+              "action-button-text": _vm.$page.global_trans.update
             },
             on: {
               close: function($event) {
@@ -35435,16 +35454,15 @@ var render = function() {
         },
         [
           _vm.route().current("teams.index") ||
-          (_vm.route().current("profile.show") &&
-            _vm.$page.auth.user.role !== "app_admin")
+          _vm.route().current("teams.create") ||
+          _vm.route().current("teams.edit") ||
+          _vm.route().current("profile.show")
             ? _c("ul", [
                 _c(
                   "li",
                   {
                     staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2",
-                    class: _vm.route().current("teams.index")
-                      ? "bg-gray-900"
-                      : null
+                    class: _vm.route().current("teams.*") ? "bg-gray-900" : null
                   },
                   [
                     _c(
@@ -35458,7 +35476,11 @@ var render = function() {
                           staticClass: "text-gray-500 mr-2",
                           attrs: { name: "users" }
                         }),
-                        _vm._v("\n                    Teams\n                ")
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(_vm.$page.global_trans.teams) +
+                            "\n                "
+                        )
                       ],
                       1
                     )
@@ -35466,16 +35488,10 @@ var render = function() {
                   1
                 )
               ])
-            : _vm.$page.team && _vm.$page.auth.user.role != "app_admin"
-            ? _c("ul", [
+            : _c("ul", [
                 _c(
                   "li",
-                  {
-                    staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2",
-                    class: _vm.route().current("calendar*")
-                      ? "bg-gray-900"
-                      : null
-                  },
+                  { staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2" },
                   [
                     _c(
                       "a",
@@ -35494,7 +35510,9 @@ var render = function() {
                           attrs: { name: "external-link" }
                         }),
                         _vm._v(
-                          "\n                    Profile\n                "
+                          "\n                    " +
+                            _vm._s(_vm.$page.global_trans.profile) +
+                            "\n                "
                         )
                       ],
                       1
@@ -35533,7 +35551,9 @@ var render = function() {
                           attrs: { name: "home" }
                         }),
                         _vm._v(
-                          "\n                    Dashboard\n                "
+                          "\n                    " +
+                            _vm._s(_vm.$page.global_trans.home) +
+                            "\n                "
                         )
                       ],
                       1
@@ -35569,7 +35589,9 @@ var render = function() {
                               attrs: { name: "users" }
                             }),
                             _vm._v(
-                              "\n                    Team\n                "
+                              "\n                    " +
+                                _vm._s(_vm.$page.global_trans.team) +
+                                "\n                "
                             )
                           ],
                           1
@@ -35607,7 +35629,9 @@ var render = function() {
                               attrs: { name: "info" }
                             }),
                             _vm._v(
-                              "\n                    Team profile\n                "
+                              "\n                    " +
+                                _vm._s(_vm.$page.global_trans.team_profile) +
+                                "\n                "
                             )
                           ],
                           1
@@ -35645,7 +35669,9 @@ var render = function() {
                               attrs: { name: "directory" }
                             }),
                             _vm._v(
-                              "\n                    Plans\n                "
+                              "\n                    " +
+                                _vm._s(_vm.$page.global_trans.plans) +
+                                "\n                "
                             )
                           ],
                           1
@@ -35683,7 +35709,9 @@ var render = function() {
                               attrs: { name: "switch" }
                             }),
                             _vm._v(
-                              "\n                    Transactions\n                "
+                              "\n                    " +
+                                _vm._s(_vm.$page.global_trans.transactions) +
+                                "\n                "
                             )
                           ],
                           1
@@ -35692,8 +35720,7 @@ var render = function() {
                       1
                     )
                   : _vm._e()
-              ])
-            : _vm._e(),
+              ]),
           _vm._v(" "),
           _vm.$page.auth.user.role == "app_admin"
             ? _c("ul", [
@@ -35724,7 +35751,9 @@ var render = function() {
                           attrs: { name: "home" }
                         }),
                         _vm._v(
-                          "\n                    Dashboard\n                "
+                          "\n                    " +
+                            _vm._s(_vm.$page.global_trans.home) +
+                            "\n                "
                         )
                       ],
                       1
@@ -35753,7 +35782,11 @@ var render = function() {
                           staticClass: "text-gray-500 mr-2",
                           attrs: { name: "users" }
                         }),
-                        _vm._v("\n                    Teams\n                ")
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(_vm.$page.global_trans.teams) +
+                            "\n                "
+                        )
                       ],
                       1
                     )
@@ -35782,7 +35815,9 @@ var render = function() {
                           attrs: { name: "collection" }
                         }),
                         _vm._v(
-                          "\n                    Charges\n                "
+                          "\n                    " +
+                            _vm._s(_vm.$page.global_trans.charges) +
+                            "\n                "
                         )
                       ],
                       1
@@ -35812,7 +35847,9 @@ var render = function() {
                           attrs: { name: "switch" }
                         }),
                         _vm._v(
-                          "\n                    Transactions\n                "
+                          "\n                    " +
+                            _vm._s(_vm.$page.global_trans.transactions) +
+                            "\n                "
                         )
                       ],
                       1
@@ -35846,7 +35883,13 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("Profile")]
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(_vm.$page.global_trans.profile) +
+                        "\n                "
+                    )
+                  ]
                 )
               ],
               1
@@ -35873,7 +35916,13 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("Logout")]
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(_vm.$page.global_trans.logout) +
+                        "\n                "
+                    )
+                  ]
                 )
               ]
             )
@@ -36310,12 +36359,21 @@ var render = function() {
                               _vm._v(_vm._s(_vm.$page.errors.error[0]))
                             ])
                           : Object.keys(_vm.$page.errors).length === 1
-                          ? _c("span", [_vm._v("There is one error.")])
+                          ? _c("span", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.$page.global_trans.there_is_one_error
+                                ) + "."
+                              )
+                            ])
                           : _c("span", [
                               _vm._v(
-                                "There are " +
+                                _vm._s(_vm.$page.global_trans.there_are) +
+                                  " " +
                                   _vm._s(Object.keys(_vm.$page.errors).length) +
-                                  " errors."
+                                  " " +
+                                  _vm._s(_vm.$page.global_trans.errors) +
+                                  "."
                               )
                             ])
                       ]
@@ -37786,7 +37844,13 @@ var render = function() {
                                   }
                                 }
                               },
-                              [_vm._v("Home")]
+                              [
+                                _vm._v(
+                                  "\n                                " +
+                                    _vm._s(_vm.$page.global_trans.home) +
+                                    "\n                            "
+                                )
+                              ]
                             )
                           : _c(
                               "InertiaLink",
@@ -37800,7 +37864,13 @@ var render = function() {
                                   }
                                 }
                               },
-                              [_vm._v("Home")]
+                              [
+                                _vm._v(
+                                  "\n                                " +
+                                    _vm._s(_vm.$page.global_trans.home) +
+                                    "\n                            "
+                                )
+                              ]
                             ),
                         _vm._v(" "),
                         _c(
@@ -37815,7 +37885,13 @@ var render = function() {
                               }
                             }
                           },
-                          [_vm._v("Profile")]
+                          [
+                            _vm._v(
+                              "\n                                " +
+                                _vm._s(_vm.$page.global_trans.profile) +
+                                "\n                            "
+                            )
+                          ]
                         ),
                         _vm._v(" "),
                         _c(
@@ -37831,7 +37907,13 @@ var render = function() {
                               }
                             }
                           },
-                          [_vm._v("Logout")]
+                          [
+                            _vm._v(
+                              "\n                                " +
+                                _vm._s(_vm.$page.global_trans.logout) +
+                                "\n                            "
+                            )
+                          ]
                         )
                       ],
                       1
@@ -39168,9 +39250,9 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                            " +
+                          "\n                        " +
                             _vm._s(_vm.action.text || "Create") +
-                            "\n                        "
+                            "\n                    "
                         )
                       ]
                     )
@@ -39240,9 +39322,9 @@ var render = function() {
                             },
                             [
                               _vm._v(
-                                "\n                                " +
+                                "\n                            " +
                                   _vm._s(link.label) +
-                                  "\n                            "
+                                  "\n                        "
                               )
                             ]
                           )
@@ -39281,9 +39363,9 @@ var render = function() {
                             },
                             [
                               _vm._v(
-                                "\n                                " +
+                                "\n                            " +
                                   _vm._s(_vm.pagination.links[0].label) +
-                                  "\n                            "
+                                  "\n                        "
                               )
                             ]
                           ),
@@ -39303,11 +39385,11 @@ var render = function() {
                             },
                             [
                               _vm._v(
-                                "\n                                " +
+                                "\n                            " +
                                   _vm._s(
                                     _vm.pagination.links.slice(-1)[0].label
                                   ) +
-                                  "\n                            "
+                                  "\n                        "
                               )
                             ]
                           )
@@ -39348,7 +39430,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                            Prev\n                        "
+                                  "\n                        ${$page.global_trans.previous}\n                    "
                                 )
                               ]
                             )
@@ -39368,7 +39450,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                            Next\n                        "
+                                  "\n                        ${$page.global_trans.next}\n                    "
                                 )
                               ]
                             )
@@ -54161,7 +54243,6 @@ var map = {
 	"./Pages/Teams/Users/Create.vue": "./resources/js/Pages/Teams/Users/Create.vue",
 	"./Pages/Teams/Users/Edit.vue": "./resources/js/Pages/Teams/Users/Edit.vue",
 	"./Pages/Teams/Users/Index.vue": "./resources/js/Pages/Teams/Users/Index.vue",
-	"./Pages/User/Profile/Detail.vue": "./resources/js/Pages/User/Profile/Detail.vue",
 	"./Pages/User/Profile/Show.vue": "./resources/js/Pages/User/Profile/Show.vue",
 	"./Pages/User/Profile/UpdateAvatar.vue": "./resources/js/Pages/User/Profile/UpdateAvatar.vue",
 	"./Pages/User/Profile/UpdateCredentials.vue": "./resources/js/Pages/User/Profile/UpdateCredentials.vue",
@@ -54369,8 +54450,6 @@ var map = {
 	"./Teams/Users/Edit.vue": "./resources/js/Pages/Teams/Users/Edit.vue",
 	"./Teams/Users/Index": "./resources/js/Pages/Teams/Users/Index.vue",
 	"./Teams/Users/Index.vue": "./resources/js/Pages/Teams/Users/Index.vue",
-	"./User/Profile/Detail": "./resources/js/Pages/User/Profile/Detail.vue",
-	"./User/Profile/Detail.vue": "./resources/js/Pages/User/Profile/Detail.vue",
 	"./User/Profile/Show": "./resources/js/Pages/User/Profile/Show.vue",
 	"./User/Profile/Show.vue": "./resources/js/Pages/User/Profile/Show.vue",
 	"./User/Profile/UpdateAvatar": "./resources/js/Pages/User/Profile/UpdateAvatar.vue",
@@ -56886,75 +56965,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_3699eb99___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_3699eb99___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/Pages/User/Profile/Detail.vue":
-/*!****************************************************!*\
-  !*** ./resources/js/Pages/User/Profile/Detail.vue ***!
-  \****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Detail_vue_vue_type_template_id_45d332e2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Detail.vue?vue&type=template&id=45d332e2&scoped=true& */ "./resources/js/Pages/User/Profile/Detail.vue?vue&type=template&id=45d332e2&scoped=true&");
-/* harmony import */ var _Detail_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Detail.vue?vue&type=script&lang=js& */ "./resources/js/Pages/User/Profile/Detail.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Detail_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Detail_vue_vue_type_template_id_45d332e2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Detail_vue_vue_type_template_id_45d332e2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "45d332e2",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/Pages/User/Profile/Detail.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/Pages/User/Profile/Detail.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/Pages/User/Profile/Detail.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Detail_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Detail.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/User/Profile/Detail.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Detail_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/Pages/User/Profile/Detail.vue?vue&type=template&id=45d332e2&scoped=true&":
-/*!***********************************************************************************************!*\
-  !*** ./resources/js/Pages/User/Profile/Detail.vue?vue&type=template&id=45d332e2&scoped=true& ***!
-  \***********************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Detail_vue_vue_type_template_id_45d332e2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Detail.vue?vue&type=template&id=45d332e2&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/User/Profile/Detail.vue?vue&type=template&id=45d332e2&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Detail_vue_vue_type_template_id_45d332e2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Detail_vue_vue_type_template_id_45d332e2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

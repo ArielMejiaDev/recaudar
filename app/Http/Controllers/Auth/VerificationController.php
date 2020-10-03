@@ -45,13 +45,19 @@ class VerificationController extends Controller
      * Show the email verification notice.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response|\Inertia\Response|\Inertia\ResponseFactory
      */
     public function show(Request $request)
     {
+        $trans = [
+            'verify_your_email_address' => trans('Verify Your Email Address'),
+            'resend_verification_email' => trans('Resend Verification Email'),
+            'please_click_the_button_below_to_verify_your_email_address' => trans('Please click the button below to verify your email address.'),
+        ];
+
         return $request->user()->hasVerifiedEmail()
                         ? redirect($this->redirectPath())
-                        : inertia('Auth/Verify');
+                        : inertia('Auth/Verify', compact('trans'));
     }
 
     public function redirectTo()

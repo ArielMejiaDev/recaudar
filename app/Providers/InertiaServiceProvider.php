@@ -63,6 +63,32 @@ class InertiaServiceProvider extends ServiceProvider
             'errors' => function () {
                 return $this->sharedValidationErrors();
             },
+            'global_trans' => [
+                'home' => trans('Home'),
+                'profile' => trans('Profile'),
+                'teams' => trans('Teams'),
+                'team' => trans('Team'),
+                'team_profile' => trans('Team Profile'),
+                'plans' => trans('Plans'),
+                'transactions' => trans('Transactions'),
+                'charges' => trans('Charges'),
+                'create' => trans('Create'),
+                'edit' => trans('Edit'),
+                'update' => trans('Update'),
+                'delete' => trans('Delete'),
+                'select' => trans('Select'),
+                'cancel' => trans('Cancel'),
+                'previous' => trans('Anterior'),
+                'next' => trans('Siguiente'),
+                'search' => trans('Search'),
+                'logout' => trans('Logout'),
+                'are_you_sure_to_delete_the_record' => trans('Are you sure to delete the record?'),
+                'are_you_sure_to_update_the_record' => trans('Are you sure to update the record?'),
+                'this_action_cannot_be_reversed' => trans('This action cannot be reversed'),
+                'there_is_one_error' => trans('There is One Error'),
+                'there_are' => trans('There Are'),
+                'errors' => trans('Errors'),
+            ]
         ]);
         $this->registerLengthAwarePaginator();
     }
@@ -141,11 +167,11 @@ class InertiaServiceProvider extends ServiceProvider
                         }
                     })->prepend([
                         'url' => $this->previousPageUrl(),
-                        'label' => 'Previous',
+                        'label' => trans('Previous'),
                         'active' => false,
                     ])->push([
                         'url' => $this->nextPageUrl(),
-                        'label' => 'Next',
+                        'label' => trans('Next'),
                         'active' => false,
                     ]);
                 }

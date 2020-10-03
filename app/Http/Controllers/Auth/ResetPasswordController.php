@@ -40,9 +40,22 @@ class ResetPasswordController extends Controller
      */
     public function showResetForm(Request $request, $token = null)
     {
+        $trans = [
+            'reset_password' => trans('Reset Password'),
+            'remembered_your_password' => trans('Remembered Your Password?'),
+            'login' => trans('Login'),
+            'email' => trans('Email'),
+            'password' => trans('Password'),
+            'your_password' => trans('Your Password'),
+            'confirm_password' => trans('Confirm Password'),
+            'confirm_your_password' => trans('Confirm Your Password'),
+            'your_email_address' => trans('Your Email Address'),
+        ];
+
         return inertia('Auth/Passwords/Reset', [
             'token' => $token,
             'email' => $request->email,
+            'trans' => $trans,
         ]);
     }
 

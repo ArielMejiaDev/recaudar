@@ -2,9 +2,9 @@
     <div>
 
         <Table
-            title="Transactions"
-            :headers="['By', 'Amount', 'Status' ,'Date']"
-            :searchbox="{show: true, placeholder: 'Search ...'}"
+            :title="$page.global_trans.transactions"
+            :headers="[trans.by, trans.amount, trans.status , trans.date]"
+            :searchbox="{show: true, placeholder: `${$page.global_trans.search} ...`}"
             v-model="search"
             :action="{show: false}"
             :pagination="{show: true, links: transactions.links}">
@@ -21,9 +21,9 @@
                     </td>
                     <td>
                         <InertiaLink :href="route('teams.transactions.show', {team: $page.team['slug'], transaction: transaction.id})">
-                            <Pill :type="transaction.status === 'approved' ? 'success' : 'danger'">
-                                {{ transaction.status }}
-                            </Pill>
+                            <div :class="transaction.status === 'approved' ? 'text-green-500' : 'text-red-500'">
+                                <Icon :name="transaction.status === 'approved' ? 'check-circle' : 'x-circle'"></Icon>
+                            </div>
                         </InertiaLink>
                     </td>
                     <td>
@@ -63,6 +63,7 @@ export default {
         filters: Object,
         team: Object,
         transactions: Object,
+        trans: Object,
     },
     components: {
         Title,

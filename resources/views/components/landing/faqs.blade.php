@@ -14,60 +14,61 @@
 
     <div x-data="{showMore: false}" class="container mx-auto px-4 md:px-32 z-10 h-full">
 
-        <h2 class="text-white text-center text-4xl lg:text-5xl mt-8 mb-16">Preguntas frecuentes</h2>
+        <h2 class="text-white text-center text-4xl lg:text-5xl mt-8 mb-16">{{ trans('Frequent questions') }}</h2>
 
         <div x-show.transition.duration.200ms="!showMore" class="text-blue-900">
 
             <div class="my-4">
-                <h3 class="text-2xl lg:text-4xl">¿Qué es Recaudar.com?</h3>
-                <p class="mt-4 font-light text-lg lg:text-2xl font-display">Somos el corazón de la caridad, porque conectamos organizaciones y donadores de una manera fácil y segura para cambiar el mundo.</p>
-            </div>
-
-            <div class="my-4">
-                <h3 class="text-2xl lg:text-4xl">¿Cómo puedo donar?</h3>
-                <p class="mt-4 font-light text-lg lg:text-2xl font-display">Selecciona la organización que más te apasione para contribuir con su causa, escoge el monto y realiza tu donación. ¡Todo en menos de cinco minutos!</p>
-            </div>
-
-            <div class="my-4">
-                <h3 class="text-2xl lg:text-4xl">¿Qué es Recaudar.com?</h3>
+                <h3 class="text-2xl lg:text-4xl">
+                    {{ trans('What is Recaudar.com?') }}
+                </h3>
                 <p class="mt-4 font-light text-lg lg:text-2xl font-display">
-                    Si eres una organización sin fines de lucro y deseas
-                    recibir donaciones a través de Recaudar, debes llenar nuestro formulario de registro.
-                    Revisaremos la validez de tu información y te notificaremos por correo electrónico
-                    cuando estés listo para recibir donaciones. Si quieres ser parte de Recaudar,
-                    <a href="{{ route('register') }}" class="underline">inscríbete aquí</a>.
+                    {{ trans('We are the heart of charity, because we connect organizations and donors in an easy and safe way to change the world.') }}
                 </p>
             </div>
 
-            <span @click="showMore = !showMore;" class="text-blue-900 text-2xl font-bold hover:underline cursor-pointer block mb-6">Ver mas...</span>
+            <div class="my-4">
+                <h3 class="text-2xl lg:text-4xl">
+                    {{ trans('How can I donate?') }}
+                </h3>
+                <p class="mt-4 font-light text-lg lg:text-2xl font-display">
+                    {{ trans('Select the organization that you are most passionate about to contribute to their cause, choose the amount and make your donation. All in less than five minutes!') }}
+                </p>
+            </div>
+
+            <div class="my-4">
+                <h3 class="text-2xl lg:text-4xl">
+                    {{ trans('Are you a non-profit organization?') }}
+                </h3>
+                <p class="mt-4 font-light text-lg lg:text-2xl font-display">
+                    {{ trans('If you are a non-profit organization and want to receive donations through Recaudar, you must fill out our registration form. We will review the validity of your information and notify you by email when you are ready to receive donations. If you want to be part of Recaudar,') }}
+                    <a href="{{ route('register') }}" class="underline">{{ trans('Sign up') }}</a>.
+                </p>
+            </div>
+
+            <span @click="showMore = !showMore;" class="text-blue-900 text-2xl font-bold hover:underline cursor-pointer block mb-6">
+                {{ trans('Show more') }}...
+            </span>
 
         </div>
 
         <div x-show.transition.duration.200ms="showMore" class="text-blue-900">
 
             <div class="my-4">
-                <h3 class="text-2xl lg:text-4xl">¿Tiene algún costo crear mi perfil?</h3>
+                <h3 class="text-2xl lg:text-4xl">{{ trans('Does it cost anything to create my profile?') }}</h3>
                 <p class="mt-4 font-light text-lg lg:text-2xl font-display">
-                    Si eres una organización sin fines de lucro,
-                    crear tu perfil y empezar a recibir donaciones es totalmente gratis.
-                    Si deseas tener acceso a los módulos de automatización de procesos
-                    (Recursos humanos, finanzas, voluntariado, gestión de donantes y beneficiarios),
-                    podrás optar por una suscripción mensual de $15.
+                    {{ trans('If you are a non-profit organization, creating your profile and starting receiving donations is completely free. If you want to have access to the process automation modules (Human Resources, Finance, Volunteering, Donor and Beneficiary Management), you can opt for a monthly subscription of $ 15.') }}
                 </p>
             </div>
 
             <div class="my-4">
-                <h3 class="text-2xl lg:text-4xl">¿Por qué donar en Recaudar?</h3>
+                <h3 class="text-2xl lg:text-4xl">{{ trans('Why donate at Recaudar?') }}</h3>
                 <p class="mt-4 font-light text-lg lg:text-2xl font-display">
-                    No somos un simple intermediario entre donantes y organizaciones.
-                    Brindamos a los donantes una experiencia completa y un servicio
-                    detallado donde puedes vivir y comprobar de primera mano el impacto
-                    que está teniendo tu donativo. Proporcionamos una garantía de seguridad
-                    de toda tu información, mientras ayudas a crear un mundo mejor.
+                    {{ trans('We are not a simple intermediary between donors and organizations. We provide donors with a complete experience and detailed service where you can experience and see first-hand the impact your donation is having. We provide a guarantee of security for all your information, while helping to create a better world.') }}
                 </p>
             </div>
 
-            <span @click="showMore = !showMore;" class="text-blue-900 text-2xl font-bold hover:underline cursor-pointer">Regresar...</span>
+            <span @click="showMore = !showMore;" class="text-blue-900 text-2xl font-bold hover:underline cursor-pointer">{{ trans('Back') }}...</span>
 
         </div>
 

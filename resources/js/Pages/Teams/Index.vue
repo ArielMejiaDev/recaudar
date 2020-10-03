@@ -3,12 +3,12 @@
 
         <div class="flex items-center justify-between pb-12 border-b border-gray-300">
             <div class="flex-1 min-w-0">
-                <Title info="In this section you can manage your teams.">Your Teams.</Title>
+                <Title :info="trans.in_this_section_you_can_manage_your_teams">{{ trans.your_teams }}.</Title>
             </div>
             <div class="mt-5 flex lg:mt-0 lg:ml-4">
                 <LinkButton :link="route('teams.create')">
                     <Icon name="add" />
-                    Create
+                    {{ $page.global_trans.create }}
                 </LinkButton>
             </div>
         </div>
@@ -22,10 +22,10 @@
                 :info="team.category"
                 :link="route('teams.dashboard', team.slug)"
                 :edit-link="route('teams.edit', team.slug)"
-                edit-link-text="Editar"
+                :edit-link-text="$page.global_trans.edit"
                 :delete-link="route('teams.delete', team.slug)"
-                delete-link-text="Eliminar"
-                :modal="{ type: 'danger', 'title': 'esta seguro de eliminar el equipo?', 'info': 'Esta accion no se puede revertir.', actionButtonText: 'Eliminar', closeButtonText: 'Cancelar' }"
+                :delete-link-text="$page.global_trans.delete"
+                :modal="{ type: 'danger', 'title': $page.global_trans.are_you_sure_to_delete_the_record, 'info': $page.global_trans.this_action_cannot_be_reversed, actionButtonText: $page.global_trans.delete, closeButtonText: $page.global_trans.cancel }"
             />
         </div>
 
@@ -64,6 +64,7 @@ export default {
     },
     props: {
         teams: Array,
+        trans: Object,
     }
 }
 </script>

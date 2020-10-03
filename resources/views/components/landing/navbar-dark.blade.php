@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="flex items-center justify-between flex-wrap bg-teal-400 lg:bg-transparent absolute right-0 left-0 top-0 z-30 py-6 px-4 lg:px-12 font-body">
+<nav x-data="{ open: false }" class="flex items-center justify-between flex-wrap bg-teal-400 lg:bg-transparent absolute right-0 left-0 top-0 z-10 py-6 px-4 lg:px-12 font-body">
     <a href="{{ config('app.url') }}" class="flex items-center flex-shrink-0 text-pink mr-6">
         <svg class="fill-current w-10 lg:h-16 lg:w-16 mr-4" viewBox="0 0 1322 1062" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M996.085 738.03C1004.33 731.552 1022.89 729.392 1035.26 722.914C1047.63 716.435 1055.88 705.638 1060 697C1060 697 1022.89 707.797 996.085 705.638C973.405 705.638 981.652 753.147 996.085 738.03Z"/>
@@ -12,10 +12,10 @@
     {{--Desktop Navbar--}}
     <div class="w-auto hidden lg:block flex items-center">
         <div class="text-sm lg:flex-grow">
-            <a href="{{ config('app.url') . '/#faqs' }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-900 hover:text-gray-700 text-xl mr-4">Preguntas frecuentes</a>
-            <a href="{{ config('app.url') . '/quienes-somos' }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-900 hover:text-gray-700 text-xl mr-4">Quiénes somos</a>
-            <a href="{{ config('app.url') . '/login' }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-900 text-xl mr-4 py-2 px-6 border-4 border-pink hover:bg-pink hover:text-white rounded-full">Log in</a>
-            <a href="{{ config('app.url') . '/register' }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-900 text-xl mr-4 py-2 px-6 border-4 border-teal-400 bg-teal-400 hover:bg-transparent hover:text-blue-900 rounded-full">Crea tu perfil</a>
+            <a href="{{ config('app.url') . '/#faqs' }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-900 hover:text-gray-700 text-xl mr-4">{{ trans('Frequent questions') }}</a>
+            <a href="{{ config('app.url') . '/quienes-somos' }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-900 hover:text-gray-700 text-xl mr-4">{{ trans('About us') }}</a>
+            <a href="{{ config('app.url') . '/login' }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-900 text-xl mr-4 py-2 px-6 border-4 border-pink hover:bg-pink hover:text-white rounded-full">{{ trans('Login') }}</a>
+            <a href="{{ config('app.url') . '/register' }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-900 text-xl mr-4 py-2 px-6 border-4 border-teal-400 bg-teal-400 hover:bg-transparent hover:text-blue-900 rounded-full">{{ trans('Create your profile') }}</a>
         </div>
     </div>
     {{--End Desktop Navbar--}}
@@ -27,10 +27,10 @@
     {{--Responsive Navbar--}}
     <div x-show.transition.in.duration.200ms.out.duration.50ms="open" @click.away="open = false" class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <div class="text-sm lg:flex-grow">
-            <a href="{{ config('app.url') . '/#faqs' }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Preguntas frecuentes</a>
-            <a href="{{ config('app.url') . '/quienes-somos' }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Quiénes somos</a>
-            <a href="{{ config('app.url') . '/login' }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Log in</a>
-            <a href="{{ config('app.url') . '/register' }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Crea tu perfil</a>
+            <a href="{{ config('app.url') . '/#faqs' }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">{{ trans('Frequent questions') }}</a>
+            <a href="{{ config('app.url') . '/quienes-somos' }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">{{ trans('About us') }}</a>
+            <a href="{{ config('app.url') . '/login' }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">{{ trans('Login') }}</a>
+            <a href="{{ config('app.url') . '/register' }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">{{ trans('Create your profile') }}</a>
         </div>
     </div>
     {{--End Responsive Navbar--}}

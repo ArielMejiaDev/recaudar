@@ -43,11 +43,18 @@ class LoginController extends Controller
     /**
      * Show the application's login form.
      *
-     * @return ResponseAlias
+     * @return ResponseAlias|\Inertia\Response|\Inertia\ResponseFactory
      */
     public function showLoginForm()
     {
-        return inertia('Auth/Login');
+        $trans = [
+            'email' => trans('Email'),
+            'password' => trans('Password'),
+            'forgot_password' => trans('Forgot your password?'),
+            'login' => trans('Login'),
+            'signup' => trans('Sign up'),
+        ];
+        return inertia('Auth/Login', compact('trans'));
     }
 
 
