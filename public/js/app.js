@@ -2129,6 +2129,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -2171,6 +2173,9 @@ __webpack_require__.r(__webpack_exports__);
         return _this.loading = false;
       });
     }
+  },
+  props: {
+    trans: Object
   }
 });
 
@@ -2252,7 +2257,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     charges: Object,
-    filters: Array | Object
+    filters: Array | Object,
+    trans: Object
   },
   methods: {
     deleteCharge: function deleteCharge() {
@@ -2324,7 +2330,8 @@ __webpack_require__.r(__webpack_exports__);
     Pill: _Shared_Pill__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   props: {
-    charge: Object
+    charge: Object,
+    trans: Object
   },
   methods: {
     submit: function submit() {
@@ -2554,6 +2561,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2616,7 +2629,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   props: {
-    team: Object
+    team: Object,
+    trans: Object
   },
   methods: {
     submitProfileDataForm: function submitProfileDataForm() {
@@ -2729,8 +2743,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -2765,11 +2777,19 @@ __webpack_require__.r(__webpack_exports__);
       this.$inertia.put(route, {
         status: this.selectedTeam.status
       });
+    },
+    getStatus: function getStatus(status) {
+      if (status === 'approved') {
+        return this.trans.approved;
+      }
+
+      return this.trans.pending;
     }
   },
   props: {
     teams: Object,
-    filters: Array | Object
+    filters: Array | Object,
+    trans: Object
   },
   watch: {
     search: lodash__WEBPACK_IMPORTED_MODULE_3___default.a.throttle(function (value) {
@@ -2801,6 +2821,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_Textarea__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../Shared/Textarea */ "./resources/js/Shared/Textarea.vue");
 /* harmony import */ var _Shared_ImageUploader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../Shared/ImageUploader */ "./resources/js/Shared/ImageUploader.vue");
 /* harmony import */ var _Shared_LoadingButton__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../Shared/LoadingButton */ "./resources/js/Shared/LoadingButton.vue");
+//
+//
 //
 //
 //
@@ -2878,7 +2900,8 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     team: Object,
     plan: Object,
-    locale: Object
+    locale: Object,
+    trans: Object
   },
   methods: {
     showAmountInput: function showAmountInput() {
@@ -2987,7 +3010,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -3014,7 +3036,8 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     team: Object,
     plans: Object,
-    filters: Array | Object
+    filters: Array | Object,
+    trans: Object
   },
   watch: {
     search: lodash__WEBPACK_IMPORTED_MODULE_4___default.a.throttle(function (value) {
@@ -3026,7 +3049,12 @@ __webpack_require__.r(__webpack_exports__);
     }, 200)
   },
   methods: {
-    deletePlan: function deletePlan() {//
+    deletePlan: function deletePlan() {
+      var route = this.route('admin.teams.plans.delete', {
+        team: this.team.id,
+        plan: this.selectedPlan.id
+      });
+      this.$inertia["delete"](route);
     }
   },
   filters: {
@@ -3124,12 +3152,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -3157,7 +3179,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     transactions: Object,
-    filters: Array | Object
+    filters: Array | Object,
+    trans: Object
   },
   methods: {
     changeRecurrence: function changeRecurrence() {
@@ -3165,6 +3188,31 @@ __webpack_require__.r(__webpack_exports__);
         transaction: this.selectedTransaction.id
       });
       this.$inertia.put(route);
+    },
+    getStatus: function getStatus(status) {
+      if (status === 'approved') {
+        return this.trans.approved;
+      }
+
+      if (status === 'pending') {
+        return this.trans.pending;
+      }
+
+      return this.trans.failed;
+    },
+    getType: function getType(type) {
+      if (type === 'single') {
+        return this.trans.single;
+      }
+
+      return this.trans.recurrent;
+    },
+    getReviewStatus: function getReviewStatus(review) {
+      if (review === 'checked') {
+        return this.trans.checked;
+      }
+
+      return this.trans.pending;
     }
   },
   watch: {
@@ -3231,13 +3279,34 @@ __webpack_require__.r(__webpack_exports__);
   layout: _Shared_Layouts_SidebarLayout__WEBPACK_IMPORTED_MODULE_3__["default"],
   name: "Show",
   props: {
-    transaction: Object
+    transaction: Object,
+    trans: Object
   },
   components: {
     Panel: _Shared_Panel__WEBPACK_IMPORTED_MODULE_0__["default"],
     Title: _Shared_Title__WEBPACK_IMPORTED_MODULE_2__["default"],
     ListItem: _Shared_ListItem__WEBPACK_IMPORTED_MODULE_4__["default"],
     Pill: _Shared_Pill__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  methods: {
+    getStatus: function getStatus(status) {
+      if (status === 'approved') {
+        return this.trans.approved;
+      }
+
+      if (status === 'pending') {
+        return this.trans.pending;
+      }
+
+      return this.trans.failed;
+    },
+    getReview: function getReview(review) {
+      if (review === 'checked') {
+        return this.trans.checked;
+      }
+
+      return this.trans.pending;
+    }
   }
 });
 
@@ -5415,6 +5484,19 @@ __webpack_require__.r(__webpack_exports__);
         minimumFractionDigits: 2
       }).format(value);
     }
+  },
+  methods: {
+    getTransactionStatus: function getTransactionStatus(status) {
+      if (status === 'approved') {
+        return this.trans.approved;
+      }
+
+      if (status === 'pending') {
+        return this.trans.pending;
+      }
+
+      return this.trans.failed;
+    }
   }
 });
 
@@ -5481,6 +5563,19 @@ __webpack_require__.r(__webpack_exports__);
     Title: _Shared_Title__WEBPACK_IMPORTED_MODULE_2__["default"],
     ListItem: _Shared_ListItem__WEBPACK_IMPORTED_MODULE_4__["default"],
     Pill: _Shared_Pill__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  methods: {
+    getTransactionStatus: function getTransactionStatus(status) {
+      if (status === 'approved') {
+        return this.trans.approved;
+      }
+
+      if (status === 'pending') {
+        return this.trans.pending;
+      }
+
+      return this.trans.failed;
+    }
   }
 });
 
@@ -5502,7 +5597,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_Input__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../Shared/Input */ "./resources/js/Shared/Input.vue");
 /* harmony import */ var _Shared_LoadingButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../Shared/LoadingButton */ "./resources/js/Shared/LoadingButton.vue");
 /* harmony import */ var _Shared_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../Shared/Select */ "./resources/js/Shared/Select.vue");
-//
 //
 //
 //
@@ -5799,6 +5893,21 @@ __webpack_require__.r(__webpack_exports__);
         team: this.$page.team['slug'],
         user: this.selectedUser.id
       }));
+    },
+    getRole: function getRole(role) {
+      if (role === 'Admin') {
+        return this.trans.admin;
+      }
+
+      if (role === 'Editor') {
+        return this.trans.editor;
+      }
+
+      if (role === 'Financial') {
+        return this.trans.financial;
+      }
+
+      return this.trans.member;
     }
   },
   watch: {
@@ -6263,6 +6372,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_Icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Shared/Icon */ "./resources/js/Shared/Icon.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -28361,10 +28483,11 @@ var render = function() {
                   {
                     attrs: {
                       info:
-                        "This settings are used to calculate the amount to collect."
+                        _vm.trans
+                          .this_settings_are_used_to_calculate_the_amount_to_collect
                     }
                   },
-                  [_vm._v("Create Charge")]
+                  [_vm._v(_vm._s(_vm.trans.create_a_charge))]
                 )
               ]
             },
@@ -28384,8 +28507,7 @@ var render = function() {
                         staticClass: "w-full md:w-1/2 md:mr-1",
                         attrs: {
                           name: "Country",
-                          label: "Country",
-                          placeholder: "Add a country",
+                          label: _vm.trans.country,
                           errors: _vm.$page.errors.country
                         },
                         model: {
@@ -28423,13 +28545,11 @@ var render = function() {
                       staticClass: "w-full md:w-1/2 md:ml-1",
                       attrs: {
                         name: "income",
-                        label: "Income",
-                        placeholder: "Add an income",
+                        label: _vm.trans.income,
                         errors: _vm.$page.errors.income,
                         type: "number",
                         min: "0",
-                        max: "9.9",
-                        step: "0.10",
+                        max: "100",
                         required: false
                       },
                       scopedSlots: _vm._u([
@@ -28463,8 +28583,7 @@ var render = function() {
                         staticClass: "w-full md:w-1/2 md:mr-1",
                         attrs: {
                           name: "payment_gateway",
-                          label: "Payment gateway",
-                          placeholder: "Add a payment gateway",
+                          label: _vm.trans.payment_gateway,
                           errors: _vm.$page.errors.gateway
                         },
                         model: {
@@ -28502,9 +28621,7 @@ var render = function() {
                       staticClass: "w-full md:w-1/2 md:ml-1",
                       attrs: {
                         name: "gateway_charge",
-                        label: "Gateway charge percentage",
-                        placeholder:
-                          "Add a charge for the payment charge percentage",
+                        label: _vm.trans.gateway_charge_percentage,
                         errors: _vm.$page.errors.gateway_charge,
                         type: "number",
                         min: "0",
@@ -28540,7 +28657,13 @@ var render = function() {
             fn: function() {
               return [
                 _c("LoadingButton", { attrs: { loading: _vm.loading } }, [
-                  _vm._v("Create charge")
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.$page.global_trans.create) +
+                      " " +
+                      _vm._s(_vm.trans.charge) +
+                      "\n            "
+                  )
                 ])
               ]
             },
@@ -28579,12 +28702,16 @@ var render = function() {
     [
       _c("Table", {
         attrs: {
-          title: "Teams",
-          headers: ["country", "payment gateway", "Delete"],
-          searchbox: { show: true, placeholder: "Search ..." },
+          title: _vm.trans.charges,
+          headers: [
+            _vm.trans.country,
+            _vm.trans.payment_gateway,
+            _vm.trans.delete
+          ],
+          searchbox: { show: true, placeholder: _vm.trans.search + "..." },
           action: {
             show: true,
-            text: "Create a charge",
+            text: _vm.trans.create_a_charge,
             link: _vm.route("admin.charges.create"),
             type: "info"
           },
@@ -28644,7 +28771,8 @@ var render = function() {
                     },
                     [
                       _c("Icon", {
-                        staticClass: "text-gray-500 hover:text-gray-600",
+                        staticClass:
+                          "text-gray-500 hover:text-gray-600 cursor-pointer",
                         attrs: { name: "trash" }
                       })
                     ],
@@ -28670,14 +28798,17 @@ var render = function() {
             attrs: {
               type: "danger",
               title:
-                "Are you sure to change charge for " +
+                _vm.trans.are_you_sure_to_delete_charge_for +
+                " " +
                 _vm.selectedCharge.gateway +
-                " in " +
+                " " +
+                _vm.trans.in +
+                " " +
                 _vm.selectedCharge.country +
                 "?",
-              info: "This action will invalid this charge.",
-              "close-button-text": "Cancel",
-              "action-button-text": "Delete charge"
+              info: _vm.trans.this_action_will_invalid_this_charge,
+              "close-button-text": _vm.$page.global_trans.cancel,
+              "action-button-text": _vm.trans.delete + " " + _vm.trans.charge
             },
             on: {
               close: function($event) {
@@ -28728,17 +28859,7 @@ var render = function() {
             {
               key: "header",
               fn: function() {
-                return [
-                  _c(
-                    "Title",
-                    {
-                      attrs: {
-                        info: "Some random text just to show how it looks."
-                      }
-                    },
-                    [_vm._v("Charge Details.")]
-                  )
-                ]
+                return [_c("Title", [_vm._v(_vm._s(_vm.trans.charge_details))])]
               },
               proxy: true
             }
@@ -28747,30 +28868,33 @@ var render = function() {
         [
           _vm._v(" "),
           _c("ListItem", {
-            attrs: { label: "Country", value: _vm.charge.country }
+            attrs: { label: _vm.trans.country, value: _vm.charge.country }
           }),
           _vm._v(" "),
           _c(
             "ListItem",
-            { attrs: { label: "Income" } },
+            { attrs: { label: _vm.trans.income } },
             [
               _c("Pill", { attrs: { type: "success" } }, [
-                _vm._v(_vm._s(_vm.charge.income))
+                _vm._v(_vm._s(_vm.charge.income * 100))
               ])
             ],
             1
           ),
           _vm._v(" "),
           _c("ListItem", {
-            attrs: { label: "Payment gateway", value: _vm.charge.gateway }
+            attrs: {
+              label: _vm.trans.payment_gateway,
+              value: _vm.charge.gateway
+            }
           }),
           _vm._v(" "),
           _c(
             "ListItem",
-            { attrs: { label: "Payment gateway percentage" } },
+            { attrs: { label: _vm.trans.gateway_charge_percentage } },
             [
               _c("Pill", { attrs: { type: "warning" } }, [
-                _vm._v(_vm._s(_vm.charge.gateway_charge))
+                _vm._v(_vm._s(_vm.charge.gateway_charge * 100))
               ])
             ],
             1
@@ -28887,7 +29011,7 @@ var render = function() {
             {
               key: "header",
               fn: function() {
-                return [_c("Title", [_vm._v("Profile")])]
+                return [_c("Title", [_vm._v(_vm._s(_vm.trans.profile))])]
               },
               proxy: true
             },
@@ -28906,8 +29030,7 @@ var render = function() {
                           _c("Input", {
                             attrs: {
                               name: "name",
-                              label: "Name",
-                              placeholder: "Team name",
+                              label: _vm.trans.name,
                               errors: _vm.$page.errors.name
                             },
                             model: {
@@ -28929,8 +29052,7 @@ var render = function() {
                           _c("Input", {
                             attrs: {
                               name: "beneficiaries",
-                              label: "Beneficiaries",
-                              placeholder: "Add beneficiaries",
+                              label: _vm.trans.beneficiaries,
                               errors: _vm.$page.errors.beneficiaries
                             },
                             model: {
@@ -28956,8 +29078,7 @@ var render = function() {
                           _c("Input", {
                             attrs: {
                               name: "public",
-                              label: "Public",
-                              placeholder: "Add public",
+                              label: _vm.trans.public,
                               errors: _vm.$page.errors.public
                             },
                             model: {
@@ -28987,8 +29108,11 @@ var render = function() {
                             {
                               attrs: {
                                 name: "status",
-                                label: "Status",
-                                placeholder: "Select a status",
+                                label: _vm.trans.status,
+                                placeholder:
+                                  _vm.$page.global_trans.select +
+                                  " " +
+                                  _vm.trans.status,
                                 errors: _vm.$page.errors.status
                               },
                               model: {
@@ -29001,11 +29125,11 @@ var render = function() {
                             },
                             [
                               _c("option", { attrs: { value: "pending" } }, [
-                                _vm._v("Pending")
+                                _vm._v(_vm._s(_vm.trans.pending))
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "approved" } }, [
-                                _vm._v("Approved")
+                                _vm._v(_vm._s(_vm.trans.approved))
                               ])
                             ]
                           )
@@ -29022,8 +29146,11 @@ var render = function() {
                             {
                               attrs: {
                                 name: "category",
-                                label: "Category",
-                                placeholder: "Select a category",
+                                label: _vm.trans.category,
+                                placeholder:
+                                  _vm.$page.global_trans.select +
+                                  " " +
+                                  _vm.trans.category,
                                 errors: _vm.$page.errors.category
                               },
                               model: {
@@ -29083,8 +29210,11 @@ var render = function() {
                             {
                               attrs: {
                                 name: "theme",
-                                label: "Theme",
-                                placeholder: "Add a theme",
+                                label: _vm.trans.theme,
+                                placeholder:
+                                  _vm.$page.global_trans.select +
+                                  " " +
+                                  _vm.trans.theme,
                                 errors: _vm.$page.errors.theme
                               },
                               model: {
@@ -29097,15 +29227,27 @@ var render = function() {
                             },
                             [
                               _c("option", { attrs: { value: "classic" } }, [
-                                _vm._v("Classic")
+                                _vm._v(
+                                  _vm._s(_vm.trans.theme) +
+                                    " " +
+                                    _vm._s(_vm.trans.classic)
+                                )
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "condensed" } }, [
-                                _vm._v("Condensed")
+                                _vm._v(
+                                  _vm._s(_vm.trans.theme) +
+                                    " " +
+                                    _vm._s(_vm.trans.condensed)
+                                )
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "columns" } }, [
-                                _vm._v("Columns")
+                                _vm._v(
+                                  _vm._s(_vm.trans.theme) +
+                                    " " +
+                                    _vm._s(_vm.trans.columns)
+                                )
                               ])
                             ]
                           )
@@ -29118,8 +29260,7 @@ var render = function() {
                   _c("Input", {
                     attrs: {
                       name: "impact",
-                      label: "Impact",
-                      placeholder: "Add Impact",
+                      label: _vm.trans.impact,
                       errors: _vm.$page.errors.impact
                     },
                     model: {
@@ -29134,8 +29275,7 @@ var render = function() {
                   _c("Input", {
                     attrs: {
                       name: "use_of_funds",
-                      label: "Use of funds",
-                      placeholder: "Add a use of funds",
+                      label: _vm.trans.use_of_funds,
                       errors: _vm.$page.errors.use_of_funds
                     },
                     model: {
@@ -29150,8 +29290,7 @@ var render = function() {
                   _c("Textarea", {
                     attrs: {
                       name: "description",
-                      label: "Description",
-                      placeholder: "Add a description",
+                      label: _vm.trans.description,
                       errors: _vm.$page.errors.description
                     },
                     model: {
@@ -29175,7 +29314,11 @@ var render = function() {
                     { attrs: { loading: _vm.loadingProfileData } },
                     [
                       _vm._v(
-                        "\n                    Update profile\n                "
+                        "\n                    " +
+                          _vm._s(_vm.$page.global_trans.update) +
+                          " " +
+                          _vm._s(_vm.trans.profile) +
+                          "\n                "
                       )
                     ]
                   )
@@ -29249,6 +29392,10 @@ var render = function() {
                       name: "logo",
                       label: "Logo",
                       "current-file": _vm.team.logo,
+                      options: {
+                        showButton: true,
+                        buttonText: _vm.trans.upload
+                      },
                       errors: _vm.$page.errors.logo
                     },
                     model: {
@@ -29286,7 +29433,15 @@ var render = function() {
                   _c(
                     "LoadingButton",
                     { attrs: { loading: _vm.loadingMedia } },
-                    [_vm._v("Update media")]
+                    [
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(_vm.$page.global_trans.update) +
+                          " " +
+                          _vm._s(_vm.trans.media) +
+                          "\n                "
+                      )
+                    ]
                   )
                 ]
               },
@@ -29315,7 +29470,7 @@ var render = function() {
             {
               key: "header",
               fn: function() {
-                return [_c("Title", [_vm._v("Contact")])]
+                return [_c("Title", [_vm._v(_vm._s(_vm.trans.contact))])]
               },
               proxy: true
             },
@@ -29331,8 +29486,7 @@ var render = function() {
                         staticClass: "w-full md:w-1/3 md:mr-1",
                         attrs: {
                           name: "contact",
-                          label: "Contact",
-                          placeholder: "Add a contact",
+                          label: _vm.trans.contact,
                           errors: _vm.$page.errors.contact
                         },
                         model: {
@@ -29348,8 +29502,7 @@ var render = function() {
                         staticClass: "w-full md:w-1/3 md:mx-1",
                         attrs: {
                           name: "contact_phone",
-                          label: "Contact Phone",
-                          placeholder: "Add a contact phone",
+                          label: _vm.trans.contact_phone,
                           errors: _vm.$page.errors.contact_phone
                         },
                         model: {
@@ -29365,8 +29518,7 @@ var render = function() {
                         staticClass: "w-full md:w-1/3 md:ml-1",
                         attrs: {
                           name: "contact_email",
-                          label: "Contact Email",
-                          placeholder: "Add Contact Email",
+                          label: _vm.trans.contact_email,
                           errors: _vm.$page.errors.contact_email
                         },
                         model: {
@@ -29384,8 +29536,7 @@ var render = function() {
                   _c("Input", {
                     attrs: {
                       name: "office_address",
-                      label: "Office Address",
-                      placeholder: "Add office address",
+                      label: _vm.trans.office_address,
                       errors: _vm.$page.errors.office_address
                     },
                     model: {
@@ -29407,7 +29558,15 @@ var render = function() {
                   _c(
                     "LoadingButton",
                     { attrs: { loading: _vm.loadingContactData } },
-                    [_vm._v("Update contact data")]
+                    [
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(_vm.$page.global_trans.update) +
+                          " " +
+                          _vm._s(_vm.trans.contact) +
+                          "\n                "
+                      )
+                    ]
                   )
                 ]
               },
@@ -29436,7 +29595,7 @@ var render = function() {
             {
               key: "header",
               fn: function() {
-                return [_c("Title", [_vm._v("Financial data")])]
+                return [_c("Title", [_vm._v(_vm._s(_vm.trans.financial_data))])]
               },
               proxy: true
             },
@@ -29452,8 +29611,7 @@ var render = function() {
                         staticClass: "w-full md:w-1/3 md:mr-1",
                         attrs: {
                           name: "legal_representative",
-                          label: "Legal Representative",
-                          placeholder: "Add legal representative",
+                          label: _vm.trans.legal_representative,
                           errors: _vm.$page.errors.legal_representative
                         },
                         model: {
@@ -29473,8 +29631,7 @@ var render = function() {
                         staticClass: "w-full md:w-1/3 md:mx-1",
                         attrs: {
                           name: "tax_number",
-                          label: "Tax number",
-                          placeholder: "Add tax number",
+                          label: _vm.trans.tax_number,
                           errors: _vm.$page.errors.tax_number
                         },
                         model: {
@@ -29492,8 +29649,7 @@ var render = function() {
                           staticClass: "w-full md:w-1/3 md:ml-1",
                           attrs: {
                             name: "country",
-                            label: "Country",
-                            placeholder: "Country where team is established.",
+                            label: _vm.trans.country,
                             errors: _vm.$page.errors.country
                           },
                           model: {
@@ -29538,8 +29694,7 @@ var render = function() {
                         staticClass: "w-full md:w-1/2 md:mr-1",
                         attrs: {
                           name: "account_number",
-                          label: "Bank account number",
-                          placeholder: "Add bank account number",
+                          label: _vm.trans.account_number,
                           errors: _vm.$page.errors.account_number
                         },
                         model: {
@@ -29555,8 +29710,7 @@ var render = function() {
                         staticClass: "w-full md:w-1/2 md:ml-1",
                         attrs: {
                           name: "bank",
-                          label: "Bank",
-                          placeholder: "Add bank",
+                          label: _vm.trans.bank,
                           errors: _vm.$page.errors.bank
                         },
                         model: {
@@ -29581,7 +29735,15 @@ var render = function() {
                   _c(
                     "LoadingButton",
                     { attrs: { loading: _vm.loadingLegalDataForm } },
-                    [_vm._v("Update financial data")]
+                    [
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(_vm.$page.global_trans.update) +
+                          " " +
+                          _vm._s(_vm.trans.financial_data) +
+                          "\n                "
+                      )
+                    ]
                   )
                 ]
               },
@@ -29621,9 +29783,9 @@ var render = function() {
     [
       _c("Table", {
         attrs: {
-          title: "Teams",
-          headers: ["team", "status", "plans"],
-          searchbox: { show: true, placeholder: "Search ..." },
+          title: _vm.trans.teams,
+          headers: [_vm.trans.team, _vm.trans.status, _vm.trans.plans],
+          searchbox: { show: true, placeholder: _vm.trans.search + " ..." },
           action: { show: false },
           pagination: { show: true, links: _vm.teams.links }
         },
@@ -29669,22 +29831,14 @@ var render = function() {
                       }
                     },
                     [
-                      _c(
-                        "Pill",
-                        {
-                          attrs: {
-                            type:
-                              team.status === "pending" ? "danger" : "success"
-                          }
+                      _c("Pill", {
+                        attrs: {
+                          type: team.status === "pending" ? "danger" : "success"
                         },
-                        [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(team.status) +
-                              "\n                    "
-                          )
-                        ]
-                      )
+                        domProps: {
+                          textContent: _vm._s(_vm.getStatus(team.status))
+                        }
+                      })
                     ],
                     1
                   ),
@@ -29732,12 +29886,13 @@ var render = function() {
             attrs: {
               type: "danger",
               title:
-                "Are you sure to change status of " +
+                _vm.trans.are_you_sure_to_change_status_of +
+                " " +
                 _vm.selectedTeam.name +
                 "?",
-              info: "You can switch status anytime.",
-              "close-button-text": "Cancel",
-              "action-button-text": "Switch team status"
+              info: _vm.trans.you_can_switch_status_anytime,
+              "close-button-text": _vm.$page.global_trans.cancel,
+              "action-button-text": _vm.$page.global_trans.update
             },
             on: {
               close: function($event) {
@@ -29792,7 +29947,7 @@ var render = function() {
           {
             key: "header",
             fn: function() {
-              return [_c("Title", [_vm._v("Edit a plan")])]
+              return [_c("Title", [_vm._v(_vm._s(_vm.trans.edit_a_plan))])]
             },
             proxy: true
           },
@@ -29803,8 +29958,7 @@ var render = function() {
                 _c("Input", {
                   attrs: {
                     name: "title",
-                    label: "Title",
-                    placeholder: "Add a title",
+                    label: _vm.trans.title,
                     errors: _vm.$page.errors.title
                   },
                   model: {
@@ -29825,7 +29979,6 @@ var render = function() {
                       staticClass: "w-full md:w-1/2 md:mr-1",
                       attrs: {
                         name: "amount_in_local_currency",
-                        placeholder: "Amount in local currency",
                         errors: _vm.$page.errors.amount_in_local_currency
                       },
                       scopedSlots: _vm._u([
@@ -29854,7 +30007,6 @@ var render = function() {
                       staticClass: "w-full md:w-1/2 md:mr-1",
                       attrs: {
                         name: "amount_in_dollars",
-                        placeholder: "Amount in dollars",
                         errors: _vm.$page.errors.amount_in_dollars
                       },
                       scopedSlots: _vm._u([
@@ -29885,8 +30037,7 @@ var render = function() {
                 _c("Textarea", {
                   attrs: {
                     name: "info",
-                    label: "Information about the plan",
-                    placeholder: "Add plans info ...",
+                    label: _vm.trans.information_about_the_plan,
                     errors: _vm.$page.errors.info
                   },
                   model: {
@@ -29902,7 +30053,7 @@ var render = function() {
                   attrs: {
                     "current-file": _vm.plan.banner,
                     name: "banner",
-                    label: "Plans banner",
+                    label: _vm.trans.banner,
                     errors: _vm.$page.errors.banner
                   },
                   model: {
@@ -29922,7 +30073,13 @@ var render = function() {
             fn: function() {
               return [
                 _c("LoadingButton", { attrs: { loading: _vm.loading } }, [
-                  _vm._v("Update plan")
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.$page.global_trans.update) +
+                      " " +
+                      _vm._s(_vm.trans.plan) +
+                      "\n            "
+                  )
                 ])
               ]
             },
@@ -29963,12 +30120,12 @@ var render = function() {
         attrs: {
           title: _vm.team.name + " plans",
           headers: [
-            "plan",
-            "Amount in local currency",
-            "Amount in dollars",
-            "Delete"
+            _vm.trans.plan,
+            _vm.trans.amount_in_local_currency,
+            _vm.trans.amount_in_dollars,
+            _vm.trans.delete
           ],
-          searchbox: { show: true, placeholder: "Search ..." },
+          searchbox: { show: true, placeholder: _vm.trans.search + " ..." },
           action: { show: false },
           pagination: { show: true, links: _vm.plans.links }
         },
@@ -30063,7 +30220,8 @@ var render = function() {
                     _c(
                       "div",
                       {
-                        staticClass: "text-gray-500 hover:text-gray-600",
+                        staticClass:
+                          "text-gray-500 hover:text-gray-600 cursor-pointer",
                         on: {
                           click: function($event) {
                             _vm.confirm = !_vm.confirm
@@ -30095,13 +30253,13 @@ var render = function() {
             attrs: {
               type: "danger",
               title:
-                "Are you sure to delete the plan " +
+                _vm.trans.are_you_sure_to_delete_the_plan +
+                " " +
                 _vm.selectedPlan.title +
                 "?",
-              info:
-                "This is going to delete the plan from the team profile page.",
-              "close-button-text": "Cancel",
-              "action-button-text": "Delete plan"
+              "close-button-text": _vm.$page.global_trans.cancel,
+              "action-button-text":
+                _vm.$page.global_trans.delete + " " + _vm.trans.plan
             },
             on: {
               close: function($event) {
@@ -30145,9 +30303,15 @@ var render = function() {
     [
       _c("Table", {
         attrs: {
-          title: "Transactions",
-          headers: ["amount", "status", "type", "active", "date"],
-          searchbox: { show: true, placeholder: "Search ..." },
+          title: _vm.trans.transactions,
+          headers: [
+            _vm.trans.amount,
+            _vm.trans.status,
+            _vm.trans.type,
+            _vm.trans.reviewed,
+            _vm.trans.date
+          ],
+          searchbox: { show: false, placeholder: _vm.trans.search + " ..." },
           action: { show: false },
           pagination: { show: true, links: _vm.transactions.links }
         },
@@ -30200,24 +30364,19 @@ var render = function() {
                           }
                         },
                         [
-                          _c(
-                            "Pill",
-                            {
-                              attrs: {
-                                type:
-                                  transaction.status === "approved"
-                                    ? "success"
-                                    : "danger"
-                              }
+                          _c("Pill", {
+                            attrs: {
+                              type:
+                                transaction.status === "approved"
+                                  ? "success"
+                                  : "danger"
                             },
-                            [
-                              _vm._v(
-                                "\n                            " +
-                                  _vm._s(transaction.status) +
-                                  "\n                        "
+                            domProps: {
+                              textContent: _vm._s(
+                                _vm.getStatus(transaction.status)
                               )
-                            ]
-                          )
+                            }
+                          })
                         ],
                         1
                       )
@@ -30238,24 +30397,17 @@ var render = function() {
                           }
                         },
                         [
-                          _c(
-                            "Pill",
-                            {
-                              attrs: {
-                                type:
-                                  transaction.type === "recurrent"
-                                    ? "warning"
-                                    : null
-                              }
+                          _c("Pill", {
+                            attrs: {
+                              type:
+                                transaction.type === "recurrent"
+                                  ? "warning"
+                                  : null
                             },
-                            [
-                              _vm._v(
-                                "\n                            " +
-                                  _vm._s(transaction.type) +
-                                  "\n                        "
-                              )
-                            ]
-                          )
+                            domProps: {
+                              textContent: _vm._s(_vm.getType(transaction.type))
+                            }
+                          })
                         ],
                         1
                       )
@@ -30263,66 +30415,47 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _c("td", [
-                    transaction.type === "recurrent" &&
-                    transaction.reviewed === "pending"
-                      ? _c(
-                          "button",
-                          {
-                            staticClass: "focus:outline-none",
-                            attrs: {
-                              href: _vm.route("admin.transactions.show", {
-                                transaction: transaction.id
-                              })
-                            },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                _vm.confirm = !_vm.confirm
-                                _vm.selectedTransaction = transaction
+                  _c(
+                    "td",
+                    [
+                      transaction.type === "recurrent"
+                        ? _c(
+                            "InertiaLink",
+                            {
+                              attrs: { href: "#" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  _vm.confirm = !_vm.confirm
+                                  _vm.selectedTransaction = transaction
+                                }
                               }
-                            }
-                          },
-                          [
-                            _c("Icon", {
-                              staticClass: "text-red-500 hover:text-red-600",
-                              attrs: { name: "x-circle" }
-                            })
-                          ],
-                          1
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    transaction.type === "recurrent" &&
-                    transaction.reviewed === "checked"
-                      ? _c(
-                          "button",
-                          {
-                            staticClass: "focus:outline-none",
-                            attrs: {
-                              href: _vm.route("admin.transactions.show", {
-                                transaction: transaction.id
-                              })
                             },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                _vm.confirm = !_vm.confirm
-                                _vm.selectedTransaction = transaction
-                              }
-                            }
-                          },
-                          [
-                            _c("Icon", {
-                              staticClass:
-                                "text-green-500 hover:text-green-600",
-                              attrs: { name: "check-circle" }
-                            })
-                          ],
-                          1
-                        )
-                      : _vm._e()
-                  ]),
+                            [
+                              _c("Pill", {
+                                attrs: {
+                                  type:
+                                    transaction.reviewed === "checked"
+                                      ? "success"
+                                      : "danger"
+                                },
+                                domProps: {
+                                  textContent: _vm._s(
+                                    _vm.getReviewStatus(transaction.reviewed)
+                                  )
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        : _c(
+                            "div",
+                            { staticClass: "text-gray-500 w-full text-left" },
+                            [_vm._v("-")]
+                          )
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
                   _c(
                     "td",
@@ -30422,8 +30555,8 @@ var render = function() {
           key: "header",
           fn: function() {
             return [
-              _c("Title", { attrs: { info: "Transaction details" } }, [
-                _vm._v("Transaction")
+              _c("Title", { attrs: { info: _vm.trans.transaction_details } }, [
+                _vm._v(_vm._s(_vm.trans.transactions))
               ])
             ]
           },
@@ -30433,23 +30566,23 @@ var render = function() {
     },
     [
       _vm._v(" "),
-      _c("ListItem", { attrs: { label: "Donation by" } }, [
+      _c("ListItem", { attrs: { label: _vm.trans.by } }, [
         _vm._v(_vm._s(_vm.transaction.name))
       ]),
       _vm._v(" "),
-      _c("ListItem", { attrs: { label: "Email" } }, [
+      _c("ListItem", { attrs: { label: _vm.trans.email } }, [
         _vm._v(_vm._s(_vm.transaction.email))
       ]),
       _vm._v(" "),
-      _c("ListItem", { attrs: { label: "Type" } }, [
+      _c("ListItem", { attrs: { label: _vm.trans.type } }, [
         _vm._v(_vm._s(_vm.transaction.type))
       ]),
       _vm._v(" "),
-      _c("ListItem", { attrs: { label: "Date" } }, [
+      _c("ListItem", { attrs: { label: _vm.trans.date } }, [
         _vm._v(_vm._s(_vm.transaction.readable_created_at))
       ]),
       _vm._v(" "),
-      _c("ListItem", { attrs: { label: "Amount" } }, [
+      _c("ListItem", { attrs: { label: _vm.trans.amount } }, [
         _c("div", { staticClass: "flex" }, [
           _c("div", [_vm._v(_vm._s(_vm.transaction.amount_to_deposit))]),
           _vm._v(" "),
@@ -30461,36 +30594,33 @@ var render = function() {
       _vm._v(" "),
       _c(
         "ListItem",
-        { attrs: { label: "Status" } },
+        { attrs: { label: _vm.trans.status } },
         [
-          _c(
-            "Pill",
-            {
-              attrs: {
-                type:
-                  _vm.transaction.status === "approved" ? "success" : "danger"
-              }
+          _c("Pill", {
+            attrs: {
+              type: _vm.transaction.status === "approved" ? "success" : "danger"
             },
-            [_vm._v(_vm._s(_vm.transaction.status))]
-          )
+            domProps: {
+              textContent: _vm._s(_vm.getStatus(_vm.transaction.status))
+            }
+          })
         ],
         1
       ),
       _vm._v(" "),
       _c(
         "ListItem",
-        { attrs: { label: "Reviewed" } },
+        { attrs: { label: _vm.trans.reviewed } },
         [
-          _c(
-            "Pill",
-            {
-              attrs: {
-                type:
-                  _vm.transaction.reviewed === "checked" ? "success" : "danger"
-              }
+          _c("Pill", {
+            attrs: {
+              type:
+                _vm.transaction.reviewed === "checked" ? "success" : "danger"
             },
-            [_vm._v(_vm._s(_vm.transaction.reviewed))]
-          )
+            domProps: {
+              textContent: _vm._s(_vm.getReview(_vm.transaction.reviewed))
+            }
+          })
         ],
         1
       )
@@ -33706,6 +33836,7 @@ var render = function() {
                 _c("Input", {
                   attrs: {
                     name: "promotional_video",
+                    placeholder: _vm.trans.add_a_link,
                     errors: _vm.$page.errors.promotional_video,
                     required: false
                   },
@@ -33794,6 +33925,7 @@ var render = function() {
                   attrs: {
                     name: "facebook_account",
                     label: _vm.trans.facebook_account,
+                    placeholder: _vm.trans.add_a_link,
                     errors: _vm.$page.errors.facebook_account,
                     required: false
                   },
@@ -33810,6 +33942,7 @@ var render = function() {
                   attrs: {
                     name: "twitter_account",
                     label: _vm.trans.twitter_account,
+                    placeholder: _vm.trans.add_a_link,
                     errors: _vm.$page.errors.twitter_account,
                     required: false
                   },
@@ -33826,6 +33959,7 @@ var render = function() {
                   attrs: {
                     name: "instagram_account",
                     label: _vm.trans.instagram_account,
+                    placeholder: _vm.trans.add_a_link,
                     errors: _vm.$page.errors.instagram_account,
                     required: false
                   },
@@ -34079,27 +34213,21 @@ var render = function() {
                           }
                         },
                         [
-                          _c(
-                            "div",
-                            {
-                              class:
+                          _c("Pill", {
+                            attrs: {
+                              type:
                                 transaction.status === "approved"
-                                  ? "text-green-500"
-                                  : "text-red-500"
+                                  ? "success"
+                                  : "danger"
                             },
-                            [
-                              _c("Icon", {
-                                attrs: {
-                                  name:
-                                    transaction.status === "approved"
-                                      ? "check-circle"
-                                      : "x-circle"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ]
+                            domProps: {
+                              textContent: _vm._s(
+                                _vm.getTransactionStatus(transaction.status)
+                              )
+                            }
+                          })
+                        ],
+                        1
                       )
                     ],
                     1
@@ -34118,7 +34246,13 @@ var render = function() {
                             })
                           }
                         },
-                        [_vm._v(_vm._s(transaction.readable_created_at))]
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(transaction.readable_created_at) +
+                              "\n                    "
+                          )
+                        ]
                       )
                     ],
                     1
@@ -34171,7 +34305,7 @@ var render = function() {
           key: "header",
           fn: function() {
             return [
-              _c("Title", { attrs: { info: "Transaction details" } }, [
+              _c("Title", { attrs: { info: _vm.trans.transaction_details } }, [
                 _vm._v(
                   "\n            " +
                     _vm._s(_vm.$page.global_trans.transactions) +
@@ -34206,16 +34340,16 @@ var render = function() {
         "ListItem",
         { attrs: { label: _vm.trans.status } },
         [
-          _c(
-            "Pill",
-            {
-              attrs: {
-                type:
-                  _vm.transaction.status === "approved" ? "success" : "danger"
-              }
+          _c("Pill", {
+            attrs: {
+              type: _vm.transaction.status === "approved" ? "success" : "danger"
             },
-            [_vm._v(_vm._s(_vm.transaction.status))]
-          )
+            domProps: {
+              textContent: _vm._s(
+                _vm.getTransactionStatus(_vm.transaction.status)
+              )
+            }
+          })
         ],
         1
       ),
@@ -34294,7 +34428,8 @@ var render = function() {
                     {
                       attrs: {
                         info:
-                          "The user role defines the actions that a user can do"
+                          _vm.trans
+                            .the_user_role_defines_the_actions_that_a_user_can_do
                       }
                     },
                     [_vm._v(_vm._s(_vm.trans.create_a_user))]
@@ -34358,19 +34493,19 @@ var render = function() {
                     },
                     [
                       _c("option", { attrs: { value: "team_admin" } }, [
-                        _vm._v("Admin")
+                        _vm._v(_vm._s(_vm.trans.admin))
                       ]),
                       _vm._v(" "),
                       _c("option", { attrs: { value: "team_editor" } }, [
-                        _vm._v("Editor")
+                        _vm._v(_vm._s(_vm.trans.editor))
                       ]),
                       _vm._v(" "),
                       _c("option", { attrs: { value: "team_financial" } }, [
-                        _vm._v("Financial")
+                        _vm._v(_vm._s(_vm.trans.financial))
                       ]),
                       _vm._v(" "),
                       _c("option", { attrs: { value: "team_member" } }, [
-                        _vm._v("Member")
+                        _vm._v(_vm._s(_vm.trans.member))
                       ])
                     ]
                   )
@@ -34497,19 +34632,19 @@ var render = function() {
                     },
                     [
                       _c("option", { attrs: { value: "team_admin" } }, [
-                        _vm._v("Admin")
+                        _vm._v(_vm._s(_vm.trans.admin))
                       ]),
                       _vm._v(" "),
                       _c("option", { attrs: { value: "team_editor" } }, [
-                        _vm._v("Editor")
+                        _vm._v(_vm._s(_vm.trans.editor))
                       ]),
                       _vm._v(" "),
                       _c("option", { attrs: { value: "team_financial" } }, [
-                        _vm._v("Financial")
+                        _vm._v(_vm._s(_vm.trans.financial))
                       ]),
                       _vm._v(" "),
                       _c("option", { attrs: { value: "team_member" } }, [
-                        _vm._v("Member")
+                        _vm._v(_vm._s(_vm.trans.member))
                       ])
                     ]
                   )
@@ -34619,9 +34754,12 @@ var render = function() {
                           }
                         },
                         [
-                          _c("Pill", { attrs: { type: "info" } }, [
-                            _vm._v(_vm._s(user.role))
-                          ])
+                          _c("Pill", {
+                            attrs: { type: "info" },
+                            domProps: {
+                              textContent: _vm._s(_vm.getRole(user.role))
+                            }
+                          })
                         ],
                         1
                       )
@@ -35453,412 +35591,432 @@ var render = function() {
           class: _vm.isOpen ? "block" : "hidden"
         },
         [
-          _vm.route().current("teams.index") ||
-          _vm.route().current("teams.create") ||
-          _vm.route().current("teams.edit") ||
-          _vm.route().current("profile.show")
-            ? _c("ul", [
-                _c(
-                  "li",
-                  {
-                    staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2",
-                    class: _vm.route().current("teams.*") ? "bg-gray-900" : null
-                  },
-                  [
-                    _c(
-                      "InertiaLink",
-                      {
-                        staticClass: "flex items-center text-gray-300",
-                        attrs: { href: _vm.route("teams.index") }
-                      },
-                      [
-                        _c("Icon", {
-                          staticClass: "text-gray-500 mr-2",
-                          attrs: { name: "users" }
-                        }),
-                        _vm._v(
-                          "\n                    " +
-                            _vm._s(_vm.$page.global_trans.teams) +
-                            "\n                "
-                        )
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                )
-              ])
-            : _c("ul", [
-                _c(
-                  "li",
-                  { staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2" },
-                  [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "flex items-center text-gray-300",
-                        attrs: {
-                          href: _vm.route("profile-page", {
-                            team: _vm.$page.team.slug
-                          }),
-                          target: "_blank"
-                        }
-                      },
-                      [
-                        _c("Icon", {
-                          staticClass: "text-gray-500 mr-2",
-                          attrs: { name: "external-link" }
-                        }),
-                        _vm._v(
-                          "\n                    " +
-                            _vm._s(_vm.$page.global_trans.profile) +
-                            "\n                "
-                        )
-                      ],
-                      1
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "px-2 py-3 text-gray-300 hover:bg-gray-900 rounded",
-                    class: _vm.route().current("teams.dashboard")
-                      ? "bg-gray-900"
-                      : null
-                  },
-                  [
-                    _c(
-                      "InertiaLink",
-                      {
-                        staticClass: "flex items-center",
-                        attrs: {
-                          href: _vm.route("teams.dashboard", {
-                            team: _vm.$page.team["slug"]
-                          })
-                        },
-                        on: {
-                          "&click": function($event) {
-                            _vm.isOpen = !_vm.isOpen
-                          }
-                        }
-                      },
-                      [
-                        _c("Icon", {
-                          staticClass: "text-gray-500 mr-2",
-                          attrs: { name: "home" }
-                        }),
-                        _vm._v(
-                          "\n                    " +
-                            _vm._s(_vm.$page.global_trans.home) +
-                            "\n                "
-                        )
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm.$page.auth.user.role === "Admin"
-                  ? _c(
-                      "li",
-                      {
-                        staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2",
-                        class: _vm.route().current("teams.users*")
-                          ? "bg-gray-900"
-                          : null
-                      },
-                      [
-                        _c(
-                          "InertiaLink",
-                          {
-                            staticClass: "flex items-center text-gray-300",
-                            attrs: {
-                              href: _vm.route(
-                                "teams.users.index",
-                                _vm.$page.team["slug"]
-                              )
-                            }
-                          },
-                          [
-                            _c("Icon", {
-                              staticClass: "text-gray-500 mr-2",
-                              attrs: { name: "users" }
-                            }),
-                            _vm._v(
-                              "\n                    " +
-                                _vm._s(_vm.$page.global_trans.team) +
-                                "\n                "
-                            )
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.$page.auth.user.role === "Admin" ||
-                _vm.$page.auth.user.role === "Editor"
-                  ? _c(
-                      "li",
-                      {
-                        staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2",
-                        class: _vm.route().current("teams.profile*")
-                          ? "bg-gray-900"
-                          : null
-                      },
-                      [
-                        _c(
-                          "InertiaLink",
-                          {
-                            staticClass: "flex items-center text-gray-300",
-                            attrs: {
-                              href: _vm.route(
-                                "teams.profile",
-                                _vm.$page.team["slug"]
-                              )
-                            }
-                          },
-                          [
-                            _c("Icon", {
-                              staticClass: "w-6 text-gray-500 mr-2",
-                              attrs: { name: "info" }
-                            }),
-                            _vm._v(
-                              "\n                    " +
-                                _vm._s(_vm.$page.global_trans.team_profile) +
-                                "\n                "
-                            )
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.$page.auth.user.role === "Admin" ||
-                _vm.$page.auth.user.role === "Editor"
-                  ? _c(
-                      "li",
-                      {
-                        staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2",
-                        class: _vm.route().current("teams.plans*")
-                          ? "bg-gray-900"
-                          : null
-                      },
-                      [
-                        _c(
-                          "InertiaLink",
-                          {
-                            staticClass: "flex items-center text-gray-300",
-                            attrs: {
-                              href: _vm.route(
-                                "teams.plans.index",
-                                _vm.$page.team["slug"]
-                              )
-                            }
-                          },
-                          [
-                            _c("Icon", {
-                              staticClass: "text-gray-500 mr-2",
-                              attrs: { name: "directory" }
-                            }),
-                            _vm._v(
-                              "\n                    " +
-                                _vm._s(_vm.$page.global_trans.plans) +
-                                "\n                "
-                            )
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.$page.auth.user.role === "Admin" ||
-                _vm.$page.auth.user.role === "Financial"
-                  ? _c(
-                      "li",
-                      {
-                        staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2",
-                        class: _vm.route().current("teams.transactions*")
-                          ? "bg-gray-900"
-                          : null
-                      },
-                      [
-                        _c(
-                          "InertiaLink",
-                          {
-                            staticClass: "flex items-center text-gray-300",
-                            attrs: {
-                              href: _vm.route(
-                                "teams.transactions.index",
-                                _vm.$page.team["slug"]
-                              )
-                            }
-                          },
-                          [
-                            _c("Icon", {
-                              staticClass: "text-gray-500 mr-2",
-                              attrs: { name: "switch" }
-                            }),
-                            _vm._v(
-                              "\n                    " +
-                                _vm._s(_vm.$page.global_trans.transactions) +
-                                "\n                "
-                            )
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    )
-                  : _vm._e()
-              ]),
-          _vm._v(" "),
           _vm.$page.auth.user.role == "app_admin"
-            ? _c("ul", [
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "px-2 py-3 text-gray-300 hover:bg-gray-900 rounded",
-                    class: _vm.route().current("admin.dashboard")
-                      ? "bg-gray-900"
-                      : null
-                  },
-                  [
-                    _c(
-                      "InertiaLink",
-                      {
-                        staticClass: "flex items-center",
-                        attrs: { href: _vm.route("admin.dashboard") },
-                        on: {
-                          "&click": function($event) {
-                            _vm.isOpen = !_vm.isOpen
+            ? [
+                _c("ul", [
+                  _c(
+                    "li",
+                    {
+                      staticClass:
+                        "px-2 py-3 text-gray-300 hover:bg-gray-900 rounded",
+                      class: _vm.route().current("admin.dashboard")
+                        ? "bg-gray-900"
+                        : null
+                    },
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          staticClass: "flex items-center",
+                          attrs: { href: _vm.route("admin.dashboard") },
+                          on: {
+                            "&click": function($event) {
+                              _vm.isOpen = !_vm.isOpen
+                            }
                           }
-                        }
-                      },
-                      [
-                        _c("Icon", {
-                          staticClass: "text-gray-500 mr-2",
-                          attrs: { name: "home" }
-                        }),
-                        _vm._v(
-                          "\n                    " +
-                            _vm._s(_vm.$page.global_trans.home) +
-                            "\n                "
-                        )
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2",
-                    class: _vm.route().current("admin.teams*")
-                      ? "bg-gray-900"
-                      : null
-                  },
-                  [
-                    _c(
-                      "InertiaLink",
-                      {
-                        staticClass: "flex items-center text-gray-300",
-                        attrs: { href: _vm.route("admin.teams.index") }
-                      },
-                      [
-                        _c("Icon", {
-                          staticClass: "text-gray-500 mr-2",
-                          attrs: { name: "users" }
-                        }),
-                        _vm._v(
-                          "\n                    " +
-                            _vm._s(_vm.$page.global_trans.teams) +
-                            "\n                "
-                        )
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2",
-                    class: _vm.route().current("admin.charges*")
-                      ? "bg-gray-900"
-                      : null
-                  },
-                  [
-                    _c(
-                      "InertiaLink",
-                      {
-                        staticClass: "flex items-center text-gray-300",
-                        attrs: { href: _vm.route("admin.charges.index") }
-                      },
-                      [
-                        _c("Icon", {
-                          staticClass: "text-gray-500 mr-2",
-                          attrs: { name: "collection" }
-                        }),
-                        _vm._v(
-                          "\n                    " +
-                            _vm._s(_vm.$page.global_trans.charges) +
-                            "\n                "
-                        )
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2",
-                    class: _vm.route().current("admin.transactions*")
-                      ? "bg-gray-900"
-                      : null
-                  },
-                  [
-                    _c(
-                      "InertiaLink",
-                      {
-                        staticClass: "flex items-center text-gray-300",
-                        attrs: { href: _vm.route("admin.transactions.index") }
-                      },
-                      [
-                        _c("Icon", {
-                          staticClass: "text-gray-500 mr-2",
-                          attrs: { name: "switch" }
-                        }),
-                        _vm._v(
-                          "\n                    " +
-                            _vm._s(_vm.$page.global_trans.transactions) +
-                            "\n                "
-                        )
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                )
-              ])
-            : _vm._e(),
+                        },
+                        [
+                          _c("Icon", {
+                            staticClass: "text-gray-500 mr-2",
+                            attrs: { name: "home" }
+                          }),
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.$page.global_trans.home) +
+                              "\n                    "
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    {
+                      staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2",
+                      class: _vm.route().current("admin.teams*")
+                        ? "bg-gray-900"
+                        : null
+                    },
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          staticClass: "flex items-center text-gray-300",
+                          attrs: { href: _vm.route("admin.teams.index") }
+                        },
+                        [
+                          _c("Icon", {
+                            staticClass: "text-gray-500 mr-2",
+                            attrs: { name: "users" }
+                          }),
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.$page.global_trans.teams) +
+                              "\n                    "
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    {
+                      staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2",
+                      class: _vm.route().current("admin.charges*")
+                        ? "bg-gray-900"
+                        : null
+                    },
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          staticClass: "flex items-center text-gray-300",
+                          attrs: { href: _vm.route("admin.charges.index") }
+                        },
+                        [
+                          _c("Icon", {
+                            staticClass: "text-gray-500 mr-2",
+                            attrs: { name: "collection" }
+                          }),
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.$page.global_trans.charges) +
+                              "\n                    "
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    {
+                      staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2",
+                      class: _vm.route().current("admin.transactions*")
+                        ? "bg-gray-900"
+                        : null
+                    },
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          staticClass: "flex items-center text-gray-300",
+                          attrs: { href: _vm.route("admin.transactions.index") }
+                        },
+                        [
+                          _c("Icon", {
+                            staticClass: "text-gray-500 mr-2",
+                            attrs: { name: "switch" }
+                          }),
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.$page.global_trans.transactions) +
+                              "\n                    "
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ])
+              ]
+            : [
+                _vm.route().current("teams.index") ||
+                _vm.route().current("teams.create") ||
+                _vm.route().current("teams.edit") ||
+                _vm.route().current("profile.show")
+                  ? _c("ul", [
+                      _c(
+                        "li",
+                        {
+                          staticClass:
+                            "px-2 py-3 hover:bg-gray-900 rounded mt-2",
+                          class: _vm.route().current("teams.*")
+                            ? "bg-gray-900"
+                            : null
+                        },
+                        [
+                          _c(
+                            "InertiaLink",
+                            {
+                              staticClass: "flex items-center text-gray-300",
+                              attrs: { href: _vm.route("teams.index") }
+                            },
+                            [
+                              _c("Icon", {
+                                staticClass: "text-gray-500 mr-2",
+                                attrs: { name: "users" }
+                              }),
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(_vm.$page.global_trans.teams) +
+                                  "\n                    "
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ])
+                  : _c("ul", [
+                      _c(
+                        "li",
+                        {
+                          staticClass:
+                            "px-2 py-3 hover:bg-gray-900 rounded mt-2"
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "flex items-center text-gray-300",
+                              attrs: {
+                                href: _vm.route("profile-page", {
+                                  team: _vm.$page.team.slug
+                                }),
+                                target: "_blank"
+                              }
+                            },
+                            [
+                              _c("Icon", {
+                                staticClass: "text-gray-500 mr-2",
+                                attrs: { name: "external-link" }
+                              }),
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(_vm.$page.global_trans.profile) +
+                                  "\n                    "
+                              )
+                            ],
+                            1
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        {
+                          staticClass:
+                            "px-2 py-3 text-gray-300 hover:bg-gray-900 rounded",
+                          class: _vm.route().current("teams.dashboard")
+                            ? "bg-gray-900"
+                            : null
+                        },
+                        [
+                          _c(
+                            "InertiaLink",
+                            {
+                              staticClass: "flex items-center",
+                              attrs: {
+                                href: _vm.route("teams.dashboard", {
+                                  team: _vm.$page.team["slug"]
+                                })
+                              },
+                              on: {
+                                "&click": function($event) {
+                                  _vm.isOpen = !_vm.isOpen
+                                }
+                              }
+                            },
+                            [
+                              _c("Icon", {
+                                staticClass: "text-gray-500 mr-2",
+                                attrs: { name: "home" }
+                              }),
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(_vm.$page.global_trans.home) +
+                                  "\n                    "
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _vm.$page.auth.user.role === "Admin"
+                        ? _c(
+                            "li",
+                            {
+                              staticClass:
+                                "px-2 py-3 hover:bg-gray-900 rounded mt-2",
+                              class: _vm.route().current("teams.users*")
+                                ? "bg-gray-900"
+                                : null
+                            },
+                            [
+                              _c(
+                                "InertiaLink",
+                                {
+                                  staticClass:
+                                    "flex items-center text-gray-300",
+                                  attrs: {
+                                    href: _vm.route(
+                                      "teams.users.index",
+                                      _vm.$page.team["slug"]
+                                    )
+                                  }
+                                },
+                                [
+                                  _c("Icon", {
+                                    staticClass: "text-gray-500 mr-2",
+                                    attrs: { name: "users" }
+                                  }),
+                                  _vm._v(
+                                    "\n                        " +
+                                      _vm._s(_vm.$page.global_trans.team) +
+                                      "\n                    "
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.$page.auth.user.role === "Admin" ||
+                      _vm.$page.auth.user.role === "Editor"
+                        ? _c(
+                            "li",
+                            {
+                              staticClass:
+                                "px-2 py-3 hover:bg-gray-900 rounded mt-2",
+                              class: _vm.route().current("teams.profile*")
+                                ? "bg-gray-900"
+                                : null
+                            },
+                            [
+                              _c(
+                                "InertiaLink",
+                                {
+                                  staticClass:
+                                    "flex items-center text-gray-300",
+                                  attrs: {
+                                    href: _vm.route(
+                                      "teams.profile",
+                                      _vm.$page.team["slug"]
+                                    )
+                                  }
+                                },
+                                [
+                                  _c("Icon", {
+                                    staticClass: "w-6 text-gray-500 mr-2",
+                                    attrs: { name: "info" }
+                                  }),
+                                  _vm._v(
+                                    "\n                        " +
+                                      _vm._s(
+                                        _vm.$page.global_trans.team_profile
+                                      ) +
+                                      "\n                    "
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.$page.auth.user.role === "Admin" ||
+                      _vm.$page.auth.user.role === "Editor"
+                        ? _c(
+                            "li",
+                            {
+                              staticClass:
+                                "px-2 py-3 hover:bg-gray-900 rounded mt-2",
+                              class: _vm.route().current("teams.plans*")
+                                ? "bg-gray-900"
+                                : null
+                            },
+                            [
+                              _c(
+                                "InertiaLink",
+                                {
+                                  staticClass:
+                                    "flex items-center text-gray-300",
+                                  attrs: {
+                                    href: _vm.route(
+                                      "teams.plans.index",
+                                      _vm.$page.team["slug"]
+                                    )
+                                  }
+                                },
+                                [
+                                  _c("Icon", {
+                                    staticClass: "text-gray-500 mr-2",
+                                    attrs: { name: "directory" }
+                                  }),
+                                  _vm._v(
+                                    "\n                        " +
+                                      _vm._s(_vm.$page.global_trans.plans) +
+                                      "\n                    "
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.$page.auth.user.role === "Admin" ||
+                      _vm.$page.auth.user.role === "Financial"
+                        ? _c(
+                            "li",
+                            {
+                              staticClass:
+                                "px-2 py-3 hover:bg-gray-900 rounded mt-2",
+                              class: _vm.route().current("teams.transactions*")
+                                ? "bg-gray-900"
+                                : null
+                            },
+                            [
+                              _c(
+                                "InertiaLink",
+                                {
+                                  staticClass:
+                                    "flex items-center text-gray-300",
+                                  attrs: {
+                                    href: _vm.route(
+                                      "teams.transactions.index",
+                                      _vm.$page.team["slug"]
+                                    )
+                                  }
+                                },
+                                [
+                                  _c("Icon", {
+                                    staticClass: "text-gray-500 mr-2",
+                                    attrs: { name: "switch" }
+                                  }),
+                                  _vm._v(
+                                    "\n                        " +
+                                      _vm._s(
+                                        _vm.$page.global_trans.transactions
+                                      ) +
+                                      "\n                    "
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        : _vm._e()
+                    ])
+              ],
           _vm._v(" "),
           _c("div", {
             staticClass: "border-t border-gray-700 -mx-2 mt-2 md:hidden"
@@ -35927,7 +36085,8 @@ var render = function() {
               ]
             )
           ])
-        ]
+        ],
+        2
       )
     ]
   )

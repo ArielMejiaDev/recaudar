@@ -8,9 +8,9 @@
             </template>
 
             <template v-slot:body>
-                <Input v-model="form.facebook_account" name="facebook_account" :label="trans.facebook_account" :errors="$page.errors.facebook_account" :required="false" />
-                <Input v-model="form.twitter_account" name="twitter_account" :label="trans.twitter_account" :errors="$page.errors.twitter_account" :required="false" />
-                <Input v-model="form.instagram_account" name="instagram_account" :label="trans.instagram_account" :errors="$page.errors.instagram_account" :required="false" />
+                <Input v-model="form.facebook_account" name="facebook_account" :label="trans.facebook_account" :placeholder="trans.add_a_link" :errors="$page.errors.facebook_account" :required="false" />
+                <Input v-model="form.twitter_account" name="twitter_account" :label="trans.twitter_account" :placeholder="trans.add_a_link" :errors="$page.errors.twitter_account" :required="false" />
+                <Input v-model="form.instagram_account" name="instagram_account" :label="trans.instagram_account" :placeholder="trans.add_a_link" :errors="$page.errors.instagram_account" :required="false" />
             </template>
 
             <template v-slot:footer>

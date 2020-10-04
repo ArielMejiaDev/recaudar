@@ -2,15 +2,15 @@
     <div class="w-full lg:w-8/12">
         <Panel class="w-full">
             <template v-slot:header>
-                <Title info="Some random text just to show how it looks.">Charge Details.</Title>
+                <Title>{{ trans.charge_details }}</Title>
             </template>
-            <ListItem label="Country" :value="charge.country"></ListItem>
-            <ListItem label="Income">
-                <Pill type="success">{{ charge.income }}</Pill>
+            <ListItem :label="trans.country" :value="charge.country"></ListItem>
+            <ListItem :label="trans.income">
+                <Pill type="success">{{ charge.income * 100 }}</Pill>
             </ListItem>
-            <ListItem label="Payment gateway" :value="charge.gateway"></ListItem>
-            <ListItem label="Payment gateway percentage">
-                <Pill type="warning">{{ charge.gateway_charge }}</Pill>
+            <ListItem :label="trans.payment_gateway" :value="charge.gateway"></ListItem>
+            <ListItem :label="trans.gateway_charge_percentage">
+                <Pill type="warning">{{ charge.gateway_charge * 100 }}</Pill>
             </ListItem>
         </Panel>
     </div>
@@ -35,6 +35,7 @@ export default {
     },
     props: {
         charge: Object,
+        trans: Object,
     },
     methods: {
         submit() {

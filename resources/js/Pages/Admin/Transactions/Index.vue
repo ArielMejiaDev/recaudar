@@ -1,9 +1,9 @@
 <template>
     <div>
         <Table
-            title="Transactions"
-            :headers="['amount', 'status',  'type', 'active', 'date']"
-            :searchbox="{show: true, placeholder: 'Search ...'}"
+            :title="trans.transactions"
+            :headers="[trans.amount, trans.status,  trans.type, trans.reviewed, trans.date]"
+            :searchbox="{show: false, placeholder: `${trans.search} ...`}"
             v-model="search"
             :action="{show: false}"
             :pagination="{show: true, links: transactions.links}">
@@ -17,25 +17,19 @@
                     </td>
                     <td>
                         <InertiaLink :href="route('admin.transactions.show', { transaction: transaction.id })">
-                            <Pill :type="transaction.status === 'approved' ? 'success' : 'danger'">
-                                {{ transaction.status }}
-                            </Pill>
+                            <Pill :type="transaction.status === 'approved' ? 'success' : 'danger'" v-text="getStatus(transaction.status)" />
                         </InertiaLink>
                     </td>
                     <td>
                         <InertiaLink :href="route('admin.transactions.show', { transaction: transaction.id })">
-                            <Pill :type="transaction.type === 'recurrent' ? 'warning' : null">
-                                {{ transaction.type }}
-                            </Pill>
+                            <Pill :type="transaction.type === 'recurrent' ? 'warning' : null" v-text="getType(transaction.type)" />
                         </InertiaLink>
                     </td>
                     <td>
-                        <button class="focus:outline-none" @click.prevent="confirm = !confirm;selectedTransaction = transaction" v-if="transaction.type === 'recurrent' && transaction.reviewed === 'pending'" :href="route('admin.transactions.show', { transaction: transaction.id })">
-                            <Icon name="x-circle" class="text-red-500 hover:text-red-600" />
-                        </button>
-                        <button class="focus:outline-none" @click.prevent="confirm = !confirm;selectedTransaction = transaction" v-if="transaction.type === 'recurrent' && transaction.reviewed === 'checked'" :href="route('admin.transactions.show', { transaction: transaction.id })">
-                            <Icon name="check-circle" class="text-green-500 hover:text-green-600" />
-                        </button>
+                        <InertiaLink v-if="transaction.type === 'recurrent'" href="#" @click.prevent="confirm = !confirm;selectedTransaction = transaction">
+                            <Pill :type="transaction.reviewed === 'checked' ? 'success' : 'danger'" v-text="getReviewStatus(transaction.reviewed)" />
+                        </InertiaLink>
+                        <div v-else class="text-gray-500 w-full text-left">-</div>
                     </td>
                     <td>
                         <InertiaLink :href="route('admin.transactions.show', { transaction: transaction.id })">
@@ -87,11 +81,33 @@ export default {
     props: {
         transactions: Object,
         filters: Array | Object,
+        trans: Object,
     },
     methods: {
         changeRecurrence() {
             const route = this.route('admin.transactions.update', { transaction: this.selectedTransaction.id });
             this.$inertia.put(route);
+        },
+        getStatus(status) {
+            if(status === 'approved') {
+                return this.trans.approved;
+            }
+            if(status === 'pending') {
+                return this.trans.pending;
+            }
+            return this.trans.failed;
+        },
+        getType(type) {
+            if(type === 'single') {
+                return this.trans.single;
+            }
+            return this.trans.recurrent;
+        },
+        getReviewStatus(review) {
+            if(review === 'checked') {
+                return this.trans.checked;
+            }
+            return this.trans.pending;
         }
     },
     watch: {

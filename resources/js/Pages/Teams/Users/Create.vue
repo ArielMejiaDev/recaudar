@@ -11,7 +11,7 @@
 
             <Panel>
                 <template v-slot:header>
-                    <Title info="The user role defines the actions that a user can do">{{ trans.create_a_user }}</Title>
+                    <Title :info="trans.the_user_role_defines_the_actions_that_a_user_can_do">{{ trans.create_a_user }}</Title>
                 </template>
 
                 <template v-slot:body>
@@ -19,11 +19,10 @@
                     <Input v-model="form.email" name="email" :label="trans.email" type="email" :errors="$page.errors.email" />
 
                     <Select v-model="form.role" name="role" :label="trans.role" :placeholder="`${$page.global_trans.select} ${trans.role}`" :errors="$page.errors.role">
-<!--                        <option selected disabled value="null">Please select a role for the user</option>-->
-                        <option value="team_admin">Admin</option>
-                        <option value="team_editor">Editor</option>
-                        <option value="team_financial">Financial</option>
-                        <option value="team_member">Member</option>
+                        <option value="team_admin">{{ trans.admin }}</option>
+                        <option value="team_editor">{{ trans.editor }}</option>
+                        <option value="team_financial">{{ trans.financial }}</option>
+                        <option value="team_member">{{ trans.member }}</option>
                     </Select>
                 </template>
 

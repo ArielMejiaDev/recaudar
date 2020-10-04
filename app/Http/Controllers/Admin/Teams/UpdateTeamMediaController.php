@@ -28,6 +28,6 @@ class UpdateTeamMediaController extends Controller
             $team->logo = $logo;
         }
         $team->save();
-        return redirect()->route('admin.teams.index')->with(['success' => trans('Team media updated!')]);
+        return redirect()->route('admin.teams.index')->with(['success' => trans('Team') . ' ' . trans('Updated')]);
     }
 }

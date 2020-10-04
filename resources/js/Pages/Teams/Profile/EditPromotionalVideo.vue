@@ -8,7 +8,7 @@
             </template>
 
             <template v-slot:body>
-                <Input v-model="form.promotional_video" name="promotional_video" :errors="$page.errors.promotional_video" :required="false" />
+                <Input v-model="form.promotional_video" name="promotional_video" :placeholder="trans.add_a_link" :errors="$page.errors.promotional_video" :required="false" />
             </template>
 
             <template v-slot:footer>

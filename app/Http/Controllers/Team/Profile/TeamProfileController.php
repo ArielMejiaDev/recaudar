@@ -31,6 +31,7 @@ class TeamProfileController extends Controller
             'twitter_account' => trans('Twitter Account'),
             'instagram_account' => trans('Instagram Account'),
             'promotional_video' => trans('Promotional Video'),
+            'add_a_link' => trans('Add a Link'),
         ];
 
         return Inertia::render('Teams/Profile/Edit', [

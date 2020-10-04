@@ -15,6 +15,25 @@ use Inertia\Inertia;
 
 class PlanController extends Controller
 {
+
+    protected $trans;
+
+    public function __construct()
+    {
+        $this->trans = [
+            'search' => trans('Search'),
+            'plan' => trans('Plan'),
+            'amount_in_local_currency' => trans('Amount in Local Currency'),
+            'amount_in_dollars' => trans('Amount in Dollars'),
+            'delete' => trans('Delete'),
+            'are_you_sure_to_delete_the_plan' => trans('Are you sure to delete the plan'),
+            'edit_a_plan' => trans('Edit a Plan'),
+            'title' => trans('Title'),
+            'information_about_the_plan' => trans('Information About the Plan'),
+            'Banner' => trans('Banner')
+        ];
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -37,7 +56,12 @@ class PlanController extends Controller
 
         $team = $team->only('id', 'name');
         $filters = $request->only('search');
-        return Inertia::render('Admin/Teams/Plans/Index', compact('plans','team', 'filters'));
+        return Inertia::render('Admin/Teams/Plans/Index', [
+            'plans' => $plans,
+            'team' => $team,
+            'filters' => $filters,
+            'trans' => $this->trans,
+        ]);
     }
 
     /**
@@ -56,7 +80,8 @@ class PlanController extends Controller
             'locale' => [
                 'country' => $locale->countryCode(),
                 'currency' => $locale->currencyCode(),
-            ]
+            ],
+            'trans' => $this->trans,
         ]);
     }
 
@@ -76,17 +101,18 @@ class PlanController extends Controller
             $data = array_merge(['banner' => $file], $data);
         }
         $plan->update($data);
-        return redirect()->route('admin.teams.plans.index', $team)->with(['success' => trans('Plan updated!')]);
+        return redirect()->route('admin.teams.plans.index', $team)->with(['success' => trans('Plan') . ' ' . trans('Updated')]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param Plan $plan
-     * @return Response
+     * @return RedirectResponse
      */
-    public function destroy(Plan $plan)
+    public function destroy(Team $team, Plan $plan)
     {
-        //
+        $plan->delete();
+        return redirect()->route('admin.teams.plans.index', ['team' => $team])->with(['warning' => trans('Plan') . ' ' . trans('Deleted')]);
     }
 }

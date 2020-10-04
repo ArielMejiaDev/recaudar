@@ -15,7 +15,7 @@
                     </td>
                     <td>
                         <InertiaLink :href="route('teams.users.edit', {team: $page.team['slug'], user: user.id})">
-                            <Pill type="info">{{ user.role }}</Pill>
+                            <Pill type="info" v-text="getRole(user.role)"></Pill>
                         </InertiaLink>
                     </td>
                     <td>
@@ -79,6 +79,18 @@ export default {
     methods: {
         removeUserAccess() {
             this.$inertia.delete(this.route('teams.users.destroy', { team: this.$page.team['slug'] , user: this.selectedUser.id}));
+        },
+        getRole(role) {
+            if(role === 'Admin') {
+                return this.trans.admin;
+            }
+            if(role === 'Editor') {
+                return this.trans.editor;
+            }
+            if(role === 'Financial') {
+                return this.trans.financial;
+            }
+            return this.trans.member;
         }
     },
     watch: {

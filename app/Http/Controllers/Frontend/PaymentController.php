@@ -63,7 +63,7 @@ class PaymentController extends Controller
             return response()->json(['redirect' => route('certificate', ['team' => $team, 'transaction' => $transaction])]);
         }
 
-        $this->createTransaction($request, $team, $plan, 'fail');
+        $this->createTransaction($request, $team, $plan, 'failed');
 
         throw ValidationException::withMessages([
             'transaction' => trans('Transaction Fail, please try again later.')

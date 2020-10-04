@@ -12,6 +12,6 @@ class UpdateTeamContact extends Controller
     public function __invoke(UpdateTeamContactRequest $request, Team $team)
     {
         $team->update($request->validated());
-        return redirect()->route('admin.teams.index')->with(['success' => trans('Team contact updated!')]);
+        return redirect()->route('admin.teams.index')->with(['success' => trans('Team') . ' ' . trans('Updated')]);
     }
 }

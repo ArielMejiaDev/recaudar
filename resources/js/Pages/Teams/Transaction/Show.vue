@@ -2,7 +2,7 @@
 
     <Panel>
         <template v-slot:header>
-            <Title info="Transaction details">
+            <Title :info="trans.transaction_details">
                 {{ $page.global_trans.transactions }}
             </Title>
         </template>
@@ -11,7 +11,7 @@
         <ListItem :label="trans.type">{{ transaction.type }}</ListItem>
         <ListItem :label="trans.date">{{ transaction.readable_created_at }}</ListItem>
         <ListItem :label="trans.status">
-            <Pill :type="transaction.status === 'approved' ? 'success' : 'danger'">{{ transaction.status }}</Pill>
+            <Pill :type="transaction.status === 'approved' ? 'success' : 'danger'" v-text="getTransactionStatus(transaction.status)"></Pill>
         </ListItem>
         <ListItem label="Amount">
             <div class="flex">
@@ -45,6 +45,17 @@ export default {
         Title,
         ListItem,
         Pill,
+    },
+    methods: {
+        getTransactionStatus(status) {
+            if(status === 'approved') {
+                return this.trans.approved;
+            }
+            if(status === 'pending') {
+                return this.trans.pending;
+            }
+            return this.trans.failed;
+        }
     },
 }
 </script>

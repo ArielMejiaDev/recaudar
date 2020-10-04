@@ -48,6 +48,10 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'appAdmin'])->group(func
 
     Route::put('/teams/{team}/plans/{plan}/update', [PlanController::class, 'update'])->name('admin.teams.plans.update');
 
+    Route::put('/teams/{team}/plans/{plan}/update', [PlanController::class, 'update'])->name('admin.teams.plans.update');
+
+    Route::delete('/teams/{team}/plans/{plan}', [PlanController::class, 'destroy'])->name('admin.teams.plans.delete');
+
     Route::resource('charges', ChargeController::class, ['as' => 'admin'])->except(['edit', 'update']);
 
     Route::resource('transactions', TransactionsController::class, ['as' => 'admin'])->only(['index', 'show', 'update']);

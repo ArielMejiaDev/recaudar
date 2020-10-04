@@ -8,6 +8,7 @@ use App\Models\Transaction;
 use App\Services\LocaleCodeResolver;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -24,6 +25,33 @@ class TransactionController extends Controller
         $transactions = $team->transactions()->select(['id', 'name', 'amount_to_deposit', 'status', 'readable_created_at', 'created_at', 'currency'])->paginate();
 
         if($request->has('search')) {
+
+            if(
+                Str::contains(
+                Str::lower(trans('Approved')),
+                Str::lower($request->search)
+                )
+            ) {
+                $request->search = 'approved';
+            }
+
+            if(
+                Str::contains(
+                    Str::lower(trans('Pending')),
+                    Str::lower($request->search)
+                )
+            ) {
+                $request->search = 'pending';
+            }
+
+            if(
+                Str::contains(
+                    Str::lower(trans('Failed')),
+                    Str::lower($request->search)
+                )
+            ) {
+                $request->search = 'failed';
+            }
 
             // filter by dates
             // $date = Carbon::createFromFormat('d/m/Y', $request->search);
@@ -44,6 +72,9 @@ class TransactionController extends Controller
             'amount' => trans('Amount'),
             'date' => trans('Date'),
             'status' => trans('Status'),
+            'pending' => trans('Pending'),
+            'approved' => trans('Approved'),
+            'failed' => trans('Failed')
         ];
 
         return Inertia::render('Teams/Transaction/Index', [
@@ -73,6 +104,10 @@ class TransactionController extends Controller
             'date' => trans('Date'),
             'amount' => trans('Amount'),
             'status' => trans('Status'),
+            'pending' => trans('Pending'),
+            'approved' => trans('Approved'),
+            'failed' => trans('Failed'),
+            'transaction_details' => trans('Transaction details')
         ];
 
         return Inertia::render('Teams/Transaction/Show', [

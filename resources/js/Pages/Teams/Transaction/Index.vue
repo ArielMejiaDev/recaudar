@@ -21,13 +21,13 @@
                     </td>
                     <td>
                         <InertiaLink :href="route('teams.transactions.show', {team: $page.team['slug'], transaction: transaction.id})">
-                            <div :class="transaction.status === 'approved' ? 'text-green-500' : 'text-red-500'">
-                                <Icon :name="transaction.status === 'approved' ? 'check-circle' : 'x-circle'"></Icon>
-                            </div>
+                            <Pill :type="transaction.status === 'approved' ? 'success' : 'danger'" v-text="getTransactionStatus(transaction.status)"></Pill>
                         </InertiaLink>
                     </td>
                     <td>
-                        <InertiaLink :href="route('teams.transactions.show', {team: $page.team['slug'], transaction: transaction.id})">{{ transaction.readable_created_at }}</InertiaLink>
+                        <InertiaLink :href="route('teams.transactions.show', {team: $page.team['slug'], transaction: transaction.id})">
+                            {{ transaction.readable_created_at }}
+                        </InertiaLink>
                     </td>
                 </tr>
             </template>
@@ -79,7 +79,18 @@ export default {
                 minimumFractionDigits: 2
             }).format(value);
         },
-    }
+    },
+    methods: {
+        getTransactionStatus(status) {
+            if(status === 'approved') {
+                return this.trans.approved;
+            }
+            if(status === 'pending') {
+                return this.trans.pending;
+            }
+            return this.trans.failed;
+        }
+    },
 }
 </script>
 

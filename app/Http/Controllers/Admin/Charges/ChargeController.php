@@ -13,6 +13,28 @@ use Inertia\Response;
 
 class ChargeController extends Controller
 {
+    protected array $trans;
+
+    public function __construct()
+    {
+        $this->trans = [
+            'charges' => trans('Charges'),
+            'charge' => trans('Charge'),
+            'search' => trans('Search'),
+            'create_a_charge' => trans('Create a Charge'),
+            'country' => trans('Country'),
+            'payment_gateway' => trans('Payment Gateway'),
+            'delete' => trans('Delete'),
+            'are_you_sure_to_delete_charge_for' => trans('Are you sure to delete charge for'),
+            'this_action_will_invalid_this_charge' => trans('This action will invalid this charge.'),
+            'in' => trans('in'),
+            'income' => trans('Income'),
+            'gateway_charge_percentage' => trans('Gateway Charge Percentage'),
+            'this_settings_are_used_to_calculate_the_amount_to_collect' => trans('This settings are used to calculate the amount to collect.'),
+            'charge_details' => trans('Charge Details')
+        ];
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -33,6 +55,7 @@ class ChargeController extends Controller
         return Inertia::render('Admin/Charge/Index', [
             'charges' => $charges,
             'filters' => $request->only('search'),
+            'trans' => $this->trans,
         ]);
     }
 
@@ -43,7 +66,9 @@ class ChargeController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Admin/Charge/Create');
+        return Inertia::render('Admin/Charge/Create', [
+            'trans' => $this->trans,
+        ]);
     }
 
     /**
@@ -60,7 +85,7 @@ class ChargeController extends Controller
             'gateway' => $request->get('gateway'),
             'gateway_charge' => ($request->gateway_charge / 100),
         ]);
-        return redirect()->route('admin.charges.index')->with(['success' => trans('Charge created!')]);
+        return redirect()->route('admin.charges.index')->with(['success' => trans('Charge') . ' ' . trans('Created')]);
     }
 
     /**
@@ -73,6 +98,7 @@ class ChargeController extends Controller
     {
         return Inertia::render('Admin/Charge/Show', [
             'charge' => $charge,
+            'trans' => $this->trans,
         ]);
     }
 
@@ -85,6 +111,6 @@ class ChargeController extends Controller
     public function destroy(Charge $charge)
     {
         $charge->delete();
-        return redirect()->route('admin.charges.index')->with(['warning' => trans('Charge deleted!')]);
+        return redirect()->route('admin.charges.index')->with(['warning' => trans('Charge') . ' ' . trans('Deleted')]);
     }
 }

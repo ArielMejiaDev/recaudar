@@ -1,9 +1,9 @@
 <template>
     <div>
         <Table
-            title="Teams"
-            :headers="['team', 'status', 'plans']"
-            :searchbox="{show: true, placeholder: 'Search ...'}"
+            :title="trans.teams"
+            :headers="[trans.team, trans.status, trans.plans]"
+            :searchbox="{show: true, placeholder: `${trans.search} ...`}"
             v-model="search"
             :action="{show: false}"
             :pagination="{show: true, links: teams.links}">
@@ -15,9 +15,7 @@
                         </InertiaLink>
                     </td>
                     <td @click="selectedTeam = team;confirm = !confirm;" class="cursor-pointer">
-                        <Pill :type="team.status === 'pending' ? 'danger' : 'success'">
-                            {{ team.status }}
-                        </Pill>
+                        <Pill :type="team.status === 'pending' ? 'danger' : 'success'" v-text="getStatus(team.status)"></Pill>
                     </td>
                     <td>
                         <InertiaLink :href="route('admin.teams.plans.index', { team: team.id })">
@@ -31,10 +29,10 @@
         <Modal
             v-if="confirm"
             type="danger"
-            :title="`Are you sure to change status of ${selectedTeam.name}?`"
-            info="You can switch status anytime."
-            close-button-text="Cancel"
-            action-button-text="Switch team status"
+            :title="`${trans.are_you_sure_to_change_status_of} ${selectedTeam.name}?`"
+            :info="trans.you_can_switch_status_anytime"
+            :close-button-text="$page.global_trans.cancel"
+            :action-button-text="$page.global_trans.update"
             @close="confirm = !confirm;"
             @action="changeStatus();confirm = !confirm"
         />
@@ -71,11 +69,18 @@ export default {
             console.log('change status of ' + this.selectedTeam.name);
             const route = this.route('admin.teams.update-status', { 'team': this.selectedTeam.id });
             this.$inertia.put(route, {status: this.selectedTeam.status});
+        },
+        getStatus(status) {
+            if(status === 'approved') {
+                return this.trans.approved;
+            }
+            return this.trans.pending;
         }
     },
     props: {
         teams: Object,
         filters: Array | Object,
+        trans: Object,
     },
     watch: {
         search: _.throttle(function(value) {

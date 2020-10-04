@@ -1,11 +1,11 @@
 <template>
     <div>
         <Table
-            title="Teams"
-            :headers="['country', 'payment gateway', 'Delete']"
-            :searchbox="{show: true, placeholder: 'Search ...'}"
+            :title="trans.charges"
+            :headers="[trans.country, trans.payment_gateway, trans.delete]"
+            :searchbox="{show: true, placeholder: `${trans.search}...`}"
             v-model="search"
-            :action="{show: true, text: 'Create a charge', link: route('admin.charges.create'), type: 'info'}"
+            :action="{show: true, text: trans.create_a_charge, link: route('admin.charges.create'), type: 'info'}"
             :pagination="{show: true, links: charges.links}">
             <template v-slot:tableData>
                 <tr v-for="(charge, index) in charges.data" :key="index">
@@ -16,7 +16,7 @@
                         <InertiaLink :href="route('admin.charges.show', { charge: charge.id })">{{ charge.gateway }}</InertiaLink>
                     </td>
                     <td @click="confirm = !confirm;selectedCharge = charge">
-                        <Icon name="trash" class="text-gray-500 hover:text-gray-600" />
+                        <Icon name="trash" class="text-gray-500 hover:text-gray-600 cursor-pointer" />
                     </td>
                 </tr>
             </template>
@@ -24,10 +24,10 @@
         <Modal
             v-if="confirm"
             type="danger"
-            :title="`Are you sure to change charge for ${selectedCharge.gateway} in ${selectedCharge.country}?`"
-            info="This action will invalid this charge."
-            close-button-text="Cancel"
-            action-button-text="Delete charge"
+            :title="`${trans.are_you_sure_to_delete_charge_for} ${selectedCharge.gateway} ${trans.in} ${selectedCharge.country}?`"
+            :info="trans.this_action_will_invalid_this_charge"
+            :close-button-text="$page.global_trans.cancel"
+            :action-button-text="`${trans.delete} ${trans.charge}`"
             @close="confirm = !confirm;"
             @action="deleteCharge();confirm = !confirm"
         />
@@ -60,6 +60,7 @@ export default {
     props: {
         charges: Object,
         filters: Array | Object,
+        trans: Object,
     },
     methods: {
         deleteCharge() {

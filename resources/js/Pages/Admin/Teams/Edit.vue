@@ -4,32 +4,32 @@
         <form @submit.prevent="submitProfileDataForm">
             <Panel>
                 <template v-slot:header>
-                    <Title>Profile</Title>
+                    <Title>{{ trans.profile }}</Title>
                 </template>
                 <template v-slot:body>
 
                     <div class="w-full flex flex-col md:flex-row">
 
                         <div class="w-full md:w-1/3 md:mr-1">
-                            <Input v-model="profileDataForm.name" name="name" label="Name" placeholder="Team name" :errors="$page.errors.name" />
+                            <Input v-model="profileDataForm.name" name="name" :label="trans.name" :errors="$page.errors.name" />
                         </div>
                         <div class="w-full md:w-1/3 md:mx-1">
-                            <Input v-model="profileDataForm.beneficiaries" name="beneficiaries" label="Beneficiaries" placeholder="Add beneficiaries" :errors="$page.errors.beneficiaries" />
+                            <Input v-model="profileDataForm.beneficiaries" name="beneficiaries" :label="trans.beneficiaries" :errors="$page.errors.beneficiaries" />
                         </div>
                         <div class="w-full md:w-1/3 md:ml-1">
-                            <Input v-model="profileDataForm.public" name="public" label="Public" placeholder="Add public" :errors="$page.errors.public" />
+                            <Input v-model="profileDataForm.public" name="public" :label="trans.public" :errors="$page.errors.public" />
                         </div>
                     </div>
 
                     <div class="w-full flex flex-col md:flex-row">
                         <div class="w-full md:w-1/3 md:mr-1">
-                            <Select v-model="profileDataForm.status" name="status" label="Status" placeholder="Select a status" :errors="$page.errors.status">
-                                <option value="pending">Pending</option>
-                                <option value="approved">Approved</option>
+                            <Select v-model="profileDataForm.status" name="status" :label="trans.status" :placeholder="`${$page.global_trans.select} ${trans.status}`" :errors="$page.errors.status">
+                                <option value="pending">{{ trans.pending }}</option>
+                                <option value="approved">{{ trans.approved }}</option>
                             </Select>
                         </div>
                         <div class="w-full md:w-1/3 md:mx-1">
-                            <Select v-model="profileDataForm.category" name="category" label="Category" placeholder="Select a category" :errors="$page.errors.category">
+                            <Select v-model="profileDataForm.category" name="category" :label="trans.category" :placeholder="`${$page.global_trans.select} ${trans.category}`" :errors="$page.errors.category">
                                 <option value="Salud">Salud</option>
                                 <option value="Educacion">Educación</option>
                                 <option value="Ambientales">Ambientales</option>
@@ -41,21 +41,21 @@
                             </Select>
                         </div>
                         <div class="w-full md:w-1/3 md:ml-1">
-                            <Select v-model="profileDataForm.theme" name="theme" label="Theme" placeholder="Add a theme" :errors="$page.errors.theme">
-                                <option value="classic">Classic</option>
-                                <option value="condensed">Condensed</option>
-                                <option value="columns">Columns</option>
+                            <Select v-model="profileDataForm.theme" name="theme" :label="trans.theme" :placeholder="`${$page.global_trans.select} ${trans.theme}`" :errors="$page.errors.theme">
+                                <option value="classic">{{ trans.theme }} {{ trans.classic }}</option>
+                                <option value="condensed">{{ trans.theme }} {{ trans.condensed }}</option>
+                                <option value="columns">{{ trans.theme }} {{ trans.columns }}</option>
                             </Select>
                         </div>
                     </div>
-                    <Input v-model="profileDataForm.impact" name="impact" label="Impact" placeholder="Add Impact" :errors="$page.errors.impact" />
-                    <Input v-model="profileDataForm.use_of_funds" name="use_of_funds" label="Use of funds" placeholder="Add a use of funds" :errors="$page.errors.use_of_funds" />
-                    <Textarea v-model="profileDataForm.description" name="description" label="Description" placeholder="Add a description" :errors="$page.errors.description"></Textarea>
+                    <Input v-model="profileDataForm.impact" name="impact" :label="trans.impact" :errors="$page.errors.impact" />
+                    <Input v-model="profileDataForm.use_of_funds" name="use_of_funds" :label="trans.use_of_funds" :errors="$page.errors.use_of_funds" />
+                    <Textarea v-model="profileDataForm.description" name="description" :label="trans.description" :errors="$page.errors.description"></Textarea>
                 </template>
 
                 <template v-slot:footer>
                     <LoadingButton :loading="loadingProfileData">
-                        Update profile
+                        {{ $page.global_trans.update }} {{ trans.profile }}
                     </LoadingButton>
                 </template>
             </Panel>
@@ -72,11 +72,13 @@
                     </Title>
                 </template>
                 <template v-slot:body>
-                    <AvatarUploader v-model="mediaForm.logo" class="mb-4" name="logo" label="Logo" :current-file="team.logo" :errors="$page.errors.logo" />
+                    <AvatarUploader v-model="mediaForm.logo" class="mb-4" name="logo" label="Logo" :current-file="team.logo" :options="{ showButton:true, buttonText:trans.upload }" :errors="$page.errors.logo" />
                     <ImageUploader v-model="mediaForm.banner" name="banner" label="Banner" :current-file="team.banner" :errors="$page.errors.banner" />
                 </template>
                 <template v-slot:footer>
-                    <LoadingButton :loading="loadingMedia">Update media</LoadingButton>
+                    <LoadingButton :loading="loadingMedia">
+                        {{ $page.global_trans.update }} {{ trans.media }}
+                    </LoadingButton>
                 </template>
             </Panel>
         </form>
@@ -84,18 +86,20 @@
         <form @submit.prevent="submitContactDataForm" class="mt-16">
             <Panel>
                 <template v-slot:header>
-                    <Title>Contact</Title>
+                    <Title>{{ trans.contact }}</Title>
                 </template>
                 <template v-slot:body>
                     <div class="w-full flex flex-col md:flex-row">
-                        <Input class="w-full md:w-1/3 md:mr-1" v-model="contactDataForm.contact" name="contact" label="Contact" placeholder="Add a contact" :errors="$page.errors.contact" />
-                        <Input class="w-full md:w-1/3 md:mx-1" v-model="contactDataForm.contact_phone" name="contact_phone" label="Contact Phone" placeholder="Add a contact phone" :errors="$page.errors.contact_phone" />
-                        <Input class="w-full md:w-1/3 md:ml-1" v-model="contactDataForm.contact_email" name="contact_email" label="Contact Email" placeholder="Add Contact Email" :errors="$page.errors.contact_email" />
+                        <Input class="w-full md:w-1/3 md:mr-1" v-model="contactDataForm.contact" name="contact" :label="trans.contact" :errors="$page.errors.contact" />
+                        <Input class="w-full md:w-1/3 md:mx-1" v-model="contactDataForm.contact_phone" name="contact_phone" :label="trans.contact_phone" :errors="$page.errors.contact_phone" />
+                        <Input class="w-full md:w-1/3 md:ml-1" v-model="contactDataForm.contact_email" name="contact_email" :label="trans.contact_email" :errors="$page.errors.contact_email" />
                     </div>
-                    <Input v-model="contactDataForm.office_address" name="office_address" label="Office Address" placeholder="Add office address" :errors="$page.errors.office_address" />
+                    <Input v-model="contactDataForm.office_address" name="office_address" :label="trans.office_address" :errors="$page.errors.office_address" />
                 </template>
                 <template v-slot:footer>
-                    <LoadingButton :loading="loadingContactData">Update contact data</LoadingButton>
+                    <LoadingButton :loading="loadingContactData">
+                        {{ $page.global_trans.update }} {{ trans.contact }}
+                    </LoadingButton>
                 </template>
             </Panel>
         </form>
@@ -103,13 +107,13 @@
         <form @submit.prevent="submitLegalDataForm" class="mt-16">
             <Panel>
                 <template v-slot:header>
-                    <Title>Financial data</Title>
+                    <Title>{{ trans.financial_data }}</Title>
                 </template>
                 <template v-slot:body>
                     <div class="w-full flex flex-col md:flex-row">
-                        <Input class="w-full md:w-1/3 md:mr-1" v-model="legalDataForm.legal_representative" name="legal_representative" label="Legal Representative" placeholder="Add legal representative" :errors="$page.errors.legal_representative" />
-                        <Input class="w-full md:w-1/3 md:mx-1" v-model="legalDataForm.tax_number" name="tax_number" label="Tax number" placeholder="Add tax number" :errors="$page.errors.tax_number" />
-                        <Select class="w-full md:w-1/3 md:ml-1" v-model="legalDataForm.country" name="country" label="Country" placeholder="Country where team is established." :errors="$page.errors.country">
+                        <Input class="w-full md:w-1/3 md:mr-1" v-model="legalDataForm.legal_representative" name="legal_representative" :label="trans.legal_representative" :errors="$page.errors.legal_representative" />
+                        <Input class="w-full md:w-1/3 md:mx-1" v-model="legalDataForm.tax_number" name="tax_number" :label="trans.tax_number" :errors="$page.errors.tax_number" />
+                        <Select class="w-full md:w-1/3 md:ml-1" v-model="legalDataForm.country" name="country" :label="trans.country" :errors="$page.errors.country">
                             <option value="Guatemala">Guatemala</option>
                             <option value="El Salvador">El Salvador</option>
                             <option value="Honduras">Honduras</option>
@@ -118,12 +122,14 @@
                         </Select>
                     </div>
                     <div class="w-full flex flex-col md:flex-row">
-                        <Input class="w-full md:w-1/2 md:mr-1" v-model="legalDataForm.account_number" name="account_number" label="Bank account number" placeholder="Add bank account number" :errors="$page.errors.account_number" />
-                        <Input class="w-full md:w-1/2 md:ml-1" v-model="legalDataForm.bank" name="bank" label="Bank" placeholder="Add bank" :errors="$page.errors.bank" />
+                        <Input class="w-full md:w-1/2 md:mr-1" v-model="legalDataForm.account_number" name="account_number" :label="trans.account_number" :errors="$page.errors.account_number" />
+                        <Input class="w-full md:w-1/2 md:ml-1" v-model="legalDataForm.bank" name="bank" :label="trans.bank" :errors="$page.errors.bank" />
                     </div>
                 </template>
                 <template v-slot:footer>
-                    <LoadingButton :loading="loadingLegalDataForm">Update financial data</LoadingButton>
+                    <LoadingButton :loading="loadingLegalDataForm">
+                        {{ $page.global_trans.update }} {{ trans.financial_data }}
+                    </LoadingButton>
                 </template>
             </Panel>
         </form>
@@ -194,6 +200,7 @@ export default {
     },
     props: {
         team: Object,
+        trans: Object,
     },
     methods: {
         submitProfileDataForm() {

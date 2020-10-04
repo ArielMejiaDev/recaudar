@@ -2,8 +2,8 @@
     <div>
         <Table
             :title="`${team.name} plans`"
-            :headers="['plan', 'Amount in local currency', 'Amount in dollars', 'Delete']"
-            :searchbox="{show: true, placeholder: 'Search ...'}"
+            :headers="[trans.plan, trans.amount_in_local_currency, trans.amount_in_dollars, trans.delete]"
+            :searchbox="{show: true, placeholder: `${trans.search} ...`}"
             v-model="search"
             :action="{show: false}"
             :pagination="{show: true, links: plans.links}">
@@ -25,7 +25,7 @@
                         </InertiaLink>
                     </td>
                     <td>
-                        <div @click="confirm = !confirm; selectedPlan = plan" class="text-gray-500 hover:text-gray-600">
+                        <div @click="confirm = !confirm; selectedPlan = plan" class="text-gray-500 hover:text-gray-600 cursor-pointer">
                             <Icon name="trash" />
                         </div>
                     </td>
@@ -36,10 +36,9 @@
         <Modal
             v-if="confirm"
             type="danger"
-            :title="`Are you sure to delete the plan ${selectedPlan.title}?`"
-            info="This is going to delete the plan from the team profile page."
-            close-button-text="Cancel"
-            action-button-text="Delete plan"
+            :title="`${trans.are_you_sure_to_delete_the_plan} ${selectedPlan.title}?`"
+            :close-button-text="$page.global_trans.cancel"
+            :action-button-text="`${$page.global_trans.delete} ${trans.plan}`"
             @close="confirm = !confirm;"
             @action="deletePlan();confirm = !confirm"
         />
@@ -74,6 +73,7 @@ export default {
         team: Object,
         plans: Object,
         filters: Array | Object,
+        trans: Object,
     },
     watch: {
         search: _.throttle(function(value) {
@@ -83,7 +83,8 @@ export default {
     },
     methods: {
         deletePlan() {
-            //
+            const route = this.route('admin.teams.plans.delete', { team: this.team.id, plan: this.selectedPlan.id });
+            this.$inertia.delete(route);
         }
     },
     filters: {

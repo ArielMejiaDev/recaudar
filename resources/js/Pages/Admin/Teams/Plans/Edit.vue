@@ -2,20 +2,20 @@
     <form @submit.prevent="submit">
         <Panel>
             <template v-slot:header>
-                <Title>Edit a plan</Title>
+                <Title>{{ trans.edit_a_plan }}</Title>
             </template>
             <template v-slot:body>
-                <Input v-model="form.title" name="title" label="Title" placeholder="Add a title" :errors="$page.errors.title" />
+                <Input v-model="form.title" name="title" :label="trans.title" :errors="$page.errors.title" />
 
                 <div class="w-full flex flex-col md:flex-row">
 
-                    <IconInput ref="amount_in_local_currency" v-model="form.amount_in_local_currency" class="w-full md:w-1/2 md:mr-1" name="amount_in_local_currency" placeholder="Amount in local currency" :errors="$page.errors.amount_in_local_currency">
+                    <IconInput ref="amount_in_local_currency" v-model="form.amount_in_local_currency" class="w-full md:w-1/2 md:mr-1" name="amount_in_local_currency" :errors="$page.errors.amount_in_local_currency">
                         <template v-slot:icon>
                             <span class="text-xs">{{ locale.currency }}</span>
                         </template>
                     </IconInput>
 
-                    <IconInput v-model="form.amount_in_dollars" class="w-full md:w-1/2 md:mr-1" name="amount_in_dollars" placeholder="Amount in dollars" :errors="$page.errors.amount_in_dollars">
+                    <IconInput v-model="form.amount_in_dollars" class="w-full md:w-1/2 md:mr-1" name="amount_in_dollars" :errors="$page.errors.amount_in_dollars">
                         <template v-slot:icon>
                             <span class="text-xs">USD</span>
                         </template>
@@ -23,13 +23,15 @@
 
                 </div>
 
-                <Textarea v-model="form.info" name="info" label="Information about the plan" placeholder="Add plans info ..." :errors="$page.errors.info" />
+                <Textarea v-model="form.info" name="info" :label="trans.information_about_the_plan" :errors="$page.errors.info" />
 
-                <ImageUploader v-model="form.banner" :current-file="plan.banner" name="banner" label="Plans banner" :errors="$page.errors.banner" />
+                <ImageUploader v-model="form.banner" :current-file="plan.banner" name="banner" :label="trans.banner" :errors="$page.errors.banner" />
 
             </template>
             <template v-slot:footer>
-                <LoadingButton :loading="loading">Update plan</LoadingButton>
+                <LoadingButton :loading="loading">
+                    {{ $page.global_trans.update }} {{ trans.plan }}
+                </LoadingButton>
             </template>
         </Panel>
     </form>
@@ -76,6 +78,7 @@ export default {
         team: Object,
         plan: Object,
         locale: Object,
+        trans: Object,
     },
     methods: {
         showAmountInput() {

@@ -16,6 +16,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 
@@ -33,6 +34,7 @@ class UserController extends Controller
         $users = $team->users()->select(['users.id', 'users.name'])->where('users.id', '!=', auth()->id())->paginate(5);
 
         if ($request->has('search')) {
+
             $users = $team->users()
                 ->select(['users.id', 'users.name'])
                 ->where('name', 'LIKE' , "%{$request->search}%")
@@ -47,7 +49,11 @@ class UserController extends Controller
             'remove_access_to' => trans('Remove Access To'),
             'remove_access' => trans('Remove Access'),
             'you_can_invite_again_the_user_anytime' => trans('You can invite again the user anytime.'),
-            'invite_a_user' => trans('Invite a User')
+            'invite_a_user' => trans('Invite a User'),
+            'admin' => trans('Admin'),
+            'editor' => trans('Editor'),
+            'financial' => trans('Financial'),
+            'member' => trans('Member')
         ];
 
         return Inertia::render('Teams/Users/Index', [
@@ -68,10 +74,16 @@ class UserController extends Controller
     {
         $trans = [
             'create_a_user' => trans('Create a User'),
+            'the_user_role_defines_the_actions_that_a_user_can_do' => trans('The user role defines the actions that a user can do.'),
             'name' => trans('Name'),
             'email' => trans('Email'),
             'role' => trans('Role'),
+            'admin' => trans('Admin'),
+            'editor' => trans('Editor'),
+            'financial' => trans('Financial'),
+            'member' => trans('Member')
         ];
+
         return Inertia::render('Teams/Users/Create', ['team' => $team->only('name', 'slug'), 'trans' => $trans]);
     }
 
@@ -101,8 +113,13 @@ class UserController extends Controller
         $trans = [
             'role' => trans('Role'),
             'edit_role_of' => trans('Edit Role Of'),
-            "the_user_role_defines_the_actions_that_a_user_can_do" => trans('The user role defines the actions that a user can do')
+            "the_user_role_defines_the_actions_that_a_user_can_do" => trans('The user role defines the actions that a user can do'),
+            'admin' => trans('Admin'),
+            'editor' => trans('Editor'),
+            'financial' => trans('Financial'),
+            'member' => trans('Member'),
         ];
+
         return Inertia::render('Teams/Users/Edit', [
             'team' => $team->only('name', 'slug'),
             'user' => $user,
