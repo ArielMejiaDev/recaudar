@@ -22,7 +22,7 @@
 
     <x-landing.second-call-to-action/>
 
-    <x-landing.footer />
+    <x-footer />
 
     <div x-data="{ open: true }">
         @if(Session::has('success'))

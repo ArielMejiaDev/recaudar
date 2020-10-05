@@ -2,17 +2,17 @@
 
 @section('content')
 
-    <section x-data="form()" class="text-gray-700 body-font relative overflow-hidden bg-gray-200">
+    <x-navbar-pink />
 
-        <x-landing.navbar-dark />
+    <section x-data="form()" class="lg:h-screen flex items-center text-gray-700 body-font relative overflow-hidden bg-gray-200">
 
         <x-landing.blobs />
 
-        <div class="container px-5 py-24 mx-auto">
+        <div class="container px-5 py-10 mx-auto">
 
             <div class="flex flex-col">
 
-                <div class="h-1 bg-gray-200 rounded overflow-hidden mt-6 lg:mt-32 mb-6">
+                <div class="h-1 bg-gray-200 rounded overflow-hidden">
                     <div class="w-24 h-full bg-pink"></div>
                 </div>
 
@@ -104,6 +104,6 @@
 
     </section>
 
-    <x-landing.footer />
+    <x-footer />
 
 @endsection

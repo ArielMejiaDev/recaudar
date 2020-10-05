@@ -151,6 +151,6 @@ class CheckoutTest extends TestCase
         ]);
 
         $response->assertSessionHasErrors(['transaction']);
-        $this->assertEquals('fail', Transaction::first()->status);
+        $this->assertEquals('failed', Transaction::first()->status);
     }
 }

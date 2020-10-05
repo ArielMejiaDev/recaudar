@@ -2,7 +2,7 @@
 <div class="h-screen relative md:flex md:flex-col font-body"
      style="background: url({{ asset('images/landing/hero/bg.jpeg') }});background-position: center; background-repeat: no-repeat;background-size: cover">
 
-    <x-landing.navbar />
+    <x-navbar-transparent />
 
     <!-- overlay -->
     <div class="absolute inset-0 bg-black opacity-50 z-0"></div>

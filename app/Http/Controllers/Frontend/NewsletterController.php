@@ -12,6 +12,6 @@ class NewsletterController extends Controller
     {
         $request->validate(['email' => ['required', 'email']]);
         Newsletter::subscribe($request->email);
-        return redirect()->route('welcome')->with(['success' => trans('Email added!')]);
+        return redirect()->route('welcome')->with(['success' => trans('Email added')]);
     }
 }

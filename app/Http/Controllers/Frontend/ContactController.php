@@ -26,6 +26,6 @@ class ContactController extends Controller
             'email' =>  $request->email,
             'message' => $request->message,
         ]));
-        return redirect()->route('contact.store')->with(['success' => trans('Message sent!')]);
+        return redirect()->route('contact.store')->with(['success' => trans('Message sent')]);
     }
 }

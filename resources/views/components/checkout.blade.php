@@ -25,7 +25,7 @@
                 @else
                     <p class="my-1">{{ $team->name }}</p>
                 @endif
-                    <p class="m-2 {{ !$team->logo ? 'text-xs lg:text-lg text-gray-600' : null }}">
+                    <p class="mx-2 my-3 {{ !$team->logo ? 'text-xs lg:text-lg text-gray-600' : null }}">
                         {{ trans('Customer information') }}
                     </p>
                 <div class="hidden lg:flex font-medium text-xs flex text-gray-500">
@@ -61,14 +61,14 @@
                     <input type="hidden" id="currency" value="{{ $locale->currencyCode() }}">
 
                     <div class="my-1 p-2">
-                        <input x-model="email" class="w-full px-2 py-1 lg:px-4 lg:py-2 text-gray-700 bg-gray-100 text-xs lg:text-sm border border-gray-300 rounded-lg focus:outline-none" id="email" name="email" type="email" placeholder="{{ trans('Email') }}">
+                        <input x-model="email" class="w-full px-2 py-1 lg:px-4 lg:py-2 text-gray-700 bg-gray-100 text-xs lg:text-sm border border-gray-300 rounded-lg focus:outline-none focus:bg-white" id="email" name="email" type="email" placeholder="{{ trans('Email') }}">
                         <p class="text-red-500 text-xs font-bold my-1" x-show="errors.email" x-text="errors.email"></p>
                     </div>
 
                     <div class="block m-1 mx-2 text-gray-800 font-medium text-xs">{{ trans('Payment information') }}</div>
 
                     <div class="mb-1 p-2">
-                        <input x-model="name" class="w-full px-2 py-1 lg:px-4 lg:py-2 text-gray-700 bg-gray-100 text-xs lg:text-sm border border-gray-300 rounded-lg focus:outline-none" id="name" name="name" type="text" placeholder="{{ trans('Name card') }}">
+                        <input x-model="name" class="w-full px-2 py-1 lg:px-4 lg:py-2 text-gray-700 bg-gray-100 text-xs lg:text-sm border border-gray-300 rounded-lg focus:outline-none focus:bg-white" id="name" name="name" type="text" placeholder="{{ trans('Name card') }}">
                         <p class="text-red-500 text-xs font-bold my-1" x-show="errors.name" x-text="errors.name"></p>
                     </div>
 
@@ -86,7 +86,7 @@
                     </div>
 
                     <div x-show="!planId" class="my-1 p-2">
-                        <input x-model="selectedAmount" type="number" class="w-full text-xs lg:text-sm py-1 lg:py-2 px-2 lg:px-4 text-gray-700 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none" placeholder="Add an amount to donate">
+                        <input x-model="selectedAmount" type="number" class="w-full text-xs lg:text-sm py-1 lg:py-2 px-2 lg:px-4 text-gray-700 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:bg-white" placeholder="Add an amount to donate">
                     </div>
 
                     <div class="my-1 p-2">
@@ -97,7 +97,7 @@
                 </div>
                 <div class="mt-4">
                     <div class="w-full">
-                        <button x-bind:disabled="submitting" x-show.transition="!submitting" class="text-xs py-1 lg:py-2 px-2 lg-px-4 text-white font-light tracking-wider bg-gray-900 rounded-lg uppercase w-full focus:outline-none focus:shadow-outline" type="submit" x-text="submitCheckoutText + money_format(selectedAmount)"></button>
+                        <button x-bind:disabled="submitting" x-show.transition="!submitting" class="h-auto lg:h-12 text-xs py-1 lg:py-2 px-2 lg-px-4 text-white font-light tracking-wider bg-gray-900 rounded-lg uppercase w-full focus:outline-none focus:shadow-outline" type="submit" x-text="submitCheckoutText + money_format(selectedAmount)"></button>
                         <p class="text-gray-900 leading-loose tracking-wider font-medium" x-show.transition="submitting" x-text="submittingText"></p>
                     </div>
                 </div>

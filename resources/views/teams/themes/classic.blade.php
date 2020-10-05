@@ -2,13 +2,13 @@
 
 @section('content')
 
-    <section x-data="form()" class="h-auto text-gray-700 body-font overflow-hidden relative flex flex-col items-center justify-center bg-gray-200">
+    <x-navbar-pink />
 
-        <x-landing.navbar-dark />
+    <section x-data="form()" class="h-auto text-gray-700 body-font overflow-hidden relative flex flex-col items-center justify-center bg-gray-200">
 
         <x-landing.blobs />
 
-        <div class="container px-5 py-24 mx-auto mt-20 relative z-10">
+        <div class="container px-5 py-10 mx-auto relative z-10">
             <div class="lg:w-4/5 mx-auto flex flex-wrap">
 
                 @if ($team->banner)
@@ -68,6 +68,6 @@
 
     </section>
 
-    <x-landing.footer />
+    <x-footer />
 
 @endsection

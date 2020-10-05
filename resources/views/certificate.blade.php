@@ -4,33 +4,15 @@
 
 <div class="h-auto xl:h-screen w-full bg-gray-100 relative overflow-x-hidden">
 
-    <x-landing.navbar-green />
+    <x-navbar-pink />
 
-    <svg class="hidden lg:block absolute fill-current text-gray-300 z-0" style="top: -125px; left: -25px" width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(300,300)">
-            <path d="M112.7,-140.9C144.9,-107.4,169,-70.7,184.5,-26.1C200,18.5,206.9,71,185.7,106.6C164.4,142.2,114.9,160.8,65.9,176.7C17,192.6,-31.4,205.8,-75.7,195.2C-120.1,184.6,-160.5,150.3,-194,105.6C-227.5,60.8,-254.1,5.7,-248.8,-47.2C-243.5,-100.1,-206.3,-150.8,-159.5,-181.7C-112.7,-212.6,-56.4,-223.8,-8,-214.2C40.3,-204.7,80.6,-174.3,112.7,-140.9Z" />
-        </g>
-    </svg>
-
-    <svg class="hidden lg:block text-gray-300 fill-current absolute z-0" style="bottom: -100px; left: -300px" height="600px" width="600px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <path d="M39.2,-40.8C54.4,-33.9,72.8,-25,74.4,-13.5C75.9,-2.1,60.5,12,48.3,23.1C36.2,34.3,27.4,42.5,17.1,45.8C6.8,49.1,-4.9,47.4,-14.8,42.9C-24.7,38.4,-32.8,31,-43.3,21C-53.8,11.1,-66.6,-1.5,-67.8,-14.9C-69,-28.4,-58.4,-42.7,-45.2,-50C-32,-57.2,-16,-57.2,-2,-54.8C12,-52.5,24,-47.6,39.2,-40.8Z" transform="translate(100 100)" />
-    </svg>
-
-    <svg class="hidden lg:block text-gray-300 fill-current absolute z-0" style="bottom: -100px; right: 200px" height="600px" width="600px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <path d="M36.1,-41.3C46.5,-34.2,54.7,-22.6,59.8,-8.4C64.8,5.8,66.8,22.7,60,34.8C53.2,46.8,37.7,54,22.3,58.4C6.8,62.9,-8.7,64.6,-19.6,58.6C-30.6,52.6,-37,38.8,-45.2,25.6C-53.3,12.4,-63.3,-0.3,-63,-12.7C-62.8,-25.2,-52.3,-37.5,-40.1,-44.3C-27.9,-51.1,-13.9,-52.5,-0.6,-51.8C12.8,-51.1,25.6,-48.4,36.1,-41.3Z" transform="translate(100 100)" />
-    </svg>
-
-    <svg class="hidden lg:block absolute fill-current text-gray-300 z-0" style="top: -200px; right: -140px" width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(300,300)">
-            <path d="M127,-142.3C156.7,-126.4,167.5,-78.9,180.8,-28.2C194.2,22.5,210.1,76.5,195.3,122.6C180.4,168.8,134.9,207,88.7,208.4C42.6,209.9,-4,174.5,-55,154.4C-105.9,134.4,-161.2,129.7,-194.1,99.2C-227.1,68.7,-237.6,12.5,-231.3,-43.8C-225,-100.2,-201.9,-156.6,-160.5,-170.4C-119.1,-184.3,-59.6,-155.7,-5.5,-149.1C48.6,-142.6,97.3,-158.3,127,-142.3Z" />
-        </g>
-    </svg>
+    <x-blobs />
 
     <div class="container mx-auto">
 
-        <div class="flex items-center justify-center">
+        <div id="certificate" class="flex items-center justify-center">
 
-            <div class="printable-certificate mt-32 md:mt-48 mb-20 mx-0 p-5 text-center border-8 border-melon w-full lg:max-w-screen-lg z-10 bg-white" style="height:600px;">
+            <div class="printable-certificate my-5 lg:my-20 mx-0 p-2 lg:p-5 text-center border-8 border-melon w-full lg:max-w-screen-lg z-10 bg-white">
 
                 <div class="text-center p-5 border-4 border-red-500" style="height:550px;">
                     <div class="flex items-center justify-center my-4 lg:my-2">
@@ -42,13 +24,12 @@
                             </svg>
                         </div>
                     </div>
-                    <span class="text-xl sm:text-2xl uppercase tracking-tighter font-bold text-pink">@lang('Certificate of Donation')</span><br><br>
-                    <span class="text-xl uppercase text-light font-display tracking-widest">@lang('Recaudar agradece a')</span>
-                    <br><br>
-                    <span class="mt-5 block text-xl md:text-2xl lg:text-5xl text-pink uppercase"><b>{{ $transaction->name }}</b></span><br/><br/>
-                    <span class="mt-1 block text-xl text-light font-display tracking-wide">@lang('Por su invaluable apoyo para cambiar el mundo.')</span> <br/><br/>
-                    <span class="text-sm sm:text-xl"><i>{{ $certificateDate }}</i></span> <br><br>
-                    <span class="text-md tracking-tighter font-display">"@lang('Solo la caridad salvara al mundo')"</span> <span class="text-sm tracking-tight font-display ml-1"> - Don Orione</span>
+                    <span class="block text-xl sm:text-2xl uppercase tracking-tighter font-bold text-pink my-6">@lang('Certificate of Donation')</span>
+                    <span class="block text-md lg:text-xl uppercase text-light font-display tracking-widest my-6">@lang('Recaudar agradece a')</span>
+                    <span class="block mt-5 text-xl md:text-2xl lg:text-5xl text-pink uppercase"><b>{{ $transaction->name }}</b></span><br/><br/>
+                    <span class="block text-md lg:text-xl mt-1 block text-light font-display tracking-wide my-6">@lang('Por su invaluable apoyo para cambiar el mundo.')</span>
+                    <span class="block text-sm sm:text-xl my-2 lg:my-4"><i>{{ $certificateDate }}</i></span>
+                    <span class="block text-sm lg:text-xl tracking-tighter font-display">"@lang('Solo la caridad salvara al mundo')"</span> <span class="text-sm tracking-tight font-display ml-1"> - Don Orione</span>
                 </div>
             </div>
 
@@ -56,18 +37,28 @@
 
     </div>
 
-    <button onclick="window.print()" class="bg-pink text-white rounded-lg shadow-xl py-2 px-4 fixed bottom-0 right-0 z-10 mb-56 mr-8 flex hover:bg-melon cursor-pointer no-print focus:outline-none focus:shadow-outline">
+    <button onclick="printCertificate()" class="bg-pink font-body text-white rounded-lg shadow-xl py-2 px-4 fixed bottom-0 right-0 z-10 mb-12 mr-12 flex hover:bg-melon cursor-pointer no-print focus:outline-none focus:shadow-outline">
         <div class="text-white mr-2">
             <svg class="w-6 h-6 fill-current" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a2 2 0 002 2h6a2 2 0 002-2v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zm0 8H7v4h6v-4z" clip-rule="evenodd"></path></svg>
         </div>
         @lang('Print')
     </button>
 
-    <x-landing.footer />
+    <x-footer />
 
 </div>
 
 @endsection
 @push('scripts')
     <script src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></script><script>confetti.start(3000)</script>
+
+    <script>
+        function printCertificate() {
+            const printContents = document.getElementById('certificate').innerHTML;
+            const originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
+        }
+    </script>
 @endpush

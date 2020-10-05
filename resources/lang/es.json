@@ -208,7 +208,7 @@
     "If you are a non-profit organization and want to receive donations through Recaudar, you must fill out our registration form. We will review the validity of your information and notify you by email when you are ready to receive donations. If you want to be part of Recaudar,": "Si eres una organización sin fines de lucro y deseas recibir donaciones a través de Recaudar, debes llenar nuestro formulario de registro. Revisaremos la validez de tu información y te notificaremos por correo electrónico cuando estés listo para recibir donaciones. Si quieres ser parte de Recaudar, inscríbete aquí.",
     "Show more": "Ver mas",
     "Does it cost anything to create my profile?": "¿Tiene algún costo crear mi perfil?",
-    "If you are a non-profit organization, creating your profile and starting receiving donations is completely free. If you want to have access to the process automation modules (Human Resources, Finance, Volunteering, Donor and Beneficiary Management), you can opt for a monthly subscription of $ 15.": "¿Tiene algún costo crear mi perfil?",
+    "If you are a non-profit organization, creating your profile and starting receiving donations is completely free. If you want to have access to the process automation modules (Human Resources, Finance, Volunteering, Donor and Beneficiary Management), you can opt for a monthly subscription of $ 15.": "Si eres una organización sin fines de lucro, crear tu perfil y comenzar a recibir donaciones es completamente gratis. Si quieres tener acceso a los módulos de automatización de procesos (Recursos Humanos, Finanzas, Voluntariado, Gestión de Donantes y Beneficiarios), puedes optar por una suscripción mensual de $ 15.",
     "Why donate at Recaudar?": "¿Por qué donar en Recaudar?",
     "We are not a simple intermediary between donors and organizations. We provide donors with a complete experience and detailed service where you can experience and see first-hand the impact your donation is having. We provide a guarantee of security for all your information, while helping to create a better world.": "No somos un simple intermediario entre donantes y organizaciones. Brindamos a los donantes una experiencia completa y un servicio detallado donde puedes vivir y comprobar de primera mano el impacto que está teniendo tu donativo. Proporcionamos una garantía de seguridad de toda tu información, mientras ayudas a crear un mundo mejor.",
     "Back": "Regresar",
@@ -368,5 +368,14 @@
     "Reviewed": "Revisado",
     "Recurrent": "Recurrente",
     "Checked": "Revisado",
-    "Transaction Details": "Detalles de transacción"
+    "Transaction Details": "Detalles de transacción",
+    "Message": "Mensaje",
+    "Email added": "Correo electrónico agregado",
+    "Adding": "Añadiendo",
+    "Send": "Enviar",
+    "Sending": "Enviando",
+    "Message sent": "Mensaje enviado",
+    "Print": "Imprimir",
+    "Certificate of Donation": "Certificado de donación",
+    "Leave us a message, we will try to reply as soon as possible.": "Déjanos un mensaje, intentaremos responderte lo antes posible."
 }

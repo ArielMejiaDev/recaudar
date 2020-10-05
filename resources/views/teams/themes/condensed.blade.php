@@ -2,15 +2,15 @@
 
 @section('content')
 
+    <x-navbar-pink />
+
     <div x-data="form()" class="relative">
 
         <section class="text-gray-700 body-font relative overflow-hidden bg-gray-200">
 
-            <x-landing.navbar-dark />
-
             <x-landing.blobs :style="'alternative'" />
 
-            <div class="container px-5 py-4 mx-auto flex flex-col mt-20 lg:my-32">
+            <div class="container px-5 py-4 mx-auto flex flex-col lg:my-10">
 
                 <div class="lg:w-full mx-auto z-10">
 
@@ -99,6 +99,6 @@
 
     </div>
 
-    <x-landing.footer />
+    <x-footer />
 
 @endsection
