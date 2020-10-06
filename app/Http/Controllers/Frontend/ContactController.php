@@ -19,7 +19,8 @@ class ContactController extends Controller
         $request->validate([
             'name' => ['required', 'min:5'],
             'email' => ['required', 'email'],
-            'message' => ['required', 'min:10']
+            'message' => ['required', 'min:10'],
+            'g-recaptcha-response' => 'recaptcha',
         ]);
         Notification::route('mail', 'info@recaudar.com')->notify(new ContactNotification([
             'name' => $request->name,

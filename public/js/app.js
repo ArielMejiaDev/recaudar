@@ -3488,7 +3488,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   props: {
-    trans: Object
+    trans: Object,
+    sitekey: String
   },
   methods: {
     submit: function submit() {

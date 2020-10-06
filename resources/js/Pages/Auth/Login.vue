@@ -65,6 +65,7 @@
         },
         props: {
             trans: Object,
+            sitekey: String,
         },
         methods: {
             submit() {

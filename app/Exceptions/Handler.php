@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Exceptions\ThrottleRequestsException;
 use Illuminate\Support\Facades\App;
 use Inertia\Inertia;
 use Throwable;
@@ -46,7 +47,7 @@ class Handler extends ExceptionHandler
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Throwable  $exception
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return \Illuminate\Http\JsonResponse
      *
      * @throws \Throwable
      */
@@ -55,6 +56,10 @@ class Handler extends ExceptionHandler
 //        return parent::render($request, $exception);
 
         $response = parent::render($request, $exception);
+
+        if ($exception instanceof ThrottleRequestsException) {
+            return response()->json(['redirect' => route('too_many_attempts')]);
+        }
 
         if ($this->thereAreErrorsInProduction($response)) {
 

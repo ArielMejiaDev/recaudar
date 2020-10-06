@@ -20,6 +20,8 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.min.js" defer></script>
 
+    @stack('headerScripts')
+
     <!-- Pixel Code for https://app.heyflow.co/ -->
 {{--    <script async src="https://app.heyflow.co/pixel/GDqj84ofOlDbfPj3"></script>--}}
 

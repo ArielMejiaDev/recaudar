@@ -1,3 +1,8 @@
+@push('headerScripts')
+    <!-- Recaptcha -->
+    {!! htmlScriptTagJsApi() !!}
+@endpush
+
 <footer class="text-gray-700 body-font bg-gray-900 relative no-print">
 
     <a href="#app" class="absolute bg-gray-800 p-2 lg:p-4 rounded fill-current text-gray-100" style="right: 50px;top: 30px;">
@@ -62,20 +67,28 @@
 
     <div class="border-t border-gray-700">
 
-        <div x-data="{ submitting:false }" class="container px-5 py-8 flex flex-wrap mx-auto items-center justify-center">
+        <div class="container px-5 py-8 flex flex-wrap mx-auto items-center justify-center">
 
-            <form @submit="submitting = true" method="POST" action="{{ route('newsletter.store') }}" class="flex flex-col md:flex-row md:flex-no-wrap flex-wrap justify-center md:justify-start">
+            @if(Route::is('welcome') || Route::is('about-us'))
+            <form id="{{ getFormId() }}" method="POST" action="{{ route('newsletter.store') }}" class="flex flex-col md:flex-row md:flex-no-wrap flex-wrap justify-center md:justify-start">
                 @csrf
 
-                <input autocomplete="off" class="w-full md:w-64 my-1 md:my-0 bg-gray-100 rounded sm:mr-4 mr-2 border border-gray-400 focus:outline-none focus:border-indigo-500 text-base py-2 px-4" placeholder="Email" name="email" type="email">
+                <input tabindex="20" autocomplete="off" class="w-full md:w-64 my-1 md:my-0 bg-gray-100 rounded sm:mr-4 mr-2 border border-gray-400 focus:outline-none focus:border-indigo-500 text-base py-2 px-4" placeholder="Email" name="email" type="email">
 
-                <button x-bind:disabled="submitting" class="w-full md:w-auto my-1 md:my-0 inline-flex text-white justify-center bg-pink border-0 py-2 px-6 focus:outline-none focus:shadow-outline hover:bg-deeppink rounded" x-text="submitting ? '{{ trans('Adding') }}...' : '{{ trans('Send') }}'"></button>
+                {!!
+                    htmlFormButton(trans('Send'), [
+                        'class' => 'w-full md:w-auto my-1 md:my-0 inline-flex text-white justify-center bg-pink border-0 py-2 px-6 focus:outline-none focus:shadow-outline hover:bg-deeppink rounded focus:shadow-outline',
+                        'id' => 'newsletterSubmitButton',
+                        'tabindex' => 21,
+                    ])
+                !!}
 
                 <p class="text-gray-500 text-sm md:ml-6 mt-2 sm:text-left text-center">
                     {{ trans('Leave your email to find out more news.') }}
                 </p>
 
             </form>
+            @endif
 
             <span class="inline-flex lg:ml-auto lg:mt-0 mt-6 w-full justify-center md:justify-start md:w-auto">
 
@@ -137,3 +150,16 @@
     </div>
 
 </footer>
+
+@if(Route::is('welcome') || Route::is('about-us'))
+
+@push('scripts')
+    <script>
+        const footerRecaptcha = document.getElementById("newsletterSubmitButton");
+        footerRecaptcha.addEventListener('click', function() {
+            footerRecaptcha.disabled = true;
+        })
+    </script>
+@endpush
+
+@endif

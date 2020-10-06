@@ -94,6 +94,7 @@ return [
     'numeric'              => ':attribute debe ser numérico.',
     'password'             => 'La contraseña es incorrecta.',
     'present'              => 'El campo :attribute debe estar presente.',
+    'recaptcha'            => 'El campo :attribute es inválido.',
     'regex'                => 'El formato de :attribute es inválido.',
     'required'             => 'El campo :attribute es obligatorio.',
     'required_if'          => 'El campo :attribute es obligatorio cuando :other es :value.',

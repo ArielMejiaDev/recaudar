@@ -9,57 +9,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/moonlight.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/moonlight.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/LandingPageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/LandingPageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Team/TeamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Team/TeamController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Team/User/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Team/User/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/InertiaServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/InertiaServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ContactController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/NewsletterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/NewsletterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Pages/Auth/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Auth/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Auth/Passwords/Email.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Auth/Passwords/Email.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Auth/Passwords/Reset.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Auth/Passwords/Reset.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Auth/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Auth/Register.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Auth/Verify.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Auth/Verify.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Edit.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Users/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Users/Create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Users/Edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Users/Edit.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Users/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Users/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/User/Profile/Detail.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/User/Profile/Show.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/User/Profile/Show.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Partials/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Partials/Sidebar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Shared/Layouts/SidebarLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Shared/Layouts/SidebarLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Shared/Table.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Shared/Table.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es/validation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/checkout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/dynamic-list-of-plans.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/dynamic-list-of-plans.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/blobs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/blobs.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/call-to-action.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/call-to-action.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/faqs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/faqs.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/foundations-info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/foundations-info.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/hero.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/hero.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/navbar-dark.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/navbar-dark.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/navbar-green.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/navbar-green.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/second-call-to-action.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/second-call-to-action.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/step-one.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/step-one.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/step-three.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/step-three.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/step-two.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/step-two.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/steps.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/steps.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/donate-direct-link.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/donate-direct-link.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teams-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams-page.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/classic.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams/themes/classic.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/columns.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams/themes/columns.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/condensed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams/themes/condensed.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,6 +193,7 @@
       <path value="$PROJECT_DIR$/vendor/reecem/mocker" />
       <path value="$PROJECT_DIR$/vendor/qoraiche/laravel-mail-editor" />
       <path value="$PROJECT_DIR$/vendor/artesaos/seotools" />
+      <path value="$PROJECT_DIR$/vendor/biscolab/laravel-recaptcha" />
     </include_path>
   </component>
   <component name="ProjectId" id="1gvWtV8XEGx0ZSXa3cCe5m6XYPA" />
@@ -312,7 +284,7 @@
       <workItem from="1600106574225" duration="178576000" />
       <workItem from="1601033452225" duration="282000" />
       <workItem from="1601035310376" duration="54750000" />
-      <workItem from="1601444801403" duration="141638000" />
+      <workItem from="1601444801403" duration="154453000" />
     </task>
     <servers />
   </component>

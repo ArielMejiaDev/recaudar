@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Biscolab\ReCaptcha\ReCaptchaBuilderInvisible;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response as ResponseAlias;
@@ -54,7 +55,10 @@ class LoginController extends Controller
             'login' => trans('Login'),
             'signup' => trans('Sign up'),
         ];
-        return inertia('Auth/Login', compact('trans'));
+
+        $sitekey = config('recaptcha.api_site_key');
+
+        return inertia('Auth/Login', compact('trans', 'sitekey'));
     }
 
 

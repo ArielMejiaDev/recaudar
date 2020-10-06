@@ -10,7 +10,10 @@ class NewsletterController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $request->validate(['email' => ['required', 'email']]);
+        $request->validate([
+            'email' => ['required', 'email'],
+            'g-recaptcha-response' => 'recaptcha',
+        ]);
         Newsletter::subscribe($request->email);
         return redirect()->route('welcome')->with(['success' => trans('Email added')]);
     }

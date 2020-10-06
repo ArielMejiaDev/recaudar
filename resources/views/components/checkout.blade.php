@@ -1,3 +1,4 @@
+
 {{--Floating button--}}
 <button @click="showModal = !showModal;planId = '';selectedAmount = ''" class="fixed bottom-0 right-0 m-2 lg:m-12 bg-melon rounded-lg py-2 px-4 text-white shadow-xl flex font-body hover:bg-pink z-10 focus:outline-none focus:shadow-outline">
     <div class="text-white mr-2">
@@ -14,7 +15,7 @@
 {{--Checkout modal--}}
 <div x-cloak x-show.transition="showModal" class="bg-gray-900 bg-opacity-75 fixed inset-0 z-50 flex items-center justify-center">
     <div x-on:click.away="showModal = !showModal" class="leading-loose">
-        <form method="POST" @submit.prevent="submit()" id="checkout" class="w-full max-w-xl bg-white rounded shadow-xl relative py-4">
+        <form id="{{ getFormId() }}" method="POST" @submit.prevent="submit()" id="checkout" class="w-full max-w-xl bg-white rounded shadow-xl relative py-4">
             @csrf
             <div @click="showModal = !showModal" class="absolute top-0 right-0 px-6 py-4 text-gray-500 cursor-pointer">
                 <svg class="w-6 h-6 fill-current" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>

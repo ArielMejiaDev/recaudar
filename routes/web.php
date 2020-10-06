@@ -29,7 +29,7 @@ Route::domain('{team:slug}.' . basename(config('app.url')))->group(function () {
 
     Route::get('/donar/{amount?}', DonateDirectLinkController::class)->name('donate-direct-link');
 
-    Route::post('/pay/{plan}', PaymentController::class)->name('pay');
+    Route::post('/pay/{plan}', PaymentController::class)->name('pay')->middleware('throttle:3,10');
 
     Route::get('/certificate/{transaction}', CertificateController::class)->name('certificate');
 
@@ -50,3 +50,7 @@ Route::get('/contact', [ContactController::class, 'create'])->name('contact.crea
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::post('/newsletter', NewsletterController::class)->name('newsletter.store');
+
+Route::get('/prohibido', function () {
+    abort(403, trans('Demasiados intentos de pago. Vuelve a intentarlo más tarde.'));
+})->name('too_many_attempts');

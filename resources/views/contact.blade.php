@@ -1,13 +1,18 @@
 @extends('layout')
 
+@push('headerScripts')
+<!-- Recaptcha -->
+{!! htmlScriptTagJsApi() !!}
+@endpush
+
 @section('content')
 
     <x-navbar-pink />
 
-    <section x-data="{ open: true, submitting: false }" class="text-gray-700 body-font overflow-hidden relative flex flex-col items-center justify-start bg-gray-200 relative">
+    <section x-data="{ open: true }" class="text-gray-700 body-font overflow-hidden relative flex flex-col items-center justify-start bg-gray-200 relative">
 
         @if(Session::has('success'))
-            <div x-cloak x-show.transition="open" @click.away="open = false" class="p-4 cursor-pointer rounded-lg bg-pink text-white fixed bottom-0 right-0 m-8 z-10 flex font-semibold font-display">
+            <div x-cloak x-show.transition="open" @click.away="open = false" class="p-4 cursor-pointer rounded-lg bg-pink text-white fixed bottom-0 right-0 m-8 z-20 flex font-semibold font-display">
                 <div class="text-white mr-2">
                     <svg class="w-6 h-6 fill-current" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                 </div>
@@ -34,30 +39,38 @@
                                 <p class="lg:w-2/3 mx-auto leading-relaxed text-base">{{ __('Leave us a message, we will try to reply as soon as possible.') }}</p>
                             </div>
                             <div class="lg:w-1/2 md:w-2/3 mx-auto">
-                                <form @submit="submitting = true" action="{{ route('contact.store') }}" method="POST" class="flex flex-wrap -m-2">
+                                <form id="{{ getFormId() }}" action="{{ route('contact.store') }}" method="POST" class="flex flex-wrap -m-2">
                                     @csrf @method('POST')
                                     <div class="flex flex-col md:flex-row w-full">
                                         <div class="p-2 w-full md:w-1/2" data-children-count="1">
-                                            <input class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-pink text-base px-4 py-2" placeholder="{{ __('Name') }}" name="name" value="{{ old('name') }}" type="text">
+                                            <input autocomplete="off" autofocus="true" tabindex="1" class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-pink text-base px-4 py-2" placeholder="{{ __('Name') }}" name="name" value="{{ old('name') }}" type="text">
                                             @error('name')
                                             <p class="text-red-500 font-semibold text-xs my-1">{{ $message }}</p>
                                             @enderror
                                         </div>
                                         <div class="p-2 w-full md:w-1/2" data-children-count="1">
-                                            <input class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-pink text-base px-4 py-2" placeholder="{{ __('Email') }}" name="email" value="{{ old('email') }}" type="email" >
+                                            <input autocomplete="off" tabindex="2" class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-pink text-base px-4 py-2" placeholder="{{ __('Email') }}" name="email" value="{{ old('email') }}" type="email" >
                                             @error('email')
                                             <p class="text-red-500 font-semibold text-xs my-1">{{ $message }}</p>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="p-2 w-full" data-children-count="1">
-                                        <textarea class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none h-48 focus:border-pink text-base px-4 py-2 resize-none block" name="message" placeholder="{{ __('Message') }}">{{ old('message', '') }}</textarea>
+                                        <textarea autocomplete="off" tabindex="3" class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none h-48 focus:border-pink text-base px-4 py-2 resize-none block" name="message" placeholder="{{ __('Message') }}">{{ old('message', '') }}</textarea>
                                         @error('message')
                                             <p class="text-red-500 font-semibold text-xs my-1">{{ $message }}</p>
                                         @enderror
                                     </div>
+
                                     <div class="p-2 w-full">
-                                        <button x-bind:disabled="submitting" type="submit" class="w-full text-center flex justify-center mx-auto text-white bg-pink border border-pink py-2 px-8 focus:outline-none focus:shadow-outline focus:border-melon focus:bg-melon hover:border-melon hover:bg-melon rounded text-lg" x-text="submitting ? '{{ trans('Sending') }}...' : '{{ trans('Send') }}'"></button>
+                                        {!!
+                                            htmlFormButton(trans('Send'), [
+                                                'class' => 'w-full text-center flex justify-center mx-auto text-white bg-pink border border-pink py-2 px-8 focus:outline-none focus:shadow-outline focus:border-melon focus:bg-melon hover:border-melon hover:bg-melon rounded text-lg focus:shadow-outline',
+                                                'id' => 'contactSubmitButton',
+                                                'tabindex' => 4,
+                                            ])
+                                        !!}
+                                        <p id="contactSendingText" class="hidden mt-2 text-gray-900 text-sm font-semibold tracking-wide text-center">@lang('Sending')...</p>
                                     </div>
                                     <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
                                         <p class="leading-normal my-5">Guatemala
@@ -98,3 +111,17 @@
     <x-footer />
 
 @endsection
+
+@push('scripts')
+    <script>
+        const contactRecaptcha = document.getElementById("contactSubmitButton");
+        const sendingText = document.getElementById('contactSendingText');
+        // console.log(recaptcha.getAttribute('data-sitekey'))
+        contactRecaptcha.addEventListener('click', function() {
+            console.log('times it is clicked')
+            contactRecaptcha.classList.add('hidden');
+            sendingText.classList.remove('hidden');
+            contactRecaptcha.disabled = true;
+        })
+    </script>
+@endpush
