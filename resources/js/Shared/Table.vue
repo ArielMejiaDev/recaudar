@@ -93,14 +93,14 @@
 
 
                 <!--Simple Pagination-->
-                <div v-else
+                <div v-else-if="pagination.show"
                     class="px-5 py-2 bg-gray-100 border-t flex flex-col xs:flex-row items-center xs:justify-between">
                     <div class="w-full flex items-center xs:mt-0" :class="pagination.prevLink === null ? 'justify-end' : 'justify-between'">
                         <InertiaLink v-if="pagination.prevLink !== null" :class="pagination.prevLink === null ? 'bg-opacity-25' : null" :href="pagination.prevLink || '#'" class="text-sm hover:bg-gray-200 text-gray-500 font-semibold py-0 px-2 rounded cursor-pointer">
-                            ${$page.global_trans.previous}
+                            {{ $page.global_trans.previous }}
                         </InertiaLink>
                         <InertiaLink v-if="pagination.nextLink !== null" :class="pagination.nextLink === null ? 'bg-opacity-25' : null" :href="pagination.nextLink || '#'" class="text-sm hover:bg-gray-200 text-gray-500 font-semibold py-0 px-2 rounded cursor-pointer">
-                            ${$page.global_trans.next}
+                            {{ $page.global_trans.next }}
                         </InertiaLink>
                     </div>
                 </div>

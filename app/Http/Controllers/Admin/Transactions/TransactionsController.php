@@ -8,6 +8,7 @@ use App\Models\Transaction;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 
 class TransactionsController extends Controller
@@ -21,7 +22,9 @@ class TransactionsController extends Controller
             'by' => trans('By'),
             'email' =>  trans('Email'),
             'search' => trans('Search'),
+            'income' => trans('Income'),
             'amount' => trans('Amount'),
+            'amount_to_deposit' => trans('Amount To Deposit'),
             'status' => trans('Status'),
             'type' => trans('Type'),
             'active' => trans('Active'),
@@ -29,7 +32,7 @@ class TransactionsController extends Controller
             'approved' => trans('Approved'),
             'pending' => trans('Pending'),
             'failed' => trans('Failed'),
-            'single' => trans('Unico'),
+            'single' => trans('Single'),
             'recurrent' => trans('Recurrent'),
             'reviewed' => trans('Reviewed'),
             'checked' => trans('Checked'),
@@ -44,7 +47,45 @@ class TransactionsController extends Controller
      */
     public function index(Request $request)
     {
-        $transactions = Transaction::orderByDesc('id')->paginate();
+
+        $transactions = Transaction::select([
+            'id', 'amount_to_deposit', 'income', 'currency', 'status',
+            'type', 'reviewed', 'created_at', 'readable_created_at'
+        ])->orderByDesc('id')
+            ->paginate(5);
+
+        if($request->has('search')) {
+
+            $searchFilters = collect([
+                'Approved' => 'approved',
+                'Pending' => 'pending',
+                'Failed' => 'failed',
+                'Checked' => 'checked',
+                'Recurrent' => 'recurrent',
+                'Single' => 'single'
+            ]);
+
+            $searchFilters->each(function ($item, $key) use($request) {
+                if(Str::contains(Str::lower(trans($key)), Str::lower($request->search))) {
+                    $request->search = $item;
+                }
+            });
+
+            $transactions = Transaction::select([
+                'id', 'amount_to_deposit', 'income', 'currency', 'status',
+                'type', 'reviewed', 'created_at', 'readable_created_at'
+            ])->where(function($query) use($request) {
+                    $query->where('income', 'LIKE', "%{$request->search}%")
+                        ->orWhere('amount_to_deposit', 'LIKE', "%{$request->search}%")
+                        ->orWhere('status', 'LIKE', "%{$request->search}%")
+                        ->orWhere('reviewed', 'LIKE', "%{$request->search}%")
+                        ->orWhere('type', 'LIKE', "%{$request->search}%")
+                    ;
+                })
+                ->orderByDesc('id')
+                ->paginate(5);
+        }
+
         return Inertia::render('Admin/Transactions/Index', [
             'transactions' => $transactions,
             'filters' => $request->only('search'),
@@ -60,7 +101,7 @@ class TransactionsController extends Controller
      */
     public function show(Transaction $transaction)
     {
-        $transaction = $transaction->only(['id', 'name', 'email', 'currency', 'amount', 'type', 'status', 'reviewed', 'created_at', 'readable_created_at']);
+        $transaction = $transaction->only(['id', 'name', 'email', 'currency', 'amount', 'amount_to_deposit', 'income', 'type', 'status', 'reviewed', 'created_at', 'readable_created_at']);
         return Inertia::render('Admin/Transactions/Show', [
             'transaction' => $transaction,
             'trans' => $this->trans,

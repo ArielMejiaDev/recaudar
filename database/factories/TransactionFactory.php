@@ -18,7 +18,7 @@ $factory->define(Transaction::class, function (Faker $faker) {
         'type' => collect(['recurrent', 'single'])->random(),
         'amount_to_deposit' => $amount * 0.92,
         'income' => $amount * 0.025,
-        'status' => collect(['approved', 'pending'])->random(),
+        'status' => collect(['approved', 'failed'])->random(),
         'reviewed' => collect(['checked', 'pending'])->random(),
     ];
 });

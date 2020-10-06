@@ -2382,6 +2382,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2405,6 +2436,27 @@ __webpack_require__.r(__webpack_exports__);
     ActionPanel: _Shared_ActionPanel__WEBPACK_IMPORTED_MODULE_3__["default"],
     Title: _Shared_Title__WEBPACK_IMPORTED_MODULE_4__["default"],
     LinkButton: _Shared_LinkButton__WEBPACK_IMPORTED_MODULE_5__["default"]
+  },
+  props: {
+    totalIncome: String,
+    totalIncomeByRecurrence: String,
+    newRecurrentPlans: Number,
+    trans: Object,
+    localCurrencyCode: String,
+    recentTransactions: Array
+  },
+  methods: {
+    getTransactionStatus: function getTransactionStatus(status) {
+      if (status === 'approved') {
+        return this.trans.approved;
+      }
+
+      if (status === 'pending') {
+        return this.trans.pending;
+      }
+
+      return this.trans.failed;
+    }
   }
 });
 
@@ -3152,6 +3204,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3217,7 +3275,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   watch: {
     search: lodash__WEBPACK_IMPORTED_MODULE_3___default.a.throttle(function (value) {
-      var route = this.route('admin.teams.index', {
+      var route = this.route('admin.transactions.index', {
         search: value
       });
       this.$inertia.replace(route);
@@ -3241,6 +3299,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_Title__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../Shared/Title */ "./resources/js/Shared/Title.vue");
 /* harmony import */ var _Shared_Layouts_SidebarLayout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../Shared/Layouts/SidebarLayout */ "./resources/js/Shared/Layouts/SidebarLayout.vue");
 /* harmony import */ var _Shared_ListItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../Shared/ListItem */ "./resources/js/Shared/ListItem.vue");
+/* harmony import */ var _Shared_Icon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../Shared/Icon */ "./resources/js/Shared/Icon.vue");
 //
 //
 //
@@ -3267,6 +3326,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -3286,7 +3372,8 @@ __webpack_require__.r(__webpack_exports__);
     Panel: _Shared_Panel__WEBPACK_IMPORTED_MODULE_0__["default"],
     Title: _Shared_Title__WEBPACK_IMPORTED_MODULE_2__["default"],
     ListItem: _Shared_ListItem__WEBPACK_IMPORTED_MODULE_4__["default"],
-    Pill: _Shared_Pill__WEBPACK_IMPORTED_MODULE_1__["default"]
+    Pill: _Shared_Pill__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Icon: _Shared_Icon__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   methods: {
     getStatus: function getStatus(status) {
@@ -3306,6 +3393,13 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return this.trans.pending;
+    },
+    getType: function getType(type) {
+      if (type === 'single') {
+        return this.trans.single;
+      }
+
+      return this.trans.recurrent;
     }
   }
 });
@@ -4114,6 +4208,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_Title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../Shared/Title */ "./resources/js/Shared/Title.vue");
 /* harmony import */ var _Shared_LinkButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../Shared/LinkButton */ "./resources/js/Shared/LinkButton.vue");
 /* harmony import */ var _Shared_Icon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../Shared/Icon */ "./resources/js/Shared/Icon.vue");
+/* harmony import */ var _Shared_Card__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../Shared/Card */ "./resources/js/Shared/Card.vue");
+/* harmony import */ var _Shared_Table__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../Shared/Table */ "./resources/js/Shared/Table.vue");
+/* harmony import */ var _Shared_Pill__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../Shared/Pill */ "./resources/js/Shared/Pill.vue");
 //
 //
 //
@@ -4132,6 +4229,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
 
 
 
@@ -4150,10 +4281,32 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Title: _Shared_Title__WEBPACK_IMPORTED_MODULE_1__["default"],
     LinkButton: _Shared_LinkButton__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Icon: _Shared_Icon__WEBPACK_IMPORTED_MODULE_3__["default"]
+    Icon: _Shared_Icon__WEBPACK_IMPORTED_MODULE_3__["default"],
+    Card: _Shared_Card__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Table: _Shared_Table__WEBPACK_IMPORTED_MODULE_5__["default"],
+    Pill: _Shared_Pill__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   props: {
-    team: Object
+    team: Object,
+    monthTotalIncome: String,
+    monthNewRecurrentPlans: Number,
+    monthTotalIncomeRecurrent: String,
+    trans: Object,
+    localCurrencyCode: String,
+    recentTransactions: Array
+  },
+  methods: {
+    getTransactionStatus: function getTransactionStatus(status) {
+      if (status === 'approved') {
+        return this.trans.approved;
+      }
+
+      if (status === 'pending') {
+        return this.trans.pending;
+      }
+
+      return this.trans.failed;
+    }
   }
 });
 
@@ -6919,8 +7072,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Card",
@@ -6930,7 +7081,7 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     title: null,
     number: null,
-    percent: null,
+    pill: null,
     info: null,
     type: {
       type: String,
@@ -6938,15 +7089,6 @@ __webpack_require__.r(__webpack_exports__);
       validator: function validator(value) {
         return ['default', 'info', 'success', 'warning', 'danger'].includes(value);
       }
-    }
-  },
-  computed: {
-    percentFormat: function percentFormat() {
-      if (this.percent) {
-        return this.percent + '%';
-      }
-
-      return '';
     }
   }
 });
@@ -7130,6 +7272,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -28927,49 +29073,204 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      { staticClass: "flex items-start w-full justify-between mb-8" },
-      [
-        _c("Title", { staticClass: "mb-6" }, [_vm._v("Admin dashboard")]),
-        _vm._v(" "),
-        _c(
-          "LinkButton",
-          { attrs: { link: _vm.route("admin.admins.create") } },
-          [_vm._v("Invite admin")]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "flex flex-wrap -mx-4 mb-16" },
-      [
-        _c("Card", { attrs: { title: "Users", number: "500" } }),
-        _vm._v(" "),
-        _c("Card", {
-          attrs: {
-            title: "Sales",
-            number: "20,000",
-            percent: "35",
-            type: "success"
+  return _c(
+    "div",
+    [
+      _c(
+        "div",
+        { staticClass: "flex items-start w-full justify-between mb-8" },
+        [
+          _c(
+            "Title",
+            {
+              staticClass: "mb-6",
+              attrs: { info: _vm.trans.data_of_the_month }
+            },
+            [_vm._v("Admin dashboard")]
+          ),
+          _vm._v(" "),
+          _c(
+            "LinkButton",
+            { attrs: { link: _vm.route("admin.admins.create") } },
+            [_vm._v(_vm._s(_vm.trans.invite_admin))]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "flex flex-col lg:flex-row mb-16 w-full" },
+        [
+          _c("Card", {
+            staticClass: "w-full lg:w-1/3 lg:mx-2",
+            attrs: {
+              title: _vm.trans.total_income,
+              number: _vm.totalIncome,
+              pill: _vm.localCurrencyCode,
+              type: "success"
+            }
+          }),
+          _vm._v(" "),
+          _c("Card", {
+            staticClass: "w-full lg:w-1/3 lg:mx-2",
+            attrs: {
+              title: _vm.trans.recurrent_plans_income,
+              number: _vm.totalIncomeByRecurrence,
+              pill: _vm.localCurrencyCode,
+              type: "success"
+            }
+          }),
+          _vm._v(" "),
+          _c("Card", {
+            staticClass: "w-full lg:w-1/3 lg:mx-2",
+            attrs: {
+              title: _vm.trans.new_recurrent_plans,
+              number: _vm.newRecurrentPlans,
+              pill: _vm.localCurrencyCode,
+              type: "success"
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("Table", {
+        attrs: {
+          title: _vm.trans.recent_transactions,
+          headers: [
+            _vm.trans.by,
+            _vm.trans.income,
+            _vm.trans.status,
+            _vm.trans.date
+          ],
+          searchbox: {
+            show: false,
+            placeholder: _vm.$page.global_trans.search + " ..."
+          },
+          action: { show: false },
+          pagination: { show: false }
+        },
+        scopedSlots: _vm._u([
+          {
+            key: "tableData",
+            fn: function() {
+              return _vm._l(_vm.recentTransactions, function(
+                transaction,
+                index
+              ) {
+                return _c("tr", { key: index }, [
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          attrs: {
+                            href: _vm.route("admin.transactions.show", {
+                              transaction: transaction.id
+                            })
+                          }
+                        },
+                        [_vm._v(_vm._s(transaction.name))]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          attrs: {
+                            href: _vm.route("admin.transactions.show", {
+                              transaction: transaction.id
+                            })
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(transaction.income) +
+                              "\n                        "
+                          ),
+                          _c("span", { staticClass: "text-gray-600" }, [
+                            _vm._v(_vm._s(transaction.currency))
+                          ])
+                        ]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          attrs: {
+                            href: _vm.route("admin.transactions.show", {
+                              transaction: transaction.id
+                            })
+                          }
+                        },
+                        [
+                          _c("Pill", {
+                            attrs: {
+                              type:
+                                transaction.status === "approved"
+                                  ? "success"
+                                  : "danger"
+                            },
+                            domProps: {
+                              textContent: _vm._s(
+                                _vm.getTransactionStatus(transaction.status)
+                              )
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          attrs: {
+                            href: _vm.route("admin.transactions.show", {
+                              transaction: transaction.id
+                            })
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(transaction.readable_created_at) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ])
+              })
+            },
+            proxy: true
           }
-        }),
-        _vm._v(" "),
-        _c("Card", {
-          attrs: {
-            title: "Inventory",
-            number: "820",
-            percent: "10",
-            type: "danger"
-          }
-        })
-      ],
-      1
-    )
-  ])
+        ])
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -30304,13 +30605,14 @@ var render = function() {
         attrs: {
           title: _vm.trans.transactions,
           headers: [
+            _vm.trans.income,
             _vm.trans.amount,
             _vm.trans.status,
             _vm.trans.type,
             _vm.trans.reviewed,
             _vm.trans.date
           ],
-          searchbox: { show: false, placeholder: _vm.trans.search + " ..." },
+          searchbox: { show: true, placeholder: _vm.trans.search + " ..." },
           action: { show: false },
           pagination: { show: true, links: _vm.transactions.links }
         },
@@ -30323,6 +30625,33 @@ var render = function() {
                 index
               ) {
                 return _c("tr", { key: index }, [
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          attrs: {
+                            href: _vm.route("admin.transactions.show", {
+                              transaction: transaction.id
+                            })
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(transaction.income) +
+                              "\n                        "
+                          ),
+                          _c("span", { staticClass: "text-gray-600" }, [
+                            _vm._v(_vm._s(transaction.currency))
+                          ])
+                        ]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
                   _c(
                     "td",
                     [
@@ -30566,16 +30895,28 @@ var render = function() {
     [
       _vm._v(" "),
       _c("ListItem", { attrs: { label: _vm.trans.by } }, [
-        _vm._v(_vm._s(_vm.transaction.name))
+        _c("div", { staticClass: "flex" }, [
+          _c("div", [_vm._v(_vm._s(_vm.transaction.name))]),
+          _vm._v(" "),
+          _c("div", { staticClass: "ml-2 text-gray-500" }, [
+            _vm._v(_vm._s(_vm.transaction.email))
+          ])
+        ])
       ]),
       _vm._v(" "),
-      _c("ListItem", { attrs: { label: _vm.trans.email } }, [
-        _vm._v(_vm._s(_vm.transaction.email))
-      ]),
-      _vm._v(" "),
-      _c("ListItem", { attrs: { label: _vm.trans.type } }, [
-        _vm._v(_vm._s(_vm.transaction.type))
-      ]),
+      _c(
+        "ListItem",
+        { attrs: { label: _vm.trans.type } },
+        [
+          _c("Pill", {
+            attrs: {
+              type: _vm.transaction.type === "recurrent" ? "warning" : "info"
+            },
+            domProps: { textContent: _vm._s(_vm.getType(_vm.transaction.type)) }
+          })
+        ],
+        1
+      ),
       _vm._v(" "),
       _c("ListItem", { attrs: { label: _vm.trans.date } }, [
         _vm._v(_vm._s(_vm.transaction.readable_created_at))
@@ -30583,7 +30924,27 @@ var render = function() {
       _vm._v(" "),
       _c("ListItem", { attrs: { label: _vm.trans.amount } }, [
         _c("div", { staticClass: "flex" }, [
+          _c("div", [_vm._v(_vm._s(_vm.transaction.amount))]),
+          _vm._v(" "),
+          _c("span", { staticClass: "text-gray-600 ml-2" }, [
+            _vm._v(_vm._s(_vm.transaction.currency))
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("ListItem", { attrs: { label: _vm.trans.amount_to_deposit } }, [
+        _c("div", { staticClass: "flex" }, [
           _c("div", [_vm._v(_vm._s(_vm.transaction.amount_to_deposit))]),
+          _vm._v(" "),
+          _c("span", { staticClass: "text-gray-600 ml-2" }, [
+            _vm._v(_vm._s(_vm.transaction.currency))
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("ListItem", { attrs: { label: _vm.trans.income } }, [
+        _c("div", { staticClass: "flex" }, [
+          _c("div", [_vm._v(_vm._s(_vm.transaction.income))]),
           _vm._v(" "),
           _c("span", { staticClass: "text-gray-600 ml-2" }, [
             _vm._v(_vm._s(_vm.transaction.currency))
@@ -32210,50 +32571,199 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      {
-        staticClass:
-          "flex items-center justify-between pb-12 border-b border-gray-300"
-      },
-      [
+  return _c(
+    "div",
+    [
+      _c("div", { staticClass: "flex items-center justify-between mb-8" }, [
         _c(
           "div",
           { staticClass: "flex-1 min-w-0" },
           [
-            _c(
-              "Title",
-              {
-                attrs: {
-                  info: "In this section you can manage your organizations."
-                }
-              },
-              [_vm._v(_vm._s(_vm.team.name))]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "mt-5 flex lg:mt-0 lg:ml-4" },
-          [
-            _c(
-              "LinkButton",
-              { attrs: { link: "#" } },
-              [
-                _c("Icon", { attrs: { name: "add" } }),
-                _vm._v("\n                Create\n            ")
-              ],
-              1
-            )
+            _c("Title", { attrs: { info: _vm.trans.data_of_the_month } }, [
+              _vm._v(_vm._s(_vm.team.name))
+            ])
           ],
           1
         )
-      ]
-    )
-  ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "flex flex-col lg:flex-row mb-16 w-full" },
+        [
+          _c("Card", {
+            staticClass: "w-full lg:w-1/3 lg:mx-2",
+            attrs: {
+              title: _vm.trans.total_income,
+              number: _vm.monthTotalIncome,
+              pill: _vm.localCurrencyCode,
+              type: "success"
+            }
+          }),
+          _vm._v(" "),
+          _c("Card", {
+            staticClass: "w-full lg:w-1/3 lg:mx-2",
+            attrs: {
+              title: _vm.trans.recurrent_plans_income,
+              number: _vm.monthTotalIncomeRecurrent,
+              pill: _vm.localCurrencyCode,
+              type: "success"
+            }
+          }),
+          _vm._v(" "),
+          _c("Card", {
+            staticClass: "w-full lg:w-1/3 lg:mx-2",
+            attrs: {
+              title: _vm.trans.new_recurrent_plans,
+              number: _vm.monthNewRecurrentPlans,
+              pill: _vm.localCurrencyCode,
+              type: "success"
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("Table", {
+        attrs: {
+          title: _vm.trans.recent_transactions,
+          headers: [
+            _vm.trans.by,
+            _vm.trans.amount,
+            _vm.trans.status,
+            _vm.trans.date
+          ],
+          searchbox: {
+            show: false,
+            placeholder: _vm.$page.global_trans.search + " ..."
+          },
+          action: { show: false },
+          pagination: { show: false }
+        },
+        scopedSlots: _vm._u([
+          {
+            key: "tableData",
+            fn: function() {
+              return _vm._l(_vm.recentTransactions, function(
+                transaction,
+                index
+              ) {
+                return _c("tr", { key: index }, [
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          attrs: {
+                            href: _vm.route("teams.transactions.show", {
+                              team: _vm.$page.team["slug"],
+                              transaction: transaction.id
+                            })
+                          }
+                        },
+                        [_vm._v(_vm._s(transaction.name))]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          attrs: {
+                            href: _vm.route("teams.transactions.show", {
+                              team: _vm.$page.team["slug"],
+                              transaction: transaction.id
+                            })
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(transaction.amount_to_deposit) +
+                              "\n                        "
+                          ),
+                          _c("span", { staticClass: "text-gray-600" }, [
+                            _vm._v(_vm._s(transaction.currency))
+                          ])
+                        ]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          attrs: {
+                            href: _vm.route("teams.transactions.show", {
+                              team: _vm.$page.team["slug"],
+                              transaction: transaction.id
+                            })
+                          }
+                        },
+                        [
+                          _c("Pill", {
+                            attrs: {
+                              type:
+                                transaction.status === "approved"
+                                  ? "success"
+                                  : "danger"
+                            },
+                            domProps: {
+                              textContent: _vm._s(
+                                _vm.getTransactionStatus(transaction.status)
+                              )
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "InertiaLink",
+                        {
+                          attrs: {
+                            href: _vm.route("teams.transactions.show", {
+                              team: _vm.$page.team["slug"],
+                              transaction: transaction.id
+                            })
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(transaction.readable_created_at) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ])
+              })
+            },
+            proxy: true
+          }
+        ])
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -36745,53 +37255,49 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "w-full md:w-1/3 px-4" }, [
-    _c(
-      "div",
-      {
-        staticClass:
-          "relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg"
-      },
-      [
-        _c("div", { staticClass: "flex-auto p-5" }, [
-          _c("div", { staticClass: "flex flex-wrap" }, [
-            _c(
-              "div",
-              {
-                staticClass: "relative w-full pr-4 max-w-full flex-grow flex-1"
-              },
-              [
-                _c("h5", { staticClass: "text-gray-600 font-medium text-sm" }, [
-                  _vm._v(_vm._s(_vm.title))
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "flex items-baseline" },
-                  [
-                    _c(
-                      "span",
-                      { staticClass: "font-semibold text-4xl text-gray-800" },
-                      [_vm._v(_vm._s(_vm.number))]
-                    ),
-                    _vm._v(" "),
-                    _vm.percent
-                      ? _c(
-                          "Pill",
-                          { staticClass: "ml-auto", attrs: { type: _vm.type } },
-                          [_vm._v(_vm._s(_vm.percentFormat))]
-                        )
-                      : _vm._e()
-                  ],
-                  1
-                )
-              ]
-            )
-          ])
+  return _c(
+    "div",
+    {
+      staticClass:
+        "relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg"
+    },
+    [
+      _c("div", { staticClass: "flex-auto p-5" }, [
+        _c("div", { staticClass: "flex flex-wrap" }, [
+          _c(
+            "div",
+            { staticClass: "relative w-full pr-4 max-w-full flex-grow flex-1" },
+            [
+              _c("h5", { staticClass: "text-gray-600 font-medium text-sm" }, [
+                _vm._v(_vm._s(_vm.title))
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "flex items-baseline" },
+                [
+                  _c(
+                    "span",
+                    { staticClass: "font-semibold text-4xl text-gray-800" },
+                    [_vm._v(_vm._s(_vm.number))]
+                  ),
+                  _vm._v(" "),
+                  _vm.pill
+                    ? _c(
+                        "Pill",
+                        { staticClass: "ml-auto", attrs: { type: _vm.type } },
+                        [_vm._v(_vm._s(_vm.pill))]
+                      )
+                    : _vm._e()
+                ],
+                1
+              )
+            ]
+          )
         ])
-      ]
-    )
-  ])
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -37326,6 +37832,28 @@ var render = function() {
           })
         ]
       )
+    : _vm.name === "calendar-filled"
+    ? _c(
+        "svg",
+        {
+          staticClass: "w-6 h-6",
+          attrs: {
+            fill: "currentColor",
+            viewBox: "0 0 20 20",
+            xmlns: "http://www.w3.org/2000/svg"
+          }
+        },
+        [
+          _c("path", {
+            attrs: {
+              "fill-rule": "evenodd",
+              d:
+                "M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z",
+              "clip-rule": "evenodd"
+            }
+          })
+        ]
+      )
     : _vm.name === "external-link"
     ? _c(
         "svg",
@@ -37454,6 +37982,31 @@ var render = function() {
               d:
                 "M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z",
               "clip-rule": "evenodd"
+            }
+          })
+        ]
+      )
+    : _vm.name === "email"
+    ? _c(
+        "svg",
+        {
+          staticClass: "w-6 h-6",
+          attrs: {
+            fill: "currentColor",
+            viewBox: "0 0 20 20",
+            xmlns: "http://www.w3.org/2000/svg"
+          }
+        },
+        [
+          _c("path", {
+            attrs: {
+              d:
+                "M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+            }
+          }),
+          _c("path", {
+            attrs: {
+              d: "M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
             }
           })
         ]
@@ -39542,7 +40095,8 @@ var render = function() {
                     ]
                   )
                 ])
-              : _c(
+              : _vm.pagination.show
+              ? _c(
                   "div",
                   {
                     staticClass:
@@ -39573,7 +40127,9 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                        ${$page.global_trans.previous}\n                    "
+                                  "\n                        " +
+                                    _vm._s(_vm.$page.global_trans.previous) +
+                                    "\n                    "
                                 )
                               ]
                             )
@@ -39593,7 +40149,9 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                        ${$page.global_trans.next}\n                    "
+                                  "\n                        " +
+                                    _vm._s(_vm.$page.global_trans.next) +
+                                    "\n                    "
                                 )
                               ]
                             )
@@ -39603,6 +40161,7 @@ var render = function() {
                     )
                   ]
                 )
+              : _vm._e()
           ]
         )
       ]

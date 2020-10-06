@@ -4,19 +4,45 @@
         <template v-slot:header>
             <Title :info="trans.transaction_details">{{ trans.transactions }}</Title>
         </template>
-        <ListItem :label="trans.by">{{ transaction.name }}</ListItem>
-        <ListItem :label="trans.email">{{ transaction.email }}</ListItem>
-        <ListItem :label="trans.type">{{ transaction.type }}</ListItem>
+
+        <ListItem :label="trans.by">
+            <div class="flex">
+                <div>{{ transaction.name }}</div>
+                <div class="ml-2 text-gray-500">{{ transaction.email }}</div>
+            </div>
+        </ListItem>
+
+        <ListItem :label="trans.type">
+            <Pill :type="transaction.type === 'recurrent' ? 'warning' : 'info'" v-text="getType(transaction.type)" />
+        </ListItem>
+
         <ListItem :label="trans.date">{{ transaction.readable_created_at }}</ListItem>
+
         <ListItem :label="trans.amount">
+            <div class="flex">
+                <div>{{ transaction.amount }}</div>
+                <span class="text-gray-600 ml-2">{{ transaction.currency }}</span>
+            </div>
+        </ListItem>
+
+        <ListItem :label="trans.amount_to_deposit">
             <div class="flex">
                 <div>{{ transaction.amount_to_deposit }}</div>
                 <span class="text-gray-600 ml-2">{{ transaction.currency }}</span>
             </div>
         </ListItem>
+
+        <ListItem :label="trans.income">
+            <div class="flex">
+                <div>{{ transaction.income }}</div>
+                <span class="text-gray-600 ml-2">{{ transaction.currency }}</span>
+            </div>
+        </ListItem>
+
         <ListItem :label="trans.status">
             <Pill :type="transaction.status === 'approved' ? 'success' : 'danger'" v-text="getStatus(transaction.status)" />
         </ListItem>
+
         <ListItem :label="trans.reviewed">
             <Pill :type="transaction.reviewed === 'checked' ? 'success' : 'danger'" v-text="getReview(transaction.reviewed)" />
         </ListItem>
@@ -30,6 +56,7 @@ import Pill from "../../../Shared/Pill";
 import Title from "../../../Shared/Title";
 import SidebarLayout from "../../../Shared/Layouts/SidebarLayout";
 import ListItem from "../../../Shared/ListItem";
+import Icon from "../../../Shared/Icon";
 
 export default {
     metaInfo: {title: 'Transaction'},
@@ -44,6 +71,7 @@ export default {
         Title,
         ListItem,
         Pill,
+        Icon,
     },
     methods: {
         getStatus(status) {
@@ -60,7 +88,13 @@ export default {
                 return this.trans.checked;
             }
             return this.trans.pending;
-        }
+        },
+        getType(type) {
+            if(type === 'single') {
+                return this.trans.single;
+            }
+            return this.trans.recurrent;
+        },
     },
 }
 </script>

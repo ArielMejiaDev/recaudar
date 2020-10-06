@@ -2,13 +2,19 @@
     <div>
         <Table
             :title="trans.transactions"
-            :headers="[trans.amount, trans.status,  trans.type, trans.reviewed, trans.date]"
-            :searchbox="{show: false, placeholder: `${trans.search} ...`}"
+            :headers="[trans.income , trans.amount, trans.status,  trans.type, trans.reviewed, trans.date]"
+            :searchbox="{show: true, placeholder: `${trans.search} ...`}"
             v-model="search"
             :action="{show: false}"
             :pagination="{show: true, links: transactions.links}">
             <template v-slot:tableData>
                 <tr v-for="(transaction, index) in transactions.data" :key="index">
+                    <td>
+                        <InertiaLink :href="route('admin.transactions.show', { transaction: transaction.id })">
+                            {{ transaction.income }}
+                            <span class="text-gray-600">{{ transaction.currency }}</span>
+                        </InertiaLink>
+                    </td>
                     <td>
                         <InertiaLink :href="route('admin.transactions.show', { transaction: transaction.id })">
                             {{ transaction.amount_to_deposit }}
@@ -112,7 +118,7 @@ export default {
     },
     watch: {
         search: _.throttle(function(value) {
-            const route = this.route('admin.teams.index', { search: value });
+            const route = this.route('admin.transactions.index', { search: value });
             this.$inertia.replace(route);
         }, 200)
     },

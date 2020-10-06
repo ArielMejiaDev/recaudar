@@ -334,6 +334,7 @@
     "Edit a Plan": "Editar un plan",
     "By": "Por",
     "Amount": "Monto",
+    "Amount To Deposit": "Monto a depositar",
     "Date": "Fecha",
     "Type": "Tipo",
     "Status": "Estado",
@@ -367,6 +368,7 @@
     "Active": "Activo",
     "Reviewed": "Revisado",
     "Recurrent": "Recurrente",
+    "Single": "Unico",
     "Checked": "Revisado",
     "Transaction Details": "Detalles de transacción",
     "Message": "Mensaje",
@@ -377,5 +379,12 @@
     "Message sent": "Mensaje enviado",
     "Print": "Imprimir",
     "Certificate of Donation": "Certificado de donación",
-    "Leave us a message, we will try to reply as soon as possible.": "Déjanos un mensaje, intentaremos responderte lo antes posible."
+    "Leave us a message, we will try to reply as soon as possible.": "Déjanos un mensaje, intentaremos responderte lo antes posible.",
+    "Data of the month.": "Datos del mes.",
+    "Total Transactions.": "Total de transacciones.",
+    "Total Income.": "Total de ingresos.",
+    "New Recurrent Plans.": "Nuevos planes recurrentes",
+    "Recurrent Plans Income.": "Ingresos por recurrencia",
+    "Recent Transactions.": "Transacciones recientes",
+    "Invite Admin": "Invitar admin"
 }
