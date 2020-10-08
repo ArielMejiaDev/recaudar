@@ -84,10 +84,11 @@ class TeamController extends Controller
             }
 
             $teams = Team::select(['id', 'name', 'status'])
-                ->where('name', 'LIKE', "%{$request->search}%")
                 ->where('name', '!=', 'recaudar')
-                ->orWhere('status', 'LIKE', "%{$request->search}%")
-                ->paginate(10);
+                ->where(function($query) use($request) {
+                    $query->where('name', 'LIKE', "%{$request->search}%")
+                        ->orWhere('status', 'LIKE', "%{$request->search}%");
+                })->paginate(10);
         }
 
         return Inertia::render('Admin/Teams/Index', [

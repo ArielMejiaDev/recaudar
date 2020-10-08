@@ -2,14 +2,14 @@
     <form @submit.prevent="showModal = !showModal">
         <Panel>
             <template v-slot:header>
-                <Title info="This user is going to be able to manage the entire app.">Create application admin user.</Title>
+                <Title :info="trans.subtitle">{{ trans.title }}</Title>
             </template>
             <template v-slot:body>
-                <Input v-model="form.name" name="name" label="Name" placeholder="Add user name" :errors="$page.errors.name" />
-                <Input v-model="form.email" name="email" label="Email" placeholder="Add user email" type="email" :errors="$page.errors.name" />
+                <Input v-model="form.name" name="name" :label="trans.name" :errors="$page.errors.name" />
+                <Input v-model="form.email" name="email" :label="trans.email" type="email" :errors="$page.errors.name" />
             </template>
             <template v-slot:footer>
-                <LoadingButton :loading="loading">Create admin user.</LoadingButton>
+                <LoadingButton :loading="loading">{{ trans.create }}</LoadingButton>
             </template>
         </Panel>
         <Modal v-if="showModal" type="danger" title="An admin user can manage the entire app" info="Be careful with admin users" close-button-text="Close" @close="showModal = !showModal" action-button-text="Create admin user" @action="showModal = !showModal; submit()" />
@@ -37,6 +37,9 @@ export default {
                 email: null,
             }
         }
+    },
+    props: {
+        trans: Object,
     },
     components: {
         Title,

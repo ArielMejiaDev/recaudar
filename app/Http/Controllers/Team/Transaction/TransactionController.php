@@ -22,7 +22,7 @@ class TransactionController extends Controller
      */
     public function index(Request $request, Team $team)
     {
-        $transactions = $team->transactions()->select(['id', 'name', 'amount_to_deposit', 'status', 'readable_created_at', 'created_at', 'currency'])->paginate();
+        $transactions = $team->transactions()->select(['id', 'name', 'amount_to_deposit', 'status', 'created_at', 'currency'])->paginate();
 
         if($request->has('search')) {
 
@@ -64,7 +64,7 @@ class TransactionController extends Controller
                     ->orWhere('amount_to_deposit', 'LIKE', "%{$request->search}%")
                     ->orWhere('status', 'LIKE', "%{$request->search}%")
                     ->orWhere('created_at', 'LIKE', "%{$request->search}%");
-            })->select(['id', 'name', 'amount_to_deposit', 'status', 'readable_created_at', 'created_at', 'currency'])->paginate();
+            })->select(['id', 'name', 'amount_to_deposit', 'status', 'created_at', 'currency'])->paginate();
         }
 
         $trans = [

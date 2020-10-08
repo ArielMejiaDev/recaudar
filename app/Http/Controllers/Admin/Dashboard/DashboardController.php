@@ -44,7 +44,7 @@ class DashboardController extends Controller
         $newRecurrentPlans = $query->whereType('recurrent')->count();
         $totalIncomeByRecurrence = $query->whereType('recurrent')->sum('income');
 
-        $recentTransactions = Transaction::select(['id', 'name', 'income', 'currency', 'status', 'created_at', 'readable_created_at'])
+        $recentTransactions = Transaction::select(['id', 'name', 'income', 'currency', 'status', 'created_at'])
             ->orderByDesc('id')
             ->limit(5)
             ->get();

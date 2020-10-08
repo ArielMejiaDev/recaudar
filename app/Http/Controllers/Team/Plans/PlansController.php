@@ -31,18 +31,15 @@ class PlansController extends Controller
 
         $plans = $team->plans()
             ->where('title', '!=', 'of variable amount')
-            ->select('title', 'type_of_amount', 'currency', 'amount')
+            ->select('title')
             ->paginate(5);
 
         if ($request->has('search')) {
             $plans = $team->plans()
-                        ->select(['title', 'type_of_amount', 'currency', 'amount'])
+                        ->select(['title', 'amount'])
                         ->where('title', '!=', 'of variable amount')
                         ->where(function($query) use($request) {
-                            $query->where('title', 'LIKE', "%{$request->search}%")
-                                ->orWhere('currency', 'LIKE', "%{$request->search}%")
-                                ->orWhere('type_of_amount', 'LIKE', "%{$request->search}%")
-                                ->orWhere('amount', 'LIKE', "%{$request->search}%");
+                            $query->where('title', 'LIKE', "%{$request->search}%");
                         })->paginate(5);
         }
 

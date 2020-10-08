@@ -50,7 +50,7 @@ class TransactionsController extends Controller
 
         $transactions = Transaction::select([
             'id', 'amount_to_deposit', 'income', 'currency', 'status',
-            'type', 'reviewed', 'created_at', 'readable_created_at'
+            'type', 'reviewed', 'created_at'
         ])->orderByDesc('id')
             ->paginate(5);
 
@@ -73,7 +73,7 @@ class TransactionsController extends Controller
 
             $transactions = Transaction::select([
                 'id', 'amount_to_deposit', 'income', 'currency', 'status',
-                'type', 'reviewed', 'created_at', 'readable_created_at'
+                'type', 'reviewed', 'created_at'
             ])->where(function($query) use($request) {
                     $query->where('income', 'LIKE', "%{$request->search}%")
                         ->orWhere('amount_to_deposit', 'LIKE', "%{$request->search}%")

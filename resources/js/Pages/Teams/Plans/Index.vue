@@ -24,7 +24,7 @@
                         </InertiaLink>
                     </td>
                     <td>
-                        <button @click.prevent="copyLinkToClipboard(plan);clickOnLinkIcon = true" :class="clickOnLinkIcon ? 'text-blue-500' : 'text-gray-500'" class="text-xs font-semibold focus:outline-none hover:text-blue-500">
+                        <button @click.prevent="copyLinkToClipboard(plan);selectedLink = plan.id;selectedPlan = plan" :class="selectedPlan === plan && selectedLink ? 'text-blue-500' : 'text-gray-500'" class="text-xs font-semibold focus:outline-none hover:text-blue-500">
                             <Icon name="link" />
                         </button>
                     </td>
@@ -66,7 +66,7 @@ export default {
             confirm: false,
             search: this.filters.search,
             selectedPlan: null,
-            clickOnLinkIcon: false,
+            selectedLink: null,
         }
     },
     methods: {

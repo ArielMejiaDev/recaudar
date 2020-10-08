@@ -41,7 +41,7 @@ class TeamDashboardController extends Controller
         $monthTotalIncomeRecurrent = $query->whereType('recurrent')->sum('amount_to_deposit');
 
         $recentTransactions = $team->transactions()
-            ->select(['id', 'name', 'amount_to_deposit', 'currency', 'status', 'created_at', 'readable_created_at'])
+            ->select(['id', 'name', 'amount_to_deposit', 'currency', 'status', 'created_at'])
             ->orderByDesc('id')
             ->limit(5)
             ->get();
