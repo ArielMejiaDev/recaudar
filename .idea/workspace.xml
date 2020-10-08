@@ -9,7 +9,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.env.credentials" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env.development" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env.production" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env.staging" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_03_031316_create_teams_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_03_031316_create_teams_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,7 +270,7 @@
       <workItem from="1600106574225" duration="178576000" />
       <workItem from="1601033452225" duration="282000" />
       <workItem from="1601035310376" duration="54750000" />
-      <workItem from="1601444801403" duration="193977000" />
+      <workItem from="1601444801403" duration="195616000" />
     </task>
     <servers />
   </component>
@@ -300,9 +306,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="100" y="100" width="1720" height="880" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1600495568467" />
-    <state x="619" y="327" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600656646736">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="1899" y="327" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602163816884">
+      <screen x="1280" y="0" width="1920" height="1080" />
     </state>
+    <state x="1899" y="327" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1602163816884" />
     <state x="619" y="327" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1600656646736" />
     <state x="726" y="195" key="#com.intellij.ide.util.MemberChooser" timestamp="1599442852305">
       <screen x="0" y="0" width="1920" height="1080" />

@@ -20,7 +20,7 @@ class CreateTeamsTable extends Migration
             $table->string('slug');
             $table->string('category', 50);
             $table->longText('description');
-            $table->string('public', 50);
+            $table->string('public');
             $table->integer('beneficiaries');
             $table->longText('impact');
             $table->string('legal_representative', 50);
