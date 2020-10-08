@@ -30,6 +30,7 @@ class ShowProfileFormsController extends Controller
             'the_avatar_would_be_public' => trans('The avatar would be public.'),
             'upload' => trans('Upload'),
         ];
-        return Inertia::render('User/Profile/Show', ['trans' => $trans]);
+
+        return Inertia::render('User/Profile/Show', ['trans' => $trans, 'avatar' => auth()->user()->avatar]);
     }
 }

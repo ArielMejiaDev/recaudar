@@ -5,7 +5,7 @@
 
     <ChangePassword :trans="trans" />
 
-    <EditAvatar :trans="trans" />
+    <EditAvatar :trans="trans" :avatar="avatar" />
 
 </div>
 </template>
@@ -23,6 +23,7 @@ export default {
     components: { EditUser, ChangePassword, EditAvatar, },
     props: {
         trans: Object,
+        avatar: String,
     }
 }
 </script>

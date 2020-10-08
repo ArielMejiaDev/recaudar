@@ -16,7 +16,7 @@
                         </Title>
                     </template>
                     <template v-slot:body>
-                        <AvatarUploader :current-file="$page.auth.user.avatar" name="avatar" v-model="form.avatar" :options="{ buttonText: trans.upload, showButton: true}" :errors="$page.errors.avatar" />
+                        <AvatarUploader :current-file="avatar" name="avatar" v-model="form.avatar" :options="{ buttonText: trans.upload, showButton: true}" :errors="$page.errors.avatar" />
                     </template>
                     <template v-slot:footer>
                         <LoadingButton :loading="sending">{{ $page.global_trans.update }}</LoadingButton>
@@ -68,6 +68,7 @@ export default {
     },
     props: {
         trans: Object,
+        avatar: String,
     },
 }
 </script>
