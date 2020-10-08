@@ -1,18 +1,76 @@
 <?php
 
+namespace App\Console\Commands;
+
+use App\Models\Charge;
 use App\Models\Team;
 use App\User;
-use Illuminate\Database\Seeder;
+use Illuminate\Console\Command;
 
-class TeamSeeder extends Seeder
+class StartupDataCommand extends Command
 {
     /**
-     * Run the database seeds.
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'startup';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'It adds startup data for the app.';
+
+    /**
+     * Create a new command instance.
      *
      * @return void
      */
-    public function run()
+    public function __construct()
     {
+        parent::__construct();
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @return int
+     */
+    public function handle()
+    {
+        $this->output->progressStart(11);
+
+        factory(User::class)->create([
+            'name'  => 'Ariel Mejia',
+            'email' => 'arielmejiadev@gmail.com',
+            'password' => bcrypt(12345678),
+        ]);
+
+        factory(User::class)->create([
+            'name'  => 'Otto Fernando',
+            'email' => 'otto@recaudar.com',
+            'password' => bcrypt(12345678),
+        ]);
+
+        factory(User::class)->create([
+            'name'  => 'Krishna Toledo',
+            'email' => 'info@recaudar.com',
+            'password' => bcrypt(12345678),
+        ]);
+
+        $this->output->progressAdvance();
+
+        factory(Charge::class)->create([
+            'country' => 'Guatemala',
+            'income' => 0.025,
+            'gateway' => 'pagalogt',
+            'gateway_charge' => 0.055,
+        ]);
+
+        $this->output->progressAdvance();
+
         factory(Team::class)->create([
             'name' => 'recaudar',
             'slug' => 'recaudar',
@@ -20,6 +78,8 @@ class TeamSeeder extends Seeder
             'status' => 'approved',
             'country' => 'Guatemala',
         ]);
+
+        $this->output->progressAdvance();
 
         $selvaVirgen = factory(Team::class)->create([
             'name' => 'Fundacion Selva virgen',
@@ -45,6 +105,8 @@ class TeamSeeder extends Seeder
             'instagram_account' => null,
         ]);
 
+        $this->output->progressAdvance();
+
         $selvaVirgen->plans()->create([
             'title' => 'APADRINA A UN NIÑO QUE RECIBIRÁ UN VASO DE LECHE DIARIO POR 30 DÍAS',
             'amount_in_local_currency' => 150.00
@@ -59,6 +121,8 @@ class TeamSeeder extends Seeder
             'title' => 'APADRINA A UN NIÑO QUE RECIBIRÁ UN VASO DE LECHE POR 5 DÍAS',
             'amount_in_local_currency' => 300.00
         ]);
+
+        $this->output->progressAdvance();
 
         $promocionHumana = factory(Team::class)->create([
             'name' => 'Fundacion Guatemalteca de promocion humana',
@@ -84,6 +148,8 @@ class TeamSeeder extends Seeder
             'instagram_account' => null,
         ]);
 
+        $this->output->progressAdvance();
+
         $promocionHumana->plans()->create([
             'title' => 'Media beca mensual',
             'info' => 'Con tu aporte estás apoyando con media beca para la educación de un niño. Puedes darle clic a la opción de aporte recurrente.',
@@ -101,6 +167,8 @@ class TeamSeeder extends Seeder
             'info' => 'Con tu aporte estás apoyando con una beca completa por todo un año para la educación de un niño. Puedes darle clic a la opción de aporte recurrente.',
             'amount_in_local_currency' => 2100.00
         ]);
+
+        $this->output->progressAdvance();
 
         $guatedon = factory(Team::class)->create([
             'name' => 'Fundacion GuateDon',
@@ -126,6 +194,8 @@ class TeamSeeder extends Seeder
             'instagram_account' => null,
         ]);
 
+        $this->output->progressAdvance();
+
         $guatedon->plans()->create([
             'title' => 'Aporte',
             'amount_in_local_currency' => 250.00
@@ -141,5 +211,24 @@ class TeamSeeder extends Seeder
             'amount_in_local_currency' => 750.00
         ]);
 
+        $this->output->progressAdvance();
+
+        User::whereEmail('arielmejiadev@gmail.com')->first()->teams()->attach(Team::first(), ['role_name' => 'app_admin']);
+        User::whereEmail('otto@recaudar.com')->first()->teams()->attach(Team::first(), ['role_name' => 'app_admin']);
+        User::whereEmail('info@recaudar.com')->first()->teams()->attach(Team::first(), ['role_name' => 'app_admin']);
+
+        $this->output->progressAdvance();
+
+        User::whereEmail('otto@recaudar.com')->first()->teams()->attach(Team::find(2), ['role_name' => 'team_admin']);
+        User::whereEmail('otto@recaudar.com')->first()->teams()->attach(Team::find(3), ['role_name' => 'team_admin']);
+        User::whereEmail('otto@recaudar.com')->first()->teams()->attach(Team::find(4), ['role_name' => 'team_admin']);
+
+        $this->output->progressAdvance();
+
+        User::whereEmail('info@recaudar.com')->first()->teams()->attach(Team::find(2), ['role_name' => 'team_admin']);
+        User::whereEmail('info@recaudar.com')->first()->teams()->attach(Team::find(3), ['role_name' => 'team_admin']);
+        User::whereEmail('info@recaudar.com')->first()->teams()->attach(Team::find(4), ['role_name' => 'team_admin']);
+
+        $this->output->progressFinish();
     }
 }

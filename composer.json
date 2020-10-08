@@ -23,6 +23,7 @@
         "qoraiche/laravel-mail-editor": "^2.2",
         "silviolleite/laravelpwa": "^2.0",
         "spatie/laravel-newsletter": "^4.8",
+        "spatie/laravel-sitemap": "^5.8",
         "titasgailius/laravel-moonlight": "^1.0"
     },
     "require-dev": {
