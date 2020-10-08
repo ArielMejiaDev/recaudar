@@ -16,7 +16,7 @@ class LandingPageSeoService
             ->setCanonical(config('app.url'))
             ->setNext(route('teams-page'));
 
-        TwitterCard::setImage('https:' . config('app.url') . '/images/landing/hero/bg.jpeg')
+        TwitterCard::setImage(config('app.url') . '/images/landing/hero/bg.jpeg')
             ->setTitle(config('app.url'))
             ->setDescription('Somos el corazón de la caridad, porque conectamos organizaciones y donadores de una manera fácil y segura para cambiar el mundo.')
             ->setUrl(route('welcome'));

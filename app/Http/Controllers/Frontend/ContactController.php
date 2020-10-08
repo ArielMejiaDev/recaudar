@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Notifications\ContactNotification;
+use App\Services\SEO\LandingPageSeoService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 
@@ -11,6 +12,7 @@ class ContactController extends Controller
 {
     public function create()
     {
+        (new LandingPageSeoService)->execute();
         return view('contact');
     }
 

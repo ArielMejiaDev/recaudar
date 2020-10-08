@@ -42,7 +42,7 @@ return [
             'type'        => false,
             'site_name'   => 'recaudar.com',
             'images'      => [
-                config('app.url') . '/assets/images/landing/hero/bg.jpeg'
+                config('app.url') . '/images/landing/hero/bg.jpeg'
             ],
         ],
     ],
@@ -65,7 +65,7 @@ return [
             'url'         => null, // Set null for using Url::current(), set false to total remove
             'type'        => 'WebPage',
             'images'      => [
-                config('app.url') . '/assets/images/landing/hero/bg.jpeg',
+                config('app.url') . '/images/landing/hero/bg.jpeg',
             ],
         ],
     ],
