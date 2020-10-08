@@ -37,6 +37,8 @@ class ForgotPasswordController extends Controller
             'we_have_emailed_your_password_reset_link' => trans('We have e-mailed your password reset link!'),
         ];
 
-        return inertia('Auth/Passwords/Email', compact('trans'));
+        $sitekey = config('recaptcha.api_site_key');
+
+        return inertia('Auth/Passwords/Email', compact('trans', 'sitekey'));
     }
 }

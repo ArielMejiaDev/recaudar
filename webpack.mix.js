@@ -28,8 +28,8 @@ mix.sass('resources/sass/frontend.scss', 'public/css')
     ],
 }).version()
 
-mix.browserSync({
-    proxy: 'recaudar-org.test',
-    // open: false,
-});
+// mix.browserSync({
+//     proxy: 'recaudar-org.test',
+//     open: false,
+// });
 

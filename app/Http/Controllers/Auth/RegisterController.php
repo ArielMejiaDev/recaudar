@@ -58,7 +58,9 @@ class RegisterController extends Controller
             'login' => trans('Login'),
         ];
 
-        return inertia('Auth/Register', compact('trans'));
+        $sitekey = config('recaptcha.api_site_key');
+
+        return inertia('Auth/Register', compact('trans', 'sitekey'));
     }
 
     /**

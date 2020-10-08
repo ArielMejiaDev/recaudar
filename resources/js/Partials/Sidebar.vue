@@ -113,7 +113,7 @@
                         {{ $page.global_trans.profile }}
                     </InertiaLink>
                 </li>
-                <li @click="$inertia.post(route('logout'))" class="px-2 py-3 hover:bg-gray-900 rounded mt-2">
+                <li @click.prevent="logout" class="px-2 py-3 hover:bg-gray-900 rounded mt-2">
                     <button class="mx-2 text-gray-300" @click="$inertia.post(route('logout'))">
                         {{ $page.global_trans.logout }}
                     </button>
@@ -126,6 +126,7 @@
 
 <script>
     import Icon from "../Shared/Icon";
+    import axios from "axios";
 
     export default {
         name: "Sidebar",
@@ -137,5 +138,10 @@
         components: {
             Icon,
         },
+        methods: {
+            logout() {
+                axios.post(this.route('logout').url(), {}).finally(() => window.location.href = '/');
+            }
+        }
     }
 </script>

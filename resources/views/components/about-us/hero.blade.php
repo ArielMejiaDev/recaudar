@@ -25,7 +25,7 @@
                         <svg class="w-auto h-8 ml-1 text-white fill-current" viewBox="0 0 52 66" xmlns="http://www.w3.org/2000/svg"><path d="M50 30.7L4.1.6C2.6-.4.8.9.8 2.9v60.3c0 2 1.8 3.3 3.3 2.3L50 35.3c1.5-1 1.5-3.6 0-4.6z" fill-rule="nonzero"/></svg>
                     </span>
                 </div>
-                <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" class="z-10 object-cover w-full h-full">
+                <img src="{{ asset('images/about-us/hero.jpeg') }}" class="z-10 object-cover w-full h-full">
             </div>
         </div>
     </div>

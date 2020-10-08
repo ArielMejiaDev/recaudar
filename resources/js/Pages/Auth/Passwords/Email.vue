@@ -11,18 +11,21 @@
             <inertia-link :href="route('login')" class="text-gray-700 text-sm font-semibold ml-2">{{ trans.login }}</inertia-link>
         </h3>
 
-        <form-input class="mb-8"
+        <form-input tabindex="1" class="mb-8"
                 :label="trans.email"
                 :placeholder="trans.your_email_address"
                 v-model="form.email"
                 :errors="$page.errors.email"
                 required
                 autofocus
-                autocomplete="email" />
+                autocomplete="off" />
 
-        <button class="w-full bg-gray-800 hover:bg-gray-900 text-white text-sm font-semibold rounded focus:outline-none focus:shadow-outline py-3">
-            {{ trans.email_password_reset_link }}
-        </button>
+        <vue-recaptcha ref="invisibleRecaptcha" @verify="onVerify" @error="onError"  @expired="onExpired" :sitekey="sitekey">
+            <button tabindex="2" class="w-full bg-gray-800 hover:bg-gray-900 text-white text-sm font-semibold rounded focus:outline-none focus:shadow-outline py-3">
+                {{ trans.email_password_reset_link }}
+            </button>
+        </vue-recaptcha>
+
     </form>
 </template>
 
@@ -42,8 +45,13 @@
             }
         },
 
+        components: {
+            VueRecaptcha,
+        },
+
         props: {
             trans: Object,
+            sitekey: String,
         },
 
         methods: {
@@ -59,6 +67,17 @@
                     this.form = {}
                     this.success = true
                 }
+            },
+            onVerify() {
+                console.log('verify');
+                this.submit();
+                this.$refs.invisibleRecaptcha.reset()
+            },
+            onError() {
+                console.log('error');
+            },
+            onExpired() {
+                console.log('expired');
             },
         }
     }

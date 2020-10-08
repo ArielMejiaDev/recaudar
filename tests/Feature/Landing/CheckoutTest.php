@@ -21,7 +21,7 @@ class CheckoutTest extends TestCase
     use RefreshDatabase;
     public function test_checkout_payment_validation()
     {
-        $team = factory(Team::class)->create();
+        $team = factory(Team::class)->create(['country' => 'Guatemala']);
         $plan = $team->plans()->save(factory(Plan::class)->make());
         $route = route('pay', ['team' => $team, 'plan' => $plan]);
         $faker = Factory::create();
@@ -29,14 +29,15 @@ class CheckoutTest extends TestCase
             'email' => '',
             'name' => 123,
             'card' => 1111,
-            'date' => '',
+            'month' => '',
+            'year' => '',
             'cvc' => '',
             'currency' => '',
             'amount' => '',
             'recurrence' => 'SOMETEXT',
             'deviceFingerprintID' => ''
         ]);
-        $response->assertSessionHasErrors(['email', 'name', 'card', 'date', 'cvc', 'currency', 'amount', 'recurrence', 'deviceFingerprintID']);
+        $response->assertSessionHasErrors(['email', 'name', 'card', 'month', 'year', 'cvc', 'currency', 'amount', 'recurrence', 'deviceFingerprintID']);
     }
     public function test_checkout_payment_can_pay_with_a_plan()
     {
@@ -49,7 +50,8 @@ class CheckoutTest extends TestCase
             'email' => $faker->email,
             'name' => $faker->name,
             'card' => '123456789123',
-            'date' => '02/22',
+            'month' => '02',
+            'year' => '22',
             'cvc' => 123,
             'currency' => 'GTQ',
             'amount' => $plan->amount_in_local_currency,
@@ -77,7 +79,8 @@ class CheckoutTest extends TestCase
             'email' => $faker->email,
             'name' => $faker->name,
             'card' => '123456789123',
-            'date' => '02/22',
+            'month' => '02',
+            'year' => '22',
             'cvc' => 123,
             'currency' => 'GTQ',
             'amount' => 100.00,
@@ -108,7 +111,8 @@ class CheckoutTest extends TestCase
             'email' => $email = $faker->email,
             'name' => $name = $faker->name,
             'card' => '123456789123',
-            'date' => '02/22',
+            'month' => '02',
+            'year' => '22',
             'cvc' => 123,
             'currency' => 'GTQ',
             'amount' => 100.00,
@@ -142,7 +146,34 @@ class CheckoutTest extends TestCase
             'email' => $email = $faker->email,
             'name' => $name = $faker->name,
             'card' => '123456789123',
-            'date' => '02/22',
+            'month' => '02',
+            'year' => '22',
+            'cvc' => 123,
+            'currency' => 'GTQ',
+            'amount' => 100.00,
+            'recurrence' => true,
+            'deviceFingerprintID' => '1601630963406'
+        ]);
+
+        $response->assertSessionHasErrors(['transaction']);
+        $this->assertEquals('failed', Transaction::first()->status);
+    }
+    public function test_transaction_works_with_accent_marks()
+    {
+        $team = factory(Team::class)->create(['country' => 'Guatemala']);
+        factory(Charge::class)->create(['gateway' => 'pagalogt', 'country' => $team->country]);
+        $plan = $team->plans()->save(factory(Plan::class)->make());
+        $route = route('pay', ['team' => $team, 'plan' => $plan]);
+        $faker = Factory::create();
+
+        Config::set('pagalogt.test.iden_empresa', '');
+
+        $response = $this->post($route,  [
+            'email' => $email = $faker->email,
+            'name' => 'María Inés Martínez García',
+            'card' => '123456789123',
+            'month' => '02',
+            'year' => '22',
             'cvc' => 123,
             'currency' => 'GTQ',
             'amount' => 100.00,

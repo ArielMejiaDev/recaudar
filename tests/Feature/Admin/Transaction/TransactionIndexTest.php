@@ -77,7 +77,7 @@ class TransactionIndexTest extends TestCase
         $response->assertPropCount('transactions.data', 1);
         $team->refresh();
         $response->assertPropValue('transactions.data', function($transaction) use($team) {
-            $this->assertEquals($team->transactions->first()->name, $transaction[0]['name']);
+            $this->assertEquals($team->transactions->first()->income, $transaction[0]['income']);
         });
     }
 }

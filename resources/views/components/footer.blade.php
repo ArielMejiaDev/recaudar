@@ -1,7 +1,17 @@
-@push('headerScripts')
+@if(!Route::is('contact.create') &&
+    !Route::is('profile-page') &&
+    !Route::is('certificate') &&
+    !Route::is('about-us') &&
+    !Route::is('terms-for-teams') &&
+    !Route::is('terms-for-users') &&
+    !Route::is('teams-page'))
+
+    @push('headerScripts')
     <!-- Recaptcha -->
     {!! htmlScriptTagJsApi() !!}
 @endpush
+
+@endif
 
 <footer class="text-gray-700 body-font bg-gray-900 relative no-print">
 
@@ -69,7 +79,15 @@
 
         <div class="container px-5 py-8 flex flex-wrap mx-auto items-center justify-center">
 
-            @if(Route::is('welcome') || Route::is('about-us'))
+            @if(
+                !Route::is('contact.create') &&
+                !Route::is('profile-page') &&
+                !Route::is('certificate') &&
+                !Route::is('about-us') &&
+                !Route::is('terms-for-teams') &&
+                !Route::is('terms-for-users') &&
+                !Route::is('teams-page'))
+
             <form id="{{ getFormId() }}" method="POST" action="{{ route('newsletter.store') }}" class="flex flex-col md:flex-row md:flex-no-wrap flex-wrap justify-center md:justify-start">
                 @csrf
 

@@ -29,7 +29,7 @@ Route::domain('{team:slug}.' . basename(config('app.url')))->group(function () {
 
     Route::get('/donar/{amount?}', DonateDirectLinkController::class)->name('donate-direct-link');
 
-    Route::post('/pay/{plan}', PaymentController::class)->name('pay')->middleware('throttle:3,10');
+    Route::post('/pay/{plan}', PaymentController::class)->name('pay')->middleware('throttle:30,10');
 
     Route::get('/certificate/{transaction}', CertificateController::class)->name('certificate');
 
@@ -52,5 +52,7 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 Route::post('/newsletter', NewsletterController::class)->name('newsletter.store');
 
 Route::get('/prohibido', function () {
-    abort(403, trans('Demasiados intentos de pago. Vuelve a intentarlo más tarde.'));
+    abort(403, trans('Too many attempts, please try again later.'));
 })->name('too_many_attempts');
+
+Route::view('/offline', 'vendor/laravelpwa/offline');

@@ -6,10 +6,12 @@
         <title>{{ config('app.name', 'Recaudar') }}</title>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-        @if(Route::is('login') || Route::is('register'))
+        <!-- PWA Manifest -->
+        @laravelPWA
+
         <!-- Recaptcha -->
-        {!! htmlScriptTagJsApi() !!}
-        @endif
+        <script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" async defer></script>
+        <script src="https://unpkg.com/vue-recaptcha@latest/dist/vue-recaptcha.min.js"></script>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,400,600" rel="stylesheet">

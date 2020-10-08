@@ -15,30 +15,32 @@
 
             <div class="mt-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="name">{{ trans.name }}</label>
-                <input id="name" name="name" v-model="form.name" class="bg-gray-200 text-gray-700 border border-gray-300 rounded py-2 px-4 block w-full appearance-none focus:outline-none focus:bg-white" type="text">
+                <input autocomplete="off" tabindex="1" id="name" name="name" v-model="form.name" class="bg-gray-200 text-gray-700 border border-gray-300 rounded py-2 px-4 block w-full appearance-none focus:outline-none focus:bg-white" type="text">
                 <p class="text-xs text-red-500 font-bold leading-loose tracking-tight" v-if="$page.errors.name">{{ $page.errors.name[0] }}</p>
             </div>
 
             <div class="mt-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="email">{{ trans.email }}</label>
-                <input id="email" name="email" v-model="form.email" class="bg-gray-200 text-gray-700 border border-gray-300 rounded py-2 px-4 block w-full appearance-none focus:outline-none focus:bg-white" type="email">
+                <input autocomplete="off" tabindex="2" id="email" name="email" v-model="form.email" class="bg-gray-200 text-gray-700 border border-gray-300 rounded py-2 px-4 block w-full appearance-none focus:outline-none focus:bg-white" type="email">
                 <p class="text-xs text-red-500 font-bold leading-loose tracking-tight" v-if="$page.errors.email">{{ $page.errors.email[0] }}</p>
             </div>
 
             <div class="mt-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="password">{{ trans.password }}</label>
-                <input id="password" name="password" v-model="form.password" class="bg-gray-200 text-gray-700 border border-gray-300 rounded py-2 px-4 block w-full appearance-none focus:outline-none focus:bg-white" type="password">
+                <input autocomplete="off" tabindex="3" id="password" name="password" v-model="form.password" class="bg-gray-200 text-gray-700 border border-gray-300 rounded py-2 px-4 block w-full appearance-none focus:outline-none focus:bg-white" type="password">
                 <p class="text-xs text-red-500 font-bold leading-loose tracking-tight" v-if="$page.errors.password">{{ $page.errors.password[0] }}</p>
             </div>
 
             <div class="mt-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="password_confirmation">{{ trans.confirm_password }}</label>
-                <input id="password_confirmation" name="password_confirmation" v-model="form.password_confirmation" class="bg-gray-200 text-gray-700 border border-gray-300 rounded py-2 px-4 block w-full appearance-none focus:outline-none focus:bg-white" type="password">
+                <input autocomplete="off" tabindex="4" id="password_confirmation" name="password_confirmation" v-model="form.password_confirmation" class="bg-gray-200 text-gray-700 border border-gray-300 rounded py-2 px-4 block w-full appearance-none focus:outline-none focus:bg-white" type="password">
                 <p class="text-xs text-red-500 font-bold leading-loose tracking-tight" v-if="$page.errors.password_confirmation">{{ $page.errors.password_confirmation[0] }}</p>
             </div>
 
             <div class="mt-8">
-                <button class="w-full bg-gray-800 hover:bg-gray-900 text-white text-sm font-semibold rounded focus:outline-none focus:shadow-outline py-3">{{ trans.signup }}</button>
+                <vue-recaptcha ref="invisibleRecaptcha" @verify="onVerify" @error="onError"  @expired="onExpired" :sitekey="sitekey">
+                    <button tabindex="4" class="w-full bg-gray-800 hover:bg-gray-900 text-white text-sm font-semibold rounded focus:outline-none focus:shadow-outline py-3">{{ trans.signup }}</button>
+                </vue-recaptcha>
             </div>
 
             <div class="mt-4 flex items-center justify-between">
@@ -66,12 +68,17 @@
                     password: '',
                     remember: false,
                 },
-                image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80',
+                image: 'images/auth/register.jpeg',
             }
+        },
+
+        components: {
+            VueRecaptcha,
         },
 
         props: {
             trans: Object,
+            sitekey: String,
         },
 
         methods: {
@@ -84,7 +91,18 @@
 
                 this.form.password = ''
                 this.form.password_confirmation = ''
-            }
+            },
+            onVerify() {
+                console.log('verify');
+                this.submit();
+                this.$refs.invisibleRecaptcha.reset()
+            },
+            onError() {
+                console.log('error');
+            },
+            onExpired() {
+                console.log('expired');
+            },
         }
     }
 </script>

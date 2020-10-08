@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Landing;
 
+use Config;
 use Faker\Factory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;

@@ -4,11 +4,10 @@
         <div class="w-full md:w-1/2 bg-white flex items-center justify-center">
             <div class="max-w-sm m-8">
                 <div class="text-gray-800 text-5xl md:text-6xl font-black">{{ status }}</div>
-                <div class="w-16 h-1 bg-purple-300 my-3 md:my-6"></div>
+                <div class="w-16 h-1 bg-pink my-3 md:my-6"></div>
                 <p class="text-gray-600 text-2xl md:text-3xl font-light mb-8 leading-normal">{{ message }}</p>
-                <InertiaLink href="/dashboard">
-                    <button class="bg-transparent text-gray-700 font-bold uppercase tracking-wide py-3 px-6 border-2 border-gray-400 hover:border-gray-500 rounded-lg focus:outline-none">Go Home</button>
-                </InertiaLink>
+                <button type="button" @click="redirectToHome" class="bg-transparent text-gray-700 font-bold uppercase tracking-wide py-3 px-6 border-2 border-gray-400 hover:border-gray-500 rounded-lg focus:outline-none">Go Home</button>
+
             </div>
         </div>
 
@@ -25,6 +24,7 @@ export default {
     props: {
         status: Number,
         message: String,
+        home: String,
     },
     computed: {
         title() {
@@ -46,10 +46,15 @@ export default {
         illustration() {
             const notAllowedCodes = [401, 403, 419, 429];
             if(notAllowedCodes.includes(this.status)) {
-                return '/svg/403.svg';
+                return 'images/errors/403.svg';
             }
-            return `svg/${this.status}.svg`;
+            return `images/errors/${this.status}.svg`;
         }
     },
+    methods: {
+        redirectToHome() {
+            return window.location.href = this.home;
+        }
+    }
 }
 </script>

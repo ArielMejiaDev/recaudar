@@ -58,14 +58,18 @@ class Handler extends ExceptionHandler
         $response = parent::render($request, $exception);
 
         if ($exception instanceof ThrottleRequestsException) {
-            return response()->json(['redirect' => route('too_many_attempts')]);
+            if($request->expectsJson()) {
+                return response()->json(['redirect' => route('too_many_attempts')]);
+            }
+            abort(403, trans('Too many attempts, please try again later.'));
         }
 
         if ($this->thereAreErrorsInProduction($response)) {
 
             return Inertia::render('Errors/Error', [
                 'status' => $response->status(),
-                'message' => $exception->getMessage()
+                'message' => $exception->getMessage(),
+                'home' => config('app.url'),
             ])->toResponse($request)->setStatusCode($response->status());
         }
 

@@ -1,6 +1,11 @@
 <nav x-data="{ navbarToggle:false }" class="flex items-center justify-between flex-wrap bg-pink lg:bg-transparent p-6 relative z-10">
     <a href="{{ config('app.url') }}" class="flex items-center flex-shrink-0 mr-6">
-        <x-logo :class="'text-pink'" />
+        <div class="hidden lg:block">
+            <x-logo :class="'text-pink'" />
+        </div>
+        <div class="block lg:hidden">
+            <x-logo :class="'text-white'" />
+        </div>
     </a>
     <div class="block lg:hidden">
         <button @click="navbarToggle = ! navbarToggle" class="flex items-center px-3 py-2 border rounded text-gray-200 border-gray-400 hover:text-white hover:border-white focus:outline-none">

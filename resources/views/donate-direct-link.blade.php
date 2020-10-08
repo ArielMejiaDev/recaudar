@@ -35,9 +35,8 @@
                 <div class="py-2 px-4 md:px-8">
 
                     {{--Error Alerts--}}
-                    <div class="text-red-500 text-xs text-center font-bold mb-2 p-1 uppercase w-full rounded-lg bg-red-100" x-show="errors.transaction" x-text="errors.transaction"></div>
-                    <div class="text-red-500 text-xs text-center font-bold mb-2 p-1 uppercase w-full rounded-lg bg-red-100" x-show="errors.amount" x-text="errors.amount"></div>
-                    <div class="text-red-500 text-xs text-center font-bold mb-2 p-1 uppercase w-full rounded-lg bg-red-100" x-show="errors.deviceFingerprintID" x-text="errors.deviceFingerprintID"></div>
+                    <div class="text-red-500 text-xs text-center font-bold mb-2 p-1 uppercase w-full rounded-lg bg-red-100" x-cloak x-show="errors.transaction" x-text="errors.transaction"></div>
+                    <div class="text-red-500 text-xs text-center font-bold mb-2 p-1 uppercase w-full rounded-lg bg-red-100" x-cloak x-show="errors.deviceFingerprintID" x-text="errors.deviceFingerprintID"></div>
                     {{--End Error Alerts--}}
 
                     <div class="bg-gray-200 rounded py-2">
@@ -50,36 +49,40 @@
                             </div>
                         </div>
 
-                        <input type="hidden" id="currency" value="{{ $locale->currencyCode() }}">
+                        <input type="hidden" id="currency" required value="{{ $locale->currencyCode() }}">
 
                         <div class="my-1 p-2">
-                            <input x-model="email" class="w-full px-2 py-1 lg:px-4 lg:py-2 text-gray-700 bg-gray-100 text-xs lg:text-sm border border-gray-300 rounded-lg focus:outline-none focus:bg-white" id="email" name="email" type="email" placeholder="{{ trans('Email') }}">
+                            <input x-model="email" id="email" name="email" type="email" placeholder="{{ trans('Email') }}" required class="w-full px-2 py-1 lg:px-4 lg:py-2 text-gray-700 bg-gray-100 text-xs lg:text-sm border border-gray-300 rounded-lg focus:outline-none focus:bg-white">
                             <p class="text-red-500 text-xs font-bold my-1" x-show="errors.email" x-text="errors.email"></p>
                         </div>
 
                         <div class="block m-1 mx-2 text-gray-800 font-medium text-xs">{{ trans('Payment information') }}</div>
 
                         <div class="mb-1 p-2">
-                            <input x-model="name" class="w-full px-2 py-1 lg:px-4 lg:py-2 text-gray-700 bg-gray-100 text-xs lg:text-sm border border-gray-300 rounded-lg focus:outline-none focus:bg-white" id="name" name="name" type="text" placeholder="{{ trans('Name card') }}">
+                            <input x-model="name" id="name" name="name" type="text" placeholder="{{ trans('Name card') }}" required class="w-full px-2 py-1 lg:px-4 lg:py-2 text-gray-700 bg-gray-100 text-xs lg:text-sm border border-gray-300 rounded-lg focus:outline-none focus:bg-white">
                             <p class="text-red-500 text-xs font-bold my-1" x-show="errors.name" x-text="errors.name"></p>
                         </div>
 
                         <div class="w-full">
                             <div class="flex my-1 p-2">
-                                <input x-model="card" type="text" id="card" class="w-5/6 border-t border-b border-l border-gray-300 flex-1 text-xs lg:text-sm py-1 lg:py-2 px-2 lg:px-4 bg-gray-100 text-gray-700 rounded-l-lg focus:bg-white focus:outline-none" placeholder="{{ trans('Card number') }}">
-                                <input x-model="date" type="text" id="date" class="w-1/6 border-t border-b border-gray-300 inline-block text-xs lg:text-sm py-1 lg:py-2 px-2 lg:px-4 bg-gray-100 text-gray-700 focus:bg-white focus:outline-none" placeholder="MM / YY">
-                                <input x-model="cvc" type="text" id="cvc" class="w-1/6 border-t border-b border-r border-gray-300 inline-block text-xs lg:text-sm py-1 lg:py-2 px-2 lg:px-4 bg-gray-100 text-gray-700 focus:bg-white rounded-r-lg focus:outline-none" placeholder="CVC">
+                                <input x-model="card" type="text" id="card" required class="w-5/6 border-t border-b border-l border-gray-300 flex-1 text-xs lg:text-sm py-1 lg:py-2 px-2 lg:px-4 bg-gray-100 text-gray-700 rounded-l-lg focus:bg-white focus:outline-none" placeholder="{{ trans('Card number') }}">
+                                <input x-model="month" type="text" id="month" required maxlength="2" class="w-1/6 border-t border-b border-gray-300 inline-block text-xs lg:text-sm py-1 lg:py-2 px-2 lg:px-4 bg-gray-100 text-gray-700 focus:bg-white focus:outline-none" placeholder="MM">
+                                <input x-model="year" type="text" id="year" required maxlength="2" class="w-1/6 border-t border-b border-gray-300 inline-block text-xs lg:text-sm py-1 lg:py-2 px-2 lg:px-4 bg-gray-100 text-gray-700 focus:bg-white focus:outline-none" placeholder="YY">
+                                <input x-model="cvc" type="text" id="cvc" required maxlength="3" class="w-1/6 border-t border-b border-r border-gray-300 inline-block text-xs lg:text-sm py-1 lg:py-2 px-2 lg:px-4 bg-gray-100 text-gray-700 focus:bg-white rounded-r-lg focus:outline-none" placeholder="CVC">
                             </div>
                             <div class="flex">
-                                <p class="text-red-500 text-xs font-bold m-1" x-show="errors.card" x-text="errors.card"></p>
-                                <p class="text-red-500 text-xs font-bold m-1" x-show="errors.date" x-text="errors.date"></p>
-                                <p class="text-red-500 text-xs font-bold m-1" x-show="errors.cvc" x-text="errors.cvc"></p>
+                                <span class="text-red-500 text-xs font-bold m-1" x-show="errors.card" x-text="errors.card"></span>
+                                <span class="block lg:hidden text-red-500 text-xs font-bold mt-1 mr-1 flex flex-col" x-cloak x-show="errors.month || errors.year">@lang('The field date has an invalid format.')</span>
+                                <span class="hidden lg:block text-red-500 text-xs font-bold mt-1 mx-1" x-show="errors.month" x-text="errors.month"></span>
+                                <span class="hidden lg:block text-red-500 text-xs font-bold mt-1 mx-1" x-show="errors.year" x-text="errors.year"></span>
+                                <span class="text-red-500 text-xs font-bold mt-1 ml-1" x-show="errors.cvc" x-text="errors.cvc"></span>
                             </div>
                         </div>
 
                         @if(!$amount)
                             <div class="my-1 p-2">
                                 <input x-model="selectedAmount" type="number" class="w-full text-xs lg:text-sm py-1 lg:py-2 px-2 lg:px-4 text-gray-700 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:bg-white" placeholder="Add an amount to donate">
+                                <small class="text-red-500 text-xs font-bold mt-1" x-show="errors.amount" x-text="errors.amount"></small>
                             </div>
                         @endif
 
@@ -159,7 +162,8 @@
                 email: '',
                 name: '',
                 card: '',
-                date: '',
+                month: '',
+                year: '',
                 cvc: '',
                 recurrence: '',
                 selectedAmount: '{{ $amount ?? '' }}',
@@ -198,7 +202,8 @@
                             name: this.name,
                             email: this.email,
                             card: this.card,
-                            date: this.date,
+                            month: this.month,
+                            year: this.year,
                             cvc: this.cvc,
                             currency: document.getElementById('currency').value,
                             amount: this.selectedAmount,

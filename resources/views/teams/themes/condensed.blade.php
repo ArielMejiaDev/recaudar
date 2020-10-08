@@ -2,9 +2,11 @@
 
 @section('content')
 
-    <x-navbar-pink />
-
     <div x-data="form()" class="relative">
+
+        <x-checkout :team="$team" :locale="$locale" :variablePlanId="$variablePlanId" />
+
+        <x-navbar-pink />
 
         <section class="text-gray-700 body-font relative overflow-hidden bg-gray-200">
 
@@ -95,10 +97,10 @@
 
         </section>
 
-        <x-checkout :team="$team" :locale="$locale" :variablePlanId="$variablePlanId" />
+        <x-footer />
 
     </div>
 
-    <x-footer />
+
 
 @endsection

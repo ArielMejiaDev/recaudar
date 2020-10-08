@@ -3471,6 +3471,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   metaInfo: {
@@ -3484,8 +3486,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         password: '',
         remember: false
       },
-      image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80'
+      image: 'images/auth/login.jpeg'
     };
+  },
+  components: {
+    VueRecaptcha: VueRecaptcha
   },
   props: {
     trans: Object,
@@ -3496,6 +3501,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.$page.errors = {};
       this.$inertia.post(this.route('login'), _objectSpread({}, this.form));
       this.form.password = '';
+    },
+    onVerify: function onVerify() {
+      console.log('verify');
+      this.submit();
+      this.$refs.invisibleRecaptcha.reset();
+    },
+    onError: function onError() {
+      console.log('error');
+    },
+    onExpired: function onExpired() {
+      console.log('expired');
     }
   }
 });
@@ -3620,6 +3636,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   layout: _Shared_Layouts_Auth__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -3631,8 +3650,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       success: false
     };
   },
+  components: {
+    VueRecaptcha: VueRecaptcha
+  },
   props: {
-    trans: Object
+    trans: Object,
+    sitekey: String
   },
   methods: {
     submit: function submit() {
@@ -3661,6 +3684,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
+    },
+    onVerify: function onVerify() {
+      console.log('verify');
+      this.submit();
+      this.$refs.invisibleRecaptcha.reset();
+    },
+    onError: function onError() {
+      console.log('error');
+    },
+    onExpired: function onExpired() {
+      console.log('expired');
     }
   }
 });
@@ -3822,6 +3856,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   layout: _Shared_Layouts_Auth__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -3832,11 +3868,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         password: '',
         remember: false
       },
-      image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80'
+      image: 'images/auth/register.jpeg'
     };
   },
+  components: {
+    VueRecaptcha: VueRecaptcha
+  },
   props: {
-    trans: Object
+    trans: Object,
+    sitekey: String
   },
   methods: {
     submit: function submit() {
@@ -3844,6 +3884,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.$inertia.post(this.route('register'), _objectSpread({}, this.form));
       this.form.password = '';
       this.form.password_confirmation = '';
+    },
+    onVerify: function onVerify() {
+      console.log('verify');
+      this.submit();
+      this.$refs.invisibleRecaptcha.reset();
+    },
+    onError: function onError() {
+      console.log('error');
+    },
+    onExpired: function onExpired() {
+      console.log('expired');
     }
   }
 });
@@ -3935,12 +3986,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Error',
   props: {
     status: Number,
-    message: String
+    message: String,
+    home: String
   },
   computed: {
     title: function title() {
@@ -3963,10 +4014,15 @@ __webpack_require__.r(__webpack_exports__);
       var notAllowedCodes = [401, 403, 419, 429];
 
       if (notAllowedCodes.includes(this.status)) {
-        return '/svg/403.svg';
+        return 'images/errors/403.svg';
       }
 
-      return "svg/".concat(this.status, ".svg");
+      return "images/errors/".concat(this.status, ".svg");
+    }
+  },
+  methods: {
+    redirectToHome: function redirectToHome() {
+      return window.location.href = this.home;
     }
   }
 });
@@ -6526,6 +6582,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_Icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Shared/Icon */ "./resources/js/Shared/Icon.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -6653,6 +6711,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Sidebar",
   data: function data() {
@@ -6662,6 +6721,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     Icon: _Shared_Icon__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  methods: {
+    logout: function logout() {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(this.route('logout').url(), {})["finally"](function () {
+        return window.location.href = '/';
+      });
+    }
   }
 });
 
@@ -31068,7 +31134,13 @@ var render = function() {
               ],
               staticClass:
                 "bg-gray-200 text-gray-700 border border-gray-300 rounded py-2 px-4 block w-full appearance-none focus:outline-none focus:bg-white",
-              attrs: { id: "email", name: "email", type: "email" },
+              attrs: {
+                autocomplete: "off",
+                tabindex: "1",
+                id: "email",
+                name: "email",
+                type: "email"
+              },
               domProps: { value: _vm.form.email },
               on: {
                 input: function($event) {
@@ -31129,7 +31201,13 @@ var render = function() {
               ],
               staticClass:
                 "bg-gray-200 text-gray-700 border border-gray-300 rounded py-2 px-4 block w-full appearance-none focus:outline-none focus:bg-white",
-              attrs: { id: "password", name: "password", type: "password" },
+              attrs: {
+                autocomplete: "off",
+                tabindex: "2",
+                id: "password",
+                name: "password",
+                type: "password"
+              },
               domProps: { value: _vm.form.password },
               on: {
                 input: function($event) {
@@ -31153,16 +31231,36 @@ var render = function() {
               : _vm._e()
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "mt-8" }, [
-            _c(
-              "button",
-              {
-                staticClass:
-                  "w-full bg-gray-800 hover:bg-gray-900 text-white text-sm font-semibold rounded focus:outline-none focus:shadow-outline py-3"
-              },
-              [_vm._v(_vm._s(_vm.trans.login))]
-            )
-          ]),
+          _c(
+            "div",
+            { staticClass: "mt-8" },
+            [
+              _c(
+                "vue-recaptcha",
+                {
+                  ref: "invisibleRecaptcha",
+                  attrs: { sitekey: _vm.sitekey },
+                  on: {
+                    verify: _vm.onVerify,
+                    error: _vm.onError,
+                    expired: _vm.onExpired
+                  }
+                },
+                [
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "w-full bg-gray-800 hover:bg-gray-900 text-white text-sm font-semibold rounded focus:outline-none focus:shadow-outline py-3",
+                      attrs: { tabindex: "3" }
+                    },
+                    [_vm._v(_vm._s(_vm.trans.login))]
+                  )
+                ]
+              )
+            ],
+            1
+          ),
           _vm._v(" "),
           _c(
             "div",
@@ -31369,12 +31467,13 @@ var render = function() {
       _c("form-input", {
         staticClass: "mb-8",
         attrs: {
+          tabindex: "1",
           label: _vm.trans.email,
           placeholder: _vm.trans.your_email_address,
           errors: _vm.$page.errors.email,
           required: "",
           autofocus: "",
-          autocomplete: "email"
+          autocomplete: "off"
         },
         model: {
           value: _vm.form.email,
@@ -31386,16 +31485,31 @@ var render = function() {
       }),
       _vm._v(" "),
       _c(
-        "button",
+        "vue-recaptcha",
         {
-          staticClass:
-            "w-full bg-gray-800 hover:bg-gray-900 text-white text-sm font-semibold rounded focus:outline-none focus:shadow-outline py-3"
+          ref: "invisibleRecaptcha",
+          attrs: { sitekey: _vm.sitekey },
+          on: {
+            verify: _vm.onVerify,
+            error: _vm.onError,
+            expired: _vm.onExpired
+          }
         },
         [
-          _vm._v(
-            "\n        " +
-              _vm._s(_vm.trans.email_password_reset_link) +
-              "\n    "
+          _c(
+            "button",
+            {
+              staticClass:
+                "w-full bg-gray-800 hover:bg-gray-900 text-white text-sm font-semibold rounded focus:outline-none focus:shadow-outline py-3",
+              attrs: { tabindex: "2" }
+            },
+            [
+              _vm._v(
+                "\n            " +
+                  _vm._s(_vm.trans.email_password_reset_link) +
+                  "\n        "
+              )
+            ]
           )
         ]
       )
@@ -31589,7 +31703,13 @@ var render = function() {
               ],
               staticClass:
                 "bg-gray-200 text-gray-700 border border-gray-300 rounded py-2 px-4 block w-full appearance-none focus:outline-none focus:bg-white",
-              attrs: { id: "name", name: "name", type: "text" },
+              attrs: {
+                autocomplete: "off",
+                tabindex: "1",
+                id: "name",
+                name: "name",
+                type: "text"
+              },
               domProps: { value: _vm.form.name },
               on: {
                 input: function($event) {
@@ -31634,7 +31754,13 @@ var render = function() {
               ],
               staticClass:
                 "bg-gray-200 text-gray-700 border border-gray-300 rounded py-2 px-4 block w-full appearance-none focus:outline-none focus:bg-white",
-              attrs: { id: "email", name: "email", type: "email" },
+              attrs: {
+                autocomplete: "off",
+                tabindex: "2",
+                id: "email",
+                name: "email",
+                type: "email"
+              },
               domProps: { value: _vm.form.email },
               on: {
                 input: function($event) {
@@ -31679,7 +31805,13 @@ var render = function() {
               ],
               staticClass:
                 "bg-gray-200 text-gray-700 border border-gray-300 rounded py-2 px-4 block w-full appearance-none focus:outline-none focus:bg-white",
-              attrs: { id: "password", name: "password", type: "password" },
+              attrs: {
+                autocomplete: "off",
+                tabindex: "3",
+                id: "password",
+                name: "password",
+                type: "password"
+              },
               domProps: { value: _vm.form.password },
               on: {
                 input: function($event) {
@@ -31725,6 +31857,8 @@ var render = function() {
               staticClass:
                 "bg-gray-200 text-gray-700 border border-gray-300 rounded py-2 px-4 block w-full appearance-none focus:outline-none focus:bg-white",
               attrs: {
+                autocomplete: "off",
+                tabindex: "4",
                 id: "password_confirmation",
                 name: "password_confirmation",
                 type: "password"
@@ -31756,16 +31890,36 @@ var render = function() {
               : _vm._e()
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "mt-8" }, [
-            _c(
-              "button",
-              {
-                staticClass:
-                  "w-full bg-gray-800 hover:bg-gray-900 text-white text-sm font-semibold rounded focus:outline-none focus:shadow-outline py-3"
-              },
-              [_vm._v(_vm._s(_vm.trans.signup))]
-            )
-          ]),
+          _c(
+            "div",
+            { staticClass: "mt-8" },
+            [
+              _c(
+                "vue-recaptcha",
+                {
+                  ref: "invisibleRecaptcha",
+                  attrs: { sitekey: _vm.sitekey },
+                  on: {
+                    verify: _vm.onVerify,
+                    error: _vm.onError,
+                    expired: _vm.onExpired
+                  }
+                },
+                [
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "w-full bg-gray-800 hover:bg-gray-900 text-white text-sm font-semibold rounded focus:outline-none focus:shadow-outline py-3",
+                      attrs: { tabindex: "4" }
+                    },
+                    [_vm._v(_vm._s(_vm.trans.signup))]
+                  )
+                ]
+              )
+            ],
+            1
+          ),
           _vm._v(" "),
           _c(
             "div",
@@ -31898,40 +32052,35 @@ var render = function() {
         staticClass: "w-full md:w-1/2 bg-white flex items-center justify-center"
       },
       [
-        _c(
-          "div",
-          { staticClass: "max-w-sm m-8" },
-          [
-            _c(
-              "div",
-              { staticClass: "text-gray-800 text-5xl md:text-6xl font-black" },
-              [_vm._v(_vm._s(_vm.status))]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "w-16 h-1 bg-purple-300 my-3 md:my-6" }),
-            _vm._v(" "),
-            _c(
-              "p",
-              {
-                staticClass:
-                  "text-gray-600 text-2xl md:text-3xl font-light mb-8 leading-normal"
-              },
-              [_vm._v(_vm._s(_vm.message))]
-            ),
-            _vm._v(" "),
-            _c("InertiaLink", { attrs: { href: "/dashboard" } }, [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-transparent text-gray-700 font-bold uppercase tracking-wide py-3 px-6 border-2 border-gray-400 hover:border-gray-500 rounded-lg focus:outline-none"
-                },
-                [_vm._v("Go Home")]
-              )
-            ])
-          ],
-          1
-        )
+        _c("div", { staticClass: "max-w-sm m-8" }, [
+          _c(
+            "div",
+            { staticClass: "text-gray-800 text-5xl md:text-6xl font-black" },
+            [_vm._v(_vm._s(_vm.status))]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-16 h-1 bg-pink my-3 md:my-6" }),
+          _vm._v(" "),
+          _c(
+            "p",
+            {
+              staticClass:
+                "text-gray-600 text-2xl md:text-3xl font-light mb-8 leading-normal"
+            },
+            [_vm._v(_vm._s(_vm.message))]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass:
+                "bg-transparent text-gray-700 font-bold uppercase tracking-wide py-3 px-6 border-2 border-gray-400 hover:border-gray-500 rounded-lg focus:outline-none",
+              attrs: { type: "button" },
+              on: { click: _vm.redirectToHome }
+            },
+            [_vm._v("Go Home")]
+          )
+        ])
       ]
     ),
     _vm._v(" "),
@@ -36554,7 +36703,8 @@ var render = function() {
                 staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2",
                 on: {
                   click: function($event) {
-                    _vm.$inertia.post(_vm.route("logout"))
+                    $event.preventDefault()
+                    return _vm.logout($event)
                   }
                 }
               },
