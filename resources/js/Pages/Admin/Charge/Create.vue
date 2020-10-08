@@ -6,9 +6,9 @@
             </template>
             <template v-slot:body>
 
-                <div class="flex">
+                <div class="flex flex-col lg:flex-row w-full">
 
-                    <Select class="w-full md:w-1/2 md:mr-1" v-model="form.country" name="Country" :label="trans.country" :errors="$page.errors.country">
+                    <Select class="w-full lg:w-1/2 lg:mr-1" v-model="form.country" name="Country" :label="trans.country" :errors="$page.errors.country">
                         <option value="Guatemala">Guatemala</option>
                         <option value="El Salvador">El Salvador</option>
                         <option value="Honduras">Honduras</option>
@@ -16,15 +16,15 @@
                         <option value="Costa Rica">Costa Rica</option>
                     </Select>
 
-                    <IconInput class="w-full md:w-1/2 md:ml-1" v-model="form.income" name="income" :label="trans.income" :errors="$page.errors.income" type="number" min="0" max="100" :required="false" >
+                    <IconInput class="w-full lg:w-1/2 lg:ml-1" v-model="form.income" name="income" :label="trans.income" :errors="$page.errors.income" type="number" min="0" max="100" :required="false" >
                         <template v-slot:icon>%</template>
                     </IconInput>
 
                 </div>
 
-                <div class="flex">
+                <div class="flex flex-col lg:flex-row">
 
-                    <Select class="w-full md:w-1/2 md:mr-1" v-model="form.gateway" name="payment_gateway" :label="trans.payment_gateway" :errors="$page.errors.gateway">
+                    <Select class="w-full lg:w-1/2 lg:mr-1" v-model="form.gateway" name="payment_gateway" :label="trans.payment_gateway" :errors="$page.errors.gateway">
                         <option value="pagalogt">PagaloGT</option>
                         <option value="pagadito">Pagadito</option>
                         <option value="paypal">Paypal</option>
@@ -32,7 +32,7 @@
                         <option value="payu">PayU</option>
                     </Select>
 
-                    <IconInput class="w-full md:w-1/2 md:ml-1" v-model="form.gateway_charge" name="gateway_charge" :label="trans.gateway_charge_percentage" :errors="$page.errors.gateway_charge" type="number" min="0" max="100" :required="false" >
+                    <IconInput class="w-full lg:w-1/2 lg:ml-1" v-model="form.gateway_charge" name="gateway_charge" :label="trans.gateway_charge_percentage" :errors="$page.errors.gateway_charge" type="number" min="0" max="100" :required="false" >
                         <template v-slot:icon>%</template>
                     </IconInput>
 
