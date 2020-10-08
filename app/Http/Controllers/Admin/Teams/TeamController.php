@@ -19,7 +19,7 @@ class TeamController extends Controller
         $this->trans = [
             'teams' => trans('Teams'),
             'search' => trans('Search'),
-            'team' => trans('Team'),
+            'team' => trans('team'),
             'plans' => trans('Plans'),
             'status' => trans('Status'),
             'pending' => trans('Pending'),

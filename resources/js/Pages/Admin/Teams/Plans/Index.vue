@@ -54,7 +54,7 @@ import Icon from "../../../../Shared/Icon";
 import _ from "lodash";
 
 export default {
-    metaInfo: { title:  'Team plans' },
+    metaInfo: { title:  'team plans' },
     layout: SidebarLayout,
     name: "Index",
     components: {

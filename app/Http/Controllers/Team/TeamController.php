@@ -32,7 +32,7 @@ class TeamController extends Controller
     public function create()
     {
         $trans = [
-            'create_a_team' => trans('Create a Team'),
+            'create_a_team' => trans('Create a team'),
             'profile' => trans('Profile'),
             'the_data_in_this_section_will_be_displayed_on_the_profile_page' => trans('The data in this section will be displayed on the profile page.'),
             'organization_name' => trans('Organization Name'),
@@ -76,7 +76,7 @@ class TeamController extends Controller
         auth()->user()->teams()->attach($team, ['role_name' => 'admin']);
         Notification::route('mail', 'info@recaudar.com')->notify(new NewTeamCreatedNotification($team, auth()->user()));
         return redirect()->route('teams.index')->with([
-            'success' => trans('Team') . ' ' . trans('Created') . ', ' . trans('You will receive an email, when the organization is approved.')
+            'success' => trans('team') . ' ' . trans('Created') . ', ' . trans('You will receive an email, when the organization is approved.')
         ]);
     }
 
@@ -89,7 +89,7 @@ class TeamController extends Controller
     public function edit(Team $team)
     {
         $trans = [
-            'update_a_team' => trans('Update a Team'),
+            'update_a_team' => trans('Update a team'),
             'profile' => trans('Profile'),
             'the_data_in_this_section_will_be_displayed_on_the_profile_page' => trans('The data in this section will be displayed on the profile page.'),
             'organization_name' => trans('Organization Name'),
@@ -126,7 +126,7 @@ class TeamController extends Controller
     public function update(UpdateTeamRequest $request, Team $team)
     {
         $team->update($request->validated());
-        return redirect()->route('teams.index')->with(['success' => trans('Team') . ' ' . trans('Updated') . '!']);
+        return redirect()->route('teams.index')->with(['success' => trans('team') . ' ' . trans('Updated') . '!']);
     }
 
     /**
@@ -138,6 +138,6 @@ class TeamController extends Controller
     public function destroy(Team $team)
     {
         $team->delete();
-        return redirect()->route('teams.index')->with(['warning' => trans('Team') . ' ' . trans('Deleted')]);
+        return redirect()->route('teams.index')->with(['warning' => trans('team') . ' ' . trans('Deleted')]);
     }
 }

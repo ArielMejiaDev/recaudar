@@ -13,6 +13,6 @@ class UpdateTeamProfile extends Controller
     public function __invoke(UpdateTeamProfileRequest $request, Team $team)
     {
         $team->update($request->validated());
-        return redirect()->route('admin.teams.index')->with(['success' => trans('Team') . ' ' . trans('Updated')]);
+        return redirect()->route('admin.teams.index')->with(['success' => trans('team') . ' ' . trans('Updated')]);
     }
 }

@@ -82,7 +82,7 @@ namespace App\Models{
 
 namespace App\Models{
 /**
- * App\Models\Team
+ * App\Models\team
  *
  * @property int $id
  * @property string|null $status

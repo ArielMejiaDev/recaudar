@@ -15,6 +15,6 @@ class UpdateTeamStatus extends Controller
         $request->validate(['status' => Rule::in(['pending', 'approved'])]);
         $team->update(['status' => $request->status === 'pending' ? $status = 'approved' : $status = 'pending']);
         $team->users->first()->notify(new TeamStatusChangeNotification($team->name, $status));
-        return redirect()->route('admin.teams.index')->with(['success' => trans('Team') . ' ' . trans('Updated')]);
+        return redirect()->route('admin.teams.index')->with(['success' => trans('team') . ' ' . trans('Updated')]);
     }
 }

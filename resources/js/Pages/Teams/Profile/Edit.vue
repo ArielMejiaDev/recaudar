@@ -36,7 +36,7 @@ import EditPromotionalVideo from "./EditPromotionalVideo";
 import EditTheme from "./EditTheme";
 
 export default {
-    metaInfo: { title: 'Team profile' },
+    metaInfo: { title: 'team profile' },
     name: "TeamProfile",
     layout: SidebarLayout,
     components: {

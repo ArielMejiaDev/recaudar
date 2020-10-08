@@ -12,6 +12,6 @@ class UpdateTeamFinancialData extends Controller
     public function __invoke(UpdateTeamFinancialDataRequest $request, Team $team)
     {
         $team->update($request->validated());
-        return redirect()->route('admin.teams.index')->with(['success' => trans('Team') . ' ' . trans('Updated')]);
+        return redirect()->route('admin.teams.index')->with(['success' => trans('team') . ' ' . trans('Updated')]);
     }
 }
