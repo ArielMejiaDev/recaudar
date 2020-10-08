@@ -9,11 +9,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.env.credentials" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.env.development" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.env.production" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.env.staging" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_03_031316_create_teams_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_03_031316_create_teams_table.php" afterDir="false" />
     </list>
@@ -270,7 +265,7 @@
       <workItem from="1600106574225" duration="178576000" />
       <workItem from="1601033452225" duration="282000" />
       <workItem from="1601035310376" duration="54750000" />
-      <workItem from="1601444801403" duration="195616000" />
+      <workItem from="1601444801403" duration="195804000" />
     </task>
     <servers />
   </component>
