@@ -9,14 +9,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/moonlight.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/moonlight.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/TeamSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/TeamSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/certificate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/certificate.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/SEO/LandingPageSeoService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/SEO/LandingPageSeoService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/SEO/TeamPageSeoService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/SEO/TeamPageSeoService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/SEO/TeamProfilePageSeoService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/SEO/TeamProfilePageSeoService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,7 +279,7 @@
       <workItem from="1600106574225" duration="178576000" />
       <workItem from="1601033452225" duration="282000" />
       <workItem from="1601035310376" duration="54750000" />
-      <workItem from="1601444801403" duration="208836000" />
+      <workItem from="1601444801403" duration="209062000" />
     </task>
     <servers />
   </component>

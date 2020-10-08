@@ -30,7 +30,7 @@ class TeamProfilePageSeoService
 
         TwitterCard::setImage($team->logo)
             ->setTitle($team->name)
-            ->setDescription('Perfil de la fundacioón ' . $team->name . ' en ' . config('app.url'))
+            ->setDescription('Perfil de la fundación ' . $team->name . ' en ' . config('app.url'))
             ->setUrl(route('profile-page', $team));
     }
 }

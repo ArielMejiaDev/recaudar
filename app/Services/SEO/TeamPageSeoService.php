@@ -30,17 +30,17 @@ class TeamPageSeoService
                 ->limit(15)
                 ->pluck('banner')
                 ->toArray() ?? [
-                'https:' . config('app.url') . '/assets/images/landing/hero/bg.jpeg',
+                'https:' . config('app.url') . '/images/landing/hero/bg.jpeg',
             ];
 
-        OpenGraph::addImage(config('app.url') . '/assets/images/landing/hero/bg.jpeg')
+        OpenGraph::addImage(config('app.url') . '/images/landing/hero/bg.jpeg')
             ->addImages($images)
             ->setTitle('Fundaciones - ' . config('app.name'))
             ->setDescription('Lista de fundaciones')
             ->setUrl(route('teams-page'))
             ->setSiteName('Fundaciones ' . config('app.name'));
 
-        TwitterCard::setImage('https:' . config('app.url') . '/assets/images/landing/hero/bg.jpeg')
+        TwitterCard::setImage('https:' . config('app.url') . '/images/landing/hero/bg.jpeg')
             ->setTitle('Fundaciones - ' . config('app.name'))
             ->setDescription('Somos el corazón de la caridad, porque conectamos organizaciones y donadores de una manera fácil y segura para cambiar el mundo.')
             ->setUrl(route('teams-page'));
