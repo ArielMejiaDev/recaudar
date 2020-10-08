@@ -218,7 +218,7 @@
                                 if(data.errors) {
                                     return this.errors = data.errors;
                                 }
-                                // return window.location.href = data.redirect;
+                                return window.location.href = data.redirect;
                             })
                         )
                         .catch(errors => console.log(errors.response.data.errors))
