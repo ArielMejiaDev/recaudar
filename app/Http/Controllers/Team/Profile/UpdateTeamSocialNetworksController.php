@@ -14,22 +14,18 @@ class UpdateTeamSocialNetworksController extends Controller
      *
      * @param Request $request
      * @param Team $team
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function __invoke(UpdateTeamSocialNetworksRequest $request, Team $team)
     {
-        $this->validateAndUpdate(collect(['facebook_account', 'twitter_account', 'instagram_account']), $team);
-        return redirect()->back()->with(['success' => trans('Social networks updated!')]);
-    }
+        $request->validate([
+            'facebook_account' => ['nullable', 'url'],
+            'twitter_account' => ['nullable', 'url'],
+            'instagram_account' => ['nullable', 'url'],
+        ]);
 
-    public function validateAndUpdate($inputNames, $model)
-    {
-        $inputNames->each(function($inputName) use($model) {
+        $team->update($request->validated());
 
-            if(\request()->$inputName) {
-                $model->update([$inputName => request()->$inputName]);
-            }
-
-        });
+        return redirect()->back()->with(['success' => trans('Social Links Updated')]);
     }
 }

@@ -13,6 +13,6 @@ class UpdateTeamThemeController extends Controller
     {
         $request->validate(['theme' => ['required', Rule::in(['classic', 'condensed', 'columns'])]], [], ['theme' => trans('Theme')]);
         $team->update(['theme' => $request->theme]);
-        return redirect()->route('teams.profile',$team)->with(['success' => trans('Theme updated!')]);
+        return redirect()->route('teams.profile',$team)->with(['success' => trans('Theme Updated')]);
     }
 }

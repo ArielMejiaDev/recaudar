@@ -31,7 +31,7 @@ Route::domain('{team:slug}.' . basename(config('app.url')))->group(function () {
 
     Route::post('/pay/{plan}', PaymentController::class)->name('pay')->middleware('throttle:30,10');
 
-    Route::get('/certificate/{transaction}', CertificateController::class)->name('certificate');
+    Route::get('/certificado/{transaction}', CertificateController::class)->name('certificate');
 
 });
 

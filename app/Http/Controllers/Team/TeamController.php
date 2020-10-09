@@ -15,23 +15,13 @@ use Inertia\Response as InertiaResponse;
 
 class TeamController extends Controller
 {
-    public function index()
+    private array $trans;
+
+    public function __construct()
     {
-        $teams = auth()->user()->teams()->select('slug', 'name', 'category')->whereStatus('approved')->get();
-        $trans =  [
+        $this->trans = [
             'your_teams' => trans('Your Teams'),
             'in_this_section_you_can_manage_your_teams' => trans('In this section you can manage your teams.'),
-        ];
-        return Inertia::render('Teams/Index', compact('teams', 'trans'));
-    }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return InertiaResponse
-     */
-    public function create()
-    {
-        $trans = [
             'create_a_team' => trans('Create a team'),
             'profile' => trans('Profile'),
             'the_data_in_this_section_will_be_displayed_on_the_profile_page' => trans('The data in this section will be displayed on the profile page.'),
@@ -57,9 +47,27 @@ class TeamController extends Controller
             'you_must_accept_terms_to_create_a_team' => trans('You must accept terms to create a team.'),
             'you_will_receive_an_email_when_the_organization_is_approved' => trans('You will receive an email, when the organization is approved.'),
             'cancel' => trans('Cancel'),
-            'this_action_cannot_be_reversed' => trans('This action cannot be reversed.')
+            'this_action_cannot_be_reversed' => trans('This action cannot be reversed.'),
+            'update_a_team' => trans('Update a team'),
         ];
-        return Inertia::render('Teams/Create', compact('trans'));
+    }
+
+    public function index()
+    {
+        $teams = auth()->user()->teams()->select('slug', 'name', 'category')->whereStatus('approved')->get();
+        return Inertia::render('Teams/Index', [
+            'teams' => $teams,
+            'trans' => $this->trans,
+        ]);
+    }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return InertiaResponse
+     */
+    public function create()
+    {
+        return Inertia::render('Teams/Create', ['trans' => $this->trans]);
     }
 
     /**
@@ -88,32 +96,10 @@ class TeamController extends Controller
      */
     public function edit(Team $team)
     {
-        $trans = [
-            'update_a_team' => trans('Update a team'),
-            'profile' => trans('Profile'),
-            'the_data_in_this_section_will_be_displayed_on_the_profile_page' => trans('The data in this section will be displayed on the profile page.'),
-            'organization_name' => trans('Organization Name'),
-            'beneficiaries' => trans('Beneficiaries'),
-            'public' => trans('Public'),
-            'category' => trans('Category'),
-            'impact' => trans('Impact'),
-            'use_of_funds' => trans('Use Of Funds'),
-            'description' => trans('Description'),
-            'contact' => trans('Contact'),
-            'this_information_will_not_be_publicly_visible' => trans('This information will not be publicly visible.'),
-            'contact_phone' => trans('Contact Phone'),
-            'contact_email' => trans('Contact Email'),
-            'office_address' => trans('Office Address'),
-            'financial_data' => trans('Financial Data'),
-            'legal_representative' => trans('Legal Representative'),
-            'tax_number' => trans('Tax Number'),
-            'country' => trans('Country'),
-            'account_number' => trans('Account Number'),
-            'bank' => trans('Bank'),
-            'accept_terms' => trans('Accept Terms & Conditions')
-        ];
-
-        return Inertia::render('Teams/Edit', compact('team', 'trans'));
+        return Inertia::render('Teams/Edit', [
+            'team' => $team,
+            'trans' => $this->trans,
+        ]);
     }
 
     /**
@@ -126,7 +112,7 @@ class TeamController extends Controller
     public function update(UpdateTeamRequest $request, Team $team)
     {
         $team->update($request->validated());
-        return redirect()->route('teams.index')->with(['success' => trans('team') . ' ' . trans('Updated') . '!']);
+        return redirect()->route('teams.index')->with(['success' => trans('Team Updated')]);
     }
 
     /**
@@ -138,6 +124,6 @@ class TeamController extends Controller
     public function destroy(Team $team)
     {
         $team->delete();
-        return redirect()->route('teams.index')->with(['warning' => trans('team') . ' ' . trans('Deleted')]);
+        return redirect()->route('teams.index')->with(['warning' => trans('Team Deleted')]);
     }
 }

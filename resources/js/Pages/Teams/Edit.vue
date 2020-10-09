@@ -47,7 +47,7 @@
 
                 <hr class="mb-6 mt-12">
 
-                <Title class="mb-8" info="This information would not be shown publicly.">{{ trans.contact }}</Title>
+                <Title class="mb-8" :info="trans.this_information_will_not_be_publicly_visible">{{ trans.contact }}</Title>
 
                 <div class="w-full flex flex-col md:flex-row">
                     <div class="w-full w-1/3 md:mr-1">

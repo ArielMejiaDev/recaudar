@@ -22,6 +22,6 @@ class UpdateTeamLogoController extends Controller
     {
         $request->validate(['logo' => 'required|image']);
         $team->update(['logo' => S3Uploader::upload('logo', 'teams_logos', $team->logo)]);
-        return redirect()->route('teams.profile', $team)->with(['success' => trans('Logo updated!')]);
+        return redirect()->route('teams.profile', $team)->with(['success' => trans('Logo Updated')]);
     }
 }
