@@ -40,7 +40,11 @@ class StartupDataCommand extends Command
      */
     public function handle()
     {
-        $this->output->progressStart(11);
+        $this->output->progressStart(12);
+
+        $this->call('migrate:fresh');
+
+        $this->output->progressAdvance();
 
         factory(User::class)->create([
             'name'  => 'Ariel Mejia',
