@@ -61,6 +61,12 @@ class StartupDataCommand extends Command
             'password' => bcrypt(12345678),
         ]);
 
+        factory(User::class)->create([
+            'name'  => 'Soporte Recaudar',
+            'email' => 'soporte@recaudar.com',
+            'password' => bcrypt(12345678),
+        ]);
+
         factory(Charge::class)->create([
             'country' => 'Guatemala',
             'income_charge' => 2.5,
@@ -200,12 +206,8 @@ class StartupDataCommand extends Command
         User::whereEmail('otto@recaudar.com')->first()->teams()->attach(Team::first(), ['role_name' => 'app_admin']);
         User::whereEmail('info@recaudar.com')->first()->teams()->attach(Team::first(), ['role_name' => 'app_admin']);
 
-        User::whereEmail('otto@recaudar.com')->first()->teams()->attach(Team::find(2), ['role_name' => 'team_admin']);
-        User::whereEmail('otto@recaudar.com')->first()->teams()->attach(Team::find(3), ['role_name' => 'team_admin']);
-        User::whereEmail('otto@recaudar.com')->first()->teams()->attach(Team::find(4), ['role_name' => 'team_admin']);
-
-        User::whereEmail('info@recaudar.com')->first()->teams()->attach(Team::find(2), ['role_name' => 'team_admin']);
-        User::whereEmail('info@recaudar.com')->first()->teams()->attach(Team::find(3), ['role_name' => 'team_admin']);
-        User::whereEmail('info@recaudar.com')->first()->teams()->attach(Team::find(4), ['role_name' => 'team_admin']);
+        User::whereEmail('soporte@recaudar.com')->first()->teams()->attach(Team::find(2), ['role_name' => 'team_admin']);
+        User::whereEmail('soporte@recaudar.com')->first()->teams()->attach(Team::find(3), ['role_name' => 'team_admin']);
+        User::whereEmail('soporte@recaudar.com')->first()->teams()->attach(Team::find(4), ['role_name' => 'team_admin']);
     }
 }

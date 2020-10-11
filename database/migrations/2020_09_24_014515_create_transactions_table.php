@@ -21,15 +21,15 @@ class CreateTransactionsTable extends Migration
             $table->foreign('plan_id')->references('id')->on('plans');
             $table->unsignedBigInteger('charge_id');
             $table->foreign('charge_id')->references('id')->on('charges');
-            $table->string('name');
-            $table->string('email');
-            $table->string('currency');
+            $table->string('name', 100);
+            $table->string('email', 64);
+            $table->string('currency', 3);
             $table->integer('amount');
-            $table->string('type');
+            $table->string('type', 10);
             $table->integer('amount_to_deposit');
             $table->integer('income');
-            $table->string('status')->default('pending');
-            $table->string('reviewed')->default('pending');
+            $table->string('status', 10)->default('pending');
+            $table->string('reviewed', 10)->default('pending');
             $table->timestamps();
         });
     }

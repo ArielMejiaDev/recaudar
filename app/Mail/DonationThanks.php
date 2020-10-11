@@ -42,7 +42,7 @@ class DonationThanks extends Mailable
     public function build()
     {
         return $this->view('maileclipse::templates.donationThanks')
-            ->subject('Thanks for your donation')
+            ->subject(trans('Thanks for your donation.'))
             ->from('info@recaudar.com', 'Recaudar')
             ->replyTo('info@recaudar.com', 'Recaudar');
     }

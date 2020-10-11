@@ -2,14 +2,13 @@
 
 /*
 |--------------------------------------------------------------------------
-| Profile Web Routes
+| Admin Web Routes
 |--------------------------------------------------------------------------
 |
-| Here all routes to manage users profile
+| Here all routes to manage app functionality
 |
 */
 
-// this route is just for admin purpouse
 use App\Http\Controllers\Admin\Admins\AdminController;
 use App\Http\Controllers\Admin\Charges\ChargeController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
