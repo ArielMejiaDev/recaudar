@@ -52,11 +52,11 @@ class NewTeamCreatedNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->greeting('Hi there is a new team created in recaudar.com')
+            ->greeting(trans('There is a new team created.'))
             ->line($this->team->name)
-            ->line('was created by ' . $this->user->name . ' with the email ' . $this->user->email)
-            ->action('Go to the app', url('/'))
-            ->line('Thank you for being attending the application notifications!');
+            ->line(trans('Created by') . ': ' . $this->user->name . ', ' . 'Email' . ': ' . $this->user->email)
+            ->action(trans('Go to the app.'), url('/'))
+            ->line(trans('Thank you for attending the notifications of the application.'));
     }
 
     /**

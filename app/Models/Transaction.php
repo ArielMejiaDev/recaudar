@@ -22,6 +22,36 @@ class Transaction extends Model
         return $this->belongsTo(Plan::class);
     }
 
+    public function getAmountAttribute()
+    {
+        return $this->attributes['amount'] / 100;
+    }
+
+    public function setAmountAttribute($value)
+    {
+        $this->attributes['amount'] = $value * 100;
+    }
+
+    public function getAmountToDepositAttribute()
+    {
+        return $this->attributes['amount_to_deposit'] / 100;
+    }
+
+    public function setAmountToDepositAttribute($value)
+    {
+        $this->attributes['amount_to_deposit'] = $value * 100;
+    }
+
+    public function getIncomeAttribute()
+    {
+        return $this->attributes['income'] / 100;
+    }
+
+    public function setIncomeAttribute($value)
+    {
+        $this->attributes['income'] = $value * 100;
+    }
+
     public function getReadableCreatedAtAttribute() {
         return $this->created_at->format('d/m/Y');
     }

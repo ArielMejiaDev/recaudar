@@ -7,12 +7,17 @@
             <template v-slot:body>
                 <Input v-model="form.name" name="name" :label="trans.name" :errors="$page.errors.name" />
                 <Input v-model="form.email" name="email" :label="trans.email" type="email" :errors="$page.errors.name" />
+                <Select v-model="form.role" name="role" :label="trans.role" :placeholder="`${$page.global_trans.select} ${trans.role}`" :errors="$page.errors.role">
+                    <option value="app_admin">{{ trans.admin }}</option>
+                    <option value="app_editor">{{ trans.editor }}</option>
+                    <option value="app_financial">{{ trans.financial }}</option>
+                </Select>
             </template>
             <template v-slot:footer>
                 <LoadingButton :loading="loading">{{ trans.create }}</LoadingButton>
             </template>
         </Panel>
-        <Modal v-if="showModal" type="danger" title="An admin user can manage the entire app" info="Be careful with admin users" close-button-text="Close" @close="showModal = !showModal" action-button-text="Create admin user" @action="showModal = !showModal; submit()" />
+        <Modal v-if="showModal" type="danger" :title="trans.subtitle" :info="trans.be_careful_when_adding_new_administrators" :close-button-text="$page.global_trans.cancel" @close="showModal = !showModal" :action-button-text="$page.global_trans.create" @action="showModal = !showModal; submit()" />
     </form>
 </template>
 
@@ -23,6 +28,7 @@ import LoadingButton from "../../../Shared/LoadingButton";
 import Panel from "../../../Shared/Panel";
 import Title from "../../../Shared/Title";
 import Modal from "../../../Shared/Modal";
+import Select from "../../../Shared/Select";
 
 export default {
     metaInfo: { title: 'Create app admin' },
@@ -35,6 +41,7 @@ export default {
             form: {
                 name: null,
                 email: null,
+                role: null,
             }
         }
     },
@@ -47,6 +54,7 @@ export default {
         Input,
         LoadingButton,
         Modal,
+        Select,
     },
     methods: {
         submit() {

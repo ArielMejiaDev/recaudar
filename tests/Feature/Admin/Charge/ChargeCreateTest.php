@@ -43,7 +43,7 @@ class ChargeCreateTest extends TestCase
         $response->assertLocation('/login');
     }
     /**@test */
-    public function test_app_admins_cannot_access_to_admin_charges_index()
+    public function test_app_admins_can_access_to_admin_charges_index()
     {
         $team = factory(Team::class)->create(['name' => 'recaudar']);
         $user = factory(User::class)->create();
@@ -51,6 +51,8 @@ class ChargeCreateTest extends TestCase
         $this->actingAs($user);
 
         session()->setPreviousUrl('/login');
+
+        $this->withSession(['auth.password_confirmed_at' => time()]);
 
         $response = $this->get(route('admin.charges.create'));
 

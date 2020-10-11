@@ -11,6 +11,7 @@ use App\Services\S3Uploader;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Gate;
 use Inertia\Inertia;
 
 class PlanController extends Controller
@@ -43,6 +44,8 @@ class PlanController extends Controller
      */
     public function index(Request $request, Team $team)
     {
+        Gate::authorize('manage-teams');
+
         $plans = $team->plans()->where('title', '!=', 'of variable amount')->paginate(10, ['plans.id', 'title', 'amount_in_local_currency', 'amount_in_dollars']);
 
         if($request->has('search')) {
@@ -73,6 +76,8 @@ class PlanController extends Controller
      */
     public function edit(Team $team, Plan $plan)
     {
+        Gate::authorize('manage-teams');
+
         $locale = (new LocaleCodeResolver)->getLocaleFrom($team->country);
         return Inertia::render('Admin/Teams/Plans/Edit', [
             'plan' => $plan,
@@ -95,6 +100,8 @@ class PlanController extends Controller
      */
     public function update(UpdatePlanRequest $request, Team $team, Plan $plan)
     {
+        Gate::authorize('manage-teams');
+
         $data = $request->only('title', 'info', 'amount_in_local_currency', 'amount_in_dollars');
         if($request->hasFile('banner')) {
             $file = S3Uploader::upload('banner', 'plans_banners', $request->banner);
@@ -112,6 +119,7 @@ class PlanController extends Controller
      */
     public function destroy(Team $team, Plan $plan)
     {
+        Gate::authorize('manage-teams');
         $plan->delete();
         return redirect()->route('admin.teams.plans.index', ['team' => $team])->with(['warning' => trans('Plan') . ' ' . trans('Deleted')]);
     }

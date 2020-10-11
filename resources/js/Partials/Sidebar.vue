@@ -20,7 +20,7 @@
         <div class="px-2 py-6 md:block" :class="isOpen? 'block': 'hidden'">
 
             <!--Admin links-->
-            <template v-if="$page.auth.user.role == 'app_admin'">
+            <template v-if="$page.auth.user.role == 'app_admin' || $page.auth.user.role == 'app_editor' || $page.auth.user.role == 'app_financial'">
 
                 <ul>
                     <li class="px-2 py-3 text-gray-300 hover:bg-gray-900 rounded" :class="route().current('admin.dashboard') ? 'bg-gray-900' : null">
@@ -29,19 +29,19 @@
                             {{ $page.global_trans.home }}
                         </InertiaLink>
                     </li>
-                    <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('admin.teams*') ? 'bg-gray-900' : null">
+                    <li v-if="$page.auth.user.role == 'app_admin' || $page.auth.user.role == 'app_editor'" class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('admin.teams*') ? 'bg-gray-900' : null">
                         <InertiaLink @click.passive="isOpen = !isOpen;" :href="route('admin.teams.index')" class="flex items-center text-gray-300">
                             <Icon class="text-gray-500 mr-2" name="users"/>
                             {{ $page.global_trans.teams }}
                         </InertiaLink>
                     </li>
-                    <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('admin.charges*') ? 'bg-gray-900' : null">
+                    <li v-if="$page.auth.user.role == 'app_admin'" class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('admin.charges*') ? 'bg-gray-900' : null">
                         <InertiaLink @click.passive="isOpen = !isOpen;" :href="route('admin.charges.index')" class="flex items-center text-gray-300">
                             <Icon class="text-gray-500 mr-2" name="collection" />
                             {{ $page.global_trans.charges }}
                         </InertiaLink>
                     </li>
-                    <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('admin.transactions*') ? 'bg-gray-900' : null">
+                    <li v-if="$page.auth.user.role == 'app_admin' || $page.auth.user.role == 'app_financial'" class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('admin.transactions*') ? 'bg-gray-900' : null">
                         <InertiaLink @click.passive="isOpen = !isOpen;" :href="route('admin.transactions.index')" class="flex items-center text-gray-300">
                             <Icon class="text-gray-500 mr-2" name="switch" />
                             {{ $page.global_trans.transactions }}

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Team;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -61,6 +62,8 @@ class TeamController extends Controller
      */
     public function index(Request $request)
     {
+        Gate::authorize('manage-teams');
+
         $teams = Team::select(['id', 'name', 'status'])->where('name', '!=', 'recaudar')->paginate(10);
 
         if($request->has('search')) {
@@ -106,6 +109,8 @@ class TeamController extends Controller
      */
     public function edit(Team $team)
     {
+        Gate::authorize('manage-teams');
+
         return Inertia::render('Admin/Teams/Edit', [
             'team' => $team,
             'trans' => $this->trans,
@@ -120,6 +125,7 @@ class TeamController extends Controller
      */
     public function destroy(Team $team)
     {
+        Gate::authorize('manage-teams');
         //
     }
 }

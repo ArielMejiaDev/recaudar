@@ -46,9 +46,9 @@ export default {
         illustration() {
             const notAllowedCodes = [401, 403, 419, 429];
             if(notAllowedCodes.includes(this.status)) {
-                return 'images/errors/403.svg';
+                return `${this.home}/images/errors/403.svg`;
             }
-            return `images/errors/${this.status}.svg`;
+            return `${this.home}/images/errors/${this.status}.svg`;
         }
     },
     methods: {

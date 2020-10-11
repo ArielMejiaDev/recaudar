@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Team;
 use App\Services\S3Uploader;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class UpdateTeamMediaController extends Controller
 {
@@ -15,6 +16,8 @@ class UpdateTeamMediaController extends Controller
      */
     public function __invoke(Request $request, Team $team)
     {
+        Gate::authorize('manage-teams');
+
         $request->validate([
             'logo' => ['nullable', 'image', 'max:512'],
             'banner' => ['nullable', 'image', 'max:512'],

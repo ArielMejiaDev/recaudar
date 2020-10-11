@@ -36,9 +36,9 @@ class TeamDashboardController extends Controller
     public function __invoke(Team $team)
     {
         $query = $team->transactions()->select('amount_to_deposit')->whereStatus('approved')->whereMonth('created_at', now()->format('m'));
-        $monthTotalIncome = $query->sum('amount_to_deposit');
+        $monthTotalIncome = $query->get()->sum('amount_to_deposit');
         $monthNewRecurrentPlans = $query->whereType('recurrent')->count();
-        $monthTotalIncomeRecurrent = $query->whereType('recurrent')->sum('amount_to_deposit');
+        $monthTotalIncomeRecurrent = $query->whereType('recurrent')->get()->sum('amount_to_deposit');
 
         $recentTransactions = $team->transactions()
             ->select(['id', 'name', 'amount_to_deposit', 'currency', 'status', 'created_at'])

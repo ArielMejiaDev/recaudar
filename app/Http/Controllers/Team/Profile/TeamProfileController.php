@@ -10,17 +10,11 @@ use Inertia\Response;
 
 class TeamProfileController extends Controller
 {
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param Team $team
-     * @return Response
-     */
-    public function __invoke(Team $team)
-    {
-        $data = $team->only('name', 'slug', 'logo', 'banner', 'theme', 'avatar', 'promotional_video', 'facebook_account', 'twitter_account', 'instagram_account');
+    private array $trans;
 
-        $trans = [
+    public function __construct()
+    {
+        $this->trans = [
             'profile' => trans('Profile'),
             'this_is_the_logo_for_the_profile_page' => trans('This is the logo for the profile page.'),
             'upload' => trans('Upload'),
@@ -33,10 +27,21 @@ class TeamProfileController extends Controller
             'promotional_video' => trans('Promotional Video'),
             'add_a_link' => trans('Add a Link'),
         ];
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Team $team
+     * @return Response
+     */
+    public function __invoke(Team $team)
+    {
+        $data = $team->only('name', 'slug', 'logo', 'banner', 'theme', 'avatar', 'promotional_video', 'facebook_account', 'twitter_account', 'instagram_account');
 
         return Inertia::render('Teams/Profile/Edit', [
             'team' => $data,
-            'trans' => $trans,
+            'trans' => $this->trans,
         ]);
     }
 }

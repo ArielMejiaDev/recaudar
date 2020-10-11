@@ -57,6 +57,9 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->teams()->whereSlug($teamSlug)->exists();
     }
 
+    /**
+     * @return string|null
+     */
     public function getRoleAttribute()
     {
         if ($this->id === auth()->id()) {

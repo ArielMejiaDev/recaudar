@@ -8,6 +8,7 @@ use App\Services\TeamAttachment;
 use App\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -24,6 +25,11 @@ class AdminController extends Controller
             'name' => trans('Name'),
             'email' => trans('Email'),
             'create' => trans('Create'),
+            'role' => trans('Role'),
+            'admin' => trans('Admin'),
+            'editor' => trans('Editor'),
+            'financial' => trans('Financial'),
+            'be_careful_when_adding_new_administrators' => trans('Be careful when adding new administrators.')
         ];
     }
 
@@ -48,8 +54,8 @@ class AdminController extends Controller
         $request->validate([
             'name' => 'required|min:3',
             'email' => 'required|email',
+            'role' => ['required', Rule::in(['app_admin', 'app_editor', 'app_financial'])]
         ]);
-        \request()->request->add(['role' => 'app_admin']);
         TeamAttachment::addUserTo(Team::whereName('recaudar')->first());
         return redirect()->route('admin.dashboard')->with(['success' => trans('Admin') . ' ' . trans('Created')]);
     }

@@ -2001,6 +2001,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_Panel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../Shared/Panel */ "./resources/js/Shared/Panel.vue");
 /* harmony import */ var _Shared_Title__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../Shared/Title */ "./resources/js/Shared/Title.vue");
 /* harmony import */ var _Shared_Modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../Shared/Modal */ "./resources/js/Shared/Modal.vue");
+/* harmony import */ var _Shared_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../Shared/Select */ "./resources/js/Shared/Select.vue");
 //
 //
 //
@@ -2019,6 +2020,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 
 
@@ -2037,7 +2044,8 @@ __webpack_require__.r(__webpack_exports__);
       showModal: false,
       form: {
         name: null,
-        email: null
+        email: null,
+        role: null
       }
     };
   },
@@ -2049,7 +2057,8 @@ __webpack_require__.r(__webpack_exports__);
     Panel: _Shared_Panel__WEBPACK_IMPORTED_MODULE_3__["default"],
     Input: _Shared_Input__WEBPACK_IMPORTED_MODULE_1__["default"],
     LoadingButton: _Shared_LoadingButton__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Modal: _Shared_Modal__WEBPACK_IMPORTED_MODULE_5__["default"]
+    Modal: _Shared_Modal__WEBPACK_IMPORTED_MODULE_5__["default"],
+    Select: _Shared_Select__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   methods: {
     submit: function submit() {
@@ -2151,7 +2160,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: {
         country: null,
-        income: null,
+        income_charge: null,
         gateway: null,
         gateway_charge: null
       },
@@ -2322,7 +2331,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   metaInfo: {
-    title: 'Edit charge'
+    title: 'Show charge'
   },
   layout: _Shared_Layouts_SidebarLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
   name: "Edit",
@@ -4017,10 +4026,10 @@ __webpack_require__.r(__webpack_exports__);
       var notAllowedCodes = [401, 403, 419, 429];
 
       if (notAllowedCodes.includes(this.status)) {
-        return 'images/errors/403.svg';
+        return "".concat(this.home, "/images/errors/403.svg");
       }
 
-      return "images/errors/".concat(this.status, ".svg");
+      return "".concat(this.home, "/images/errors/").concat(this.status, ".svg");
     }
   },
   methods: {
@@ -28604,7 +28613,40 @@ var render = function() {
                     },
                     expression: "form.email"
                   }
-                })
+                }),
+                _vm._v(" "),
+                _c(
+                  "Select",
+                  {
+                    attrs: {
+                      name: "role",
+                      label: _vm.trans.role,
+                      placeholder:
+                        _vm.$page.global_trans.select + " " + _vm.trans.role,
+                      errors: _vm.$page.errors.role
+                    },
+                    model: {
+                      value: _vm.form.role,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "role", $$v)
+                      },
+                      expression: "form.role"
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "app_admin" } }, [
+                      _vm._v(_vm._s(_vm.trans.admin))
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "app_editor" } }, [
+                      _vm._v(_vm._s(_vm.trans.editor))
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "app_financial" } }, [
+                      _vm._v(_vm._s(_vm.trans.financial))
+                    ])
+                  ]
+                )
               ]
             },
             proxy: true
@@ -28627,10 +28669,10 @@ var render = function() {
         ? _c("Modal", {
             attrs: {
               type: "danger",
-              title: "An admin user can manage the entire app",
-              info: "Be careful with admin users",
-              "close-button-text": "Close",
-              "action-button-text": "Create admin user"
+              title: _vm.trans.subtitle,
+              info: _vm.trans.be_careful_when_adding_new_administrators,
+              "close-button-text": _vm.$page.global_trans.cancel,
+              "action-button-text": _vm.$page.global_trans.create
             },
             on: {
               close: function($event) {
@@ -28758,7 +28800,7 @@ var render = function() {
                       attrs: {
                         name: "income",
                         label: _vm.trans.income,
-                        errors: _vm.$page.errors.income,
+                        errors: _vm.$page.errors.income_charge,
                         type: "number",
                         step: "0.1",
                         min: "0",
@@ -28775,11 +28817,11 @@ var render = function() {
                         }
                       ]),
                       model: {
-                        value: _vm.form.income,
+                        value: _vm.form.income_charge,
                         callback: function($$v) {
-                          _vm.$set(_vm.form, "income", $$v)
+                          _vm.$set(_vm.form, "income_charge", $$v)
                         },
-                        expression: "form.income"
+                        expression: "form.income_charge"
                       }
                     })
                   ],
@@ -29091,10 +29133,10 @@ var render = function() {
           _vm._v(" "),
           _c(
             "ListItem",
-            { attrs: { label: _vm.trans.income } },
+            { attrs: { label: _vm.trans.income_charge } },
             [
               _c("Pill", { attrs: { type: "success" } }, [
-                _vm._v(_vm._s(_vm.charge.income * 100))
+                _vm._v(_vm._s(_vm.charge.income_charge) + " %")
               ])
             ],
             1
@@ -29112,7 +29154,7 @@ var render = function() {
             { attrs: { label: _vm.trans.gateway_charge_percentage } },
             [
               _c("Pill", { attrs: { type: "warning" } }, [
-                _vm._v(_vm._s(_vm.charge.gateway_charge * 100))
+                _vm._v(_vm._s(_vm.charge.gateway_charge) + " %")
               ])
             ],
             1
@@ -29162,11 +29204,13 @@ var render = function() {
             [_vm._v("Admin dashboard")]
           ),
           _vm._v(" "),
-          _c(
-            "LinkButton",
-            { attrs: { link: _vm.route("admin.admins.create") } },
-            [_vm._v(_vm._s(_vm.trans.invite_admin))]
-          )
+          _vm.$page.auth.user.role === "app_admin"
+            ? _c(
+                "LinkButton",
+                { attrs: { link: _vm.route("admin.admins.create") } },
+                [_vm._v(_vm._s(_vm.trans.invite_admin))]
+              )
+            : _vm._e()
         ],
         1
       ),
@@ -36245,7 +36289,9 @@ var render = function() {
           class: _vm.isOpen ? "block" : "hidden"
         },
         [
-          _vm.$page.auth.user.role == "app_admin"
+          _vm.$page.auth.user.role == "app_admin" ||
+          _vm.$page.auth.user.role == "app_editor" ||
+          _vm.$page.auth.user.role == "app_financial"
             ? [
                 _c("ul", [
                   _c(
@@ -36286,118 +36332,129 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _c(
-                    "li",
-                    {
-                      staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2",
-                      class: _vm.route().current("admin.teams*")
-                        ? "bg-gray-900"
-                        : null
-                    },
-                    [
-                      _c(
-                        "InertiaLink",
+                  _vm.$page.auth.user.role == "app_admin" ||
+                  _vm.$page.auth.user.role == "app_editor"
+                    ? _c(
+                        "li",
                         {
-                          staticClass: "flex items-center text-gray-300",
-                          attrs: { href: _vm.route("admin.teams.index") },
-                          on: {
-                            "&click": function($event) {
-                              _vm.isOpen = !_vm.isOpen
-                            }
-                          }
+                          staticClass:
+                            "px-2 py-3 hover:bg-gray-900 rounded mt-2",
+                          class: _vm.route().current("admin.teams*")
+                            ? "bg-gray-900"
+                            : null
                         },
                         [
-                          _c("Icon", {
-                            staticClass: "text-gray-500 mr-2",
-                            attrs: { name: "users" }
-                          }),
-                          _vm._v(
-                            "\n                            " +
-                              _vm._s(_vm.$page.global_trans.teams) +
-                              "\n                        "
+                          _c(
+                            "InertiaLink",
+                            {
+                              staticClass: "flex items-center text-gray-300",
+                              attrs: { href: _vm.route("admin.teams.index") },
+                              on: {
+                                "&click": function($event) {
+                                  _vm.isOpen = !_vm.isOpen
+                                }
+                              }
+                            },
+                            [
+                              _c("Icon", {
+                                staticClass: "text-gray-500 mr-2",
+                                attrs: { name: "users" }
+                              }),
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(_vm.$page.global_trans.teams) +
+                                  "\n                        "
+                              )
+                            ],
+                            1
                           )
                         ],
                         1
                       )
-                    ],
-                    1
-                  ),
+                    : _vm._e(),
                   _vm._v(" "),
-                  _c(
-                    "li",
-                    {
-                      staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2",
-                      class: _vm.route().current("admin.charges*")
-                        ? "bg-gray-900"
-                        : null
-                    },
-                    [
-                      _c(
-                        "InertiaLink",
+                  _vm.$page.auth.user.role == "app_admin"
+                    ? _c(
+                        "li",
                         {
-                          staticClass: "flex items-center text-gray-300",
-                          attrs: { href: _vm.route("admin.charges.index") },
-                          on: {
-                            "&click": function($event) {
-                              _vm.isOpen = !_vm.isOpen
-                            }
-                          }
+                          staticClass:
+                            "px-2 py-3 hover:bg-gray-900 rounded mt-2",
+                          class: _vm.route().current("admin.charges*")
+                            ? "bg-gray-900"
+                            : null
                         },
                         [
-                          _c("Icon", {
-                            staticClass: "text-gray-500 mr-2",
-                            attrs: { name: "collection" }
-                          }),
-                          _vm._v(
-                            "\n                            " +
-                              _vm._s(_vm.$page.global_trans.charges) +
-                              "\n                        "
+                          _c(
+                            "InertiaLink",
+                            {
+                              staticClass: "flex items-center text-gray-300",
+                              attrs: { href: _vm.route("admin.charges.index") },
+                              on: {
+                                "&click": function($event) {
+                                  _vm.isOpen = !_vm.isOpen
+                                }
+                              }
+                            },
+                            [
+                              _c("Icon", {
+                                staticClass: "text-gray-500 mr-2",
+                                attrs: { name: "collection" }
+                              }),
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(_vm.$page.global_trans.charges) +
+                                  "\n                        "
+                              )
+                            ],
+                            1
                           )
                         ],
                         1
                       )
-                    ],
-                    1
-                  ),
+                    : _vm._e(),
                   _vm._v(" "),
-                  _c(
-                    "li",
-                    {
-                      staticClass: "px-2 py-3 hover:bg-gray-900 rounded mt-2",
-                      class: _vm.route().current("admin.transactions*")
-                        ? "bg-gray-900"
-                        : null
-                    },
-                    [
-                      _c(
-                        "InertiaLink",
+                  _vm.$page.auth.user.role == "app_admin" ||
+                  _vm.$page.auth.user.role == "app_financial"
+                    ? _c(
+                        "li",
                         {
-                          staticClass: "flex items-center text-gray-300",
-                          attrs: {
-                            href: _vm.route("admin.transactions.index")
-                          },
-                          on: {
-                            "&click": function($event) {
-                              _vm.isOpen = !_vm.isOpen
-                            }
-                          }
+                          staticClass:
+                            "px-2 py-3 hover:bg-gray-900 rounded mt-2",
+                          class: _vm.route().current("admin.transactions*")
+                            ? "bg-gray-900"
+                            : null
                         },
                         [
-                          _c("Icon", {
-                            staticClass: "text-gray-500 mr-2",
-                            attrs: { name: "switch" }
-                          }),
-                          _vm._v(
-                            "\n                            " +
-                              _vm._s(_vm.$page.global_trans.transactions) +
-                              "\n                        "
+                          _c(
+                            "InertiaLink",
+                            {
+                              staticClass: "flex items-center text-gray-300",
+                              attrs: {
+                                href: _vm.route("admin.transactions.index")
+                              },
+                              on: {
+                                "&click": function($event) {
+                                  _vm.isOpen = !_vm.isOpen
+                                }
+                              }
+                            },
+                            [
+                              _c("Icon", {
+                                staticClass: "text-gray-500 mr-2",
+                                attrs: { name: "switch" }
+                              }),
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(_vm.$page.global_trans.transactions) +
+                                  "\n                        "
+                              )
+                            ],
+                            1
                           )
                         ],
                         1
                       )
-                    ],
-                    1
-                  )
+                    : _vm._e()
                 ])
               ]
             : [

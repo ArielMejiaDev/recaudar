@@ -88,10 +88,10 @@
                 !Route::is('terms-for-users') &&
                 !Route::is('teams-page'))
 
-            <form id="{{ getFormId() }}" method="POST" action="{{ route('newsletter.store') }}" class="flex flex-col md:flex-row md:flex-no-wrap flex-wrap justify-center md:justify-start">
+            <form id="{{ getFormId() }}" method="POST" action="{{ route('newsletter.store') }}" class="flex flex-col md:flex-row md:items-center md:flex-no-wrap flex-wrap justify-center md:justify-start">
                 @csrf
 
-                <input tabindex="20" autocomplete="off" class="w-full md:w-64 my-1 md:my-0 bg-gray-100 rounded sm:mr-4 mr-2 border border-gray-400 focus:outline-none focus:border-indigo-500 text-base py-2 px-4" placeholder="Email" name="email" type="email">
+                <input tabindex="20" autocomplete="off" class="w-full md:w-64 my-1 md:my-0 bg-gray-100 rounded sm:mr-4 mr-2 border border-gray-400 focus:outline-none focus:border-indigo-500 text-base py-2 px-4" placeholder="Email" name="email" value="{{ old('email', '') }}" type="email">
 
                 {!!
                     htmlFormButton(trans('Send'), [

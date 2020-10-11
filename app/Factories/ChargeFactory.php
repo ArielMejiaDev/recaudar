@@ -30,16 +30,16 @@ class ChargeFactory
             $this->typeOfAmount = self::LOCAL_CURRENCY_AMOUNT;
         }
 
-        $charge = Charge::whereCountry($team->country)->orderByDesc('id')->first(['income', 'gateway', 'gateway_charge']);
+        $charge = Charge::whereCountry($team->country)->orderByDesc('id')->first(['income_charge', 'gateway', 'gateway_charge']);
 
         $gateways = [
             'pagalogt' => PagaloGTCharge::class,
         ];
 
-        return new $gateways[$charge->gateway]($charge->income, $charge->gateway_charge, $this->typeOfAmount);
+        return new $gateways[$charge->gateway]($charge->income_charge, $charge->gateway_charge, $this->typeOfAmount);
     }
 
-    public function setLocalCurrencyAmount()
+    public function setAmountInLocalCurrency()
     {
         $this->typeOfAmount = self::LOCAL_CURRENCY_AMOUNT;
         return $this;

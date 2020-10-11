@@ -12,13 +12,13 @@ class ChargeSeeder extends Seeder
      */
     public function run()
     {
-        factory(Charge::class)->times(10)->create();
+//        factory(Charge::class)->times(10)->create();
 
         factory(Charge::class)->create([
             'country' => 'Guatemala',
-            'income' => 0.025,
+            'income_charge' => 2.5,
             'gateway' => 'pagalogt',
-            'gateway_charge' => 0.055,
+            'gateway_charge' => 5.5,
         ]);
     }
 }

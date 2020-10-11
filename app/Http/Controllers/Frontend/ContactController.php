@@ -7,6 +7,7 @@ use App\Notifications\ContactNotification;
 use App\Services\SEO\LandingPageSeoService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Validation\ValidationException;
 
 class ContactController extends Controller
 {
@@ -24,11 +25,17 @@ class ContactController extends Controller
             'message' => ['required', 'min:10'],
             'g-recaptcha-response' => 'recaptcha',
         ]);
-        Notification::route('mail', 'info@recaudar.com')->notify(new ContactNotification([
-            'name' => $request->name,
-            'email' =>  $request->email,
-            'message' => $request->message,
-        ]));
+
+        try {
+            Notification::route('mail', 'info@recaudar.com')->notify(new ContactNotification([
+                'name' => $request->name,
+                'email' =>  $request->email,
+                'message' => $request->message,
+            ]));
+        } catch (\Exception $exception) {
+            return redirect()->back()->withErrors(['error' => trans('Email failed, please try again later.')])->withInput($request->input());
+        }
+
         return redirect()->route('contact.store')->with(['success' => trans('Message sent')]);
     }
 }

@@ -10,7 +10,69 @@
   <component name="ChangeListManager">
     <list default="true" id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Charges/PagaloGTCharge.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Charges/PagaloGTCharge.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Console/Commands/StartupDataCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/StartupDataCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Factories/ChargeFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Factories/ChargeFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Admins/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Admins/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Charges/ChargeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Charges/ChargeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Dashboard/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Dashboard/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Teams/Plans/PlanController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Teams/Plans/PlanController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Teams/TeamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Teams/TeamController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Teams/UpdateTeamContact.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Teams/UpdateTeamContact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Teams/UpdateTeamFinancialData.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Teams/UpdateTeamFinancialData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Teams/UpdateTeamMediaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Teams/UpdateTeamMediaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Teams/UpdateTeamProfile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Teams/UpdateTeamProfile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Teams/UpdateTeamStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Teams/UpdateTeamStatus.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Transactions/TransactionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Transactions/TransactionsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ContactController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/LandingPageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/LandingPageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/NewsletterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/NewsletterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Team/Plans/PlansController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Team/Plans/PlansController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Team/Profile/TeamProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Team/Profile/TeamProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Team/TeamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Team/TeamController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Team/TeamDashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Team/TeamDashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Team/Transaction/TransactionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Team/Transaction/TransactionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Team/User/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Team/User/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/AppAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/AppAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Admin/Charge/UpdateOrStoreChargeRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/Charge/UpdateOrStoreChargeRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Charge.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Charge.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Transaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Transaction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Notifications/ContactNotification.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Notifications/ContactNotification.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Notifications/ExistingUserTeamInvitation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Notifications/ExistingUserTeamInvitation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Notifications/NewTeamCreatedNotification.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Notifications/NewTeamCreatedNotification.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Notifications/NewUserTeamInvitation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Notifications/NewUserTeamInvitation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Notifications/TeamStatusChangeNotification.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Notifications/TeamStatusChangeNotification.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/TeamAttachment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/TeamAttachment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Strategies/Gateways/PagaloGTPaymentStrategy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Strategies/Gateways/PagaloGTPaymentStrategy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/ChargeFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ChargeFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_20_010558_create_charges_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_20_010558_create_charges_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_24_014515_create_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_24_014515_create_transactions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/ChargeSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ChargeSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/TeamSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/TeamSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Admin/Admins/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Admins/Create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Admin/Charge/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Charge/Create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Admin/Charge/Show.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Charge/Show.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Admin/Dashboard/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Dashboard/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Errors/Error.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Errors/Error.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Partials/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Partials/Sidebar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/maileclipse/templates/donationThanks.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/maileclipse/templates/donationThanks.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Admin/Charge/ChargeCreateTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Admin/Charge/ChargeCreateTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Admin/Charge/ChargeStoreTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Admin/Charge/ChargeStoreTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +259,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DatabaseDriversLRU" value="sqlite" />
+    <property name="DatabaseDriversLRU" value="sqlite&#10;mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -222,25 +284,25 @@
       <recent name="$PROJECT_DIR$/app/Providers" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.CheckoutTest.test_transaction_works_with_accent_marks">
-    <configuration name="CheckoutTest.test_checkout_payment_can_pay_with_a_plan" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Landing\CheckoutTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Landing/CheckoutTest.php" method="test_checkout_payment_can_pay_with_a_plan" scope="Method" />
+  <component name="RunManager" selected="PHPUnit.ChargeStoreTest.test_app_admins_can_store_a_charge">
+    <configuration name="ChargeCreateTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Admin\Charge\ChargeCreateTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Admin/Charge/ChargeCreateTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="CheckoutTest.test_checkout_payment_can_pay_with_variable_amount" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Landing\CheckoutTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Landing/CheckoutTest.php" method="test_checkout_payment_can_pay_with_variable_amount" scope="Method" />
+    <configuration name="ChargeCreateTest.test_app_admins_can_access_to_admin_charges_index" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Admin\Charge\ChargeCreateTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Admin/Charge/ChargeCreateTest.php" method="test_app_admins_can_access_to_admin_charges_index" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="CheckoutTest.test_email_was_send_when_checkout_payment_is_successful" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Landing\CheckoutTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Landing/CheckoutTest.php" method="test_email_was_send_when_checkout_payment_is_successful" scope="Method" />
+    <configuration name="ChargeStoreTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Admin\Charge\ChargeStoreTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Admin/Charge/ChargeStoreTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="CheckoutTest.test_transaction_is_saved_as_failed_transaction_if_payment_request_fail" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Landing\CheckoutTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Landing/CheckoutTest.php" method="test_transaction_is_saved_as_failed_transaction_if_payment_request_fail" scope="Method" />
+    <configuration name="ChargeStoreTest.test_app_admins_can_store_a_charge" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Admin\Charge\ChargeStoreTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Admin/Charge/ChargeStoreTest.php" method="test_app_admins_can_store_a_charge" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="CheckoutTest.test_transaction_works_with_accent_marks" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Landing\CheckoutTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Landing/CheckoutTest.php" method="test_transaction_works_with_accent_marks" scope="Method" />
+    <configuration name="ChargeStoreTest.test_app_admins_cannot_store_a_charge_with_invalid_data" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Admin\Charge\ChargeStoreTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Admin/Charge/ChargeStoreTest.php" method="test_app_admins_cannot_store_a_charge_with_invalid_data" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -249,11 +311,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.CheckoutTest.test_transaction_works_with_accent_marks" />
-        <item itemvalue="PHPUnit.CheckoutTest.test_transaction_is_saved_as_failed_transaction_if_payment_request_fail" />
-        <item itemvalue="PHPUnit.CheckoutTest.test_email_was_send_when_checkout_payment_is_successful" />
-        <item itemvalue="PHPUnit.CheckoutTest.test_checkout_payment_can_pay_with_variable_amount" />
-        <item itemvalue="PHPUnit.CheckoutTest.test_checkout_payment_can_pay_with_a_plan" />
+        <item itemvalue="PHPUnit.ChargeStoreTest.test_app_admins_can_store_a_charge" />
+        <item itemvalue="PHPUnit.ChargeStoreTest.test_app_admins_cannot_store_a_charge_with_invalid_data" />
+        <item itemvalue="PHPUnit.ChargeStoreTest" />
+        <item itemvalue="PHPUnit.ChargeCreateTest.test_app_admins_can_access_to_admin_charges_index" />
+        <item itemvalue="PHPUnit.ChargeCreateTest" />
       </list>
     </recent_temporary>
   </component>
@@ -277,7 +339,7 @@
       <workItem from="1600106574225" duration="178576000" />
       <workItem from="1601033452225" duration="282000" />
       <workItem from="1601035310376" duration="54750000" />
-      <workItem from="1601444801403" duration="217812000" />
+      <workItem from="1601444801403" duration="242193000" />
     </task>
     <servers />
   </component>
@@ -301,14 +363,14 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="445" y="103" key="#CLI_Interpreters/0.0.1920.1080@0.0.1920.1080" timestamp="1599065986775" />
-    <state x="590" y="211" key="#Inspections" timestamp="1599582864617">
+    <state x="590" y="211" key="#Inspections" timestamp="1602270724203">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="590" y="211" key="#Inspections/0.0.1920.1080@0.0.1920.1080" timestamp="1599582864617" />
-    <state x="560" y="199" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599009457164">
+    <state x="590" y="211" key="#Inspections/0.0.1920.1080@0.0.1920.1080" timestamp="1602270724203" />
+    <state x="560" y="199" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602271260983">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="560" y="199" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599009457164" />
+    <state x="560" y="199" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1602271260983" />
     <state x="100" y="100" width="1720" height="880" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1600495568467">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -335,39 +397,39 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="632" y="236" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599075333250" />
-    <state x="1912" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602192766954">
-      <screen x="1280" y="0" width="1920" height="1080" />
+    <state x="632" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602433903613">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="421" y="181" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.800/1280.0.1920.1080@0.0.1280.800" timestamp="1600664438332" />
     <state x="1912" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1602192766954" />
-    <state x="632" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1601601404294" />
+    <state x="632" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1602433903613" />
     <state x="745" y="463" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#" timestamp="1600197006715">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="745" y="463" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#/0.0.1920.1080@0.0.1920.1080" timestamp="1600197006715" />
-    <state width="1868" height="459" key="GridCell.Tab.0.bottom" timestamp="1602160434289">
-      <screen x="1280" y="0" width="1920" height="1080" />
+    <state width="1868" height="459" key="GridCell.Tab.0.bottom" timestamp="1602434812511">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1868" height="459" key="GridCell.Tab.0.bottom/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1602160434289" />
-    <state width="1868" height="459" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1601645512431" />
+    <state width="1868" height="459" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1602434812511" />
     <state width="1868" height="312" key="GridCell.Tab.0.bottom/0.23.1920.1001@0.23.1920.1001" timestamp="1599540733274" />
-    <state width="1868" height="459" key="GridCell.Tab.0.center" timestamp="1602160434288">
-      <screen x="1280" y="0" width="1920" height="1080" />
+    <state width="1868" height="459" key="GridCell.Tab.0.center" timestamp="1602434812503">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1868" height="459" key="GridCell.Tab.0.center/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1602160434288" />
-    <state width="1868" height="459" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1601645512430" />
+    <state width="1868" height="459" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1602434812503" />
     <state width="1868" height="312" key="GridCell.Tab.0.center/0.23.1920.1001@0.23.1920.1001" timestamp="1599540733273" />
-    <state width="1868" height="459" key="GridCell.Tab.0.left" timestamp="1602160434287">
-      <screen x="1280" y="0" width="1920" height="1080" />
+    <state width="1868" height="459" key="GridCell.Tab.0.left" timestamp="1602434812502">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1868" height="459" key="GridCell.Tab.0.left/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1602160434287" />
-    <state width="1868" height="459" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1601645512429" />
+    <state width="1868" height="459" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1602434812502" />
     <state width="1868" height="312" key="GridCell.Tab.0.left/0.23.1920.1001@0.23.1920.1001" timestamp="1599540733272" />
-    <state width="1868" height="459" key="GridCell.Tab.0.right" timestamp="1602160434288">
-      <screen x="1280" y="0" width="1920" height="1080" />
+    <state width="1868" height="459" key="GridCell.Tab.0.right" timestamp="1602434812510">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1868" height="459" key="GridCell.Tab.0.right/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1602160434288" />
-    <state width="1868" height="459" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1601645512430" />
+    <state width="1868" height="459" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1602434812510" />
     <state width="1868" height="312" key="GridCell.Tab.0.right/0.23.1920.1001@0.23.1920.1001" timestamp="1599540733274" />
     <state x="1943" y="203" key="NewPhpClassDialog" timestamp="1602083538243">
       <screen x="1280" y="0" width="1920" height="1080" />
@@ -393,17 +455,17 @@
     </state>
     <state x="1860" y="197" width="759" height="686" key="find.popup/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1601714549883" />
     <state x="580" y="197" width="759" height="686" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1599101933738" />
-    <state x="1821" y="247" key="run.anything.popup" timestamp="1602186359320">
-      <screen x="1280" y="23" width="1920" height="1057" />
+    <state x="541" y="252" key="run.anything.popup" timestamp="1602389788262">
+      <screen x="0" y="23" width="1920" height="1001" />
     </state>
     <state x="541" y="252" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1599652487509" />
     <state x="1821" y="247" key="run.anything.popup/0.23.1280.721/1280.23.1920.1057@1280.23.1920.1057" timestamp="1602186359320" />
-    <state x="541" y="252" key="run.anything.popup/0.23.1920.1001@0.23.1920.1001" timestamp="1601601548107" />
-    <state x="1821" y="48" width="838" height="1032" key="search.everywhere.popup" timestamp="1602073506232">
-      <screen x="1280" y="0" width="1920" height="1080" />
+    <state x="541" y="252" key="run.anything.popup/0.23.1920.1001@0.23.1920.1001" timestamp="1602389788262" />
+    <state x="541" y="48" width="838" height="1032" key="search.everywhere.popup" timestamp="1602384103124">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1821" y="48" width="838" height="1032" key="search.everywhere.popup/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1602073506232" />
-    <state x="541" y="48" width="838" height="1032" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1601600688525" />
+    <state x="541" y="48" width="838" height="1032" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1602384103124" />
     <state x="541" y="48" width="838" height="1032" key="search.everywhere.popup/0.23.1920.1001@0.23.1920.1001" timestamp="1600746341713" />
   </component>
 </project>

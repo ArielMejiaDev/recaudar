@@ -22,6 +22,31 @@ use Inertia\Inertia;
 
 class UserController extends Controller
 {
+
+    private array $trans;
+
+    public function __construct()
+    {
+        $this->trans = [
+            'role' => trans('Role'),
+            'edit_role_of' => trans('Edit Role Of'),
+            "the_user_role_defines_the_actions_that_a_user_can_do" => trans('The user role defines the actions that a user can do'),
+            'admin' => trans('Admin'),
+            'editor' => trans('Editor'),
+            'financial' => trans('Financial'),
+            'member' => trans('Member'),
+            'users' => trans('Users'),
+            'user' => trans('User'),
+            'remove_access_to' => trans('Remove Access To'),
+            'remove_access' => trans('Remove Access'),
+            'you_can_invite_again_the_user_anytime' => trans('You can invite again the user anytime.'),
+            'invite_a_user' => trans('Invite a User'),
+            'create_a_user' => trans('Create a User'),
+            'name' => trans('Name'),
+            'email' => trans('Email'),
+        ];
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -42,25 +67,11 @@ class UserController extends Controller
                 ->paginate(5);
         }
 
-        $trans = [
-            'users' => trans('Users'),
-            'user' => trans('User'),
-            'role' => trans('Role'),
-            'remove_access_to' => trans('Remove Access To'),
-            'remove_access' => trans('Remove Access'),
-            'you_can_invite_again_the_user_anytime' => trans('You can invite again the user anytime.'),
-            'invite_a_user' => trans('Invite a User'),
-            'admin' => trans('Admin'),
-            'editor' => trans('Editor'),
-            'financial' => trans('Financial'),
-            'member' => trans('Member')
-        ];
-
         return Inertia::render('Teams/Users/Index', [
             'team' => $team->only('name', 'slug'),
             'filters' => $request->all('search'),
             'users' => $users,
-            'trans' => $trans,
+            'trans' => $this->trans,
         ]);
     }
 
@@ -72,19 +83,7 @@ class UserController extends Controller
      */
     public function create(Team $team)
     {
-        $trans = [
-            'create_a_user' => trans('Create a User'),
-            'the_user_role_defines_the_actions_that_a_user_can_do' => trans('The user role defines the actions that a user can do.'),
-            'name' => trans('Name'),
-            'email' => trans('Email'),
-            'role' => trans('Role'),
-            'admin' => trans('Admin'),
-            'editor' => trans('Editor'),
-            'financial' => trans('Financial'),
-            'member' => trans('Member')
-        ];
-
-        return Inertia::render('Teams/Users/Create', ['team' => $team->only('name', 'slug'), 'trans' => $trans]);
+        return Inertia::render('Teams/Users/Create', ['team' => $team->only('name', 'slug'), 'trans' => $this->trans]);
     }
 
     /**
@@ -110,20 +109,10 @@ class UserController extends Controller
      */
     public function edit(Team $team, User $user)
     {
-        $trans = [
-            'role' => trans('Role'),
-            'edit_role_of' => trans('Edit Role Of'),
-            "the_user_role_defines_the_actions_that_a_user_can_do" => trans('The user role defines the actions that a user can do'),
-            'admin' => trans('Admin'),
-            'editor' => trans('Editor'),
-            'financial' => trans('Financial'),
-            'member' => trans('Member'),
-        ];
-
         return Inertia::render('Teams/Users/Edit', [
             'team' => $team->only('name', 'slug'),
             'user' => $user,
-            'trans' => $trans,
+            'trans' => $this->trans,
         ]);
     }
 

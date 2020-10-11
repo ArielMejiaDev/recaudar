@@ -16,7 +16,7 @@
                         <option value="Costa Rica">Costa Rica</option>
                     </Select>
 
-                    <IconInput class="w-full lg:w-1/2 lg:ml-1" v-model="form.income" name="income" :label="trans.income" :errors="$page.errors.income" type="number" step="0.1" min="0" max="100" :required="false" >
+                    <IconInput class="w-full lg:w-1/2 lg:ml-1" v-model="form.income_charge" name="income" :label="trans.income" :errors="$page.errors.income_charge" type="number" step="0.1" min="0" max="100" :required="false" >
                         <template v-slot:icon>%</template>
                     </IconInput>
 
@@ -67,7 +67,7 @@ export default {
         return {
             form: {
                 country: null,
-                income: null,
+                income_charge: null,
                 gateway: null,
                 gateway_charge: null,
             },

@@ -24,10 +24,10 @@ class CreateTransactionsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('currency');
-            $table->decimal('amount');
+            $table->integer('amount');
             $table->string('type');
-            $table->decimal('amount_to_deposit');
-            $table->decimal('income');
+            $table->integer('amount_to_deposit');
+            $table->integer('income');
             $table->string('status')->default('pending');
             $table->string('reviewed')->default('pending');
             $table->timestamps();

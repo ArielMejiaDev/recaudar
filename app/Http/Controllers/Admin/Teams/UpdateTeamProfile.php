@@ -6,12 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Team\UpdateTeamProfileRequest;
 use App\Models\Team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 
 class UpdateTeamProfile extends Controller
 {
     public function __invoke(UpdateTeamProfileRequest $request, Team $team)
     {
+        Gate::authorize('manage-teams');
         $team->update($request->validated());
         return redirect()->route('admin.teams.index')->with(['success' => trans('team') . ' ' . trans('Updated')]);
     }

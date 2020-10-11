@@ -50,13 +50,13 @@ class NewUserTeamInvitation extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject('You have been invited to a work with ' . $this->teamName  .' in ' . config('app.name') )
-            ->greeting('Hi you are invited to work with ' . $this->teamName )
-            ->line('Your credentials are:')
-            ->line('email: ' . $this->email)
-            ->line('password: ' . $this->generatedPassword)
-            ->action('Login', route('profile.show'))
-            ->line('Dont worry you can change your password as soon as you are login!');
+            ->subject(trans('You have been invited to a work with') . ' ' . $this->teamName )
+            ->greeting(  trans('You have been invited to a work with') . ' ' . $this->teamName )
+            ->line(trans('Your credentials are') . ':')
+            ->line(trans('Email') . ': ' . $this->email)
+            ->line(trans('Password') . ': ' . $this->generatedPassword)
+            ->action(trans('Login'), route('profile.show'))
+            ->line(trans('You can change your password as soon as you are login.'));
     }
 
     /**

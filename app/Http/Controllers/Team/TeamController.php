@@ -82,9 +82,15 @@ class TeamController extends Controller
         unset($data['terms']);
         $team = Team::create($data);
         auth()->user()->teams()->attach($team, ['role_name' => 'admin']);
-        Notification::route('mail', 'info@recaudar.com')->notify(new NewTeamCreatedNotification($team, auth()->user()));
+
+        try {
+            Notification::route('mail', 'info@recaudar.com')->notify(new NewTeamCreatedNotification($team, auth()->user()));
+        }catch (\Exception $exception) {
+            \Log::error('NewTeamCreatedNotification fail');
+        }
+
         return redirect()->route('teams.index')->with([
-            'success' => trans('team') . ' ' . trans('Created') . ', ' . trans('You will receive an email, when the organization is approved.')
+            'success' => trans('Team Created') . ', ' . trans('You will receive an email, when the organization is approved.')
         ]);
     }
 

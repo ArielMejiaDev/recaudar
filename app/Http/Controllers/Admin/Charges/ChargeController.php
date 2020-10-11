@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\Charge\UpdateOrStoreChargeRequest;
 use App\Models\Charge;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -29,10 +30,12 @@ class ChargeController extends Controller
             'this_action_will_invalid_this_charge' => trans('This action will invalid this charge.'),
             'in' => trans('in'),
             'income' => trans('Income'),
+            'income_charge' => trans('Income Charge'),
             'gateway_charge_percentage' => trans('Gateway Charge Percentage'),
             'this_settings_are_used_to_calculate_the_amount_to_collect' => trans('This settings are used to calculate the amount to collect.'),
             'charge_details' => trans('Charge Details')
         ];
+        $this->middleware('password.confirm')->only(['create']);
     }
 
     /**
@@ -43,6 +46,8 @@ class ChargeController extends Controller
      */
     public function index(Request $request)
     {
+        Gate::authorize('manage-charges');
+
         $charges = Charge::orderByDesc('id')->paginate(5);
 
         if($request->has('search')) {
@@ -66,6 +71,8 @@ class ChargeController extends Controller
      */
     public function create()
     {
+        Gate::authorize('manage-charges');
+
         return Inertia::render('Admin/Charge/Create', [
             'trans' => $this->trans,
         ]);
@@ -79,12 +86,15 @@ class ChargeController extends Controller
      */
     public function store(UpdateOrStoreChargeRequest $request)
     {
+        Gate::authorize('manage-charges');
+
         Charge::create([
             'country' => $request->get('country'),
-            'income' => ($request->income / 100),
+            'income_charge' => ($request->income_charge),
             'gateway' => $request->get('gateway'),
-            'gateway_charge' => ($request->gateway_charge / 100),
+            'gateway_charge' => ($request->gateway_charge),
         ]);
+
         return redirect()->route('admin.charges.index')->with(['success' => trans('Charge') . ' ' . trans('Created')]);
     }
 
@@ -96,6 +106,8 @@ class ChargeController extends Controller
      */
     public function show(Charge $charge)
     {
+        Gate::authorize('manage-charges');
+
         return Inertia::render('Admin/Charge/Show', [
             'charge' => $charge,
             'trans' => $this->trans,
@@ -110,6 +122,8 @@ class ChargeController extends Controller
      */
     public function destroy(Charge $charge)
     {
+        Gate::authorize('manage-charges');
+
         $charge->delete();
         return redirect()->route('admin.charges.index')->with(['warning' => trans('Charge') . ' ' . trans('Deleted')]);
     }

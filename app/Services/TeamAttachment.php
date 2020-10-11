@@ -27,7 +27,13 @@ class TeamAttachment
         try {
             DB::transaction(function () use ($user, $team) {
                 $user->teams()->attach($team, ['role_name' => request()->role]);
-                $user->notify(new ExistingUserTeamInvitation($user->email, $team->name));
+
+                try {
+                    $user->notify(new ExistingUserTeamInvitation($user->email, $team->name));
+                }catch (\Exception $exception) {
+                    \Log::error('ExistingUserTeamInvitation Notification fail.');
+                }
+
             });
         } catch (\Throwable $exception) {
             throw new UserCannotBeAttachedException();
@@ -45,7 +51,11 @@ class TeamAttachment
                     'email_verified_at' => now(),
                 ]);
                 $user->teams()->attach($team, ['role_name' => request()->role]);
-                $user->notify(new NewUserTeamInvitation($user->email, $team->name, $generatedPassword));
+                try {
+                    $user->notify(new NewUserTeamInvitation($user->email, $team->name, $generatedPassword));
+                }catch (\Exception $exception) {
+                    \Log::error('NewUserTeamInvitation Notification fail.');
+                }
             });
         } catch (\Throwable $exception) {
             throw new UserCannotBeAttachedException();

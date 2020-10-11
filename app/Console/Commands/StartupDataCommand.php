@@ -40,11 +40,8 @@ class StartupDataCommand extends Command
      */
     public function handle()
     {
-        $this->output->progressStart(12);
 
         $this->call('migrate:fresh');
-
-        $this->output->progressAdvance();
 
         factory(User::class)->create([
             'name'  => 'Ariel Mejia',
@@ -64,16 +61,12 @@ class StartupDataCommand extends Command
             'password' => bcrypt(12345678),
         ]);
 
-        $this->output->progressAdvance();
-
         factory(Charge::class)->create([
             'country' => 'Guatemala',
-            'income' => 0.025,
+            'income_charge' => 2.5,
             'gateway' => 'pagalogt',
-            'gateway_charge' => 0.055,
+            'gateway_charge' => 5.5,
         ]);
-
-        $this->output->progressAdvance();
 
         factory(Team::class)->create([
             'name' => 'recaudar',
@@ -82,8 +75,6 @@ class StartupDataCommand extends Command
             'status' => 'approved',
             'country' => 'Guatemala',
         ]);
-
-        $this->output->progressAdvance();
 
         $selvaVirgen = factory(Team::class)->create([
             'name' => 'Fundacion Selva virgen',
@@ -102,14 +93,12 @@ class StartupDataCommand extends Command
             'contact_phone' => '47686992',
             'contact_email' => 'informacion@selvavirgen.org',
             'theme' => 'columns',
-            'logo' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/teams_logos/fundacion_selva_virgen_logo.png',
-            'banner' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/teams_logos/fundacion_selva_virgen_logo.png',
+            'logo' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/teams_logos/fundacion_selva_virgen.png',
+            'banner' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/teams_logos/fundacion_selva_virgen.png',
             'facebook_account' => null,
             'twitter_account' => null,
             'instagram_account' => null,
         ]);
-
-        $this->output->progressAdvance();
 
         $selvaVirgen->plans()->create([
             'title' => 'APADRINA A UN NIÑO QUE RECIBIRÁ UN VASO DE LECHE DIARIO POR 30 DÍAS',
@@ -125,8 +114,6 @@ class StartupDataCommand extends Command
             'title' => 'APADRINA A UN NIÑO QUE RECIBIRÁ UN VASO DE LECHE POR 5 DÍAS',
             'amount_in_local_currency' => 300.00
         ]);
-
-        $this->output->progressAdvance();
 
         $promocionHumana = factory(Team::class)->create([
             'name' => 'Fundacion Guatemalteca de promocion humana',
@@ -152,8 +139,6 @@ class StartupDataCommand extends Command
             'instagram_account' => null,
         ]);
 
-        $this->output->progressAdvance();
-
         $promocionHumana->plans()->create([
             'title' => 'Media beca mensual',
             'info' => 'Con tu aporte estás apoyando con media beca para la educación de un niño. Puedes darle clic a la opción de aporte recurrente.',
@@ -172,8 +157,6 @@ class StartupDataCommand extends Command
             'amount_in_local_currency' => 2100.00
         ]);
 
-        $this->output->progressAdvance();
-
         $guatedon = factory(Team::class)->create([
             'name' => 'Fundacion GuateDon',
             'slug' => 'fundacion-guatedon',
@@ -191,14 +174,12 @@ class StartupDataCommand extends Command
             'contact_phone' => 'Esta información no esta disponible en este momento.',
             'contact_email' => 'guatedon.crisis@gmail.com',
             'theme' => 'classic',
-            'logo' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/teams_logos/guatedon_logo.jpg',
-            'banner' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/teams_logos/guatedon_logo.jpg',
+            'logo' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/teams_logos/guatedon.jpg',
+            'banner' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/teams_logos/guatedon.jpg',
             'facebook_account' => null,
             'twitter_account' => null,
             'instagram_account' => null,
         ]);
-
-        $this->output->progressAdvance();
 
         $guatedon->plans()->create([
             'title' => 'Aporte',
@@ -215,24 +196,16 @@ class StartupDataCommand extends Command
             'amount_in_local_currency' => 750.00
         ]);
 
-        $this->output->progressAdvance();
-
         User::whereEmail('arielmejiadev@gmail.com')->first()->teams()->attach(Team::first(), ['role_name' => 'app_admin']);
         User::whereEmail('otto@recaudar.com')->first()->teams()->attach(Team::first(), ['role_name' => 'app_admin']);
         User::whereEmail('info@recaudar.com')->first()->teams()->attach(Team::first(), ['role_name' => 'app_admin']);
-
-        $this->output->progressAdvance();
 
         User::whereEmail('otto@recaudar.com')->first()->teams()->attach(Team::find(2), ['role_name' => 'team_admin']);
         User::whereEmail('otto@recaudar.com')->first()->teams()->attach(Team::find(3), ['role_name' => 'team_admin']);
         User::whereEmail('otto@recaudar.com')->first()->teams()->attach(Team::find(4), ['role_name' => 'team_admin']);
 
-        $this->output->progressAdvance();
-
         User::whereEmail('info@recaudar.com')->first()->teams()->attach(Team::find(2), ['role_name' => 'team_admin']);
         User::whereEmail('info@recaudar.com')->first()->teams()->attach(Team::find(3), ['role_name' => 'team_admin']);
         User::whereEmail('info@recaudar.com')->first()->teams()->attach(Team::find(4), ['role_name' => 'team_admin']);
-
-        $this->output->progressFinish();
     }
 }

@@ -5,12 +5,12 @@
                 <Title>{{ trans.charge_details }}</Title>
             </template>
             <ListItem :label="trans.country" :value="charge.country"></ListItem>
-            <ListItem :label="trans.income">
-                <Pill type="success">{{ charge.income * 100 }}</Pill>
+            <ListItem :label="trans.income_charge">
+                <Pill type="success">{{ charge.income_charge }} %</Pill>
             </ListItem>
             <ListItem :label="trans.payment_gateway" :value="charge.gateway"></ListItem>
             <ListItem :label="trans.gateway_charge_percentage">
-                <Pill type="warning">{{ charge.gateway_charge * 100 }}</Pill>
+                <Pill type="warning">{{ charge.gateway_charge }} %</Pill>
             </ListItem>
         </Panel>
     </div>
@@ -24,7 +24,7 @@ import ListItem from "../../../Shared/ListItem";
 import Pill from "../../../Shared/Pill";
 
 export default {
-    metaInfo: { title: 'Edit charge' },
+    metaInfo: { title: 'Show charge' },
     layout: SidebarLayout,
     name: "Edit",
     components: {

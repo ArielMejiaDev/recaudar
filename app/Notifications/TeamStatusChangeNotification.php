@@ -45,11 +45,20 @@ class TeamStatusChangeNotification extends Notification
      */
     public function toMail($notifiable)
     {
+        if($this->status === 'approved') {
+            return (new MailMessage)
+                ->subject(trans('Team Updated'))
+                ->greeting(trans('Team Updated'))
+                ->line($this->teamName . ' ' . trans('is now') . ' ' . trans(ucfirst($this->status)) . '.')
+                ->line(trans('You can enter the application and start receiving donations.'))
+                ->action(trans('Login'), route('login'))
+                ->salutation(trans('Thanks for using') . ' ' . config('app.name'));
+        }
         return (new MailMessage)
-                    ->subject($this->teamName . ' ' . 'updated.')
-                    ->greeting($this->teamName . ' ' . 'status updated.')
-                    ->line($this->teamName . ' ' . 'is now' . ' ' . $this->status . '.')
-                    ->salutation('Thanks for using' . ' ' . config('app.name'));
+            ->subject(trans('Team Updated'))
+            ->greeting(trans('Team Updated'))
+            ->line($this->teamName . ' ' . trans('is now') . ' ' . trans(ucfirst($this->status)) . '.')
+            ->salutation(trans('Thanks for using') . ' ' . config('app.name'));
     }
 
     /**

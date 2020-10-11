@@ -25,18 +25,26 @@ class PagaloGTPaymentStrategy
     public function executePayment(int $quantity, string $description, $price, string $firstname, string $lastname, $email, string $card, string $month, string $year, string $cvc)
     {
         if (app()->environment('local') || app()->environment('testing')) {
-             $this->response = PagaloGT::add($quantity, $description, $price)
-                ->setClient($firstname, $lastname, $email)
-                ->withTestCard(Str::of($firstname . ' ' . $lastname)->slug()->replace('-', ''))
-                ->withTestCredentials()
-                ->pay();
-             return $this;
+            try {
+                $this->response = PagaloGT::add($quantity, $description, $price)
+                    ->setClient($firstname, $lastname, $email)
+                    ->withTestCard(Str::of($firstname . ' ' . $lastname)->slug()->replace('-', ''))
+                    ->withTestCredentials()
+                    ->pay();
+                return $this;
+            }catch (\Exception $exception) {
+                return redirect()->back()->withErrors(['error' => trans('Payment fail, please try again later.')]);
+            }
         }
-        $this->response = PagaloGT::add($quantity, $description, $price)
-        ->setClient($firstname, $lastname, $email)
-        ->setCard($firstname . ' ' .$lastname, $card, $month, $year, $cvc)
-        ->pay();
-        return $this;
+        try {
+            $this->response = PagaloGT::add($quantity, $description, $price)
+                ->setClient($firstname, $lastname, $email)
+                ->setCard($firstname . ' ' .$lastname, $card, $month, $year, $cvc)
+                ->pay();
+            return $this;
+        }catch (\Exception $exception) {
+            return redirect()->back()->withErrors(['error' => trans('Payment fail, please try again later.')]);
+        }
     }
 
     /**
@@ -50,7 +58,13 @@ class PagaloGTPaymentStrategy
     {
         if($this->transactionIsSuccessful()) {
             $transaction = $this->createTransaction($request, $team, $plan);
-            Mail::to($request->email)->send(new DonationThanks($transaction->id, $team));
+
+            try {
+                Mail::to($request->email)->send(new DonationThanks($transaction->id, $team));
+            }catch (\Exception $exception) {
+                \Log::error('Donation mail fail.');
+            }
+
             return response()->json(['redirect' => route('certificate', ['team' => $team, 'transaction' => $transaction])]);
         }
 

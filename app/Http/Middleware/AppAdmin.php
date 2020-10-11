@@ -16,7 +16,9 @@ class AppAdmin
      */
     public function handle($request, Closure $next)
     {
-        if(auth()->user()->role === 'app_admin') {
+        if(auth()->user()->role === 'app_admin' ||
+            auth()->user()->role === 'app_editor' ||
+            auth()->user()->role === 'app_financial') {
             return $next($request);
         }
         return redirect()->back();

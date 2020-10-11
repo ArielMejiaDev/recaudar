@@ -45,11 +45,10 @@ class ContactNotification extends Notification
         return (new MailMessage)
                     ->from($this->data['email'],  $this->data['name'])
                     ->replyTo($this->data['email'],  $this->data['name'])
-                    ->subject('Message from contact form')
-                    ->greeting('New message from contact form.')
-                    ->line('Message:')
+                    ->subject(trans('Message from contact form.'))
+                    ->line(trans('Message') . ':')
                     ->line($this->data['message'])
-                    ->line('Thank you for using our application!');
+                    ->line(trans('Thank you for using our application!'));
     }
 
     /**

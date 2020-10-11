@@ -61,7 +61,9 @@ class ResetPasswordController extends Controller
 
     public function redirectTo()
     {
-        if(auth()->user()->teams->where('role.role_name', 'app_admin')->count()) {
+        if(auth()->user()->teams->where('role.role_name', 'app_admin')->count() ||
+            auth()->user()->teams->where('role.role_name', 'app_editor')->count() ||
+            auth()->user()->teams->where('role.role_name', 'app_financial')->count()) {
             return route('admin.dashboard');
         }
 

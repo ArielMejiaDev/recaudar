@@ -40,9 +40,9 @@ class DashboardController extends Controller
             ->whereStatus('approved')
             ->whereMonth('created_at', now()->format('m'));
 
-        $totalIncome = $query->sum('income');
+        $totalIncome = $query->get()->sum('income');
         $newRecurrentPlans = $query->whereType('recurrent')->count();
-        $totalIncomeByRecurrence = $query->whereType('recurrent')->sum('income');
+        $totalIncomeByRecurrence = $query->whereType('recurrent')->get()->sum('income');
 
         $recentTransactions = Transaction::select(['id', 'name', 'income', 'currency', 'status', 'created_at'])
             ->orderByDesc('id')

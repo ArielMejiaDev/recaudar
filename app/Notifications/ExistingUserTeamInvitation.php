@@ -46,10 +46,10 @@ class ExistingUserTeamInvitation extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject('You have been invited to a work with ' . $this->teamName  .' in ' . config('app.name') )
-            ->greeting('Hi you are invited to work with ' . $this->teamName )
-            ->line('You can access with your email: ' . $this->email)
-            ->action('Login', route('login'));
+            ->subject(trans('You have been invited to a work with') . ' ' . $this->teamName )
+            ->greeting( trans('You have been invited to a work with') . ' ' . $this->teamName )
+            ->line( trans('You can access with your email') . ' ' . $this->email)
+            ->action(trans('Login'), route('login'));
     }
 
     /**

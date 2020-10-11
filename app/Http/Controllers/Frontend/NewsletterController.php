@@ -19,7 +19,13 @@ class NewsletterController extends Controller
         $request->validate(array_merge($recaptchaValidation, [
             'email' => ['required', 'email'],
         ]));
-        Newsletter::subscribe($request->email);
+
+        try {
+            Newsletter::subscribe($request->email);
+        }catch (\Exception $exception) {
+            return redirect()->back()->withInput($request->input())->withErrors(['error' => trans('Newsletter fail, please try again later.')]);
+        }
+
         return redirect()->route('welcome')->with(['success' => trans('Email added')]);
     }
 }

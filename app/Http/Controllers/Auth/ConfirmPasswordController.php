@@ -41,7 +41,7 @@ class ConfirmPasswordController extends Controller
     /**
      * Display the password confirmation view.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response|\Inertia\Response|\Inertia\ResponseFactory
      */
     public function showConfirmForm()
     {
@@ -50,7 +50,9 @@ class ConfirmPasswordController extends Controller
 
     public function redirectTo()
     {
-        if(auth()->user()->teams->where('role.role_name', 'app_admin')->count()) {
+        if(auth()->user()->teams->where('role.role_name', 'app_admin')->count() ||
+            auth()->user()->teams->where('role.role_name', 'app_editor')->count() ||
+            auth()->user()->teams->where('role.role_name', 'app_financial')->count()) {
             return route('admin.dashboard');
         }
 

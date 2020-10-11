@@ -20,6 +20,28 @@ use Inertia\Response;
 
 class PlansController extends Controller
 {
+    private array $trans;
+
+    public function __construct()
+    {
+        $this->trans = [
+            'plans' => trans('Plans'),
+            'search' => trans('Search'),
+            'add_a_plan' => trans('Add a Plan'),
+            'amount_in_local_currency' => trans('Amount in Local Currency'),
+            'amount_in_dollars' => trans('Amount in Dollars'),
+            'copy_link' => trans('Copy Link'),
+            'delete' => trans('Delete'),
+            'are_you_sure_to_remove' => trans('Are you sure to remove'),
+            'remove_plan' => trans('Remove Plan'),
+            'create_a_plan' => trans('Create a Plan'),
+            'this_data_would_be_public_from_team_profile_site' => trans('This data would be public from team profile site.'),
+            'title' => trans('Title'),
+            'information_about_the_plan' => trans('Information About the Plan'),
+            'edit_a_plan' => trans('Edit a Plan'),
+        ];
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -43,23 +65,11 @@ class PlansController extends Controller
                         })->paginate(5);
         }
 
-        $trans = [
-            'plans' => trans('Plans'),
-            'search' => trans('Search'),
-            'add_a_plan' => trans('Add a Plan'),
-            'amount_in_local_currency' => trans('Amount in Local Currency'),
-            'amount_in_dollars' => trans('Amount in Dollars'),
-            'copy_link' => trans('Copy Link'),
-            'delete' => trans('Delete'),
-            'are_you_sure_to_remove' => trans('Are you sure to remove'),
-            'remove_plan' => trans('Remove Plan')
-        ];
-
         return Inertia::render('Teams/Plans/Index', [
             'filters' => $request->all('search'),
             'team' => $team->only('name', 'slug'),
             'plans' => $plans,
-            'trans' => $trans,
+            'trans' => $this->trans,
         ]);
     }
 
@@ -73,20 +83,13 @@ class PlansController extends Controller
     {
         $locale = (new LocaleCodeResolver)->getLocaleFrom($team->country);
 
-        $trans = [
-            'create_a_plan' => trans('Create a Plan'),
-            'this_data_would_be_public_from_team_profile_site' => trans('This data would be public from team profile site.'),
-            'title' => trans('Title'),
-            'information_about_the_plan' => trans('Information About the Plan'),
-        ];
-
         return Inertia::render('Teams/Plans/Create', [
             'team' => $team->only('name', 'slug'),
             'locale' => [
                 'country' => $locale->countryCode(),
                 'currency' => $locale->currencyCode(),
             ],
-            'trans' => $trans,
+            'trans' => $this->trans,
         ]);
     }
 
@@ -118,13 +121,6 @@ class PlansController extends Controller
     {
         $locale = (new LocaleCodeResolver)->getLocaleFrom($team->country);
 
-        $trans = [
-            'edit_a_plan' => trans('Edit a Plan'),
-            'this_data_would_be_public_from_team_profile_site' => trans('This data would be public from team profile site.'),
-            'title' => trans('Title'),
-            'information_about_the_plan' => trans('Information About the Plan'),
-        ];
-
         return Inertia::render('Teams/Plans/Edit', [
             'team' => $team->only('name', 'slug'),
             'plan' => $plan,
@@ -132,7 +128,7 @@ class PlansController extends Controller
                 'country' => $locale->countryCode(),
                 'currency' => $locale->currencyCode(),
             ],
-            'trans' => $trans,
+            'trans' => $this->trans,
         ]);
     }
 

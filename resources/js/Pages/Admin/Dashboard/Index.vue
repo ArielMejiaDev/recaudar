@@ -3,7 +3,7 @@
 
         <div class="flex items-start w-full justify-between mb-8">
             <Title :info="trans.data_of_the_month" class="mb-6">Admin dashboard</Title>
-            <LinkButton :link="route('admin.admins.create')">{{ trans.invite_admin }}</LinkButton>
+            <LinkButton v-if="$page.auth.user.role === 'app_admin'" :link="route('admin.admins.create')">{{ trans.invite_admin }}</LinkButton>
         </div>
 
         <div class="flex flex-col lg:flex-row mb-16 w-full">

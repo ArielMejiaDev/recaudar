@@ -14,6 +14,25 @@ use Inertia\Response;
 
 class TransactionController extends Controller
 {
+
+    private array $trans;
+
+    public function __construct()
+    {
+        $this->trans = [
+            'by' => trans('By'),
+            'amount' => trans('Amount'),
+            'date' => trans('Date'),
+            'status' => trans('Status'),
+            'pending' => trans('Pending'),
+            'approved' => trans('Approved'),
+            'failed' => trans('Failed'),
+            'email' => trans('Email'),
+            'type' => trans('Type'),
+            'transaction_details' => trans('Transaction details'),
+        ];
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -67,21 +86,11 @@ class TransactionController extends Controller
             })->select(['id', 'name', 'amount_to_deposit', 'status', 'created_at', 'currency'])->paginate();
         }
 
-        $trans = [
-            'by' => trans('By'),
-            'amount' => trans('Amount'),
-            'date' => trans('Date'),
-            'status' => trans('Status'),
-            'pending' => trans('Pending'),
-            'approved' => trans('Approved'),
-            'failed' => trans('Failed')
-        ];
-
         return Inertia::render('Teams/Transaction/Index', [
             'team' => $team->only(['id', 'slug']),
             'transactions' => $transactions,
             'filters' => $request->all('search'),
-            'trans' => $trans,
+            'trans' => $this->trans,
         ]);
     }
 
@@ -97,19 +106,6 @@ class TransactionController extends Controller
         $country = $transaction->currency === 'dollars' ? 'United States' : 'Guatemala';
         $locale = (new LocaleCodeResolver)->getLocaleFrom($country);
 
-        $trans = [
-            'by' => trans('By'),
-            'email' => trans('Email'),
-            'type' => trans('Type'),
-            'date' => trans('Date'),
-            'amount' => trans('Amount'),
-            'status' => trans('Status'),
-            'pending' => trans('Pending'),
-            'approved' => trans('Approved'),
-            'failed' => trans('Failed'),
-            'transaction_details' => trans('Transaction details')
-        ];
-
         return Inertia::render('Teams/Transaction/Show', [
             'transaction' => $transaction->only(['id', 'name', 'email', 'status', 'currency', 'created_at', 'readable_created_at', 'amount_to_deposit', 'type']),
             'team' => $team->only(['id', 'slug']),
@@ -117,7 +113,7 @@ class TransactionController extends Controller
                 'country' => $locale->countryCode(),
                 'currency' => $locale->currencyCode(),
             ],
-            'trans' => $trans,
+            'trans' => $this->trans,
         ]);
     }
 

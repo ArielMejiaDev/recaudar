@@ -26,7 +26,7 @@ class UpdateOrStoreChargeRequest extends FormRequest
     {
         return [
             'country' => ['required', Rule::in(['Guatemala', 'El Salvador', 'Honduras', 'Panama', 'Costa Rica'])],
-            'income' => ['required', 'numeric', 'min:0', 'max:99'],
+            'income_charge' => ['required', 'numeric', 'min:0', 'max:99'],
             'gateway' => ['required', Rule::in(['pagalogt', 'pagadito', 'paypal', 'bac', 'payu'])],
             'gateway_charge' => ['required', 'numeric', 'min:0', 'max:99'],
         ];

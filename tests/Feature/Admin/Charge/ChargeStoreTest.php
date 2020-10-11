@@ -17,9 +17,9 @@ class ChargeStoreTest extends TestCase
         session()->setPreviousUrl('/login');
         $response = $this->post(route('admin.charges.store'), [
             'country' => 'Guatemala',
-            'country_charge' => 3.0,
-            'payment_gateway' => 'pagalogt',
-            'payment_gateway_charge' => 5.0,
+            'income_charge' => 2.5,
+            'gateway' => 'pagalogt',
+            'gateway_charge' => 5.5,
         ]);
         $response->assertRedirect();
         $response->assertLocation('/login');
@@ -32,9 +32,9 @@ class ChargeStoreTest extends TestCase
         session()->setPreviousUrl('/login');
         $response = $this->post(route('admin.charges.store'), [
             'country' => 'Guatemala',
-            'country_charge' => 3.0,
-            'payment_gateway' => 'pagalogt',
-            'payment_gateway_charge' => 5.0,
+            'income_charge' => 2.5,
+            'gateway' => 'pagalogt',
+            'gateway_charge' => 5.5,
         ]);
         $response->assertRedirect();
         $response->assertLocation('/login');
@@ -49,9 +49,9 @@ class ChargeStoreTest extends TestCase
         session()->setPreviousUrl('/login');
         $response = $this->post(route('admin.charges.store'), [
             'country' => 'Guatemala',
-            'country_charge' => 3.0,
-            'payment_gateway' => 'pagalogt',
-            'payment_gateway_charge' => 5.0,
+            'income_charge' => 2.5,
+            'gateway' => 'pagalogt',
+            'gateway_charge' => 5.5,
         ]);
         $response->assertRedirect();
         $response->assertLocation('/login');
@@ -66,12 +66,12 @@ class ChargeStoreTest extends TestCase
         session()->setPreviousUrl('/login');
         $response = $this->post(route('admin.charges.store'), [
             'country' => '',
-            'income' => 'lorem',
+            'income_charge' => 'lorem',
             'gateway' => 'any',
             'gateway_charge' => '',
         ]);
         $response->assertRedirect();
-        $response->assertSessionHasErrors(['country', 'income', 'gateway', 'gateway_charge']);
+        $response->assertSessionHasErrors(['country', 'income_charge', 'gateway', 'gateway_charge']);
         $this->assertDatabaseCount('charges', 0);
     }
     /**@test */
@@ -84,9 +84,9 @@ class ChargeStoreTest extends TestCase
         session()->setPreviousUrl('/login');
         $response = $this->post(route('admin.charges.store'), [
             'country' => 'Guatemala',
-            'income' => 3,
+            'income_charge' => 2.5,
             'gateway' => 'pagalogt',
-            'gateway_charge' => 5,
+            'gateway_charge' => 5.5,
         ]);
         $response->assertRedirect();
         $response->assertSessionHas(['success']);

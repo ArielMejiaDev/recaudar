@@ -8,6 +8,7 @@ use App\Models\Transaction;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
 
@@ -47,6 +48,7 @@ class TransactionsController extends Controller
      */
     public function index(Request $request)
     {
+        Gate::authorize('manage-transactions');
 
         $transactions = Transaction::select([
             'id', 'amount_to_deposit', 'income', 'currency', 'status',
@@ -101,6 +103,8 @@ class TransactionsController extends Controller
      */
     public function show(Transaction $transaction)
     {
+        Gate::authorize('manage-transactions');
+
         $transaction = $transaction->only(['id', 'name', 'email', 'currency', 'amount', 'amount_to_deposit', 'income', 'type', 'status', 'reviewed', 'created_at', 'readable_created_at']);
         return Inertia::render('Admin/Transactions/Show', [
             'transaction' => $transaction,
@@ -117,6 +121,8 @@ class TransactionsController extends Controller
      */
     public function update(Request $request, Transaction $transaction)
     {
+        Gate::authorize('manage-transactions');
+
         $transaction->update([
             'reviewed' => $transaction->reviewed === 'pending' ? 'checked' : 'pending',
         ]);
