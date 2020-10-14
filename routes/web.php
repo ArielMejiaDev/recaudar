@@ -17,6 +17,7 @@ use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\DonateDirectLinkController;
 use App\Http\Controllers\Frontend\LandingPageController;
 use App\Http\Controllers\Frontend\NewsletterController;
+use App\Http\Controllers\Frontend\NotAllowedActionController;
 use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\ProfilePageController;
 use App\Http\Controllers\Frontend\TeamPageController;
@@ -51,8 +52,6 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 
 Route::post('/newsletter', NewsletterController::class)->name('newsletter.store');
 
-Route::get('/prohibido', function () {
-    abort(403, trans('Too many attempts, please try again later.'));
-})->name('too_many_attempts');
+Route::get('/prohibido', NotAllowedActionController::class)->name('too_many_attempts');
 
 Route::view('/offline', 'vendor/laravelpwa/offline');

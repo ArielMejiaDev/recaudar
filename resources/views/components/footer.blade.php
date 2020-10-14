@@ -157,7 +157,7 @@
     <div class="bg-gray-800">
         <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
             <p class="text-gray-500 text-sm text-center sm:text-left">© {{ now()->format('Y') }} {{ config('app.name') }} —
-                <a href="#" class="text-gray-600 ml-1" target="_blank">
+                <a href="{{ route('terms-for-users') }}" class="text-gray-600 ml-1" target="_blank">
                     {{ trans('Terms & conditions') }}
                 </a>
             </p>
