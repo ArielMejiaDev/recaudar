@@ -9,10 +9,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/pricing.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/moonlight.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/moonlight.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/TeamPageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/TeamPageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Team/Plans/PlansController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Team/Plans/PlansController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Team/TeamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Team/TeamController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/frontend.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/frontend.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Plans/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Plans/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/checkout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/logo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/logo.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/donate-direct-link.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/donate-direct-link.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teams-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams-page.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/classic.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams/themes/classic.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/columns.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams/themes/columns.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/condensed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams/themes/condensed.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,6 +213,7 @@
       <path value="$PROJECT_DIR$/vendor/league/glide" />
       <path value="$PROJECT_DIR$/vendor/tightenco/collect" />
       <path value="$PROJECT_DIR$/vendor/intervention/image" />
+      <path value="$PROJECT_DIR$/vendor/appstract/laravel-opcache" />
     </include_path>
   </component>
   <component name="ProjectId" id="1gvWtV8XEGx0ZSXa3cCe5m6XYPA" />
@@ -251,9 +276,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.ChargeStoreTest" />
-        <item itemvalue="PHPUnit.ChargeStoreTest.test_app_admins_can_store_a_charge" />
         <item itemvalue="PHPUnit.ChargeStoreTest.test_app_admins_cannot_store_a_charge_with_invalid_data" />
+        <item itemvalue="PHPUnit.ChargeStoreTest.test_app_admins_can_store_a_charge" />
+        <item itemvalue="PHPUnit.ChargeStoreTest" />
         <item itemvalue="PHPUnit.ChargeCreateTest.test_app_admins_can_access_to_admin_charges_index" />
         <item itemvalue="PHPUnit.ChargeCreateTest" />
       </list>
@@ -280,7 +305,9 @@
       <workItem from="1601033452225" duration="282000" />
       <workItem from="1601035310376" duration="54750000" />
       <workItem from="1601444801403" duration="249920000" />
-      <workItem from="1602607974246" duration="1099000" />
+      <workItem from="1602607974246" duration="3186000" />
+      <workItem from="1603102803140" duration="168000" />
+      <workItem from="1603167671126" duration="12545000" />
     </task>
     <servers />
   </component>
@@ -325,10 +352,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="726" y="195" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1599442852305" />
-    <state x="645" y="275" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1601033109323">
+    <state x="645" y="275" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1603102759666">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="645" y="275" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1601033109323" />
+    <state x="645" y="275" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603102759666" />
     <state x="1692" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1602084258072">
       <screen x="1280" y="0" width="1920" height="1080" />
     </state>

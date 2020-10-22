@@ -4,7 +4,7 @@
 
     <x-navbar-pink />
 
-    <section x-data="form()" class="h-auto text-gray-700 body-font overflow-hidden relative flex flex-col items-center justify-center bg-gray-200">
+    <section x-data="form()" class="lg:min-h-screen text-gray-700 body-font overflow-hidden relative flex flex-col items-center justify-center bg-gray-200">
 
         <x-landing.blobs />
 

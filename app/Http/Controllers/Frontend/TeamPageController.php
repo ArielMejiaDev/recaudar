@@ -13,7 +13,7 @@ class TeamPageController extends Controller
     {
         $teams = Team::where('name', '!=', 'recaudar')->where('status', 'approved')->simplePaginate();
         if($request->has('categoria')) {
-            $teams = Team::where('name', '!=', 'recaudar')->whereCategory(ucfirst($request->categoria))->simplePaginate();
+            $teams = Team::where('name', '!=', 'recaudar')->where('status', 'approved')->whereCategory(ucfirst($request->categoria))->simplePaginate();
         }
         (new TeamPageSeoService)->execute();
         return view('teams-page', compact('teams'));

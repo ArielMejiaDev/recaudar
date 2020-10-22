@@ -9,6 +9,17 @@
             :action="{show: true, text: trans.add_a_plan, link: route('teams.plans.create', $page.team['slug']), type: 'info'}"
             :pagination="{show: true, links: plans.links}">
             <template v-slot:tableData>
+                <tr v-if="!search">
+                    <td>{{ trans.variable_contribution_plan }}</td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <button @click.prevent="copyLinkToClipboard('');selectedLink = true" :class="selectedLink ? 'text-blue-500' : 'text-gray-500'" class="text-xs font-semibold focus:outline-none hover:text-blue-500">
+                            <Icon name="link" />
+                        </button>
+                    </td>
+                    <td></td>
+                </tr>
                 <tr v-for="(plan, index) in plans.data" :key="index" >
                     <td>
                         <InertiaLink :href="route('teams.plans.edit', {team: $page.team['slug'], plan: plan.id})">{{ plan.title }}</InertiaLink>

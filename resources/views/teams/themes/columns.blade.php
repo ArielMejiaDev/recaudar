@@ -7,7 +7,7 @@
 
         <x-navbar-pink />
 
-        <section class="lg:h-screen flex items-center text-gray-700 body-font bg-gray-200">
+        <section class="lg:min-h-screen flex items-center text-gray-700 body-font bg-gray-200">
 
             <x-landing.blobs />
 

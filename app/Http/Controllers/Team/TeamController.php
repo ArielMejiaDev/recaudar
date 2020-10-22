@@ -49,6 +49,7 @@ class TeamController extends Controller
             'cancel' => trans('Cancel'),
             'this_action_cannot_be_reversed' => trans('This action cannot be reversed.'),
             'update_a_team' => trans('Update a team'),
+            'no_teams_available' => trans('No teams available.'),
         ];
     }
 

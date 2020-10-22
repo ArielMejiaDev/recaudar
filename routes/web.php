@@ -52,6 +52,8 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 
 Route::post('/newsletter', NewsletterController::class)->name('newsletter.store');
 
+Route::view('/precios', 'pricing')->name('pricing');
+
 Route::get('/prohibido', NotAllowedActionController::class)->name('too_many_attempts');
 
 Route::view('/offline', 'vendor/laravelpwa/offline');

@@ -8,7 +8,7 @@
 
         <x-navbar-pink />
 
-        <section class="text-gray-700 body-font relative overflow-hidden bg-gray-200">
+        <section class="lg:min-h text-gray-700 body-font relative overflow-hidden bg-gray-200">
 
             <x-landing.blobs :style="'alternative'" />
 

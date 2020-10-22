@@ -21,6 +21,9 @@
                             <button class="fill-current text-gray-900 absolute left-0 text-sm top-0 bottom-0 md:hidden focus:outline-none">
                                 <svg class="w-6 h-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 19l-7-7 7-7"></path></svg>
                             </button>
+                            <a class="py-1 px-2 rounded {{ request()->categoria === null ? 'bg-pink': 'bg-red-400' }} text-white text-xs lg:text-sm tracking-tighter uppercase hover:bg-pink focus:bg-pink mx-2" href="{{ route('teams-page') }}">
+                                {{ trans('All') }}
+                            </a>
                             <a class="py-1 px-2 rounded {{ request()->categoria === 'salud' ? 'bg-pink': 'bg-red-400' }} text-white text-xs lg:text-sm tracking-tighter uppercase hover:bg-pink focus:bg-pink mx-2" href="{{ route('teams-page', ['categoria' => 'salud']) }}">
                                 {{ trans('Health') }}
                             </a>

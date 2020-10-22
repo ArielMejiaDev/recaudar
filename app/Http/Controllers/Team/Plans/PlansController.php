@@ -39,6 +39,7 @@ class PlansController extends Controller
             'title' => trans('Title'),
             'information_about_the_plan' => trans('Information About the Plan'),
             'edit_a_plan' => trans('Edit a Plan'),
+            'variable_contribution_plan' => trans('Variable contribution plan.')
         ];
     }
 
@@ -58,10 +59,12 @@ class PlansController extends Controller
 
         if ($request->has('search')) {
             $plans = $team->plans()
-                        ->select(['title', 'amount'])
+                        ->select(['title', 'amount_in_local_currency', 'amount_in_dollars'])
                         ->where('title', '!=', 'of variable amount')
                         ->where(function($query) use($request) {
-                            $query->where('title', 'LIKE', "%{$request->search}%");
+                            $query->where('title', 'LIKE', "%{$request->search}%")
+                                ->orWhere( 'amount_in_local_currency', $request->search )
+                                ->orWhere( 'amount_in_dollars', $request->search );
                         })->paginate(5);
         }
 

@@ -81,7 +81,7 @@
 
                         @if(!$amount)
                             <div class="my-1 p-2">
-                                <input x-model="selectedAmount" type="number" class="w-full text-xs lg:text-sm py-1 lg:py-2 px-2 lg:px-4 text-gray-700 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:bg-white" placeholder="Add an amount to donate">
+                                <input x-model="selectedAmount" type="number" class="w-full text-xs lg:text-sm py-1 lg:py-2 px-2 lg:px-4 text-gray-700 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:bg-white" placeholder="{{ trans('Add an amount to donate.') }}">
                                 <small class="text-red-500 text-xs font-bold mt-1" x-show="errors.amount" x-text="errors.amount"></small>
                             </div>
                         @endif

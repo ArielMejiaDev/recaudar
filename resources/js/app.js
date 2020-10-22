@@ -24,7 +24,7 @@ const app = document.getElementById('app')
 
 new Vue({
     metaInfo: {
-        titleTemplate: (title) => title ? `${title} - Recaudar.com` : 'Recaudar.com'
+        titleTemplate: (title) => title ? `${title} - ${process.env.MIX_APP_NAME}` : process.env.MIX_APP_NAME
     },
     render: h => h(InertiaApp, {
         props: {
