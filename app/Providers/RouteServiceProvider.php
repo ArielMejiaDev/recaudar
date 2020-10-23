@@ -2,8 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\Team;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
+use Redirect;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -26,13 +30,19 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define your route model bindings, pattern filters, etc.
      *
-     * @return void
+     * @return RedirectResponse
      */
     public function boot()
     {
         //
-
         parent::boot();
+
+        // To make work www urls, because router detect "www." as a team for subdomain route model binding
+        if (Str::contains(url()->current(), 'www')) {
+            return Redirect::to(
+                Str::replaceFirst('www.', '', url()->current())
+            )->send();
+        }
     }
 
     /**
