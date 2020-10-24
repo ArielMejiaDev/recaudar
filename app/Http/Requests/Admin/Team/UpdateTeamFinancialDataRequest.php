@@ -25,11 +25,22 @@ class UpdateTeamFinancialDataRequest extends FormRequest
     public function rules()
     {
         return [
-            'legal_representative' => ['required', 'min:5'],
-            'tax_number' => ['required', 'min:5'],
-            'country' => Rule::in(['Guatemala', 'El Salvador', 'Honduras', 'Panama', 'Costa Rica']),
-            'account_number' => ['required', 'min:5'],
-            'bank' => ['required', 'min:5'],
+            'legal_representative' => 'required|min:5|max:100|string',
+            'tax_number' => 'required|min:5|max:100',
+            'country' => ['required', 'min:3', 'max:75', Rule::in(['Guatemala', 'El Salvador', 'Honduras', 'Panama', 'Costa Rica'])],
+            'bank' => 'required|min:5|max:50',
+            'account_number' => 'required|min:7|max:20',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'legal_representative' => trans('Legal Representative'),
+            'tax_number' => trans('Tax Number'),
+            'country' => trans('Country'),
+            'bank' => trans('Bank'),
+            'account_number' => trans('Account Number'),
         ];
     }
 }

@@ -25,15 +25,30 @@ class UpdateTeamProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'min:5', Rule::unique('teams')->ignore($this->team)],
+            'name' => ['required', 'min:5', 'max:100', Rule::unique('teams')->ignore($this->team)],
             'beneficiaries' => ['required', 'numeric', 'min:2'],
-            'public' => ['required', 'min:5'],
-            'status' => ['required', 'min:5'],
-            'category' => ['required', Rule::in(['Salud', 'Educacion', 'Ambientales', 'Social', 'Nutricion', 'Pobreza', 'Animales', 'Otros'])],
+            'public' => 'required|min:20|string|max:100',
+            'category' => ['required', 'string', 'min:3', 'max:30', Rule::in(['Salud', 'Educación', 'Ambientales', 'Social', 'Nutrición', 'Pobreza', 'Animales', 'Otros'])],
             'theme' => ['required', Rule::in(['classic', 'condensed', 'columns'])],
-            'impact' => ['required', 'min:10'],
-            'use_of_funds' => ['required', 'min:5'],
-            'description' => ['required', 'min:10'],
+            'impact' => 'required|min:20|max:500|string',
+            'use_of_funds' => 'required|min:20|max:500|string',
+            'description' => 'required|min:20|string',
+            'status' => ['required', 'min:5'],
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'name' => trans('Name'),
+            'beneficiaries' => trans('Beneficiaries'),
+            'public' => trans('Public'),
+            'category' => trans('Category'),
+            'theme' => trans('Theme'),
+            'impact' => trans('Impact'),
+            'use_of_funds' => trans('Use Of Funds'),
+            'description' => trans('Description'),
+            'status' => trans('Status'),
         ];
     }
 }

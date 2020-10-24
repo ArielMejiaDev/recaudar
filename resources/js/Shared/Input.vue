@@ -13,7 +13,7 @@ export default {
         data: null,
     }),
     props: {
-        value: String,
+        value: null,
         name: null,
         label: String,
         type: {

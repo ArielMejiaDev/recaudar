@@ -22,11 +22,11 @@ class CreateTeamsTable extends Migration
             $table->longText('description');
             $table->string('public', 100);
             $table->integer('beneficiaries');
-            $table->longText('impact');
+            $table->mediumText('impact');
             $table->string('legal_representative', 100);
             $table->string('tax_number', 100);
             $table->string('office_address', 100);
-            $table->longText('use_of_funds');
+            $table->mediumText('use_of_funds');
             $table->string('contact', 100);
             $table->string('contact_phone', 100);
             $table->string('contact_email', 64);

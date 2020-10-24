@@ -7741,7 +7741,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   props: {
-    value: String,
+    value: null,
     name: null,
     label: String,
     type: {

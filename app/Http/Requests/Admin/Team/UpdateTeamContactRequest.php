@@ -24,10 +24,20 @@ class UpdateTeamContactRequest extends FormRequest
     public function rules()
     {
         return [
-            'contact' => ['required', 'min:5'],
-            'contact_phone' => ['required', 'min:5'],
-            'contact_email' => ['required', 'email'],
-            'office_address' => ['required', 'min:15']
+            'contact' => 'required|min:5|max:100|string',
+            'contact_phone' => 'required|min:6|max:100',
+            'contact_email' => 'required|email|max:64',
+            'office_address' => 'required|min:20|max:100',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'contact' => trans('Contact'),
+            'contact_phone' => trans('Contact Phone'),
+            'contact_email' => trans('Contact Email'),
+            'office_address' => trans('Office Address'),
         ];
     }
 }
