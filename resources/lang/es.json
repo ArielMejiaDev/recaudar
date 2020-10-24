@@ -443,9 +443,10 @@
     "Details of transactions.": "Detalles de transacciones.",
     "Donation with variable amount.": "Donación con monto variable.",
     "Creation of links for donation.": "Creación de enlaces para donación.",
-    "Checkout for donations.": "Verificar donaciones.",
+    "Checkout for donations.": "Checkout para donaciones.",
     "Security SSL certificate.": "Certificado SSL de seguridad.",
     "3 Themes for profiles.": "3 Temas para perfiles.",
+    "8 Themes for profiles.": "8 Temas para perfiles.",
     "Self-managing site with subdomain (organization.recaudar.org).": "Sitio autogestionable con subdominio (organisation.recaudar.org).",
     "Up to 3 administration users.": "Hasta 3 usuarios de administración.",
     "Up to 10 donation plans.": "Hasta 10 planes de donación.",
@@ -454,5 +455,15 @@
     "Biweekly deposits.": "Depósitos quincenales.",
     "The rate 8% + Q2.00 per transaction.": "La tasa 8% + Q2.00 por transacción.",
     "The rate 5.5% + Q2.00 per transaction.": "La tasa 5.5% + Q2.00 por transacción.",
-    "The transaction fee 1% + the percentage of the payment gateway.": "La tarifa de transacción 1% + el porcentaje de la pasarela de pago."
+    "The transaction fee 1% + the percentage of the payment gateway + Q2.00 per transaction.": "La tasa 1% + el porcentaje de la pasarela de pago + Q2.00 por transacción.",
+    "Donation Button": "Boton de donación",
+    "Advance": "Avanzado",
+    "Recurring donations.": "Donaciones recurrentes.",
+    "Human resources module.": "Módulo de recursos humanos.",
+    "Additional interactive reports.": "Reportes interactivos adicionales.",
+    "Fundraising campaigns through volunteers.": "Campañas de recaudación por medio de voluntarios.",
+    "Copy": "Copiar",
+    "Copied": "Copiado",
+    "Donation Button.": "Boton de donación",
+    "Paste the code snippet in your HTML, you can change height and width values as you need.": "Pegue el fragmento de código en su HTML, puede cambiar los valores de alto y ancho según lo necesite."
 }

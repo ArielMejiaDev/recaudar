@@ -67,6 +67,7 @@ class InertiaServiceProvider extends ServiceProvider
                 'home' => trans('Home'),
                 'profile' => trans('Profile'),
                 'teams' => trans('Teams'),
+                'donation_button' => trans('Donation Button'),
                 'team' => trans('Team'),
                 'team_profile' => trans('Team Profile'),
                 'plans' => trans('Plans'),

@@ -100,6 +100,12 @@
                             {{ $page.global_trans.transactions }}
                         </InertiaLink>
                     </li>
+                    <li v-if="$page.auth.user.role === 'Admin' || $page.auth.user.role === 'Editor'" class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('teams.donation_button*') ? 'bg-gray-900' : null">
+                        <InertiaLink @click.passive="isOpen = !isOpen;" :href="route('teams.donation_button', $page.team['slug'])" class="flex items-center text-gray-300">
+                            <Icon name="code" class="text-gray-500 mr-2" />
+                            {{ $page.global_trans.donation_button }}
+                        </InertiaLink>
+                    </li>
                 </ul>
 
             </template>

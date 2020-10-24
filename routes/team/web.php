@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Team\DonationButton\DonationButtonController;
 use App\Http\Controllers\Team\Plans\PlansController;
 use App\Http\Controllers\Team\Profile\TeamProfileController;
 use App\Http\Controllers\Team\Profile\UpdateTeamBannerController;
@@ -82,6 +83,8 @@ Route::prefix('teams')->middleware(['auth', 'verified', 'userIsATeamMember'])->g
         Route::resource('plans', PlansController::class, ['as' => 'teams'])->except('show');
 
         Route::resource('transactions', TransactionController::class, ['as' => 'teams'])->only(['index', 'show']);
+
+        Route::get('/donation-button', DonationButtonController::class)->name('teams.donation_button');
 
     });
 

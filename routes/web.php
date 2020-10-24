@@ -15,6 +15,7 @@ use App\Http\Controllers\Frontend\AboutUsPageController;
 use App\Http\Controllers\Frontend\CertificateController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\DonateDirectLinkController;
+use App\Http\Controllers\Frontend\DonationButtonMarkupController;
 use App\Http\Controllers\Frontend\LandingPageController;
 use App\Http\Controllers\Frontend\NewsletterController;
 use App\Http\Controllers\Frontend\NotAllowedActionController;
@@ -55,5 +56,7 @@ Route::post('/newsletter', NewsletterController::class)->name('newsletter.store'
 Route::view('/precios', 'pricing')->name('pricing');
 
 Route::get('/prohibido', NotAllowedActionController::class)->name('too_many_attempts');
+
+Route::get('/donation-button/{team:slug}', DonationButtonMarkupController::class);
 
 Route::view('/offline', 'vendor/laravelpwa/offline');

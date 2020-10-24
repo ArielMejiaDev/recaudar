@@ -4381,6 +4381,92 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Teams/DonationButton/Index.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Teams/DonationButton/Index.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Shared_Layouts_SidebarLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../Shared/Layouts/SidebarLayout */ "./resources/js/Shared/Layouts/SidebarLayout.vue");
+/* harmony import */ var _Shared_Panel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../Shared/Panel */ "./resources/js/Shared/Panel.vue");
+/* harmony import */ var _Shared_Title__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../Shared/Title */ "./resources/js/Shared/Title.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Index",
+  metaInfo: "Donation Button",
+  layout: _Shared_Layouts_SidebarLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
+  components: {
+    Panel: _Shared_Panel__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Title: _Shared_Title__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  data: function data() {
+    return {
+      url: "http://recaudar.test",
+      hover: false
+    };
+  },
+  props: {
+    team: Object,
+    trans: Object
+  },
+  methods: {
+    copyUrlToClipboard: function copyUrlToClipboard() {
+      var url = "<iframe src=\"".concat(this.url, "/donation-button/").concat(this.team.slug, "\" height=\"100\" width=\"100\" frameborder=\"0\"></iframe>");
+      var el = document.createElement('input');
+      el.value = url;
+      el.setAttribute('readonly', '');
+      el.style.position = 'absolute';
+      el.style.left = '-9999px';
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      this.hover = true;
+      document.body.removeChild(el);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Teams/Edit.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Teams/Edit.vue?vue&type=script&lang=js& ***!
@@ -6735,6 +6821,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -7364,6 +7456,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -32983,6 +33077,139 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Teams/DonationButton/Index.vue?vue&type=template&id=0e29c789&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Teams/DonationButton/Index.vue?vue&type=template&id=0e29c789& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("Panel", {
+    scopedSlots: _vm._u([
+      {
+        key: "header",
+        fn: function() {
+          return [
+            _c("Title", { attrs: { info: _vm.trans.subtitle } }, [
+              _vm._v(_vm._s(_vm.trans.donation_button))
+            ])
+          ]
+        },
+        proxy: true
+      },
+      {
+        key: "body",
+        fn: function() {
+          return [
+            _c("div", { staticClass: "flex flex-col" }, [
+              _c(
+                "div",
+                { staticClass: "p-4 bg-gray-200 text-gray-700 rounded shadow" },
+                [
+                  _c("code", {
+                    domProps: {
+                      textContent: _vm._s(
+                        '<iframe src="' +
+                          _vm.url +
+                          "/donation-button/" +
+                          _vm.team.slug +
+                          '" height="100" width="100" frameborder="0"></iframe>'
+                      )
+                    }
+                  })
+                ]
+              )
+            ])
+          ]
+        },
+        proxy: true
+      },
+      {
+        key: "footer",
+        fn: function() {
+          return [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "relative flex items-center text-gray-500 cursor-pointer hover:text-gray-600",
+                on: {
+                  mouseleave: function($event) {
+                    _vm.hover = false
+                  }
+                }
+              },
+              [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "py-2 px-4 rounded bg-indigo-500 text-indigo-100 hover:bg-indigo-600 hover:text-white ml-auto",
+                    on: { click: _vm.copyUrlToClipboard }
+                  },
+                  [_vm._v(_vm._s(_vm.trans.copy))]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "relative" }, [
+                  _vm.hover
+                    ? _c(
+                        "div",
+                        {
+                          staticClass:
+                            "absolute bottom-0 inline-block p-1 mb-10 -ml-12 text-white bg-gray-700 rounded-lg"
+                        },
+                        [
+                          _c("transition", { attrs: { name: "fade" } }, [
+                            _c(
+                              "span",
+                              {
+                                staticClass:
+                                  "inline-block text-xs leading-tight relative z-10"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                " +
+                                    _vm._s(_vm.trans.copied) +
+                                    "!\n                            "
+                                )
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", {
+                            staticClass:
+                              "absolute bottom-0 right-0 w-5 h-5 -mb-1 transform rotate-45 bg-gray-700",
+                            staticStyle: { left: "50%" }
+                          })
+                        ],
+                        1
+                      )
+                    : _vm._e()
+                ])
+              ]
+            )
+          ]
+        },
+        proxy: true
+      }
+    ])
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Teams/Edit.vue?vue&type=template&id=4ea9a7cc&":
 /*!********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Teams/Edit.vue?vue&type=template&id=4ea9a7cc& ***!
@@ -36820,6 +37047,57 @@ var render = function() {
                             ],
                             1
                           )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.$page.auth.user.role === "Admin" ||
+                      _vm.$page.auth.user.role === "Editor"
+                        ? _c(
+                            "li",
+                            {
+                              staticClass:
+                                "px-2 py-3 hover:bg-gray-900 rounded mt-2",
+                              class: _vm
+                                .route()
+                                .current("teams.donation_button*")
+                                ? "bg-gray-900"
+                                : null
+                            },
+                            [
+                              _c(
+                                "InertiaLink",
+                                {
+                                  staticClass:
+                                    "flex items-center text-gray-300",
+                                  attrs: {
+                                    href: _vm.route(
+                                      "teams.donation_button",
+                                      _vm.$page.team["slug"]
+                                    )
+                                  },
+                                  on: {
+                                    "&click": function($event) {
+                                      _vm.isOpen = !_vm.isOpen
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("Icon", {
+                                    staticClass: "text-gray-500 mr-2",
+                                    attrs: { name: "code" }
+                                  }),
+                                  _vm._v(
+                                    "\n                            " +
+                                      _vm._s(
+                                        _vm.$page.global_trans.donation_button
+                                      ) +
+                                      "\n                        "
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
                         : _vm._e()
                     ])
               ],
@@ -38320,6 +38598,28 @@ var render = function() {
           _c("path", {
             attrs: {
               d: "M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
+            }
+          })
+        ]
+      )
+    : _vm.name === "code"
+    ? _c(
+        "svg",
+        {
+          staticClass: "w-6 h-6",
+          attrs: {
+            fill: "currentColor",
+            viewBox: "0 0 20 20",
+            xmlns: "http://www.w3.org/2000/svg"
+          }
+        },
+        [
+          _c("path", {
+            attrs: {
+              "fill-rule": "evenodd",
+              d:
+                "M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z",
+              "clip-rule": "evenodd"
             }
           })
         ]
@@ -55242,6 +55542,7 @@ var map = {
 	"./Pages/Errors/Error.vue": "./resources/js/Pages/Errors/Error.vue",
 	"./Pages/Teams/Create.vue": "./resources/js/Pages/Teams/Create.vue",
 	"./Pages/Teams/Dashboard/Index.vue": "./resources/js/Pages/Teams/Dashboard/Index.vue",
+	"./Pages/Teams/DonationButton/Index.vue": "./resources/js/Pages/Teams/DonationButton/Index.vue",
 	"./Pages/Teams/Edit.vue": "./resources/js/Pages/Teams/Edit.vue",
 	"./Pages/Teams/Index.vue": "./resources/js/Pages/Teams/Index.vue",
 	"./Pages/Teams/Plans/Create.vue": "./resources/js/Pages/Teams/Plans/Create.vue",
@@ -55433,6 +55734,8 @@ var map = {
 	"./Teams/Create.vue": "./resources/js/Pages/Teams/Create.vue",
 	"./Teams/Dashboard/Index": "./resources/js/Pages/Teams/Dashboard/Index.vue",
 	"./Teams/Dashboard/Index.vue": "./resources/js/Pages/Teams/Dashboard/Index.vue",
+	"./Teams/DonationButton/Index": "./resources/js/Pages/Teams/DonationButton/Index.vue",
+	"./Teams/DonationButton/Index.vue": "./resources/js/Pages/Teams/DonationButton/Index.vue",
 	"./Teams/Edit": "./resources/js/Pages/Teams/Edit.vue",
 	"./Teams/Edit.vue": "./resources/js/Pages/Teams/Edit.vue",
 	"./Teams/Index": "./resources/js/Pages/Teams/Index.vue",
@@ -56876,6 +57179,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_8c2263b6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_8c2263b6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Teams/DonationButton/Index.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/Pages/Teams/DonationButton/Index.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Index_vue_vue_type_template_id_0e29c789___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Index.vue?vue&type=template&id=0e29c789& */ "./resources/js/Pages/Teams/DonationButton/Index.vue?vue&type=template&id=0e29c789&");
+/* harmony import */ var _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Index.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Teams/DonationButton/Index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Index_vue_vue_type_template_id_0e29c789___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Index_vue_vue_type_template_id_0e29c789___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Teams/DonationButton/Index.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Teams/DonationButton/Index.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/Pages/Teams/DonationButton/Index.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Teams/DonationButton/Index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Teams/DonationButton/Index.vue?vue&type=template&id=0e29c789&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/Pages/Teams/DonationButton/Index.vue?vue&type=template&id=0e29c789& ***!
+  \******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_0e29c789___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Index.vue?vue&type=template&id=0e29c789& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Teams/DonationButton/Index.vue?vue&type=template&id=0e29c789&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_0e29c789___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_0e29c789___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
