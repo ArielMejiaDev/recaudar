@@ -8,28 +8,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Billing/SwitchPlan.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.phpstorm.meta.php" beforeDir="false" afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper_models.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper_models.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Teams/TeamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Teams/TeamController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Team/TeamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Team/TeamController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Team/StoreTeamRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Team/StoreTeamRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/InertiaServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/InertiaServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/TeamFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/TeamFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_03_031316_create_teams_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_03_031316_create_teams_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Admin/Teams/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Teams/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teams/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teams/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Partials/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Partials/Sidebar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Shared/Icon.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Shared/Icon.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pricing.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pricing.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/team/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/team/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -301,7 +280,7 @@
       <workItem from="1603102803140" duration="168000" />
       <workItem from="1603167671126" duration="13893000" />
       <workItem from="1603411334470" duration="15885000" />
-      <workItem from="1603506487799" duration="17235000" />
+      <workItem from="1603506487799" duration="17770000" />
     </task>
     <servers />
   </component>
