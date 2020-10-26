@@ -6,10 +6,10 @@
                 <Title :info="trans.in_this_section_you_can_manage_your_teams">{{ trans.your_teams }}.</Title>
             </div>
             <div class="mt-5 flex lg:mt-0 lg:ml-4">
-                <LinkButton :link="route('teams.create')">
+                <a class="bg-indigo-500 rounded shadow py-2 px-4 text-white flex hover:bg-indigo-600" :href="route('pricing')">
                     <Icon name="add" />
                     {{ $page.global_trans.create }}
-                </LinkButton>
+                </a>
             </div>
         </div>
 

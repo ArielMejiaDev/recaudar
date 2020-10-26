@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Team\Billing\SwitchPlanController;
 use App\Http\Controllers\Team\DonationButton\DonationButtonController;
 use App\Http\Controllers\Team\Plans\PlansController;
 use App\Http\Controllers\Team\Profile\TeamProfileController;
@@ -85,6 +86,10 @@ Route::prefix('teams')->middleware(['auth', 'verified', 'userIsATeamMember'])->g
         Route::resource('transactions', TransactionController::class, ['as' => 'teams'])->only(['index', 'show']);
 
         Route::get('/donation-button', DonationButtonController::class)->name('teams.donation_button');
+
+        Route::get('/switch-plan', [SwitchPlanController::class, 'show'])->name('teams.switch-plan.show');
+
+        Route::put('/switch-plan', [SwitchPlanController::class, 'update'])->name('teams.switch-plan.update');
 
     });
 

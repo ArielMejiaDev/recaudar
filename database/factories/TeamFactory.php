@@ -31,5 +31,6 @@ $factory->define(Team::class, function (Faker $faker) {
         'account_number' => $faker->bankAccountNumber,
         'bank' => $faker->company,
         'country' => collect(['Guatemala', 'El Salvador', 'Honduras', 'Panama', 'Costa Rica'])->random(),
+        'plan' => collect(['free', 'pro'])->random(),
     ];
 });

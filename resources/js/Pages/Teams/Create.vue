@@ -161,6 +161,7 @@ export default {
                 bank: null,
                 account_number: null,
                 terms: false,
+                plan: this.plan,
             },
             sending: false,
             confirmation: false,
@@ -169,6 +170,7 @@ export default {
     layout: SidebarLayout,
     props: {
         trans: Object,
+        plan: String,
     },
     components: {
         Panel,

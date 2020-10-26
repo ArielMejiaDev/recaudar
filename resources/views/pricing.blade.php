@@ -137,7 +137,7 @@
                             </a>
                         @endguest
                         @auth()
-                            <a href="#" :class="selectedPlan === 1 ? 'bg-melon hover:bg-pink' : 'bg-gray-500 hover:bg-gray-600' " class="flex items-center mt-auto text-white border-0 py-2 px-4 w-full focus:outline-none rounded">@lang('Select a plan')
+                            <a href="{{ route('teams.create', ['plan' => 'free']) }}" :class="selectedPlan === 1 ? 'bg-melon hover:bg-pink' : 'bg-gray-500 hover:bg-gray-600' " class="flex items-center mt-auto text-white border-0 py-2 px-4 w-full focus:outline-none rounded">@lang('Select a plan')
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
                                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                                 </svg>
@@ -272,7 +272,7 @@
                             </a>
                         @endguest
                         @auth()
-                            <a href="#" :class="selectedPlan === 2 ? 'bg-melon hover:bg-pink' : 'bg-gray-500 hover:bg-gray-600'" class="flex items-center mt-auto text-white border-0 py-2 px-4 w-full focus:outline-none rounded">@lang('Select a plan')
+                            <a href="{{ route('teams.create', ['plan' => 'pro']) }}" :class="selectedPlan === 2 ? 'bg-melon hover:bg-pink' : 'bg-gray-500 hover:bg-gray-600'" class="flex items-center mt-auto text-white border-0 py-2 px-4 w-full focus:outline-none rounded">@lang('Select a plan')
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
                                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                                 </svg>

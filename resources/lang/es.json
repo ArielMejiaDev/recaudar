@@ -465,5 +465,13 @@
     "Copy": "Copiar",
     "Copied": "Copiado",
     "Donation Button.": "Boton de donación",
-    "Paste the code snippet in your HTML, you can change height and width values as you need.": "Pegue el fragmento de código en su HTML, puede cambiar los valores de alto y ancho según lo necesite."
+    "Paste the code snippet in your HTML, you can change height and width values as you need.": "Pegue el fragmento de código en su HTML, puede cambiar los valores de alto y ancho según lo necesite.",
+    "Switch Plan.": "Cambiar Plan.",
+    "Switch Plan": "Cambiar Plan",
+    "The plan is going to be apply until your next billing date.": "El plan se aplicará hasta la próxima fecha de facturación.",
+    "Update Plan": "Actualizar Plan",
+    "Are you sure to update the plan?": "¿Estás seguro de actualizar el plan?",
+    "This change will be reflect on your billing plan.": "Este cambio se reflejará en su plan de facturación.",
+    "Billing Plan Updated.": "Plan de facturación actualizado.",
+    "Plan": "Plan"
 }

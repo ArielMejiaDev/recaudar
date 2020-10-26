@@ -16,21 +16,26 @@ namespace App\Models{
  *
  * @property int $id
  * @property string $country
- * @property string $country_charge
- * @property string $payment_gateway
- * @property string $payment_gateway_charge
+ * @property int $income_charge
+ * @property string $gateway
+ * @property int $gateway_charge
+ * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|Charge newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Charge newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Charge onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Charge query()
  * @method static \Illuminate\Database\Eloquent\Builder|Charge whereCountry($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Charge whereCountryCharge($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Charge whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Charge whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Charge whereGateway($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Charge whereGatewayCharge($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Charge whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Charge wherePaymentGateway($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Charge wherePaymentGatewayCharge($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Charge whereIncomeCharge($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Charge whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|Charge withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Charge withoutTrashed()
  */
 	class Charge extends \Eloquent {}
 }
@@ -82,7 +87,7 @@ namespace App\Models{
 
 namespace App\Models{
 /**
- * App\Models\team
+ * App\Models\Team
  *
  * @property int $id
  * @property string|null $status
@@ -110,11 +115,14 @@ namespace App\Models{
  * @property string $bank
  * @property string $account_number
  * @property string $country
+ * @property string $plan
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Plan[] $plans
  * @property-read int|null $plans_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Transaction[] $transactions
+ * @property-read int|null $transactions_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\User[] $users
  * @property-read int|null $users_count
  * @method static \Illuminate\Database\Eloquent\Builder|Team newModelQuery()
@@ -141,6 +149,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereLogo($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereOfficeAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Team wherePlan($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Team wherePromotionalVideo($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Team wherePublic($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereSlug($value)
@@ -160,9 +169,42 @@ namespace App\Models{
 /**
  * App\Models\Transaction
  *
+ * @property int $id
+ * @property int $team_id
+ * @property int $plan_id
+ * @property int $charge_id
+ * @property string $name
+ * @property string $email
+ * @property string $currency
+ * @property int $amount
+ * @property string $type
+ * @property int $amount_to_deposit
+ * @property int $income
+ * @property string $status
+ * @property string $reviewed
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read mixed $readable_created_at
+ * @property-read \App\Models\Plan $plan
+ * @property-read \App\Models\Team $team
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereAmount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereAmountToDeposit($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereChargeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereCurrency($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereIncome($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction wherePlanId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereReviewed($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereTeamId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereUpdatedAt($value)
  */
 	class Transaction extends \Eloquent {}
 }
@@ -180,7 +222,7 @@ namespace App{
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read mixed $role
+ * @property-read string|null $role
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Team[] $teams

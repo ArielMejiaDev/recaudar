@@ -42,6 +42,7 @@ class StoreTeamRequest extends FormRequest
             'bank' => 'required|min:5|max:50',
             'account_number' => 'required|min:7|max:20',
             'terms' => ['required', 'accepted'],
+            'plan' => ['nullable', Rule::in(['free', 'pro'])]
         ];
     }
 

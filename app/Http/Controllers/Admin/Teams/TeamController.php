@@ -22,6 +22,7 @@ class TeamController extends Controller
             'search' => trans('Search'),
             'team' => trans('team'),
             'plans' => trans('Plans'),
+            'plan' => trans('Plan'),
             'status' => trans('Status'),
             'pending' => trans('Pending'),
             'approved' => trans('Approved'),
@@ -64,7 +65,7 @@ class TeamController extends Controller
     {
         Gate::authorize('manage-teams');
 
-        $teams = Team::select(['id', 'name', 'status'])->where('name', '!=', 'recaudar')->paginate(10);
+        $teams = Team::select(['id', 'name', 'plan', 'status'])->where('name', '!=', 'recaudar')->paginate(10);
 
         if($request->has('search')) {
 
@@ -86,11 +87,12 @@ class TeamController extends Controller
                 $request->search = 'pending';
             }
 
-            $teams = Team::select(['id', 'name', 'status'])
+            $teams = Team::select(['id', 'name', 'plan', 'status'])
                 ->where('name', '!=', 'recaudar')
                 ->where(function($query) use($request) {
                     $query->where('name', 'LIKE', "%{$request->search}%")
-                        ->orWhere('status', 'LIKE', "%{$request->search}%");
+                        ->orWhere('status', 'LIKE', "%{$request->search}%")
+                        ->orWhere('plan', 'LIKE', "%{$request->search}%");
                 })->paginate(10);
         }
 

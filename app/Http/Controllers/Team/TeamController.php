@@ -8,6 +8,7 @@ use App\Http\Requests\Team\UpdateTeamRequest;
 use App\Models\Team;
 use App\Notifications\NewTeamCreatedNotification;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
@@ -61,14 +62,19 @@ class TeamController extends Controller
             'trans' => $this->trans,
         ]);
     }
+
     /**
      * Show the form for creating a new resource.
      *
+     * @param Request $request
      * @return InertiaResponse
      */
-    public function create()
+    public function create(Request $request)
     {
-        return Inertia::render('Teams/Create', ['trans' => $this->trans]);
+        return Inertia::render('Teams/Create', [
+            'trans' => $this->trans,
+            'plan' => $request->plan ?? 'free',
+        ]);
     }
 
     /**

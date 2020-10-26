@@ -40,6 +40,7 @@ class CreateTeamsTable extends Migration
             $table->string('bank', 50);
             $table->string('account_number', 20);
             $table->string('country', 75);
+            $table->string('plan', 10)->default('free');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -2,7 +2,7 @@
     <div>
         <Table
             :title="trans.teams"
-            :headers="[trans.team, trans.status, trans.plans]"
+            :headers="[trans.team, trans.plan, trans.status, trans.plans]"
             :searchbox="{show: true, placeholder: `${trans.search} ...`}"
             v-model="search"
             :action="{show: false}"
@@ -13,6 +13,9 @@
                         <InertiaLink :href="route('admin.teams.edit', { team: team.id })">
                             {{ team.name }}
                         </InertiaLink>
+                    </td>
+                    <td>
+                        <Pill class="uppercase" :type="team.plan === 'free' ? 'info' : 'success'" v-text="team.plan" />
                     </td>
                     <td @click="selectedTeam = team;confirm = !confirm;" class="cursor-pointer">
                         <Pill :type="team.status === 'pending' ? 'danger' : 'success'" v-text="getStatus(team.status)"></Pill>
