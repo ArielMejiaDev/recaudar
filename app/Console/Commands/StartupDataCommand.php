@@ -104,6 +104,7 @@ class StartupDataCommand extends Command
             'facebook_account' => null,
             'twitter_account' => null,
             'instagram_account' => null,
+            'plan' => 'free',
         ]);
 
         $selvaVirgen->plans()->create([
@@ -143,6 +144,7 @@ class StartupDataCommand extends Command
             'facebook_account' => null,
             'twitter_account' => null,
             'instagram_account' => null,
+            'plan' => 'free',
         ]);
 
         $promocionHumana->plans()->create([
@@ -185,6 +187,7 @@ class StartupDataCommand extends Command
             'facebook_account' => null,
             'twitter_account' => null,
             'instagram_account' => null,
+            'plan' => 'free',
         ]);
 
         $guatedon->plans()->create([
