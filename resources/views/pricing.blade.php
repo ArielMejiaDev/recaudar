@@ -107,6 +107,11 @@
                         <p class="flex items-start text-gray-600 my-2">
                             <span class="w-4 h-4 mr-2 mt-1 inline-flex items-center justify-center bg-red-500 text-white rounded-full flex-shrink-0">
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            </span>@lang('Communication Module.')
+                        </p>
+                        <p class="flex items-start text-gray-600 my-2">
+                            <span class="w-4 h-4 mr-2 mt-1 inline-flex items-center justify-center bg-red-500 text-white rounded-full flex-shrink-0">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                             </span>@lang('Integration with payment gateways.')
                         </p>
                         <p class="flex items-start text-gray-600 my-2">
@@ -238,6 +243,13 @@
                                     <path d="M20 6L9 17l-5-5"></path>
                                 </svg>
                             </span>@lang('Donation button for your website.')
+                        </p>
+                        <p class="flex items-start text-gray-600 my-2">
+                            <span class="w-4 h-4 mr-2 mt-1 inline-flex items-center justify-center bg-green-500 text-white rounded-full flex-shrink-0">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" class="w-3 h-3" viewBox="0 0 24 24">
+                                    <path d="M20 6L9 17l-5-5"></path>
+                                </svg>
+                            </span>@lang('Communication Module.')
                         </p>
                         <p class="flex items-start text-gray-600 my-2">
                             <span class="w-4 h-4 mr-2 mt-1 inline-flex items-center justify-center bg-red-500 text-white rounded-full flex-shrink-0">
@@ -377,6 +389,13 @@
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" class="w-3 h-3" viewBox="0 0 24 24">
                                     <path d="M20 6L9 17l-5-5"></path>
                                 </svg>
+                            </span>@lang('Communication Module.')
+                        </p>
+                        <p class="flex items-start text-gray-600 my-2">
+                            <span class="w-4 h-4 mr-2 mt-1 inline-flex items-center justify-center bg-green-500 text-white rounded-full flex-shrink-0">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" class="w-3 h-3" viewBox="0 0 24 24">
+                                    <path d="M20 6L9 17l-5-5"></path>
+                                </svg>
                             </span>@lang('Integration with payment gateways.')
                         </p>
                         <p class="flex items-start text-gray-600 my-2">
@@ -421,4 +440,13 @@
     <x-footer />
 
 @endsection
+
+@auth()
+    @push('scripts')
+        <!-- Helpdesk Support Beacon -->
+        <script type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});
+        </script><script type="text/javascript">window.Beacon('init', '68860fd7-b38d-418b-aab8-f3edc954bd2f')</script>
+        <!-- End Helpdesk Support Beacon -->
+    @endpush
+@endauth
 

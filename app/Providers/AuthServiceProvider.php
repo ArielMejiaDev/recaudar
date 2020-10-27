@@ -40,5 +40,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('manage-teams', function ($user) {
             return $user->role === 'app_editor';
         });
+
+        Gate::define('switch-plan', function($user) {
+            return $user->role === 'Admin';
+        });
     }
 }

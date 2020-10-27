@@ -4,7 +4,8 @@
     !Route::is('about-us') &&
     !Route::is('terms-for-teams') &&
     !Route::is('terms-for-users') &&
-    !Route::is('teams-page'))
+    !Route::is('teams-page') &&
+    !Route::is('pricing'))
 
     @push('headerScripts')
     <!-- Recaptcha -->
@@ -87,7 +88,8 @@
                 !Route::is('about-us') &&
                 !Route::is('terms-for-teams') &&
                 !Route::is('terms-for-users') &&
-                !Route::is('teams-page'))
+                !Route::is('teams-page') &&
+                !Route::is('pricing'))
 
             <form id="{{ getFormId() }}" method="POST" action="{{ route('newsletter.store') }}" class="flex flex-col md:flex-row md:items-center md:flex-no-wrap flex-wrap justify-center md:justify-start">
                 @csrf

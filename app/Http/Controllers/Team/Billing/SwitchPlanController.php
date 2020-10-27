@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 
@@ -35,6 +36,7 @@ class SwitchPlanController extends Controller
      */
     public function show(Team $team)
     {
+        Gate::authorize('switch-plan');
         $team = $team->only(['id', 'name', 'slug', 'plan']);
         return Inertia::render('Teams/Billing/SwitchPlan')->with([
             'team' => $team,
@@ -51,6 +53,7 @@ class SwitchPlanController extends Controller
      */
     public function update(Request $request, Team $team)
     {
+        Gate::authorize('switch-plan');
         $request->validate(['plan' => Rule::in(['free', 'pro'])]);
         $team->update(['plan' => $request->get('plan')]);
         return redirect()->back()->with(['success' => trans('Billing Plan Updated.')]);
