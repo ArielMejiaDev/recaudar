@@ -5,6 +5,12 @@
             <Title :info="trans.transaction_details">{{ trans.transactions }}</Title>
         </template>
 
+        <ListItem :label="trans.organization">
+            <div class="flex">
+                <div>{{ transaction.team.name }}</div>
+            </div>
+        </ListItem>
+
         <ListItem :label="trans.by">
             <div class="flex">
                 <div>{{ transaction.name }}</div>

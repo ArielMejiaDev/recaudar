@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\Teams\UpdateTeamMediaController;
 use App\Http\Controllers\Admin\Teams\UpdateTeamProfile;
 use App\Http\Controllers\Admin\Teams\UpdateTeamStatus;
 use App\Http\Controllers\Admin\Transactions\TransactionsController;
+use App\Http\Controllers\Admin\Users\UsersWithoutOrganization;
 
 Route::prefix('admin')->middleware(['auth', 'verified', 'appAdmin'])->group(function () {
 
@@ -54,5 +55,7 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'appAdmin'])->group(func
     Route::resource('charges', ChargeController::class, ['as' => 'admin'])->except(['edit', 'update']);
 
     Route::resource('transactions', TransactionsController::class, ['as' => 'admin'])->only(['index', 'show', 'update']);
+
+    Route::get('/usuarios-sin-organizacion', UsersWithoutOrganization::class)->name('admin.users_without_team');
 
 });

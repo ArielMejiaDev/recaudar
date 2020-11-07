@@ -17,7 +17,7 @@ class DonationButtonController extends Controller
             'copy' => trans('Copy'),
             'copied' => trans('Copied'),
             'donation_button' => trans('Donation Button.'),
-            'subtitle' => trans('Paste the code snippet in your HTML, you can change height and width values as you need.')
+            'subtitle' => trans('Ask your developer to copy and paste the code snippet into your HTML, you can change the height and width values as you need, this code is functional on wix, wordpress and custom html sites.')
         ];
     }
 

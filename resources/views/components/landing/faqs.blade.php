@@ -105,7 +105,8 @@
                     </header>
                     <div x-show="selectedItem === 4">
                         <div class="pl-8 pr-8 pb-5 text-gray-700">
-                            {{ trans('If you are a non-profit organization, creating your profile and starting receiving donations is completely free. If you want to have access to the process automation modules (Human Resources, Finance, Volunteering, Donor and Beneficiary Management), you can opt for a monthly subscription of $ 15.') }}
+                            {{ trans('If you are a non-profit organization, creating your profile and starting receiving donations is completely free. If you want to have access to the process automation modules (Human Resources, Finance, Volunteering, Donor and Beneficiary Management), you can opt for a monthly subscription of $ 13.') }}
+                            <a class="ml-2 hover:underline font-semibold text-blue-500" href="{{ route('pricing') }}">{{ trans('More info here.') }}</a>
                         </div>
                     </div>
                 </div>

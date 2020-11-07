@@ -1,11 +1,11 @@
 
-<div class="h-screen relative md:flex md:flex-col font-body"
-     style="background: url({{ asset('images/landing/hero/bg.jpeg') }});background-position: center; background-repeat: no-repeat;background-size: cover">
+<div class="h-screen relative md:flex md:flex-col font-body bg-cover bg-no-repeat bg-center"
+     style="background-image: url({{ asset('images/landing/hero/bg.jpeg') }});">
 
     <x-navbar-transparent />
 
     <!-- overlay -->
-    <div class="absolute inset-0 bg-black opacity-50 z-0"></div>
+    <div class="absolute inset-0 bg-black opacity-75 z-0"></div>
 
     <div class="relative z-10 w-full h-full flex flex-col items-center justify-center text-white px-3 container mx-auto">
         <h1 class="text-center text-4xl lg:text-7xl font-bold tracking-wider">{{ trans('Be part of the change!') }}</h1>

@@ -39,8 +39,12 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     protected $appends = [
-        'role',
+        'role', 'latin_created_at',
     ];
+
+    public function getLatinCreatedAtAttribute() {
+        return $this->created_at->format('d/m/Y');
+    }
 
     public function teams()
     {

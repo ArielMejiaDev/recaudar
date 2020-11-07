@@ -5,8 +5,8 @@
         </template>
         <template v-slot:body>
             <div class="flex flex-col">
-                <div class="p-4 bg-gray-200 text-gray-700 rounded shadow">
-                    <code v-text="`&lt;iframe src=&quot;${url}/donation-button/${team.slug}&quot; height=&quot;100&quot; width=&quot;100&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;`"></code>
+                <div class="p-4 bg-gray-200 text-gray-700 rounded shadow overflow-x-scroll md:overflow-auto">
+                    <code class="text-xs md:text-base" v-text="`&lt;iframe src=&quot;${url}/donation-button/${team.slug}&quot; height=&quot;100&quot; width=&quot;100&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;`"></code>
                 </div>
             </div>
         </template>

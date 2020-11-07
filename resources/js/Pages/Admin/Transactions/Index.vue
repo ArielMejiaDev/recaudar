@@ -2,13 +2,18 @@
     <div>
         <Table
             :title="trans.transactions"
-            :headers="[trans.income , trans.amount, trans.status,  trans.type, trans.reviewed, trans.date]"
+            :headers="[trans.organization, trans.income , trans.amount, trans.status,  trans.type, trans.reviewed, trans.date]"
             :searchbox="{show: true, placeholder: `${trans.search} ...`}"
             v-model="search"
             :action="{show: false}"
             :pagination="{show: true, links: transactions.links}">
             <template v-slot:tableData>
-                <tr v-for="(transaction, index) in transactions.data" :key="index">
+                <tr class="uppercase" v-for="(transaction, index) in transactions.data" :key="index">
+                    <td>
+                        <InertiaLink :href="route('admin.transactions.show', { transaction: transaction.id })">
+                            {{ transaction.team.name }}
+                        </InertiaLink>
+                    </td>
                     <td>
                         <InertiaLink :href="route('admin.transactions.show', { transaction: transaction.id })">
                             {{ transaction.income }}

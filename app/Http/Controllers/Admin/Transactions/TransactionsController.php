@@ -23,6 +23,7 @@ class TransactionsController extends Controller
             'by' => trans('By'),
             'email' =>  trans('Email'),
             'search' => trans('Search'),
+            'organization' => trans('Organization'),
             'income' => trans('Income'),
             'amount' => trans('Amount'),
             'amount_to_deposit' => trans('Amount To Deposit'),
@@ -50,10 +51,11 @@ class TransactionsController extends Controller
     {
         Gate::authorize('manage-transactions');
 
-        $transactions = Transaction::select([
-            'id', 'amount_to_deposit', 'income', 'currency', 'status',
-            'type', 'reviewed', 'created_at'
-        ])->orderByDesc('id')
+        $transactions = Transaction::with(['team' => fn($query) => $query->select(['id', 'name'])])
+            ->select([
+                'id', 'amount_to_deposit', 'income', 'currency', 'status', 'type', 'reviewed', 'created_at', 'team_id'
+            ])
+            ->orderByDesc('id')
             ->paginate(5);
 
         if($request->has('search')) {
@@ -73,10 +75,10 @@ class TransactionsController extends Controller
                 }
             });
 
-            $transactions = Transaction::select([
-                'id', 'amount_to_deposit', 'income', 'currency', 'status',
-                'type', 'reviewed', 'created_at'
-            ])->where(function($query) use($request) {
+            $transactions = Transaction::with(['team' => fn($query) => $query->select(['id', 'name'])])
+                ->select([
+                    'id', 'amount_to_deposit', 'income', 'currency', 'status', 'type', 'reviewed', 'created_at', 'team_id'
+                ])->where(function($query) use($request) {
                     $query->where('income', 'LIKE', "%{$request->search}%")
                         ->orWhere('amount_to_deposit', 'LIKE', "%{$request->search}%")
                         ->orWhere('status', 'LIKE', "%{$request->search}%")
@@ -104,8 +106,7 @@ class TransactionsController extends Controller
     public function show(Transaction $transaction)
     {
         Gate::authorize('manage-transactions');
-
-        $transaction = $transaction->only(['id', 'name', 'email', 'currency', 'amount', 'amount_to_deposit', 'income', 'type', 'status', 'reviewed', 'created_at', 'readable_created_at']);
+        $transaction = $transaction->load('team')->only(['id', 'name', 'email', 'currency', 'amount', 'amount_to_deposit', 'income', 'type', 'status', 'reviewed', 'created_at', 'readable_created_at', 'team']);
         return Inertia::render('Admin/Transactions/Show', [
             'transaction' => $transaction,
             'trans' => $this->trans,

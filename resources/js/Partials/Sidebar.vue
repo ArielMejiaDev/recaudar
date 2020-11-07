@@ -47,6 +47,12 @@
                             {{ $page.global_trans.transactions }}
                         </InertiaLink>
                     </li>
+                    <li v-if="$page.auth.user.role == 'app_admin'" class="px-2 py-3 hover:bg-gray-900 rounded mt-2" :class="route().current('admin.users_without_team') ? 'bg-gray-900' : null">
+                        <InertiaLink @click.passive="isOpen = !isOpen;" :href="route('admin.users_without_team')" class="flex items-center text-gray-300">
+                            <Icon class="text-gray-500 mr-2" name="switch" />
+                            {{ $page.global_trans.users_without_team }}
+                        </InertiaLink>
+                    </li>
                 </ul>
 
             </template>
