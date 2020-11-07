@@ -9,7 +9,7 @@
 |
 */
 
-Route::group(['namespace' => 'App\Http\Controllers', 'middleware' => 'throttle:300,10'], function() {
+Route::group(['namespace' => 'App\Http\Controllers'], function() {
 
     Auth::routes(['verify' => true]);
 
