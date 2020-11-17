@@ -1,4 +1,4 @@
-<nav x-data="{ navbarToggle:false }" class="flex items-center justify-between flex-wrap bg-pink p-6 relative z-10">
+<nav x-data="{ navbarToggle:false }" class="flex items-center justify-between flex-wrap bg-primary p-6 relative z-10">
     <a href="{{ config('app.url') }}" class="flex items-center flex-shrink-0 text-white mr-6">
         <x-logo />
     </a>
@@ -12,7 +12,7 @@
         <div class="text-sm text-gray-200 flex items-center justify-end font-body">
             <a href="{{ config('app.url') . '/#faqs' }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white text-xl mr-4">{{ trans('Frequent questions') }}</a>
             <a href="{{ route('about-us') }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white text-xl mr-4">{{ trans('About us') }}</a>
-            <a href="{{ route('login') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white text-xl mr-4 py-2 px-6 border-4 border-white hover:bg-white hover:text-melon rounded-full">{{ trans('Login') }}</a>
+            <a href="{{ route('login') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white text-xl mr-4 py-2 px-6 border-4 border-white hover:bg-white hover:text-darkprimary rounded-full">{{ trans('Login') }}</a>
             <a href="{{ route('register') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-900 text-xl mr-4 py-2 px-6 border-4 border-teal-400 bg-teal-400 hover:bg-transparent hover:text-white rounded-full">{{ trans('Create your profile') }}</a>
         </div>
     </div>
@@ -21,7 +21,7 @@
         <div class="text-sm lg:flex-grow font-body">
             <a href="{{ config('app.url') . '/#faqs' }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white mr-4">{{ trans('Frequent questions') }}</a>
             <a href="{{ route('about-us') }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white mr-4">{{ trans('About us') }}</a>
-            <a href="{{ route('login') }}" class="block mt-4 lg:inline-block w-40 text-center text-white py-1 px-2 border-2 border-white hover:bg-white hover:text-melon rounded-full">{{ trans('Login') }}</a>
+            <a href="{{ route('login') }}" class="block mt-4 lg:inline-block w-40 text-center text-white py-1 px-2 border-2 border-white hover:bg-white hover:text-darkprimary rounded-full">{{ trans('Login') }}</a>
             <a href="{{ route('register') }}" class="block mt-4 lg:inline-block w-40 text-center text-blue-900 py-1 px-2 border-2 border-teal-400 bg-teal-400 hover:bg-transparent hover:text-white rounded-full">{{ trans('Create your profile') }}</a>
         </div>
     </div>

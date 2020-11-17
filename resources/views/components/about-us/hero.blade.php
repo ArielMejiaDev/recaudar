@@ -6,8 +6,8 @@
                 Conectamos organizaciones y donadores de una manera fácil y segura para cambiar el mundo.
             </p>
             <div class="relative flex flex-col sm:flex-row lg:flex-col xl:flex-row mt-4">
-                <a href="#quienes-somos" class="flex items-center self-start justify-center px-5 py-3 mt-5 text-base font-medium leading-tight text-white transition duration-150 ease-in-out bg-pink border border-transparent rounded-full shadow hover:bg-melon focus:outline-none focus:border-melon focus:shadow-outline-pink md:py-4 md:text-lg md:px-10">Quienes somos?</a>
-                <a @click.prevent="showModal = true" href="#" class="relative flex items-center self-start justify-center py-3 pl-10 pr-5 mt-5 sm:ml-5 md:ml-0 xl:ml-5 text-base font-medium leading-tight text-pink transition duration-150 ease-in-out bg-gray-100 border-transparent rounded-full shadow-sm md:pl-16 md:pr-10 hover:text-melon focus:outline-none md:py-4 md:text-lg xl:text-xl">
+                <a href="#quienes-somos" class="flex items-center self-start justify-center px-5 py-3 mt-5 text-base font-medium leading-tight text-white transition duration-150 ease-in-out bg-primary border border-transparent rounded-full shadow hover:bg-darkprimary focus:outline-none focus:border-darkprimary focus:shadow-outline-primary md:py-4 md:text-lg md:px-10">Quienes somos?</a>
+                <a @click.prevent="showModal = true" href="#" class="relative flex items-center self-start justify-center py-3 pl-10 pr-5 mt-5 sm:ml-5 md:ml-0 xl:ml-5 text-base font-medium leading-tight text-primary transition duration-150 ease-in-out bg-gray-100 border-transparent rounded-full shadow-sm md:pl-16 md:pr-10 hover:text-darkprimary focus:outline-none md:py-4 md:text-lg xl:text-xl">
                     <svg class="absolute left-0 w-6 h-6 ml-3 md:w-10 md:h-10" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
                     <span class="text-pink">Mas de nosotros</span>
                 </a>

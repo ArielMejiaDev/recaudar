@@ -12,6 +12,7 @@
 */
 
 use App\Http\Controllers\Frontend\AboutUsPageController;
+use App\Http\Controllers\Frontend\AddContactFromProfilePageController;
 use App\Http\Controllers\Frontend\CertificateController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\DonateDirectLinkController;
@@ -28,6 +29,8 @@ use App\Http\Controllers\Frontend\TermsForUsersPageController;
 Route::domain('{team:slug}.' . basename(config('app.url')))->group(function () {
 
     Route::get('/', ProfilePageController::class)->name('profile-page');
+
+    Route::post('/agregar-contacto', AddContactFromProfilePageController::class)->name('add_contact_from_profile_page');
 
     Route::get('/donar/{amount?}', DonateDirectLinkController::class)->name('donate-direct-link');
 

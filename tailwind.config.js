@@ -29,11 +29,11 @@ module.exports = {
                 '128': '32rem',
             },
             colors: {
-                pink: '#fe5971',
-                melon: '#f95367',
-                mint: '#66ddbd',
-                deepmint: '#52d2b3',
-                deepblue: '#212939',
+                primary: '#fe5971',
+                darkprimary: '#f95367',
+                secondary: '#66ddbd',
+                darksecondary: '#52d2b3',
+                recaudardarkblue: '#212939',
             },
             margin: {
                 '96': '24rem',

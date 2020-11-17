@@ -13,7 +13,7 @@
             {{ trans('Choose the project of your interest, donate easy and safe.') }} <br>
             {{ trans('Enjoy the experience of helping, all in one place.') }}
         </p>
-        <a class="mt-4 md:mt-12 bg-pink rounded text-white hover:bg-red-600 px-8 py-4 text-2xl focus:outline-none" href="{{ route('teams-page') }}">{{ trans('I want to donate') }}</a>
+        <a class="mt-4 md:mt-12 bg-primary rounded text-white hover:bg-darkprimary px-8 py-4 text-2xl focus:outline-none" href="{{ route('teams-page') }}">{{ trans('I want to donate') }}</a>
     </div>
 
 </div>

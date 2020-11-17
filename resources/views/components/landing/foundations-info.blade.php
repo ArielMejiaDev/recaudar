@@ -1,4 +1,4 @@
-<div id="foundations-info" class="lg:h-screen pt-4 pb-20 lg:py-0 bg-gray-100 flex flex-col items-center justify-center relative overflow-hidden font-body">
+<div id="foundations-info" class="min-h-screen pt-4 lg:py-0 bg-gray-100 flex flex-col items-center justify-center relative overflow-hidden font-body">
 
     <svg class="absolute fill-current text-gray-200 z-0" style="left: -200px; top: -50px" width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
         <g transform="translate(300,300)">
@@ -48,13 +48,13 @@
         </div>
     </div>
 
-    <a class="my-6 py-4 px-8 rounded bg-pink text-white text-3xl hover:bg-red-600 shadow-lg z-10" href="/register">
+    <a class="my-3 py-4 px-8 rounded bg-primary text-white text-3xl hover:bg-darkprimary shadow-lg z-10" href="/register">
         {{ trans('Sign up') }}
     </a>
 
     <div class="absolute bottom-0">
         <a href="#faqs">
-            <svg class="fill-current text-pink" enable-background="new 0 0 32 32" height="64px" id="Layer_1" version="1.1" viewBox="0 0 32 32" width="64px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M14.77,23.795L5.185,14.21c-0.879-0.879-0.879-2.317,0-3.195l0.8-0.801c0.877-0.878,2.316-0.878,3.194,0  l7.315,7.315l7.316-7.315c0.878-0.878,2.317-0.878,3.194,0l0.8,0.801c0.879,0.878,0.879,2.316,0,3.195l-9.587,9.585  c-0.471,0.472-1.104,0.682-1.723,0.647C15.875,24.477,15.243,24.267,14.77,23.795z"/></svg>
+            <svg class="fill-current text-primary" enable-background="new 0 0 32 32" height="64px" id="Layer_1" version="1.1" viewBox="0 0 32 32" width="64px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M14.77,23.795L5.185,14.21c-0.879-0.879-0.879-2.317,0-3.195l0.8-0.801c0.877-0.878,2.316-0.878,3.194,0  l7.315,7.315l7.316-7.315c0.878-0.878,2.317-0.878,3.194,0l0.8,0.801c0.879,0.878,0.879,2.316,0,3.195l-9.587,9.585  c-0.471,0.472-1.104,0.682-1.723,0.647C15.875,24.477,15.243,24.267,14.77,23.795z"/></svg>
         </a>
     </div>
 

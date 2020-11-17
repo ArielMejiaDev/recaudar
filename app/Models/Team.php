@@ -36,4 +36,9 @@ class Team extends Model
     {
         return $this->hasMany(Transaction::class);
     }
+
+    public function contacts()
+    {
+        return $this->hasMany(Contact::class);
+    }
 }

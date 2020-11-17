@@ -1,6 +1,6 @@
 @isset($team)
 
-    <div class="h-auto lg:h-screen bg-gray-200 relative overflow-hidden flex items-center py-10 lg:py-0 font-body">
+    <div class="min-h-screen bg-gray-200 relative overflow-hidden flex items-center py-10 lg:py-0 font-body">
 
         <svg
             class="fill-current text-gray-300 absolute z-0" width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +40,7 @@
                 </a>
 
                 <div class="flex justify-center">
-                    <a href="{{ route('profile-page', $team) }}" class="mt-4 md:mt-12 bg-pink rounded text-white hover:bg-red-600 px-8 py-4 text-2xl focus:outline-none">
+                    <a href="{{ route('profile-page', $team) }}" class="mt-4 md:mt-12 bg-primary rounded text-white hover:bg-darkprimary px-8 py-4 text-2xl focus:outline-none">
                         {{ trans('See foundation') }}
                     </a>
                 </div>

@@ -39,7 +39,7 @@ class TeamSeeder extends Seeder
             'contact_email' => 'informacion@selvavirgen.org',
             'theme' => 'columns',
             'logo' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/development/fundacion_selva_virgen.png',
-            'banner' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/development/fundacion_selva_virgen.png',
+            'banner' => 'https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=1301&q=80',
             'facebook_account' => null,
             'twitter_account' => null,
             'instagram_account' => null,
@@ -47,16 +47,22 @@ class TeamSeeder extends Seeder
 
         $selvaVirgen->plans()->create([
             'title' => 'APADRINA A UN NIÑO QUE RECIBIRÁ UN VASO DE LECHE DIARIO POR 30 DÍAS',
+            'banner' => 'https://images.unsplash.com/photo-1527490087278-9c75be0b8052?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1347&q=80',
+            'info' => 'lorem ipsum dolor siet, lorem lorem ipsum dolore, siet lorem ipsum dolore siet.',
             'amount_in_local_currency' => 150.00
         ]);
 
         $selvaVirgen->plans()->create([
             'title' => 'APADRINA A UN NIÑO QUE RECIBIRÁ UN VASO DE LECHE POR 15 DÍAS',
+            'banner' => 'https://images.unsplash.com/photo-1542317785-ae7b6fa20f55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
+            'info' => 'lorem ipsum dolor siet, lorem lorem ipsum dolore, siet lorem ipsum dolore siet, lorem dolore.',
             'amount_in_local_currency' => 80.00
         ]);
 
         $selvaVirgen->plans()->create([
             'title' => 'APADRINA A UN NIÑO QUE RECIBIRÁ UN VASO DE LECHE POR 5 DÍAS',
+            'banner' => 'https://images.unsplash.com/photo-1489942986787-cded4ecf962e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80',
+            'info' => 'lorem ipsum dolor siet, lorem lorem ipsum dolore, siet lorem ipsum dolore siet, lorem ipsum ipsum siet siet, siet lorem ipsum dolore siet, lorem ipsum ipsum siet siet lorem ipsum ipsum siet siet.',
             'amount_in_local_currency' => 300.00
         ]);
 
@@ -78,7 +84,7 @@ class TeamSeeder extends Seeder
             'contact_email' => 'fundacion@sanjudastadeo.edu.gt',
             'theme' => 'condensed',
             'logo' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/development/fundacion_guatemalteca_de_promocion_humana.png',
-            'banner' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/development/fundacion_guatemalteca_de_promocion_humana.png',
+            'banner' => 'https://images.unsplash.com/photo-1560541919-eb5c2da6a5a3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
             'facebook_account' => null,
             'twitter_account' => null,
             'instagram_account' => null,
@@ -87,26 +93,29 @@ class TeamSeeder extends Seeder
         $promocionHumana->plans()->create([
             'title' => 'Media beca mensual',
             'info' => 'Con tu aporte estás apoyando con media beca para la educación de un niño. Puedes darle clic a la opción de aporte recurrente.',
+            'banner' => 'https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
             'amount_in_local_currency' => 100.00
         ]);
 
         $promocionHumana->plans()->create([
             'title' => 'Beca completa mensual.',
             'info' => 'Con tu aporte estás apoyando con una beca completa durante un mes para la educación de un niño. Puedes darle clic a la opción de aporte recurrente.',
+            'banner' => 'https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1404&q=80',
             'amount_in_local_currency' => 175.00
         ]);
 
         $promocionHumana->plans()->create([
             'title' => 'Beca anual',
             'info' => 'Con tu aporte estás apoyando con una beca completa por todo un año para la educación de un niño. Puedes darle clic a la opción de aporte recurrente.',
+            'banner' => 'https://images.unsplash.com/photo-1536337005238-94b997371b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
             'amount_in_local_currency' => 2100.00
         ]);
 
         $guatedon = factory(Team::class)->create([
-            'name' => 'Fundacion GuateDon',
+            'name' => 'Fundación GuateDon',
             'slug' => 'fundacion-guatedon',
             'category' => 'Pobreza',
-            'description' => 'GuateDon surgió como una organización para servir a las familias más afectadas por el COVID-19. Somos un pequeño equipo de guatemaltecos comprometidos con una misión: Ayudar a nuestro país en estos momentos de crisis.',
+            'description' => 'GuateDon surgió como una organización para servir a las familias más afectadas por el COVID-19. Somos un pequeño equipo de guatemaltecos comprometidos con una misión: Ayudar a nuestro país en estos momentos de crisis. Somos una organización para servir a las familias más afectadas por el COVID-19.',
             'public' => 'Familias más afectadas por el covid 19.',
             'impact' => 'Somos una organización para servir a las familias más afectadas por el COVID-19.',
             'beneficiaries' => 200,
@@ -120,24 +129,30 @@ class TeamSeeder extends Seeder
             'contact_email' => 'guatedon.crisis@gmail.com',
             'theme' => 'classic',
             'logo' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/development/guatedon.jpg',
-            'banner' => 'https://recaudar-development.s3.us-east-2.amazonaws.com/development/guatedon.jpg',
+            'banner' => 'https://images.unsplash.com/photo-1593113616828-6f22bca04804?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
             'facebook_account' => null,
             'twitter_account' => null,
             'instagram_account' => null,
         ]);
 
         $guatedon->plans()->create([
-            'title' => 'Aporte',
+            'title' => 'Primer tipo de aporte',
+            'info' => 'lorem ipsum dolor siet, lorem ipsum dolor siet, lorem lorem ipsum dolor dolor siet.',
+            'banner' => 'https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
             'amount_in_local_currency' => 250.00
         ]);
 
         $guatedon->plans()->create([
-            'title' => 'Aporte',
+            'title' => 'Segundo tipo de aporte',
+            'info' => 'lorem ipsum dolor siet, lorem ipsum dolor siet, lorem lorem ipsum dolor.',
+            'banner' => 'https://images.unsplash.com/photo-1493767862928-5585c72094f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
             'amount_in_local_currency' => 500.00
         ]);
 
         $guatedon->plans()->create([
-            'title' => 'Aporte',
+            'title' => 'Tercer tipo de aporte',
+            'info' => 'lorem ipsum dolor siet, lorem ipsum dolor siet.',
+            'banner' => 'https://images.unsplash.com/photo-1527822618093-743f3e57977c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
             'amount_in_local_currency' => 750.00
         ]);
 

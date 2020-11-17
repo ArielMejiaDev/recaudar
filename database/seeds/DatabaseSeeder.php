@@ -15,11 +15,12 @@ class DatabaseSeeder extends Seeder
              TeamSeeder::class,
              UserSeeder::class,
              AttachUsersToTeamsSeeder::class,
-             PlanSeeder::class,
-             AttachPlansToTeamsSeeder::class,
+//             PlanSeeder::class,
+//             AttachPlansToTeamsSeeder::class,
              TestingAdminsSeeder::class,
              ChargeSeeder::class,
              TransactionSeeder::class,
+             ContactSeeder::class,
          ]);
     }
 }

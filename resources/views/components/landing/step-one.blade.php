@@ -1,4 +1,4 @@
-<div class="h-auto lg:h-screen bg-gray-100 overflow-hidden relative flex flex-col font-body">
+<div class="min-h-screen bg-gray-100 overflow-hidden relative flex flex-col font-body">
 
     <svg class="absolute fill-current text-gray-200 z-0" style="left: -200px; bottom: -150px" width="800" height="800" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
         <g transform="translate(300,300)">
@@ -13,7 +13,7 @@
     </svg>
 
     <div class="h-full flex flex-col items-center justify-around text-gray-900 z-10 relative mb-12 mx-4">
-        <div class="text-pink text-6xl border-4 border-pink rounded-full px-10 flex items-center justify-center mt-8">1</div>
+        <div class="text-primary text-6xl border-4 border-primary rounded-full px-10 flex items-center justify-center mt-8">1</div>
         <h2 class="mt-6 font-bold tracking-wider text-center {{ $teams->isEmpty() ? 'text-8xl' : 'text-4xl'}}">
             {{ trans('Choose a project') }}
         </h2>
@@ -30,7 +30,7 @@
                 <img class="w-full h-56 object-cover z-0" src="{{ $team->banner }}" alt="{{ $team->name }}">
 
                 <div class="bg-black opacity-100 lg:opacity-0 hover:opacity-100 bg-opacity-50 lg:bg-opacity-0 hover:bg-opacity-50 flex items-center justify-center absolute inset-0">
-                    <a href="{{ route('profile-page', $team) }}" class="bg-pink py-2 px-4 md:py-4 md:px-8 lg:py-2 lg:px-4 text-center text-gray-100 rounded hover:bg-deeppink text-2xl tracking-wide z-10">
+                    <a href="{{ route('profile-page', $team) }}" class="bg-primary py-2 px-4 md:py-4 md:px-8 lg:py-2 lg:px-4 text-center text-gray-100 rounded hover:bg-darkprimary text-2xl tracking-wide z-10">
                         {{ trans('Donate') }}
                     </a>
                 </div>
@@ -42,7 +42,7 @@
 
     <div class="absolute bottom-0 self-center z-20">
         <a href="#step-two">
-            <svg class="fill-current text-pink" enable-background="new 0 0 32 32" height="64px" id="Layer_1" version="1.1" viewBox="0 0 32 32" width="64px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M14.77,23.795L5.185,14.21c-0.879-0.879-0.879-2.317,0-3.195l0.8-0.801c0.877-0.878,2.316-0.878,3.194,0  l7.315,7.315l7.316-7.315c0.878-0.878,2.317-0.878,3.194,0l0.8,0.801c0.879,0.878,0.879,2.316,0,3.195l-9.587,9.585  c-0.471,0.472-1.104,0.682-1.723,0.647C15.875,24.477,15.243,24.267,14.77,23.795z"/></svg>
+            <svg class="fill-current text-primary" enable-background="new 0 0 32 32" height="64px" id="Layer_1" version="1.1" viewBox="0 0 32 32" width="64px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M14.77,23.795L5.185,14.21c-0.879-0.879-0.879-2.317,0-3.195l0.8-0.801c0.877-0.878,2.316-0.878,3.194,0  l7.315,7.315l7.316-7.315c0.878-0.878,2.317-0.878,3.194,0l0.8,0.801c0.879,0.878,0.879,2.316,0,3.195l-9.587,9.585  c-0.471,0.472-1.104,0.682-1.723,0.647C15.875,24.477,15.243,24.267,14.77,23.795z"/></svg>
         </a>
     </div>
 

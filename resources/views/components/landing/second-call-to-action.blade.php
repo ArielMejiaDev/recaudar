@@ -5,7 +5,7 @@
             <h1 class="z-10 text-center md:text-left flex-grow sm:pr-16 text-4xl font-medium title-font text-gray-900">
                 {{ trans('You can be part of the change.') }}
             </h1>
-            <a class="z-10 flex-shrink-0 text-white bg-pink border-0 py-4 px-8 focus:outline-none hover:bg-melon rounded text-lg mt-10 sm:mt-0 text-2xl" href="{{ route('teams-page') }}">
+            <a class="z-10 flex-shrink-0 text-white bg-primary border-0 py-4 px-8 focus:outline-none hover:bg-darkprimary rounded text-lg mt-10 sm:mt-0 text-2xl" href="{{ route('teams-page') }}">
                 {{ trans('Donate') }}
             </a>
         </div>

@@ -9,8 +9,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/teams/themes/old-classic.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/teams/themes/old-columns.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/teams/themes/old-condensed.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/moonlight.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/moonlight.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php-test-framework.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/authentication/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/authentication/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Transactions/TransactionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Transactions/TransactionsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ProfilePageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ProfilePageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Team.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Team.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/telescope.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/telescope.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/TeamSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/TeamSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/frontend.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/frontend.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Admin/Transactions/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Transactions/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Partials/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Partials/Sidebar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Shared/Icon.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Shared/Icon.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/about-us/hero.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/about-us/hero.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/about-us/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/about-us/main.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/checkout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/call-to-action.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/call-to-action.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/faqs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/faqs.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/foundations-info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/foundations-info.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/hero.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/hero.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/second-call-to-action.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/second-call-to-action.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/step-one.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/step-one.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/step-three.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/step-three.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/step-two.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/step-two.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/steps.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/steps.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/navbar-pink.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/navbar-pink.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/navbar-transparent.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/navbar-transparent.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pricing.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pricing.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teams-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams-page.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/classic.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams/themes/classic.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/columns.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams/themes/columns.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/condensed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams/themes/condensed.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Team/CreateTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Team/CreateTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +86,6 @@
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
-      <path value="$PROJECT_DIR$/vendor/scrivo/highlight.php" />
       <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
@@ -203,7 +247,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/components" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="php.test.frameworks.configurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -222,25 +266,25 @@
       <recent name="$PROJECT_DIR$/app/Providers" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.SwitchPlanTest">
-    <configuration name="SwitchPlanTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Team\Billing\SwitchPlanTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Team/Billing/SwitchPlanTest.php" scope="Class" />
+  <component name="RunManager" selected="PHPUnit.AddContactsFromProfilePageTest.test_a_contact_can_be_added_from_profile_page">
+    <configuration name="AddContactsFromProfilePageTest.test_a_contact_can_be_added_from_profile_page" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Landing\AddContactsFromProfilePageTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Landing/AddContactsFromProfilePageTest.php" method="test_a_contact_can_be_added_from_profile_page" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="SwitchPlanTest.testAdminCanSwitchPlan" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Team\Billing\SwitchPlanTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Team/Billing/SwitchPlanTest.php" method="testAdminCanSwitchPlan" scope="Method" />
+    <configuration name="AddContactsFromProfilePageTest.test_a_contact_cannot_be_added_from_profile_page_with_invalid_data" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Landing\AddContactsFromProfilePageTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Landing/AddContactsFromProfilePageTest.php" method="test_a_contact_cannot_be_added_from_profile_page_with_invalid_data" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="SwitchPlanTest.testAdminCannotSwitchPlanWithInvalidData" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Team\Billing\SwitchPlanTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Team/Billing/SwitchPlanTest.php" method="testAdminCannotSwitchPlanWithInvalidData" scope="Method" />
+    <configuration name="AddContactsFromProfilePageTest.test_a_contact_cannot_be_added_from_profile_page_with_repeated_email" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Landing\AddContactsFromProfilePageTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Landing/AddContactsFromProfilePageTest.php" method="test_a_contact_cannot_be_added_from_profile_page_with_repeated_email" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="SwitchPlanTest.testNotAdminCannotSwitchPlan" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Team\Billing\SwitchPlanTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Team/Billing/SwitchPlanTest.php" method="testNotAdminCannotSwitchPlan" scope="Method" />
+    <configuration name="ChargeCreateTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Admin\Charge\ChargeCreateTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Admin/Charge/ChargeCreateTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="SwitchPlanTest.testNotAdminUsersCannotAccessToSwitchPlanFeature" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Team\Billing\SwitchPlanTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Team/Billing/SwitchPlanTest.php" method="testNotAdminUsersCannotAccessToSwitchPlanFeature" scope="Method" />
+    <configuration name="ChargeCreateTest.test_app_admins_can_access_to_admin_charges_index" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Admin\Charge\ChargeCreateTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Admin/Charge/ChargeCreateTest.php" method="test_app_admins_can_access_to_admin_charges_index" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -249,11 +293,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.SwitchPlanTest.testNotAdminUsersCannotAccessToSwitchPlanFeature" />
-        <item itemvalue="PHPUnit.SwitchPlanTest.testNotAdminCannotSwitchPlan" />
-        <item itemvalue="PHPUnit.SwitchPlanTest.testAdminCannotSwitchPlanWithInvalidData" />
-        <item itemvalue="PHPUnit.SwitchPlanTest.testAdminCanSwitchPlan" />
-        <item itemvalue="PHPUnit.SwitchPlanTest" />
+        <item itemvalue="PHPUnit.AddContactsFromProfilePageTest.test_a_contact_can_be_added_from_profile_page" />
+        <item itemvalue="PHPUnit.AddContactsFromProfilePageTest.test_a_contact_cannot_be_added_from_profile_page_with_repeated_email" />
+        <item itemvalue="PHPUnit.AddContactsFromProfilePageTest.test_a_contact_cannot_be_added_from_profile_page_with_invalid_data" />
+        <item itemvalue="PHPUnit.ChargeCreateTest" />
+        <item itemvalue="PHPUnit.ChargeCreateTest.test_app_admins_can_access_to_admin_charges_index" />
       </list>
     </recent_temporary>
   </component>
@@ -284,7 +328,9 @@
       <workItem from="1603411334470" duration="15885000" />
       <workItem from="1603506487799" duration="22105000" />
       <workItem from="1603914794652" duration="1802000" />
-      <workItem from="1604524215398" duration="16663000" />
+      <workItem from="1604524215398" duration="25998000" />
+      <workItem from="1604929989663" duration="30247000" />
+      <workItem from="1605311762572" duration="8025000" />
     </task>
     <servers />
   </component>
@@ -338,10 +384,10 @@
     </state>
     <state x="1692" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1602084258072" />
     <state x="412" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1601465360657" />
-    <state x="632" y="236" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599075333250">
+    <state x="632" y="236" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605153655516">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="632" y="236" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599075333250" />
+    <state x="632" y="236" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1605153655516" />
     <state x="632" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602433903613">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -352,29 +398,33 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="745" y="463" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#/0.0.1920.1080@0.0.1920.1080" timestamp="1603423348252" />
-    <state width="1868" height="459" key="GridCell.Tab.0.bottom" timestamp="1603913645613">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1868" height="459" key="GridCell.Tab.0.bottom" timestamp="1605242893039">
+      <screen x="0" y="0" width="1280" height="800" />
     </state>
+    <state width="1868" height="459" key="GridCell.Tab.0.bottom/0.0.1280.800/1280.0.1920.1080@0.0.1280.800" timestamp="1605242893039" />
     <state width="1868" height="459" key="GridCell.Tab.0.bottom/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1602479197239" />
-    <state width="1868" height="459" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1603913645613" />
+    <state width="1868" height="459" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1605158108259" />
     <state width="1868" height="312" key="GridCell.Tab.0.bottom/0.23.1920.1001@0.23.1920.1001" timestamp="1599540733274" />
-    <state width="1868" height="459" key="GridCell.Tab.0.center" timestamp="1603913645612">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1868" height="459" key="GridCell.Tab.0.center" timestamp="1605242893037">
+      <screen x="0" y="0" width="1280" height="800" />
     </state>
+    <state width="1868" height="459" key="GridCell.Tab.0.center/0.0.1280.800/1280.0.1920.1080@0.0.1280.800" timestamp="1605242893037" />
     <state width="1868" height="459" key="GridCell.Tab.0.center/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1602479197235" />
-    <state width="1868" height="459" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1603913645612" />
+    <state width="1868" height="459" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1605158108258" />
     <state width="1868" height="312" key="GridCell.Tab.0.center/0.23.1920.1001@0.23.1920.1001" timestamp="1599540733273" />
-    <state width="1868" height="459" key="GridCell.Tab.0.left" timestamp="1603913645611">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1868" height="459" key="GridCell.Tab.0.left" timestamp="1605242893036">
+      <screen x="0" y="0" width="1280" height="800" />
     </state>
+    <state width="1868" height="459" key="GridCell.Tab.0.left/0.0.1280.800/1280.0.1920.1080@0.0.1280.800" timestamp="1605242893036" />
     <state width="1868" height="459" key="GridCell.Tab.0.left/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1602479197234" />
-    <state width="1868" height="459" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1603913645611" />
+    <state width="1868" height="459" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1605158108257" />
     <state width="1868" height="312" key="GridCell.Tab.0.left/0.23.1920.1001@0.23.1920.1001" timestamp="1599540733272" />
-    <state width="1868" height="459" key="GridCell.Tab.0.right" timestamp="1603913645613">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1868" height="459" key="GridCell.Tab.0.right" timestamp="1605242893038">
+      <screen x="0" y="0" width="1280" height="800" />
     </state>
+    <state width="1868" height="459" key="GridCell.Tab.0.right/0.0.1280.800/1280.0.1920.1080@0.0.1280.800" timestamp="1605242893038" />
     <state width="1868" height="459" key="GridCell.Tab.0.right/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1602479197236" />
-    <state width="1868" height="459" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1603913645613" />
+    <state width="1868" height="459" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1605158108258" />
     <state width="1868" height="312" key="GridCell.Tab.0.right/0.23.1920.1001@0.23.1920.1001" timestamp="1599540733274" />
     <state x="1943" y="203" key="NewPhpClassDialog" timestamp="1602083538243">
       <screen x="1280" y="0" width="1920" height="1080" />
@@ -386,11 +436,11 @@
     </state>
     <state x="2031" y="450" width="417" height="182" key="NewPhpFileDialog/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1599244989437" />
     <state x="751" y="450" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1601027383970" />
-    <state x="1632" y="91" width="1216" height="897" key="SettingsEditor" timestamp="1602064437975">
-      <screen x="1280" y="0" width="1920" height="1080" />
+    <state x="352" y="91" width="1216" height="897" key="SettingsEditor" timestamp="1605154418255">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1632" y="91" width="1216" height="897" key="SettingsEditor/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1602064437975" />
-    <state x="352" y="91" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1601634525926" />
+    <state x="352" y="91" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1605154418255" />
     <state width="625" height="500" key="SwitcherDM" timestamp="1600887590892">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -400,12 +450,12 @@
     </state>
     <state x="1860" y="197" width="759" height="686" key="find.popup/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1601714549883" />
     <state x="580" y="197" width="759" height="686" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1599101933738" />
-    <state x="541" y="252" key="run.anything.popup" timestamp="1603508243261">
+    <state x="541" y="252" key="run.anything.popup" timestamp="1605081634149">
       <screen x="0" y="23" width="1920" height="1001" />
     </state>
     <state x="541" y="252" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1599652487509" />
     <state x="1821" y="247" key="run.anything.popup/0.23.1280.721/1280.23.1920.1057@1280.23.1920.1057" timestamp="1602186359320" />
-    <state x="541" y="252" key="run.anything.popup/0.23.1920.1001@0.23.1920.1001" timestamp="1603508243261" />
+    <state x="541" y="252" key="run.anything.popup/0.23.1920.1001@0.23.1920.1001" timestamp="1605081634149" />
     <state x="541" y="48" width="838" height="1032" key="search.everywhere.popup" timestamp="1602384103124">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

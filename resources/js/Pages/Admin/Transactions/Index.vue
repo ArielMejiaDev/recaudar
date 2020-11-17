@@ -22,7 +22,7 @@
                     </td>
                     <td>
                         <InertiaLink :href="route('admin.transactions.show', { transaction: transaction.id })">
-                            {{ transaction.amount_to_deposit }}
+                            {{ transaction.amount }}
                             <span class="text-gray-600">{{ transaction.currency }}</span>
                         </InertiaLink>
                     </td>

@@ -20,7 +20,7 @@ class ProfilePageController extends Controller
         return view('teams/themes/' . $team->theme, [
             'team' => $team,
             'locale' => $locale->getLocaleFrom($team->country),
-            'variablePlanId' => $team->plans->first()->id,
+            'variablePlan' => $team->plans->first(),
         ]);
     }
 }

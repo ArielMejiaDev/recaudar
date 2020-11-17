@@ -26,7 +26,7 @@
 
             <div class="lg:w-1/3 md:w-full w-full flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
 
-                <a href="{{ config('app.url') }}" class="flex items-center lg:justify-start justify-center mb-6 text-pink">
+                <a href="{{ config('app.url') }}" class="flex items-center lg:justify-start justify-center mb-6 text-primary">
                         <svg class="fill-current w-40 h-auto" viewBox="0 0 1014.18 208.58" fill="none">
                             <path class="cls-1" d="M281.28,167.81H255.71V113.18a41.88,41.88,0,1,1,83.75,0v12.65H313.9V113.18a16.31,16.31,0,1,0-32.62,0Z"/>
                             <path class="cls-1" d="M683.72,71v54.63a16.31,16.31,0,1,1-32.62,0V71H625.53v54.63A43.66,43.66,0,0,0,626,132a42.05,42.05,0,0,0,41.39,35.78h0a42.19,42.19,0,0,0,41.88-42.19V71Z"/>
@@ -98,13 +98,13 @@
 
                 {!!
                     htmlFormButton(trans('Send'), [
-                        'class' => 'w-full md:w-auto my-1 md:my-0 inline-flex text-white justify-center bg-pink border-0 py-2 px-6 focus:outline-none focus:shadow-outline hover:bg-deeppink rounded focus:shadow-outline',
+                        'class' => 'w-full md:w-auto my-1 md:my-0 inline-flex text-white justify-center bg-primary border-0 py-2 px-6 focus:outline-none focus:shadow-outline hover:bg-darkprimary rounded focus:shadow-outline',
                         'id' => 'newsletterSubmitButton',
                         'tabindex' => 21,
                     ])
                 !!}
 
-                <p class="text-gray-500 text-sm md:ml-6 mt-2 sm:text-left text-center">
+                <p class="text-gray-500 text-xs md:ml-6 mt-2 sm:text-left text-center">
                     {{ trans('Leave your email to find out more news.') }}
                 </p>
 

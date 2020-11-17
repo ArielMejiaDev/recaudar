@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Team;
 
+use App\Models\Team;
 use App\User;
 use Faker\Factory;
 use Illuminate\Foundation\Testing\RefreshDatabase;

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Transactions;
 use App\Http\Controllers\Controller;
 use App\Models\Team;
 use App\Models\Transaction;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -53,7 +54,7 @@ class TransactionsController extends Controller
 
         $transactions = Transaction::with(['team' => fn($query) => $query->select(['id', 'name'])])
             ->select([
-                'id', 'amount_to_deposit', 'income', 'currency', 'status', 'type', 'reviewed', 'created_at', 'team_id'
+                'id', 'amount', 'income', 'currency', 'status', 'type', 'reviewed', 'created_at', 'team_id'
             ])
             ->orderByDesc('id')
             ->paginate(5);
@@ -77,13 +78,16 @@ class TransactionsController extends Controller
 
             $transactions = Transaction::with(['team' => fn($query) => $query->select(['id', 'name'])])
                 ->select([
-                    'id', 'amount_to_deposit', 'income', 'currency', 'status', 'type', 'reviewed', 'created_at', 'team_id'
+                    'id', 'amount', 'income', 'currency', 'status', 'type', 'reviewed', 'created_at', 'team_id'
                 ])->where(function($query) use($request) {
                     $query->where('income', 'LIKE', "%{$request->search}%")
                         ->orWhere('amount_to_deposit', 'LIKE', "%{$request->search}%")
                         ->orWhere('status', 'LIKE', "%{$request->search}%")
                         ->orWhere('reviewed', 'LIKE', "%{$request->search}%")
                         ->orWhere('type', 'LIKE', "%{$request->search}%")
+                        ->orWhereHas('team', function(Builder $query) use($request) {
+                            $query->where('name', 'LIKE', "%{$request->search}%");
+                        })
                     ;
                 })
                 ->orderByDesc('id')

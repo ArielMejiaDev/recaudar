@@ -1,4 +1,4 @@
-<div id="step-three" class="lg:h-screen pt-4 pb-20 py-0 lg:py-0 bg-deepblue flex flex items-center justify-center relative font-body">
+<div id="step-three" class="min-h-screen pt-4 pb-20 py-0 lg:py-0 bg-gray-900 flex flex items-center justify-center relative font-body">
 
     <div class="container mx-auto px-4 lg:px-12 flex flex-col lg:flex-row">
         <div class="w-full lg:w-1/2">

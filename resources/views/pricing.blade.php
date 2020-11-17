@@ -19,7 +19,7 @@
             <div class="flex flex-wrap -m-4">
 
                 <div class="p-4 xl:w-1/3 md:w-1/2 w-full">
-                    <div @click="selectedPlan = 1" :class="selectedPlan === 1 ? 'border-pink' : 'border-gray-300'" class="cursor-pointer h-full p-6 rounded-lg border-2 flex flex-col relative overflow-hidden">
+                    <div @click="selectedPlan = 1" :class="selectedPlan === 1 ? 'border-primary' : 'border-gray-300'" class="cursor-pointer h-full p-6 rounded-lg border-2 flex flex-col relative overflow-hidden">
                         <h2 class="text-sm tracking-widest title-font mb-1 font-medium uppercase">@lang('Basic')</h2>
                         <h1 class="text-5xl text-gray-900 pb-4 mb-4 border-b border-gray-200 leading-none">@lang('Free')</h1>
                         <p class="flex items-start text-gray-600 my-2">
@@ -135,14 +135,14 @@
                             </span>@lang('Fundraising campaigns through volunteers.')
                         </p>
                         @guest()
-                            <a href="{{ route('register') }}" :class="selectedPlan === 1 ? 'bg-melon hover:bg-pink' : 'bg-gray-500 hover:bg-gray-600' " class="flex items-center mt-auto text-white border-0 py-2 px-4 w-full focus:outline-none rounded">@lang('Select a plan')
+                            <a href="{{ route('register') }}" :class="selectedPlan === 1 ? 'bg-darkprimary hover:bg-primary' : 'bg-gray-500 hover:bg-gray-600' " class="flex items-center mt-auto text-white border-0 py-2 px-4 w-full focus:outline-none rounded">@lang('Select a plan')
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
                                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                                 </svg>
                             </a>
                         @endguest
                         @auth()
-                            <a href="{{ route('teams.create', ['plan' => 'free']) }}" :class="selectedPlan === 1 ? 'bg-melon hover:bg-pink' : 'bg-gray-500 hover:bg-gray-600' " class="flex items-center mt-auto text-white border-0 py-2 px-4 w-full focus:outline-none rounded">@lang('Select a plan')
+                            <a href="{{ route('teams.create', ['plan' => 'free']) }}" :class="selectedPlan === 1 ? 'bg-darkprimary hover:bg-primary' : 'bg-gray-500 hover:bg-gray-600' " class="flex items-center mt-auto text-white border-0 py-2 px-4 w-full focus:outline-none rounded">@lang('Select a plan')
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
                                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                                 </svg>
@@ -153,7 +153,7 @@
                 </div>
 
                 <div class="p-4 xl:w-1/3 md:w-1/2 w-full">
-                    <div @click="selectedPlan = 2" :class="selectedPlan === 2 ? 'border-pink' : 'border-gray-300'" class="cursor-pointer h-full p-6 rounded-lg border-2 flex flex-col relative overflow-hidden">
+                    <div @click="selectedPlan = 2" :class="selectedPlan === 2 ? 'border-primary' : 'border-gray-300'" class="cursor-pointer h-full p-6 rounded-lg border-2 flex flex-col relative overflow-hidden">
                         <span class="bg-pink text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">POPULAR</span>
                         <h2 class="text-sm tracking-widest title-font mb-1 font-medium">PRO</h2>
                         <h1 class="text-5xl text-gray-900 leading-none flex items-center pb-4 mb-4 border-b border-gray-200">
@@ -277,14 +277,14 @@
                             </span>@lang('Fundraising campaigns through volunteers.')
                         </p>
                         @guest()
-                            <a href="{{ route('register') }}" :class="selectedPlan === 2 ? 'bg-melon hover:bg-pink' : 'bg-gray-500 hover:bg-gray-600'" class="flex items-center mt-auto text-white border-0 py-2 px-4 w-full focus:outline-none rounded">@lang('Select a plan')
+                            <a href="{{ route('register') }}" :class="selectedPlan === 2 ? 'bg-darkprimary hover:bg-primary' : 'bg-gray-500 hover:bg-gray-600'" class="flex items-center mt-auto text-white border-0 py-2 px-4 w-full focus:outline-none rounded">@lang('Select a plan')
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
                                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                                 </svg>
                             </a>
                         @endguest
                         @auth()
-                            <a href="{{ route('teams.create', ['plan' => 'pro']) }}" :class="selectedPlan === 2 ? 'bg-melon hover:bg-pink' : 'bg-gray-500 hover:bg-gray-600'" class="flex items-center mt-auto text-white border-0 py-2 px-4 w-full focus:outline-none rounded">@lang('Select a plan')
+                            <a href="{{ route('teams.create', ['plan' => 'pro']) }}" :class="selectedPlan === 2 ? 'bg-darkprimary hover:bg-primary' : 'bg-gray-500 hover:bg-gray-600'" class="flex items-center mt-auto text-white border-0 py-2 px-4 w-full focus:outline-none rounded">@lang('Select a plan')
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
                                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                                 </svg>
@@ -295,7 +295,7 @@
                 </div>
 
                 <div class="p-4 xl:w-1/3 md:w-1/2 w-full">
-                    <div @click="selectedPlan = 3" :class="selectedPlan === 3 ? 'border-pink' : 'border-gray-300' " class="cursor-pointer h-full p-6 rounded-lg border-2 flex flex-col relative overflow-hidden">
+                    <div @click="selectedPlan = 3" :class="selectedPlan === 3 ? 'border-primary' : 'border-gray-300' " class="cursor-pointer h-full p-6 rounded-lg border-2 flex flex-col relative overflow-hidden">
                         <h2 class="text-sm tracking-widest title-font mb-1 font-medium uppercase">@lang('Advance')</h2>
                         <h1 class="text-5xl text-gray-900 leading-none flex items-center pb-4 mb-4 border-b border-gray-200">
                             <span class="text-5xl ml-1 font-normal text-gray-500">@lang('Coming soon')</span>

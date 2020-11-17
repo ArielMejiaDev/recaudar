@@ -31,20 +31,20 @@
                                     @csrf @method('POST')
                                     <div class="flex flex-col md:flex-row w-full">
                                         <div class="p-2 w-full md:w-1/2" data-children-count="1">
-                                            <input autocomplete="off" autofocus="true" tabindex="1" class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-pink text-base px-4 py-2" placeholder="{{ __('Name') }}" name="name" value="{{ old('name') }}" type="text">
+                                            <input autocomplete="off" autofocus="true" tabindex="1" class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-primary text-base px-4 py-2" placeholder="{{ __('Name') }}" name="name" value="{{ old('name') }}" type="text">
                                             @error('name')
                                             <p class="text-red-500 font-semibold text-xs my-1">{{ $message }}</p>
                                             @enderror
                                         </div>
                                         <div class="p-2 w-full md:w-1/2" data-children-count="1">
-                                            <input autocomplete="off" tabindex="2" class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-pink text-base px-4 py-2" placeholder="{{ __('Email') }}" name="email" value="{{ old('email') }}" type="email" >
+                                            <input autocomplete="off" tabindex="2" class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-primary text-base px-4 py-2" placeholder="{{ __('Email') }}" name="email" value="{{ old('email') }}" type="email" >
                                             @error('email')
                                             <p class="text-red-500 font-semibold text-xs my-1">{{ $message }}</p>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="p-2 w-full" data-children-count="1">
-                                        <textarea autocomplete="off" tabindex="3" class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none h-48 focus:border-pink text-base px-4 py-2 resize-none block" name="message" placeholder="{{ __('Message') }}">{{ old('message', '') }}</textarea>
+                                        <textarea autocomplete="off" tabindex="3" class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none h-48 focus:border-primary text-base px-4 py-2 resize-none block" name="message" placeholder="{{ __('Message') }}">{{ old('message', '') }}</textarea>
                                         @error('message')
                                             <p class="text-red-500 font-semibold text-xs my-1">{{ $message }}</p>
                                         @enderror
@@ -53,7 +53,7 @@
                                     <div class="p-2 w-full">
                                         {!!
                                             htmlFormButton(trans('Send'), [
-                                                'class' => 'w-full text-center flex justify-center mx-auto text-white bg-pink border border-pink py-2 px-8 focus:outline-none focus:shadow-outline focus:border-melon focus:bg-melon hover:border-melon hover:bg-melon rounded text-lg focus:shadow-outline',
+                                                'class' => 'w-full text-center flex justify-center mx-auto text-white bg-primary border border-primary py-2 px-8 focus:outline-none focus:shadow-outline focus:border-melon focus:bg-darkprimary hover:border-darkprimary hover:bg-darkprimary rounded text-lg focus:shadow-outline',
                                                 'id' => 'contactSubmitButton',
                                                 'tabindex' => 4,
                                             ])
