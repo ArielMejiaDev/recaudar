@@ -12,6 +12,7 @@
 use App\Http\Controllers\Admin\Admins\AdminController;
 use App\Http\Controllers\Admin\Charges\ChargeController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
+use App\Http\Controllers\Admin\Reports\TransactionsReportController;
 use App\Http\Controllers\Admin\Teams\Plans\PlanController;
 use App\Http\Controllers\Admin\Teams\TeamController;
 use App\Http\Controllers\Admin\Teams\UpdateTeamContact;
@@ -57,5 +58,7 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'appAdmin'])->group(func
     Route::resource('transactions', TransactionsController::class, ['as' => 'admin'])->only(['index', 'show', 'update']);
 
     Route::get('/usuarios-sin-organizacion', UsersWithoutOrganization::class)->name('admin.users_without_team');
+
+    Route::get('/report/transactions', [TransactionsReportController::class, 'create'])->name('admin.report.transactions.create');
 
 });

@@ -50,7 +50,7 @@
                         <img @click.prevent="selectPlan({{ $plan }})" class="w-full object-cover h-40 mt-1 mb-2 shadow cursor-pointer" src="{{ $plan->banner }}" alt="article image">
                     @endif
                     <p class="text-gray-600 font-light text-sm">{{ $plan->info }}</p>
-                    <button @click.prevent="selectPlan({{ $plan }})" class="mt-2 w-40 text-center my-1 text-gray-700 font-semibold py-1 px-2 border border-gray-600 rounded hover:bg-gray-600 hover:text-white cursor-pointer">@lang('Donate') Q {{ $plan->amount_in_local_currency }}</button>
+                    <button @click.prevent="selectPlan({{ $plan }})" class="mt-2 w-40 text-center my-1 text-gray-700 font-semibold py-1 px-2 border border-gray-600 rounded hover:bg-gray-600 hover:text-white cursor-pointer focus:outline-none focus:bg-gray-600 focus:text-white">@lang('Donate') Q {{ $plan->amount_in_local_currency }}</button>
                 </div>
             @endforeach
 
@@ -106,10 +106,22 @@
             </div>
             {{--End Beneficiaries--}}
 
+            {{--Newsletter--}}
+            <div class="flex flex-col mt-6 pb-6 border-b border-gray-300">
+                <h3 class="text-gray-700 font-semibold text-2xl mb-4">@lang('Newsletter')</h3>
+                <form action="{{ route('add_contact_from_profile_page', $team) }}" method="POST" class="flex items-center">
+                    @csrf @method('POST')
+                    <label for="email" class="hidden"></label>
+                    <input id="email" name="email" type="email" placeholder="@lang('Email')" class="bg-gray-100 border border-gray-300 rounded p-2 text-xs focus:outline-none focus:border-gray-500">
+                    <button type="submit" class="ml-2 text-center text-gray-700 text-xs p-2 border border-gray-600 rounded hover:bg-gray-600 hover:text-white cursor-pointer hover:outline-none focus:bg-gray-600 focus:text-white focus:outline-none">@lang('Send')</button>
+                </form>
+            </div>
+            {{--End Newsletter--}}
+
             {{--Call to Action--}}
             <div class="flex flex-col mt-6 pb-6 border-b border-gray-300">
                 <h3 class="text-gray-700 font-semibold text-2xl mb-4">@lang('You want to donate another amount?')</h3>
-                <button @click.prevent="selectPlan({{ $variablePlan }})" class="mt-2 text-center my-1 text-gray-700 font-semibold py-1 px-2 border border-gray-600 rounded hover:bg-gray-600 hover:text-white cursor-pointer">@lang('Donate')</button>
+                <button @click.prevent="selectPlan({{ $variablePlan }})" class="mt-2 text-center my-1 text-gray-700 font-semibold py-1 px-2 border border-gray-600 rounded hover:bg-gray-600 hover:text-white cursor-pointer focus:outline-none focus:bg-gray-600 focus:text-white">@lang('Donate')</button>
             </div>
             {{--End Call to Action--}}
 
@@ -129,7 +141,7 @@
                 <p class="mt-2 text-sm text-gray-500">{{ config('app.name') }}</p>
             </div>
             <div class="w-full mt-4 text-center {{ $team->facebook_account && $team->twitter_account && $team->instagram_account ? 'md:w-1/3 md:text-center' : 'md:w-1/2 md:text-right' }}">
-                <a href="{{ route('terms-for-users') }}" class="text-gray-500 cursor-pointer hover:text-gray-900">@lang('Terms & conditions')</a>
+                <a href="{{ route('terms-for-users') }}" class="text-gray-500 cursor-pointer hover:text-gray-900 outline-none">@lang('Terms & conditions')</a>
             </div>
             @if ($team->facebook_account && $team->twitter_account && $team->instagram_account)
             <div class="flex text-center md:ml-auto lg:-mb-10 md:mt-0">

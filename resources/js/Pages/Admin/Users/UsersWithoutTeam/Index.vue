@@ -1,6 +1,7 @@
 <template>
     <div>
         <Table
+            v-if="users.data > 0"
             :title="trans.title"
             :headers="[trans.name, trans.email, trans.created]"
             :searchbox="{show: true, placeholder: `${trans.search} ...`}"
@@ -15,6 +16,10 @@
                 </tr>
             </template>
         </Table>
+        <div v-else class="flex flex-col justify-center items-center text-gray-700">
+            <Icon class="w-12 h-12" name="info" />
+            <span class="mt-4 font-semibold text-2xl">{{ trans('admin_backend.no_users_available') }}</span>
+        </div>
     </div>
 </template>
 
@@ -24,6 +29,7 @@ import Table from "../../../../Shared/Table";
 import Title from "../../../../Shared/Title";
 import Panel from "../../../../Shared/Panel";
 import _ from "lodash";
+import Icon from "../../../../Shared/Icon";
 
 export default {
     name: "Index",
@@ -31,13 +37,13 @@ export default {
     layout: SidebarLayout,
     props: {
         users: Object,
-        trans: Object,
         filters: Array || Object,
     },
     components: {
         Panel,
         Title,
         Table,
+        Icon,
     },
     data() {
         return {

@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use App\Console\Commands\DeleteUsersWithoutTeamsCommand;
+use App\Console\Commands\GenerateSitemapCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -13,7 +15,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        GenerateSitemapCommand::class,
+        DeleteUsersWithoutTeamsCommand::class
     ];
 
     /**
@@ -26,6 +29,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->command('sitemap:generate')->daily();
+        $schedule->command('delete:users-without-teams')->monthly();
     }
 
     /**

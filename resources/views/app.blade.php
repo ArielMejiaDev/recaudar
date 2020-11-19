@@ -22,6 +22,22 @@
         <!-- Javascript -->
         <script src="{{ mix('/js/app.js') }}" defer></script>
         @routes
+
+        {{--Translates--}}
+        <script>
+            window.trans = <?php
+            // copy all translations from /resources/lang/CURRENT_LOCALE/* to global JS variable
+            $lang_files = File::files(resource_path() . '/lang/' . App::getLocale());
+
+            $trans = [];
+            foreach ($lang_files as $f) {
+                $filename = pathinfo($f)['filename'];
+                $trans[$filename] = trans($filename);
+            }
+            echo json_encode($trans);
+            ?>;
+        </script>
+        {{--End Translates--}}
     </head>
     <body>
         @inertia
@@ -30,9 +46,32 @@
             <script src="http://localhost:3000/browser-sync/browser-sync-client.js"></script>
         @endif
 
-        <!-- Helpdesk Support Beacon -->
-        <script type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});
-        </script><script type="text/javascript">window.Beacon('init', '68860fd7-b38d-418b-aab8-f3edc954bd2f')</script>
-        <!-- End Helpdesk Support Beacon -->
+        <!-- Load Facebook SDK for JavaScript -->
+        <div id="fb-root"></div>
+        <script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                    xfbml            : true,
+                    version          : 'v9.0'
+                });
+            };
+
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+        <!-- Your Chat Plugin code -->
+        <div class="fb-customerchat"
+             attribution=setup_tool
+             page_id="1634056573515048"
+             theme_color="#fe5971"
+             logged_in_greeting="Hola, como podemos ayudarte?"
+             logged_out_greeting="Hola, como podemos ayudarte?">
+        </div>
+        <!-- End Load Facebook SDK for JavaScript -->
     </body>
 </html>

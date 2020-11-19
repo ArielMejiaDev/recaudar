@@ -9,53 +9,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/teams/themes/old-classic.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/teams/themes/old-columns.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/teams/themes/old-condensed.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/moonlight.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/moonlight.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php-test-framework.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Reports/TransactionsReport.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/es/admin_backend.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Transactions/TransactionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Transactions/TransactionsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ProfilePageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ProfilePageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Team.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Team.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/telescope.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/telescope.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/TeamSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/TeamSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/frontend.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/frontend.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Admin/Transactions/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Transactions/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Admin/Users/UsersWithoutTeam/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Admin/Users/UsersWithoutTeam/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Auth/Verify.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Auth/Verify.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Partials/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Partials/Sidebar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Shared/Icon.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Shared/Icon.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Shared/Input.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Shared/Input.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/about-us/hero.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/about-us/hero.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/about-us/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/about-us/main.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/checkout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/call-to-action.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/call-to-action.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/faqs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/faqs.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/foundations-info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/foundations-info.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/hero.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/hero.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/second-call-to-action.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/second-call-to-action.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/step-one.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/step-one.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/step-three.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/step-three.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/step-two.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/step-two.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/landing/steps.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/landing/steps.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/navbar-pink.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/navbar-pink.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/navbar-transparent.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/navbar-transparent.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pricing.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pricing.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teams-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams-page.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/classic.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams/themes/classic.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/columns.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams/themes/columns.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/condensed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams/themes/condensed.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Team/CreateTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Team/CreateTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/old-classic.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/old-columns.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/old-condensed.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,25 +220,25 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang/es" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="php.test.frameworks.configurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/components" />
-      <recent name="$PROJECT_DIR$/resources/js/Pages/Teams/Profile" />
-      <recent name="$PROJECT_DIR$/resources/js/Pages/Admin/Transactions" />
-      <recent name="$PROJECT_DIR$/resources/js/Pages/Teams/Transaction" />
-      <recent name="$PROJECT_DIR$/resources/js/Pages/Teams" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/js/Pages/AdminDashboard/Dashboard" />
       <recent name="$PROJECT_DIR$/resources/js/Pages/Team" />
       <recent name="$PROJECT_DIR$/resources/js/Pages/Team/Dashboard" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/app/Providers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/lang/es" />
+      <recent name="$PROJECT_DIR$/resources/lang/en" />
+      <recent name="$PROJECT_DIR$/resources/views/components" />
+      <recent name="$PROJECT_DIR$/resources/js/Pages/Teams/Profile" />
+      <recent name="$PROJECT_DIR$/resources/js/Pages/Admin/Transactions" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.AddContactsFromProfilePageTest.test_a_contact_can_be_added_from_profile_page">
@@ -330,7 +305,7 @@
       <workItem from="1603914794652" duration="1802000" />
       <workItem from="1604524215398" duration="25998000" />
       <workItem from="1604929989663" duration="30247000" />
-      <workItem from="1605311762572" duration="8025000" />
+      <workItem from="1605311762572" duration="26467000" />
     </task>
     <servers />
   </component>
@@ -450,17 +425,17 @@
     </state>
     <state x="1860" y="197" width="759" height="686" key="find.popup/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1601714549883" />
     <state x="580" y="197" width="759" height="686" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1599101933738" />
-    <state x="541" y="252" key="run.anything.popup" timestamp="1605081634149">
+    <state x="541" y="252" key="run.anything.popup" timestamp="1605672371747">
       <screen x="0" y="23" width="1920" height="1001" />
     </state>
     <state x="541" y="252" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1599652487509" />
     <state x="1821" y="247" key="run.anything.popup/0.23.1280.721/1280.23.1920.1057@1280.23.1920.1057" timestamp="1602186359320" />
-    <state x="541" y="252" key="run.anything.popup/0.23.1920.1001@0.23.1920.1001" timestamp="1605081634149" />
-    <state x="541" y="48" width="838" height="1032" key="search.everywhere.popup" timestamp="1602384103124">
+    <state x="541" y="252" key="run.anything.popup/0.23.1920.1001@0.23.1920.1001" timestamp="1605672371747" />
+    <state x="541" y="48" width="838" height="1032" key="search.everywhere.popup" timestamp="1605660403230">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1821" y="48" width="838" height="1032" key="search.everywhere.popup/0.0.1280.800/1280.0.1920.1080@1280.0.1920.1080" timestamp="1602073506232" />
-    <state x="541" y="48" width="838" height="1032" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1602384103124" />
+    <state x="541" y="48" width="838" height="1032" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1605660403230" />
     <state x="541" y="48" width="838" height="1032" key="search.everywhere.popup/0.23.1920.1001@0.23.1920.1001" timestamp="1600746341713" />
   </component>
 </project>
