@@ -24,23 +24,26 @@
     <div id="donar" class="py-10 bg-gray-200">
         <div class="container mx-auto px-4">
             <h2 class="text-gray-700 text-center text-5xl font-extrabold tracking-tight"><span class="text-green-500">@lang('Support us')</span> @lang('with a donation')</h2>
-            <p class="my-5 text-center text-gray-600 text-lg font-light">@lang('You can select one of these plans and support us.')</p>
+            @if($team->availablePlans()->count() > 0)
+                <p class="my-5 text-center text-gray-600 text-lg font-light">@lang('You can select one of these plans and support us.')</p>
+            @endif
 
             <!-- Plans Grid -->
             <div class="flex flex-wrap overflow-hidden lg:-mx-3">
 
                 @foreach ($team->availablePlans() as $plan)
-                    <div class="w-full overflow-hidden lg:my-3 lg:px-3 lg:w-1/3 cursor-pointer">
+                    <div class="w-full overflow-hidden lg:my-3 lg:px-3 lg:w-1/3">
                         @if($plan->banner)
-                            <img @click.prevent="selectPlan({{ $plan }})" class="w-full h-56 object-cover" src="{{ $plan->banner }}" alt="{{ $plan->title }}">
+                            <img @click.prevent="selectPlan({{ $plan }})" class="cursor-pointer w-full h-56 object-cover" src="{{ $plan->banner }}" alt="{{ $plan->title }}">
                         @else
-                            <p @click.prevent="selectPlan({{ $plan }})" class="m-2 text-gray-700 text-sm">{{ $plan->title }}</p>
+                            <p @click.prevent="selectPlan({{ $plan }})" class="cursor-pointer m-2 text-gray-700 text-sm">{{ $plan->title }}</p>
                         @endif
                         @if($plan->info)
-                            <p @click.prevent="selectPlan({{ $plan }})" class="my-2 text-gray-700 text-sm">{{ $plan->info }}</p>
+                            <p @click.prevent="selectPlan({{ $plan }})" class="cursor-pointer my-2 text-gray-700 text-sm">{{ $plan->info }}</p>
                             @else
-                            <p @click.prevent="selectPlan({{ $plan }})" class="my-2 text-gray-700 text-sm">{{ $plan->title }}</p>
+                            <p @click.prevent="selectPlan({{ $plan }})" class="cursor-pointer my-2 text-gray-700 text-sm">{{ $plan->title }}</p>
                         @endif
+                            <button @click.prevent="selectPlan({{ $plan }})" class="cursor-pointer mt-2 text-base text-green-500 rounded-full focus:outline-none focus:underline hover:underline hover:text-green-600">@lang('Donate') Q @money($plan->amount_in_local_currency)</button>
                     </div>
                 @endforeach
 
@@ -49,7 +52,7 @@
 
             <!-- Call to action -->
             <div class="flex items-center justify-center mt-20">
-                <span class="mr-2 text-gray-700">@lang('You want to donate') @lang('a different amount?')</span>
+                <span class="mr-4 text-gray-700">@lang('You want to donate') @lang('a different amount?')</span>
                 <button @click.prevent="selectPlan({{ $variablePlan }})" class="bg-green-500 py-2 px-4 text-base text-green-100 rounded-full focus:outline-none focus:bg-green-600 hover:bg-green-600">@lang('Donate')</button>
             </div>
             <!-- End Call to action -->

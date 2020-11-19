@@ -84,44 +84,46 @@
     <!-- End Hero -->
 
     <!-- Plan -->
-    <div id="donar" class="w-full min-h-screen bg-gray-200">
+    @if($team->availablePlans()->count() > 0)
+        <div id="donar" class="w-full min-h-screen bg-gray-200">
 
-        <div class="container mx-auto">
-            <div class="w-full lg:w-1/2 mx-auto my-12">
-                <h1 class="text-center text-gray-800 font-extrabold text-3xl md:text-5xl tracking-tight">
-                    <span class="text-pink-500">@lang('You can help')</span> @lang('in many ways').
-                </h1>
-            </div>
-
-            <div class="flex flex-wrap">
-
-                {{--Plans--}}
-                @foreach ($team->availablePlans() as $plan)
-
-                <div class="w-full lg:w-1/2 pb-6 md:p-4">
-                    <div class="flex flex-col sm:flex-row mx-auto max-w-full h-auto sm:h-64 hover:shadow-xl">
-                        @if ($plan->banner)
-                            <img @click.prevent="selectPlan({{ $plan }})" class="shadow h-full w-full sm:w-2/4 object-cover rounded-lg rounded-b-none sm:rounded-l-lg sm:rounded-r-none pb-5/6" src="{{ $plan->banner }}" alt="banner">
-                        @endif
-                        <div class="w-full {{ $plan->banner ? 'sm:w-2/4' : null }} shadow px-4 py-4 bg-white rounded-lg rounded-t-none sm:rounded-l-none sm:rounded-r-lg  flex flex-col justify-center">
-                            <div class="flex items-center">
-                                <h2 @click.prevent="selectPlan({{ $plan }})" class="text-gray-800 font-semibold mr-auto text-base tracking-tight">{{ $plan->title }}</h2>
-                            </div>
-                            <p class="text-sm text-gray-700 mt-4">{{ $plan->info }}</p>
-                            <div class="flex items-center justify-end mt-4">
-                                <button @click.prevent="selectPlan({{ $plan }})" class="bg-pink-100 text-pink-500 border border-pink-100 hover:border-pink-500 focus:border-pink-500 px-2 py-2 rounded-md focus:outline-none">@lang('Donate') Q @money($plan->amount_in_local_currency)</button>
-                            </div>
-                        </div>
-                    </div>
+            <div class="container mx-auto">
+                <div class="w-full lg:w-1/2 mx-auto my-12">
+                    <h1 class="text-center text-gray-800 font-extrabold text-3xl md:text-5xl tracking-tight">
+                        <span class="text-pink-500">@lang('You can help')</span> @lang('in many ways').
+                    </h1>
                 </div>
 
-                @endforeach
-                {{--End Plans--}}
+                <div class="flex flex-wrap">
 
+                    {{--Plans--}}
+                    @foreach ($team->availablePlans() as $plan)
+
+                        <div class="w-full lg:w-1/2 pb-6 md:p-4">
+                            <div class="flex flex-col sm:flex-row mx-auto max-w-full h-auto sm:h-64 hover:shadow-xl">
+                                @if ($plan->banner)
+                                    <img @click.prevent="selectPlan({{ $plan }})" class="shadow h-full w-full sm:w-2/4 object-cover rounded-lg rounded-b-none sm:rounded-l-lg sm:rounded-r-none pb-5/6" src="{{ $plan->banner }}" alt="banner">
+                                @endif
+                                <div class="w-full {{ $plan->banner ? 'sm:w-2/4' : null }} shadow px-4 py-4 bg-white rounded-lg rounded-t-none sm:rounded-l-none sm:rounded-r-lg  flex flex-col justify-center">
+                                    <div class="flex items-center">
+                                        <h2 @click.prevent="selectPlan({{ $plan }})" class="text-gray-800 font-semibold mr-auto text-base tracking-tight">{{ $plan->title }}</h2>
+                                    </div>
+                                    <p class="text-sm text-gray-700 mt-4">{{ $plan->info }}</p>
+                                    <div class="flex items-center justify-end mt-4">
+                                        <button @click.prevent="selectPlan({{ $plan }})" class="bg-pink-100 text-pink-500 border border-pink-100 hover:border-pink-500 focus:border-pink-500 px-2 py-2 rounded-md focus:outline-none">@lang('Donate') Q @money($plan->amount_in_local_currency)</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    @endforeach
+                    {{--End Plans--}}
+
+                </div>
             </div>
-        </div>
 
-    </div>
+        </div>
+    @endif
     <!-- End Plan -->
 
     <x-checkout :team="$team" :locale="$locale" />

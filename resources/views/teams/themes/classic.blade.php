@@ -32,16 +32,19 @@
                 {{ $team->name }}
             </h1>
 
-            <p class="mt-6 text-gray-700 font-light">{{ $team->description }}</p>
+            <p class="mt-6 text-gray-700 font-light pb-3 border-b border-gray-300">{{ $team->description }}</p>
 
-            @empty($team->availablePlans()->first()->banner)
-                <p class="mt-6 text-gray-700 font-light">{{ $team->use_of_funds }}</p>
+            @if($team->availablePlans()->count() === 0)
+                <div class="flex items-center mt-6">
+                    <h3 class="text-gray-700 font-semibold text-2xl md:text-5xl tracking-wide mb-4 w-full md:w-6/12">@lang('You want to donate?')</h3>
+                    <button @click.prevent="selectPlan({{ $variablePlan }})" class="mt-2 w-full md:w-6/12 text-center my-1 text-gray-700 font-semibold py-1 px-2 border border-gray-600 rounded hover:bg-gray-600 hover:text-white cursor-pointer focus:outline-none focus:bg-gray-600 focus:text-white">@lang('Donate')</button>
+                </div>
             @endif
         </div>
         {{--End Description--}}
 
         <!-- Plans -->
-        <div class="my-5 pt-3 border-t border-gray-300 flex flex-col lg:flex-row flex-wrap">
+        <div class="my-5 flex flex-col lg:flex-row flex-wrap">
 
             @foreach ($team->availablePlans() as $plan)
                 <div class="w-full lg:w-1/3 lg:p-4 flex flex-col justify-between">
