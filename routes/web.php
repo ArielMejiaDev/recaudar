@@ -63,3 +63,5 @@ Route::get('/prohibido', NotAllowedActionController::class)->name('too_many_atte
 Route::get('/donation-button/{team:slug}', DonationButtonMarkupController::class);
 
 Route::view('/offline', 'vendor/laravelpwa/offline');
+
+Route::redirect('/webinar', 'https://us02web.zoom.us/meeting/register/tZUofuyhrjIjHdxYrTNTNobJb2NmbAdt1Vs0');

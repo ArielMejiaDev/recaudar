@@ -10,11 +10,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/checkout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/classic.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams/themes/classic.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/columns.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams/themes/columns.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teams/themes/condensed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teams/themes/condensed.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,8 +199,9 @@
     <property name="DatabaseDriversLRU" value="sqlite&#10;mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang/es" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="php.test.frameworks.configurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -289,7 +286,16 @@
       <workItem from="1603914794652" duration="1802000" />
       <workItem from="1604524215398" duration="25998000" />
       <workItem from="1604929989663" duration="30247000" />
-      <workItem from="1605311762572" duration="29359000" />
+      <workItem from="1605311762572" duration="30471000" />
+      <workItem from="1606556604358" duration="6322000" />
+      <workItem from="1606713949057" duration="1263000" />
+      <workItem from="1606723447626" duration="27000" />
+      <workItem from="1610090658706" duration="1215000" />
+      <workItem from="1610094526050" duration="850000" />
+      <workItem from="1610994677451" duration="623000" />
+      <workItem from="1612873912022" duration="1579000" />
+      <workItem from="1613019929997" duration="273000" />
+      <workItem from="1613564594639" duration="1340000" />
     </task>
     <servers />
   </component>
