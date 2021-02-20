@@ -428,7 +428,7 @@
     "We connect organizations and donors in an easy and safe way to change the world.": "Conectamos organizaciones y donantes de una manera fácil y segura para cambiar el mundo.",
     "Payment fail, please try again later.": "Error en el pago, inténtelo de nuevo más tarde.",
     "No teams available.": "No hay organizaciones disponibles.",
-    "Pricing": "Precios",
+    "Pricing": "Servicios",
     "Explore the right plan for your organization.": "Explore el plan adecuado para su organización.",
     "Basic": "Basico",
     "Free": "Gratis",
@@ -493,5 +493,7 @@
     "with a donation": "con una donación",
     "You can select one of these plans and support us.": "Puede seleccionar uno de estos planes y apoyarnos.",
     "Transactions Report": "Reporte de transacciones",
-    "You want to donate?": "Quieres donar?"
+    "You want to donate?": "Quieres donar?",
+    "Everything included in the FREE plan and more..": "Todo lo incluido en el plan FREE y más",
+    "Everything included in the PRO plan and more...": "Todo lo incluido en el plan PRO y más"
 }

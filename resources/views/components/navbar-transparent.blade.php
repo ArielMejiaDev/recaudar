@@ -15,6 +15,7 @@
     {{--Desktop--}}
     <div class="hidden lg:block flex-grow flex items-center">
         <div class="text-sm text-gray-200 flex items-center justify-end font-body">
+            <a href="{{ config('app.url') . '/servicios' }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white text-xl mr-4">{{ trans('Pricing') }}</a>
             <a href="{{ config('app.url') . '/#faqs' }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white text-xl mr-4">{{ trans('Frequent questions') }}</a>
             <a href="{{ route('about-us') }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white text-xl mr-4">{{ trans('About us') }}</a>
             <a href="{{ route('login') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white text-xl mr-4 py-2 px-6 border-4 border-primary hover:bg-white hover:bg-primary rounded-full">{{ trans('Login') }}</a>
@@ -24,6 +25,7 @@
     {{--Responsive--}}
     <div x-cloak x-show="navbarToggle" class="block lg:hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <div class="text-sm lg:flex-grow font-body">
+            <a href="{{ config('app.url') . '/servicios' }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white mr-4">{{ trans('Pricing') }}</a>
             <a href="{{ config('app.url') . '/#faqs' }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white mr-4">{{ trans('Frequent questions') }}</a>
             <a href="{{ route('about-us') }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white mr-4">{{ trans('About us') }}</a>
             <a href="{{ route('login') }}" class="block mt-4 lg:inline-block w-40 text-center text-white py-1 px-2 border-2 border-white hover:bg-white hover:text-darkprimary rounded-full">{{ trans('Login') }}</a>
