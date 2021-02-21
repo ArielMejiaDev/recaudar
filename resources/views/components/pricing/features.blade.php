@@ -122,7 +122,7 @@
                                 <div class="ml-4">
                                     <h5 class="text-lg leading-6 font-medium text-gray-900">Certificado SSL de seguridad</h5>
                                     <p class="mt-2 text-base leading-6 text-gray-500">
-                                        Dale profesionalismo y confianza a tu presencía en línea.
+                                        Dale profesionalismo y confianza a tu presencia en línea.
                                     </p>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@
                                 </div>
                                 <div class="ml-4">
                                     <h5 class="text-lg leading-6 font-medium text-gray-900">Botón de donación para tu página web</h5>
-                                    <p class="mt-2 text-base leading-6 text-gray-500">Si ya posees una pagína web puedes generar el boton para recibir donaciónes de recaudar en tu sitio web.</p>
+                                    <p class="mt-2 text-base leading-6 text-gray-500">Si ya posees una página web puedes generar el boton para recibir donaciones de recaudar en tu sitio web.</p>
                                 </div>
                             </div>
                         </li>

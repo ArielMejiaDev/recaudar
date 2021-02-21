@@ -9,19 +9,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f246d8a-1c29-495c-90c5-1e0052c00abc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/components/pricing/benefits.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/pricing/features.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/pricing/hero.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/pricing/plans.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/.env.production" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/navbar-pink.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/navbar-pink.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/navbar-transparent.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/navbar-transparent.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pricing.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pricing.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/pricing/features.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/pricing/features.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -309,7 +298,8 @@
       <workItem from="1613564594639" duration="1646000" />
       <workItem from="1613671864488" duration="4351000" />
       <workItem from="1613755807970" duration="126000" />
-      <workItem from="1613793480017" duration="4501000" />
+      <workItem from="1613793480017" duration="4722000" />
+      <workItem from="1613949456850" duration="47000" />
     </task>
     <servers />
   </component>
